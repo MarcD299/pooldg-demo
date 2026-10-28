@@ -1,0 +1,4849 @@
+{
+ "date": "2026-10-20",
+ "source": "PuckPedia (notes HockeyDG)",
+ "cap_league": 104000000,
+ "players": {
+  "connor bedard": {
+   "name": "Connor Bedard",
+   "cap_hit": 15000000,
+   "expiry": "2031",
+   "status": "UFA"
+  },
+  "patrick kane": {
+   "name": "Patrick Kane",
+   "cap_hit": 8000000,
+   "expiry": "2028",
+   "status": "UFA"
+  },
+  "frank nazar": {
+   "name": "Frank Nazar",
+   "cap_hit": 6599991,
+   "expiry": "2033",
+   "status": "UFA"
+  },
+  "tyler bertuzzi": {
+   "name": "Tyler Bertuzzi",
+   "cap_hit": 5500000,
+   "expiry": "2028",
+   "status": "UFA"
+  },
+  "teuvo teravainen": {
+   "name": "Teuvo Teravainen",
+   "cap_hit": 5400000,
+   "expiry": "2027",
+   "status": "UFA"
+  },
+  "ryan donato": {
+   "name": "Ryan Donato",
+   "cap_hit": 4000000,
+   "expiry": "2029",
+   "status": "UFA"
+  },
+  "jordan greenway": {
+   "name": "Jordan Greenway",
+   "cap_hit": 4000000,
+   "expiry": "2027",
+   "status": "UFA"
+  },
+  "andrew mangiapane": {
+   "name": "Andrew Mangiapane",
+   "cap_hit": 3600000,
+   "expiry": "2027",
+   "status": "UFA"
+  },
+  "cole smith": {
+   "name": "Cole Smith",
+   "cap_hit": 3000000,
+   "expiry": "2029",
+   "status": "UFA"
+  },
+  "roman kantserov": {
+   "name": "Roman Kantserov",
+   "cap_hit": 1075000,
+   "expiry": "2029",
+   "status": "RFA"
+  },
+  "anton frondell": {
+   "name": "Anton Frondell",
+   "cap_hit": 986250,
+   "expiry": "2028",
+   "status": "RFA"
+  },
+  "ryan greene": {
+   "name": "Ryan Greene",
+   "cap_hit": 950000,
+   "expiry": "2027",
+   "status": "RFA 10.2c"
+  },
+  "oliver moore": {
+   "name": "Oliver Moore",
+   "cap_hit": 941667,
+   "expiry": "2032",
+   "status": "UFA"
+  },
+  "ryan ellis": {
+   "name": "Ryan Ellis",
+   "cap_hit": 6250000,
+   "expiry": "2027",
+   "status": "UFA"
+  },
+  "bowen byram": {
+   "name": "Bowen Byram",
+   "cap_hit": 6250000,
+   "expiry": "2033",
+   "status": "UFA"
+  },
+  "alex vlasic": {
+   "name": "Alex Vlasic",
+   "cap_hit": 4600000,
+   "expiry": "2030",
+   "status": "UFA"
+  },
+  "ian cole": {
+   "name": "Ian Cole",
+   "cap_hit": 4000000,
+   "expiry": "2027",
+   "status": "UFA"
+  },
+  "wyatt kaiser": {
+   "name": "Wyatt Kaiser",
+   "cap_hit": 1700000,
+   "expiry": "2027",
+   "status": "RFA"
+  },
+  "kevin korchinski": {
+   "name": "Kevin Korchinski",
+   "cap_hit": 1325000,
+   "expiry": "2028",
+   "status": "RFA"
+  },
+  "artyom levshunov": {
+   "name": "Artyom Levshunov",
+   "cap_hit": 975000,
+   "expiry": "2027",
+   "status": "RFA"
+  },
+  "ethan del mastro": {
+   "name": "Ethan Del Mastro",
+   "cap_hit": 950000,
+   "expiry": "2028",
+   "status": "RFA"
+  },
+  "sam rinzel": {
+   "name": "Sam Rinzel",
+   "cap_hit": 941667,
+   "expiry": "2027",
+   "status": "RFA 10.2c"
+  },
+  "spencer knight": {
+   "name": "Spencer Knight",
+   "cap_hit": 5833333,
+   "expiry": "2029",
+   "status": "UFA"
+  },
+  "arvid soderblom": {
+   "name": "Arvid Soderblom",
+   "cap_hit": 2750000,
+   "expiry": "2027",
+   "status": "UFA"
+  },
+  "nathan mackinnon": {
+   "name": "Nathan MacKinnon",
+   "cap_hit": 12604000,
+   "expiry": "2031",
+   "status": "UFA"
+  },
+  "martin necas": {
+   "name": "Martin Necas",
+   "cap_hit": 11500000,
+   "expiry": "2034",
+   "status": "UFA"
+  },
+  "brock nelson": {
+   "name": "Brock Nelson",
+   "cap_hit": 7500000,
+   "expiry": "2028",
+   "status": "UFA"
+  },
+  "gabriel landeskog": {
+   "name": "Gabriel Landeskog",
+   "cap_hit": 7000000,
+   "expiry": "2029",
+   "status": "UFA"
+  },
+  "nazem kadri": {
+   "name": "Nazem Kadri",
+   "cap_hit": 5600000,
+   "expiry": "2029",
+   "status": "UFA"
+  },
+  "artturi lehkonen": {
+   "name": "Artturi Lehkonen",
+   "cap_hit": 4500000,
+   "expiry": "2027",
+   "status": "UFA"
+  },
+  "jaden schwartz": {
+   "name": "Jaden Schwartz",
+   "cap_hit": 3250000,
+   "expiry": "2029",
+   "status": "UFA"
+  },
+  "nicolas roy": {
+   "name": "Nicolas Roy",
+   "cap_hit": 3000000,
+   "expiry": "2027",
+   "status": "UFA"
+  },
+  "logan o'connor": {
+   "name": "Logan O'Connor",
+   "cap_hit": 2500000,
+   "expiry": "2031",
+   "status": "UFA"
+  },
+  "parker kelly": {
+   "name": "Parker Kelly",
+   "cap_hit": 1700000,
+   "expiry": "2030",
+   "status": "UFA"
+  },
+  "fyodor svechkov": {
+   "name": "Fyodor Svechkov",
+   "cap_hit": 1250000,
+   "expiry": "2028",
+   "status": "RFA"
+  },
+  "t.j. hughes": {
+   "name": "T.J. Hughes",
+   "cap_hit": 952500,
+   "expiry": "2027",
+   "status": "RFA"
+  },
+  "zachary l'heureux": {
+   "name": "Zachary L'Heureux",
+   "cap_hit": 875000,
+   "expiry": "2028",
+   "status": "RFA"
+  },
+  "gavin brindley": {
+   "name": "Gavin Brindley",
+   "cap_hit": 875000,
+   "expiry": "2028",
+   "status": "RFA"
+  },
+  "cale makar": {
+   "name": "Cale Makar",
+   "cap_hit": 9000000,
+   "expiry": "2035",
+   "status": "UFA"
+  },
+  "devon toews": {
+   "name": "Devon Toews",
+   "cap_hit": 7250000,
+   "expiry": "2031",
+   "status": "UFA"
+  },
+  "sam malinski": {
+   "name": "Sam Malinski",
+   "cap_hit": 4750000,
+   "expiry": "2030",
+   "status": "UFA"
+  },
+  "brett kulak": {
+   "name": "Brett Kulak",
+   "cap_hit": 4500000,
+   "expiry": "2031",
+   "status": "UFA"
+  },
+  "josh manson": {
+   "name": "Josh Manson",
+   "cap_hit": 3950000,
+   "expiry": "2028",
+   "status": "UFA"
+  },
+  "noah juulsen": {
+   "name": "Noah Juulsen",
+   "cap_hit": 1100000,
+   "expiry": "2028",
+   "status": "UFA"
+  },
+  "brent burns": {
+   "name": "Brent Burns",
+   "cap_hit": 850000,
+   "expiry": "2027",
+   "status": "UFA"
+  },
+  "mackenzie blackwood": {
+   "name": "MacKenzie Blackwood",
+   "cap_hit": 5250000,
+   "expiry": "2030",
+   "status": "UFA"
+  },
+  "scott wedgewood": {
+   "name": "Scott Wedgewood",
+   "cap_hit": 2500000,
+   "expiry": "2027",
+   "status": "UFA"
+  },
+  "mikko rantanen": {
+   "name": "Mikko Rantanen",
+   "cap_hit": 12000000,
+   "expiry": "2033",
+   "status": "UFA"
+  },
+  "jason robertson": {
+   "name": "Jason Robertson",
+   "cap_hit": 12000000,
+   "expiry": "2027",
+   "status": "UFA"
+  },
+  "tyler seguin": {
+   "name": "Tyler Seguin",
+   "cap_hit": 9850000,
+   "expiry": "2027",
+   "status": "UFA"
+  },
+  "roope hintz": {
+   "name": "Roope Hintz",
+   "cap_hit": 8450000,
+   "expiry": "2031",
+   "status": "UFA"
+  },
+  "wyatt johnston": {
+   "name": "Wyatt Johnston",
+   "cap_hit": 8400000,
+   "expiry": "2030",
+   "status": "UFA"
+  },
+  "matt duchene": {
+   "name": "Matt Duchene",
+   "cap_hit": 4500000,
+   "expiry": "2029",
+   "status": "UFA"
+  },
+  "sam steel": {
+   "name": "Sam Steel",
+   "cap_hit": 2100000,
+   "expiry": "2031",
+   "status": "UFA"
+  },
+  "radek faksa": {
+   "name": "Radek Faksa",
+   "cap_hit": 2000000,
+   "expiry": "2028",
+   "status": "UFA"
+  },
+  "joel kiviranta": {
+   "name": "Joel Kiviranta",
+   "cap_hit": 1000000,
+   "expiry": "2027",
+   "status": "UFA"
+  },
+  "justin hryckowian": {
+   "name": "Justin Hryckowian",
+   "cap_hit": 950000,
+   "expiry": "2028",
+   "status": "UFA"
+  },
+  "arttu hyry": {
+   "name": "Arttu Hyry",
+   "cap_hit": 875000,
+   "expiry": "2028",
+   "status": "UFA"
+  },
+  "david perron": {
+   "name": "David Perron",
+   "cap_hit": 850000,
+   "expiry": "2027",
+   "status": "UFA"
+  },
+  "jamie benn": {
+   "name": "Jamie Benn",
+   "cap_hit": 850000,
+   "expiry": "2027",
+   "status": "UFA"
+  },
+  "colin blackwell": {
+   "name": "Colin Blackwell",
+   "cap_hit": 850000,
+   "expiry": "2027",
+   "status": "UFA"
+  },
+  "oskar back": {
+   "name": "Oskar Back",
+   "cap_hit": 825000,
+   "expiry": "2027",
+   "status": "UFA"
+  },
+  "thomas harley": {
+   "name": "Thomas Harley",
+   "cap_hit": 10587000,
+   "expiry": "2034",
+   "status": "UFA"
+  },
+  "miro heiskanen": {
+   "name": "Miro Heiskanen",
+   "cap_hit": 8450000,
+   "expiry": "2029",
+   "status": "UFA"
+  },
+  "esa lindell": {
+   "name": "Esa Lindell",
+   "cap_hit": 5250000,
+   "expiry": "2030",
+   "status": "UFA"
+  },
+  "nils lundkvist": {
+   "name": "Nils Lundkvist",
+   "cap_hit": 1750000,
+   "expiry": "2028",
+   "status": "UFA"
+  },
+  "tyler myers": {
+   "name": "Tyler Myers",
+   "cap_hit": 1500000,
+   "expiry": "2027",
+   "status": "UFA"
+  },
+  "lian bichsel": {
+   "name": "Lian Bichsel",
+   "cap_hit": 918333,
+   "expiry": "2027",
+   "status": "RFA"
+  },
+  "kyle capobianco": {
+   "name": "Kyle Capobianco",
+   "cap_hit": 875000,
+   "expiry": "2028",
+   "status": "UFA"
+  },
+  "jake oettinger": {
+   "name": "Jake Oettinger",
+   "cap_hit": 8250000,
+   "expiry": "2033",
+   "status": "UFA"
+  },
+  "casey desmith": {
+   "name": "Casey DeSmith",
+   "cap_hit": 1050000,
+   "expiry": "2029",
+   "status": "UFA"
+  },
+  "kirill kaprizov": {
+   "name": "Kirill Kaprizov",
+   "cap_hit": 17000000,
+   "expiry": "2034",
+   "status": "UFA"
+  },
+  "matt boldy": {
+   "name": "Matt Boldy",
+   "cap_hit": 7000000,
+   "expiry": "2030",
+   "status": "UFA"
+  },
+  "joel eriksson ek": {
+   "name": "Joel Eriksson Ek",
+   "cap_hit": 5250000,
+   "expiry": "2029",
+   "status": "UFA"
+  },
+  "marcus foligno": {
+   "name": "Marcus Foligno",
+   "cap_hit": 4000000,
+   "expiry": "2028",
+   "status": "UFA"
+  },
+  "ryan hartman": {
+   "name": "Ryan Hartman",
+   "cap_hit": 4000000,
+   "expiry": "2027",
+   "status": "UFA"
+  },
+  "yakov trenin": {
+   "name": "Yakov Trenin",
+   "cap_hit": 3500000,
+   "expiry": "2028",
+   "status": "UFA"
+  },
+  "michael mccarron": {
+   "name": "Michael McCarron",
+   "cap_hit": 3333333,
+   "expiry": "2032",
+   "status": "UFA"
+  },
+  "bobby brink": {
+   "name": "Bobby Brink",
+   "cap_hit": 2750000,
+   "expiry": "2027",
+   "status": "RFA"
+  },
+  "blake coleman": {
+   "name": "Blake Coleman",
+   "cap_hit": 2450000,
+   "expiry": "2027",
+   "status": "UFA"
+  },
+  "nico sturm": {
+   "name": "Nico Sturm",
+   "cap_hit": 2000000,
+   "expiry": "2027",
+   "status": "UFA"
+  },
+  "maxim shabanov": {
+   "name": "Maxim Shabanov",
+   "cap_hit": 1600000,
+   "expiry": "2027",
+   "status": "RFA"
+  },
+  "rieger lorenz": {
+   "name": "Rieger Lorenz",
+   "cap_hit": 1013750,
+   "expiry": "2028",
+   "status": "RFA"
+  },
+  "danila yurov": {
+   "name": "Danila Yurov",
+   "cap_hit": 972500,
+   "expiry": "2028",
+   "status": "RFA"
+  },
+  "nick foligno": {
+   "name": "Nick Foligno",
+   "cap_hit": 900000,
+   "expiry": "2027",
+   "status": "UFA"
+  },
+  "hunter haight": {
+   "name": "Hunter Haight",
+   "cap_hit": 883333,
+   "expiry": "2027",
+   "status": "RFA"
+  },
+  "tyler pitlick": {
+   "name": "Tyler Pitlick",
+   "cap_hit": 850000,
+   "expiry": "2027",
+   "status": "UFA"
+  },
+  "brock faber": {
+   "name": "Brock Faber",
+   "cap_hit": 8500000,
+   "expiry": "2033",
+   "status": "UFA"
+  },
+  "quinn hughes": {
+   "name": "Quinn Hughes",
+   "cap_hit": 7850000,
+   "expiry": "2027",
+   "status": "UFA"
+  },
+  "jared spurgeon": {
+   "name": "Jared Spurgeon",
+   "cap_hit": 7575000,
+   "expiry": "2027",
+   "status": "UFA"
+  },
+  "jonas brodin": {
+   "name": "Jonas Brodin",
+   "cap_hit": 6000000,
+   "expiry": "2028",
+   "status": "UFA"
+  },
+  "olli maatta": {
+   "name": "Olli Maatta",
+   "cap_hit": 3500000,
+   "expiry": "2028",
+   "status": "UFA"
+  },
+  "zach bogosian": {
+   "name": "Zach Bogosian",
+   "cap_hit": 1250000,
+   "expiry": "2027",
+   "status": "UFA"
+  },
+  "daemon hunt": {
+   "name": "Daemon Hunt",
+   "cap_hit": 900000,
+   "expiry": "2027",
+   "status": "UFA-GROUP 6"
+  },
+  "matt kiersted": {
+   "name": "Matt Kiersted",
+   "cap_hit": 850000,
+   "expiry": "2027",
+   "status": "UFA"
+  },
+  "carson lambos": {
+   "name": "Carson Lambos",
+   "cap_hit": 850000,
+   "expiry": "2027",
+   "status": "RFA"
+  },
+  "david spacek": {
+   "name": "David Spacek",
+   "cap_hit": 850000,
+   "expiry": "2027",
+   "status": "RFA"
+  },
+  "filip gustavsson": {
+   "name": "Filip Gustavsson",
+   "cap_hit": 6800000,
+   "expiry": "2031",
+   "status": "UFA"
+  },
+  "jesper wallstedt": {
+   "name": "Jesper Wallstedt",
+   "cap_hit": 2200000,
+   "expiry": "2027",
+   "status": "RFA"
+  },
+  "calvin pickard": {
+   "name": "Calvin Pickard",
+   "cap_hit": 1000000,
+   "expiry": "2027",
+   "status": "UFA"
+  },
+  "filip forsberg": {
+   "name": "Filip Forsberg",
+   "cap_hit": 8500000,
+   "expiry": "2030",
+   "status": "UFA"
+  },
+  "steven stamkos": {
+   "name": "Steven Stamkos",
+   "cap_hit": 8000000,
+   "expiry": "2028",
+   "status": "UFA"
+  },
+  "jonathan marchessault": {
+   "name": "Jonathan Marchessault",
+   "cap_hit": 5500000,
+   "expiry": "2029",
+   "status": "UFA"
+  },
+  "mavrik bourque": {
+   "name": "Mavrik Bourque",
+   "cap_hit": 5500000,
+   "expiry": "2032",
+   "status": "UFA"
+  },
+  "ryan o'reilly": {
+   "name": "Ryan O'Reilly",
+   "cap_hit": 4500000,
+   "expiry": "2027",
+   "status": "UFA"
+  },
+  "jack drury": {
+   "name": "Jack Drury",
+   "cap_hit": 4500000,
+   "expiry": "2031",
+   "status": "UFA"
+  },
+  "ross colton": {
+   "name": "Ross Colton",
+   "cap_hit": 4000000,
+   "expiry": "2027",
+   "status": "UFA"
+  },
+  "alexander kerfoot": {
+   "name": "Alexander Kerfoot",
+   "cap_hit": 3500000,
+   "expiry": "2028",
+   "status": "UFA"
+  },
+  "nils hoglander": {
+   "name": "Nils Hoglander",
+   "cap_hit": 3000000,
+   "expiry": "2028",
+   "status": "UFA"
+  },
+  "vitali pinchuk": {
+   "name": "Vitali Pinchuk",
+   "cap_hit": 1025000,
+   "expiry": "2027",
+   "status": "RFA"
+  },
+  "adam edstrom": {
+   "name": "Adam Edstrom",
+   "cap_hit": 975000,
+   "expiry": "2027",
+   "status": "RFA"
+  },
+  "matthew wood": {
+   "name": "Matthew Wood",
+   "cap_hit": 950000,
+   "expiry": "2027",
+   "status": "RFA 10.2c"
+  },
+  "reid schaefer": {
+   "name": "Reid Schaefer",
+   "cap_hit": 886666,
+   "expiry": "2027",
+   "status": "RFA"
+  },
+  "roman josi": {
+   "name": "Roman Josi",
+   "cap_hit": 9059000,
+   "expiry": "2028",
+   "status": "UFA"
+  },
+  "brady skjei": {
+   "name": "Brady Skjei",
+   "cap_hit": 7000000,
+   "expiry": "2031",
+   "status": "UFA"
+  },
+  "nicolas hague": {
+   "name": "Nicolas Hague",
+   "cap_hit": 5500000,
+   "expiry": "2029",
+   "status": "UFA"
+  },
+  "ilya lyubushkin": {
+   "name": "Ilya Lyubushkin",
+   "cap_hit": 3250000,
+   "expiry": "2027",
+   "status": "UFA"
+  },
+  "nicklaus perbix": {
+   "name": "Nicklaus Perbix",
+   "cap_hit": 2750000,
+   "expiry": "2027",
+   "status": "UFA"
+  },
+  "jayden struble": {
+   "name": "Jayden Struble",
+   "cap_hit": 1412500,
+   "expiry": "2027",
+   "status": "RFA"
+  },
+  "jack ahcan": {
+   "name": "Jack Ahcan",
+   "cap_hit": 875000,
+   "expiry": "2028",
+   "status": "UFA"
+  },
+  "adam wilsby": {
+   "name": "Adam Wilsby",
+   "cap_hit": 850000,
+   "expiry": "2027",
+   "status": "RFA"
+  },
+  "william trudeau": {
+   "name": "William Trudeau",
+   "cap_hit": 850000,
+   "expiry": "2027",
+   "status": "RFA"
+  },
+  "juuse saros": {
+   "name": "Juuse Saros",
+   "cap_hit": 7740000,
+   "expiry": "2033",
+   "status": "UFA"
+  },
+  "justus annunen": {
+   "name": "Justus Annunen",
+   "cap_hit": 1250000,
+   "expiry": "2028",
+   "status": "UFA"
+  },
+  "robert thomas": {
+   "name": "Robert Thomas",
+   "cap_hit": 8125000,
+   "expiry": "2031",
+   "status": "UFA"
+  },
+  "pavel buchnevich": {
+   "name": "Pavel Buchnevich",
+   "cap_hit": 8000000,
+   "expiry": "2031",
+   "status": "UFA"
+  },
+  "dylan holloway": {
+   "name": "Dylan Holloway",
+   "cap_hit": 7750000,
+   "expiry": "2031",
+   "status": "UFA"
+  },
+  "mason mctavish": {
+   "name": "Mason McTavish",
+   "cap_hit": 7000000,
+   "expiry": "2031",
+   "status": "UFA"
+  },
+  "connor mcmichael": {
+   "name": "Connor McMichael",
+   "cap_hit": 6750000,
+   "expiry": "2032",
+   "status": "UFA"
+  },
+  "pius suter": {
+   "name": "Pius Suter",
+   "cap_hit": 4125000,
+   "expiry": "2027",
+   "status": "UFA"
+  },
+  "jake neighbours": {
+   "name": "Jake Neighbours",
+   "cap_hit": 3750000,
+   "expiry": "2027",
+   "status": "RFA"
+  },
+  "alexei toropchenko": {
+   "name": "Alexei Toropchenko",
+   "cap_hit": 2500000,
+   "expiry": "2028",
+   "status": "UFA"
+  },
+  "ross johnston": {
+   "name": "Ross Johnston",
+   "cap_hit": 2000000,
+   "expiry": "2029",
+   "status": "UFA"
+  },
+  "jonatan berggren": {
+   "name": "Jonatan Berggren",
+   "cap_hit": 2000000,
+   "expiry": "2027",
+   "status": "RFA"
+  },
+  "jimmy snuggerud": {
+   "name": "Jimmy Snuggerud",
+   "cap_hit": 950000,
+   "expiry": "2027",
+   "status": "RFA"
+  },
+  "aleksanteri kaskimaki": {
+   "name": "Aleksanteri Kaskimäki",
+   "cap_hit": 945000,
+   "expiry": "2027",
+   "status": "RFA"
+  },
+  "otto stenberg": {
+   "name": "Otto Stenberg",
+   "cap_hit": 940833,
+   "expiry": "2028",
+   "status": "RFA"
+  },
+  "dalibor dvorsky": {
+   "name": "Dalibor Dvorský",
+   "cap_hit": 909166,
+   "expiry": "2028",
+   "status": "RFA"
+  },
+  "dillon dube": {
+   "name": "Dillon Dube",
+   "cap_hit": 850000,
+   "expiry": "2027",
+   "status": "UFA"
+  },
+  "dylan peterson": {
+   "name": "Dylan Peterson",
+   "cap_hit": 850000,
+   "expiry": "2027",
+   "status": "UFA-GROUP 6"
+  },
+  "zach dean": {
+   "name": "Zach Dean",
+   "cap_hit": 850000,
+   "expiry": "2027",
+   "status": "RFA"
+  },
+  "philip broberg": {
+   "name": "Philip Broberg",
+   "cap_hit": 8000000,
+   "expiry": "2032",
+   "status": "UFA"
+  },
+  "torey krug": {
+   "name": "Torey Krug",
+   "cap_hit": 6500000,
+   "expiry": "2027",
+   "status": "UFA"
+  },
+  "colton parayko": {
+   "name": "Colton Parayko",
+   "cap_hit": 6500000,
+   "expiry": "2030",
+   "status": "UFA"
+  },
+  "cam fowler": {
+   "name": "Cam Fowler",
+   "cap_hit": 6100000,
+   "expiry": "2029",
+   "status": "UFA"
+  },
+  "brandon carlo": {
+   "name": "Brandon Carlo",
+   "cap_hit": 3485000,
+   "expiry": "2027",
+   "status": "UFA"
+  },
+  "justin barron": {
+   "name": "Justin Barron",
+   "cap_hit": 1575000,
+   "expiry": "2027",
+   "status": "RFA"
+  },
+  "adam jiricek": {
+   "name": "Adam Jiříček",
+   "cap_hit": 941667,
+   "expiry": "2029",
+   "status": "RFA"
+  },
+  "theo lindstein": {
+   "name": "Theo Lindstein",
+   "cap_hit": 940833,
+   "expiry": "2028",
+   "status": "RFA"
+  },
+  "tyler tucker": {
+   "name": "Tyler Tucker",
+   "cap_hit": 925000,
+   "expiry": "2027",
+   "status": "UFA"
+  },
+  "logan mailloux": {
+   "name": "Logan Mailloux",
+   "cap_hit": 850000,
+   "expiry": "2027",
+   "status": "RFA"
+  },
+  "jordan binnington": {
+   "name": "Jordan Binnington",
+   "cap_hit": 6000000,
+   "expiry": "2027",
+   "status": "UFA"
+  },
+  "joel hofer": {
+   "name": "Joel Hofer",
+   "cap_hit": 3400000,
+   "expiry": "2027",
+   "status": "RFA"
+  },
+  "logan cooley": {
+   "name": "Logan Cooley",
+   "cap_hit": 10000000,
+   "expiry": "2034",
+   "status": "UFA"
+  },
+  "nick schmaltz": {
+   "name": "Nick Schmaltz",
+   "cap_hit": 8000000,
+   "expiry": "2034",
+   "status": "UFA"
+  },
+  "clayton keller": {
+   "name": "Clayton Keller",
+   "cap_hit": 7150000,
+   "expiry": "2028",
+   "status": "UFA"
+  },
+  "dylan guenther": {
+   "name": "Dylan Guenther",
+   "cap_hit": 7142875,
+   "expiry": "2033",
+   "status": "UFA"
+  },
+  "vincent trocheck": {
+   "name": "Vincent Trocheck",
+   "cap_hit": 5625000,
+   "expiry": "2029",
+   "status": "UFA"
+  },
+  "anders lee": {
+   "name": "Anders Lee",
+   "cap_hit": 5400000,
+   "expiry": "2029",
+   "status": "UFA"
+  },
+  "barrett hayton": {
+   "name": "Barrett Hayton",
+   "cap_hit": 4775000,
+   "expiry": "2027",
+   "status": "UFA"
+  },
+  "lawson crouse": {
+   "name": "Lawson Crouse",
+   "cap_hit": 4300000,
+   "expiry": "2027",
+   "status": "UFA"
+  },
+  "jack mcbain": {
+   "name": "Jack McBain",
+   "cap_hit": 4250000,
+   "expiry": "2030",
+   "status": "UFA"
+  },
+  "kevin stenlund": {
+   "name": "Kevin Stenlund",
+   "cap_hit": 2750000,
+   "expiry": "2027",
+   "status": "UFA"
+  },
+  "michael carcone": {
+   "name": "Michael Carcone",
+   "cap_hit": 1750000,
+   "expiry": "2028",
+   "status": "UFA"
+  },
+  "kailer yamamoto": {
+   "name": "Kailer Yamamoto",
+   "cap_hit": 1750000,
+   "expiry": "2028",
+   "status": "UFA"
+  },
+  "liam o'brien": {
+   "name": "Liam O'Brien",
+   "cap_hit": 1000000,
+   "expiry": "2027",
+   "status": "UFA"
+  },
+  "daniil but": {
+   "name": "Daniil But",
+   "cap_hit": 972500,
+   "expiry": "2028",
+   "status": "RFA"
+  },
+  "mikhail sergachev": {
+   "name": "Mikhail Sergachev",
+   "cap_hit": 8500000,
+   "expiry": "2031",
+   "status": "UFA"
+  },
+  "mackenzie weegar": {
+   "name": "MacKenzie Weegar",
+   "cap_hit": 6250000,
+   "expiry": "2031",
+   "status": "UFA"
+  },
+  "john marino": {
+   "name": "John Marino",
+   "cap_hit": 4400000,
+   "expiry": "2035",
+   "status": "UFA"
+  },
+  "nate schmidt": {
+   "name": "Nate Schmidt",
+   "cap_hit": 3500000,
+   "expiry": "2028",
+   "status": "UFA"
+  },
+  "andrew peeke": {
+   "name": "Andrew Peeke",
+   "cap_hit": 1000000,
+   "expiry": "2027",
+   "status": "UFA"
+  },
+  "nick desimone": {
+   "name": "Nick DeSimone",
+   "cap_hit": 1000000,
+   "expiry": "2028",
+   "status": "UFA"
+  },
+  "dmitri simashev": {
+   "name": "Dmitri Simashev",
+   "cap_hit": 972500,
+   "expiry": "2028",
+   "status": "RFA"
+  },
+  "karel vejmelka": {
+   "name": "Karel Vejmelka",
+   "cap_hit": 4750000,
+   "expiry": "2030",
+   "status": "UFA"
+  },
+  "sebastian cossa": {
+   "name": "Sebastian Cossa",
+   "cap_hit": 2000000,
+   "expiry": "2028",
+   "status": "RFA"
+  },
+  "kyle connor": {
+   "name": "Kyle Connor",
+   "cap_hit": 12000000,
+   "expiry": "2034",
+   "status": "UFA"
+  },
+  "mark scheifele": {
+   "name": "Mark Scheifele",
+   "cap_hit": 8500000,
+   "expiry": "2031",
+   "status": "UFA"
+  },
+  "gabriel vilardi": {
+   "name": "Gabriel Vilardi",
+   "cap_hit": 7500000,
+   "expiry": "2031",
+   "status": "UFA"
+  },
+  "cole perfetti": {
+   "name": "Cole Perfetti",
+   "cap_hit": 6000000,
+   "expiry": "2031",
+   "status": "UFA"
+  },
+  "adam lowry": {
+   "name": "Adam Lowry",
+   "cap_hit": 5000000,
+   "expiry": "2031",
+   "status": "UFA"
+  },
+  "nino niederreiter": {
+   "name": "Nino Niederreiter",
+   "cap_hit": 4000000,
+   "expiry": "2027",
+   "status": "UFA"
+  },
+  "alex iafallo": {
+   "name": "Alex Iafallo",
+   "cap_hit": 3666666,
+   "expiry": "2028",
+   "status": "UFA"
+  },
+  "vladislav namestnikov": {
+   "name": "Vladislav Namestnikov",
+   "cap_hit": 3000000,
+   "expiry": "2027",
+   "status": "UFA"
+  },
+  "morgan barron": {
+   "name": "Morgan Barron",
+   "cap_hit": 1850000,
+   "expiry": "2027",
+   "status": "UFA"
+  },
+  "cole koepke": {
+   "name": "Cole Koepke",
+   "cap_hit": 1450000,
+   "expiry": "2028",
+   "status": "UFA"
+  },
+  "viggo bjorck": {
+   "name": "Viggo Björck",
+   "cap_hit": 1075000,
+   "expiry": "2029",
+   "status": "RFA"
+  },
+  "brayden yager": {
+   "name": "Brayden Yager",
+   "cap_hit": 940833,
+   "expiry": "2028",
+   "status": "RFA"
+  },
+  "isak rosen": {
+   "name": "Isak Rosén",
+   "cap_hit": 925000,
+   "expiry": "2028",
+   "status": "RFA"
+  },
+  "brad lambert": {
+   "name": "Brad Lambert",
+   "cap_hit": 886666,
+   "expiry": "2027",
+   "status": "RFA"
+  },
+  "neal pionk": {
+   "name": "Neal Pionk",
+   "cap_hit": 7000000,
+   "expiry": "2031",
+   "status": "UFA"
+  },
+  "josh morrissey": {
+   "name": "Josh Morrissey",
+   "cap_hit": 6250000,
+   "expiry": "2028",
+   "status": "UFA"
+  },
+  "dylan samberg": {
+   "name": "Dylan Samberg",
+   "cap_hit": 5750000,
+   "expiry": "2028",
+   "status": "UFA"
+  },
+  "dylan demelo": {
+   "name": "Dylan Demelo",
+   "cap_hit": 4900000,
+   "expiry": "2028",
+   "status": "UFA"
+  },
+  "mario ferraro": {
+   "name": "Mario Ferraro",
+   "cap_hit": 4000000,
+   "expiry": "2029",
+   "status": "UFA"
+  },
+  "haydn fleury": {
+   "name": "Haydn Fleury",
+   "cap_hit": 950000,
+   "expiry": "2027",
+   "status": "UFA"
+  },
+  "tyrel bauer": {
+   "name": "Tyrel Bauer",
+   "cap_hit": 875000,
+   "expiry": "2028",
+   "status": "RFA"
+  },
+  "jack st. ivany": {
+   "name": "Jack St. Ivany",
+   "cap_hit": 850000,
+   "expiry": "2027",
+   "status": "UFA"
+  },
+  "connor hellebuyck": {
+   "name": "Connor Hellebuyck",
+   "cap_hit": 8500000,
+   "expiry": "2031",
+   "status": "UFA"
+  },
+  "stuart skinner": {
+   "name": "Stuart Skinner",
+   "cap_hit": 3750000,
+   "expiry": "2028",
+   "status": "UFA"
+  },
+  "clay stevenson": {
+   "name": "Clay Stevenson",
+   "cap_hit": 850000,
+   "expiry": "2027",
+   "status": "UFA"
+  },
+  "david pastrnak": {
+   "name": "David Pastrnak",
+   "cap_hit": 11000000,
+   "expiry": "2031",
+   "status": "UFA"
+  },
+  "elias lindholm": {
+   "name": "Elias Lindholm",
+   "cap_hit": 7000000,
+   "expiry": "2031",
+   "status": "UFA"
+  },
+  "john-jason peterka": {
+   "name": "John-Jason Peterka",
+   "cap_hit": 7000000,
+   "expiry": "2030",
+   "status": "UFA"
+  },
+  "casey mittelstadt": {
+   "name": "Casey Mittelstadt",
+   "cap_hit": 5000000,
+   "expiry": "2027",
+   "status": "UFA"
+  },
+  "morgan geekie": {
+   "name": "Morgan Geekie",
+   "cap_hit": 5000000,
+   "expiry": "2031",
+   "status": "UFA"
+  },
+  "pavel zacha": {
+   "name": "Pavel Zacha",
+   "cap_hit": 4000000,
+   "expiry": "2027",
+   "status": "UFA"
+  },
+  "tanner jeannot": {
+   "name": "Tanner Jeannot",
+   "cap_hit": 3000000,
+   "expiry": "2030",
+   "status": "UFA"
+  },
+  "sean kuraly": {
+   "name": "Sean Kuraly",
+   "cap_hit": 1000000,
+   "expiry": "2027",
+   "status": "UFA"
+  },
+  "mark kastelic": {
+   "name": "Mark Kastelic",
+   "cap_hit": 1000000,
+   "expiry": "2028",
+   "status": "UFA"
+  },
+  "james hagens": {
+   "name": "James Hagens",
+   "cap_hit": 986000,
+   "expiry": "2028",
+   "status": "RFA 10.2c"
+  },
+  "marat khusnutdinov": {
+   "name": "Marat Khusnutdinov",
+   "cap_hit": 925000,
+   "expiry": "2027",
+   "status": "RFA"
+  },
+  "fraser minten": {
+   "name": "Fraser Minten",
+   "cap_hit": 879000,
+   "expiry": "2034",
+   "status": "UFA"
+  },
+  "matthew poitras": {
+   "name": "Matthew Poitras",
+   "cap_hit": 850000,
+   "expiry": "2027",
+   "status": "RFA"
+  },
+  "charlie mcavoy": {
+   "name": "Charlie McAvoy",
+   "cap_hit": 9000000,
+   "expiry": "2030",
+   "status": "UFA"
+  },
+  "hampus lindholm": {
+   "name": "Hampus Lindholm",
+   "cap_hit": 6000000,
+   "expiry": "2030",
+   "status": "UFA"
+  },
+  "nikita zadorov": {
+   "name": "Nikita Zadorov",
+   "cap_hit": 5000000,
+   "expiry": "2030",
+   "status": "UFA"
+  },
+  "william borgen": {
+   "name": "William Borgen",
+   "cap_hit": 4000000,
+   "expiry": "2030",
+   "status": "UFA"
+  },
+  "mason lohrei": {
+   "name": "Mason Lohrei",
+   "cap_hit": 3000000,
+   "expiry": "2027",
+   "status": "RFA"
+  },
+  "connor clifton": {
+   "name": "Connor Clifton",
+   "cap_hit": 2000000,
+   "expiry": "2028",
+   "status": "UFA"
+  },
+  "jonathan aspirot": {
+   "name": "Jonathan Aspirot",
+   "cap_hit": 887000,
+   "expiry": "2028",
+   "status": "UFA"
+  },
+  "frederic brunet": {
+   "name": "Frédéric Brunet",
+   "cap_hit": 875000,
+   "expiry": "2028",
+   "status": "RFA"
+  },
+  "jeremy swayman": {
+   "name": "Jeremy Swayman",
+   "cap_hit": 8000000,
+   "expiry": "2032",
+   "status": "UFA"
+  },
+  "michael dipietro": {
+   "name": "Michael Dipietro",
+   "cap_hit": 812000,
+   "expiry": "2027",
+   "status": "UFA"
+  },
+  "joshua norris": {
+   "name": "Joshua Norris",
+   "cap_hit": 7000000,
+   "expiry": "2030",
+   "status": "UFA"
+  },
+  "zach benson": {
+   "name": "Zach Benson",
+   "cap_hit": 7000000,
+   "expiry": "2033",
+   "status": "UFA"
+  },
+  "tage thompson": {
+   "name": "Tage Thompson",
+   "cap_hit": 7000000,
+   "expiry": "2030",
+   "status": "UFA"
+  },
+  "josh doan": {
+   "name": "Josh Doan",
+   "cap_hit": 6000000,
+   "expiry": "2033",
+   "status": "UFA"
+  },
+  "ryan mcleod": {
+   "name": "Ryan McLeod",
+   "cap_hit": 5000000,
+   "expiry": "2029",
+   "status": "UFA"
+  },
+  "jason zucker": {
+   "name": "Jason Zucker",
+   "cap_hit": 4000000,
+   "expiry": "2027",
+   "status": "UFA"
+  },
+  "peyton krebs": {
+   "name": "Peyton Krebs",
+   "cap_hit": 4000000,
+   "expiry": "2030",
+   "status": "UFA"
+  },
+  "jack quinn": {
+   "name": "Jack Quinn",
+   "cap_hit": 3000000,
+   "expiry": "2027",
+   "status": "RFA"
+  },
+  "beck malenstyn": {
+   "name": "Beck Malenstyn",
+   "cap_hit": 2000000,
+   "expiry": "2032",
+   "status": "UFA"
+  },
+  "justin danforth": {
+   "name": "Justin Danforth",
+   "cap_hit": 1000000,
+   "expiry": "2027",
+   "status": "UFA"
+  },
+  "sam carrick": {
+   "name": "Sam Carrick",
+   "cap_hit": 1000000,
+   "expiry": "2027",
+   "status": "UFA"
+  },
+  "konsta helenius": {
+   "name": "Konsta Helenius",
+   "cap_hit": 953000,
+   "expiry": "2028",
+   "status": "RFA"
+  },
+  "noah ostlund": {
+   "name": "Noah Östlund",
+   "cap_hit": 886000,
+   "expiry": "2035",
+   "status": "UFA"
+  },
+  "jiri kulich": {
+   "name": "Jiri Kulich",
+   "cap_hit": 886000,
+   "expiry": "2027",
+   "status": "RFA"
+  },
+  "tyson kozak": {
+   "name": "Tyson Kozak",
+   "cap_hit": 875000,
+   "expiry": "2028",
+   "status": "RFA"
+  },
+  "rasmus dahlin": {
+   "name": "Rasmus Dahlin",
+   "cap_hit": 11000000,
+   "expiry": "2032",
+   "status": "UFA"
+  },
+  "owen power": {
+   "name": "Owen Power",
+   "cap_hit": 8000000,
+   "expiry": "2031",
+   "status": "UFA"
+  },
+  "mattias samuelsson": {
+   "name": "Mattias Samuelsson",
+   "cap_hit": 4000000,
+   "expiry": "2030",
+   "status": "UFA"
+  },
+  "olen zellweger": {
+   "name": "Olen Zellweger",
+   "cap_hit": 3000000,
+   "expiry": "2029",
+   "status": "RFA"
+  },
+  "conor timmins": {
+   "name": "Conor Timmins",
+   "cap_hit": 2000000,
+   "expiry": "2027",
+   "status": "UFA"
+  },
+  "louis crevier": {
+   "name": "Louis Crevier",
+   "cap_hit": 900000,
+   "expiry": "2031",
+   "status": "UFA"
+  },
+  "matt grzelcyk": {
+   "name": "Matt Grzelcyk",
+   "cap_hit": 850000,
+   "expiry": "2027",
+   "status": "UFA"
+  },
+  "dennis gilbert": {
+   "name": "Dennis Gilbert",
+   "cap_hit": 850000,
+   "expiry": "2027",
+   "status": "UFA"
+  },
+  "zach metsa": {
+   "name": "Zach Metsa",
+   "cap_hit": 850000,
+   "expiry": "2028",
+   "status": "UFA"
+  },
+  "ukko-pekka luukkonen": {
+   "name": "Ukko-Pekka Luukkonen",
+   "cap_hit": 4000000,
+   "expiry": "2029",
+   "status": "UFA"
+  },
+  "alex lyon": {
+   "name": "Alex Lyon",
+   "cap_hit": 1000000,
+   "expiry": "2027",
+   "status": "UFA"
+  },
+  "colten ellis": {
+   "name": "Colten Ellis",
+   "cap_hit": 850000,
+   "expiry": "2027",
+   "status": "UFA-GROUP6"
+  },
+  "dylan larkin": {
+   "name": "Dylan Larkin",
+   "cap_hit": 8000000,
+   "expiry": "2031",
+   "status": "UFA"
+  },
+  "lucas raymond": {
+   "name": "Lucas Raymond",
+   "cap_hit": 8000000,
+   "expiry": "2032",
+   "status": "UFA"
+  },
+  "alex debrincat": {
+   "name": "Alex Debrincat",
+   "cap_hit": 7000000,
+   "expiry": "2034",
+   "status": "UFA"
+  },
+  "andrew copp": {
+   "name": "Andrew Copp",
+   "cap_hit": 5000000,
+   "expiry": "2027",
+   "status": "UFA"
+  },
+  "j.t. compher": {
+   "name": "J.T. Compher",
+   "cap_hit": 5000000,
+   "expiry": "2028",
+   "status": "UFA"
+  },
+  "viktor arvidsson": {
+   "name": "Viktor Arvidsson",
+   "cap_hit": 5000000,
+   "expiry": "2028",
+   "status": "UFA"
+  },
+  "michael rasmussen": {
+   "name": "Michael Rasmussen",
+   "cap_hit": 3000000,
+   "expiry": "2028",
+   "status": "UFA"
+  },
+  "mason appleton": {
+   "name": "Mason Appleton",
+   "cap_hit": 2000000,
+   "expiry": "2027",
+   "status": "UFA"
+  },
+  "keegan kolesar": {
+   "name": "Keegan Kolesar",
+   "cap_hit": 2000000,
+   "expiry": "2028",
+   "status": "UFA"
+  },
+  "michael brandsegg-nygard": {
+   "name": "Michael Brandsegg-Nygård",
+   "cap_hit": 953000,
+   "expiry": "2028",
+   "status": "RFA"
+  },
+  "emmitt finnie": {
+   "name": "Emmitt Finnie",
+   "cap_hit": 921000,
+   "expiry": "2028",
+   "status": "RFA"
+  },
+  "nate danielson": {
+   "name": "Nate Danielson",
+   "cap_hit": 909000,
+   "expiry": "2028",
+   "status": "RFA"
+  },
+  "marco kasper": {
+   "name": "Marco Kasper",
+   "cap_hit": 886000,
+   "expiry": "2027",
+   "status": "RFA"
+  },
+  "sheldon dries": {
+   "name": "Sheldon Dries",
+   "cap_hit": 875000,
+   "expiry": "2028",
+   "status": "UFA"
+  },
+  "carter mazur": {
+   "name": "Carter Mazur",
+   "cap_hit": 875000,
+   "expiry": "2028",
+   "status": "RFA"
+  },
+  "moritz seider": {
+   "name": "Moritz Seider",
+   "cap_hit": 8000000,
+   "expiry": "2031",
+   "status": "UFA"
+  },
+  "justin faulk": {
+   "name": "Justin Faulk",
+   "cap_hit": 6000000,
+   "expiry": "2027",
+   "status": "UFA"
+  },
+  "ben chiarot": {
+   "name": "Ben Chiarot",
+   "cap_hit": 3000000,
+   "expiry": "2029",
+   "status": "UFA"
+  },
+  "albert johansson": {
+   "name": "Albert Johansson",
+   "cap_hit": 1000000,
+   "expiry": "2027",
+   "status": "RFA"
+  },
+  "anton johansson": {
+   "name": "Anton Johansson",
+   "cap_hit": 970000,
+   "expiry": "2028",
+   "status": "RFA"
+  },
+  "axel sandin pellikka": {
+   "name": "Axel Sandin Pellikka",
+   "cap_hit": 940000,
+   "expiry": "2028",
+   "status": "RFA"
+  },
+  "andreas englund": {
+   "name": "Andreas Englund",
+   "cap_hit": 900000,
+   "expiry": "2027",
+   "status": "UFA"
+  },
+  "william wallinder": {
+   "name": "William Wallinder",
+   "cap_hit": 875000,
+   "expiry": "2028",
+   "status": "RFA"
+  },
+  "john gibson": {
+   "name": "John Gibson",
+   "cap_hit": 6000000,
+   "expiry": "2027",
+   "status": "UFA"
+  },
+  "daniil tarasov": {
+   "name": "Daniil Tarasov",
+   "cap_hit": 2000000,
+   "expiry": "2027",
+   "status": "UFA"
+  },
+  "aleksander barkov": {
+   "name": "Aleksander Barkov",
+   "cap_hit": 10000000,
+   "expiry": "2030",
+   "status": "UFA"
+  },
+  "matthew tkachuk": {
+   "name": "Matthew Tkachuk",
+   "cap_hit": 9000000,
+   "expiry": "2030",
+   "status": "UFA"
+  },
+  "sam reinhart": {
+   "name": "Sam Reinhart",
+   "cap_hit": 8000000,
+   "expiry": "2032",
+   "status": "UFA"
+  },
+  "brady tkachuk": {
+   "name": "Brady Tkachuk",
+   "cap_hit": 8000000,
+   "expiry": "2028",
+   "status": "UFA"
+  },
+  "sam bennett": {
+   "name": "Sam Bennett",
+   "cap_hit": 8000000,
+   "expiry": "2033",
+   "status": "UFA"
+  },
+  "carter verhaeghe": {
+   "name": "Carter Verhaeghe",
+   "cap_hit": 7000000,
+   "expiry": "2033",
+   "status": "UFA"
+  },
+  "brad marchand": {
+   "name": "Brad Marchand",
+   "cap_hit": 5000000,
+   "expiry": "2031",
+   "status": "UFA"
+  },
+  "anton lundell": {
+   "name": "Anton Lundell",
+   "cap_hit": 5000000,
+   "expiry": "2030",
+   "status": "UFA"
+  },
+  "eetu luostarinen": {
+   "name": "Eetu Luostarinen",
+   "cap_hit": 3000000,
+   "expiry": "2035",
+   "status": "UFA"
+  },
+  "garnet hathaway": {
+   "name": "Garnet Hathaway",
+   "cap_hit": 1000000,
+   "expiry": "2027",
+   "status": "UFA"
+  },
+  "sandis vilmanis": {
+   "name": "Sandis Vilmanis",
+   "cap_hit": 930000,
+   "expiry": "2029",
+   "status": "RFA"
+  },
+  "jonah gadjovich": {
+   "name": "Jonah Gadjovich",
+   "cap_hit": 905000,
+   "expiry": "2028",
+   "status": "UFA"
+  },
+  "cole schwindt": {
+   "name": "Cole Schwindt",
+   "cap_hit": 875000,
+   "expiry": "2028",
+   "status": "UFA"
+  },
+  "lars eller": {
+   "name": "Lars Eller",
+   "cap_hit": 850000,
+   "expiry": "2027",
+   "status": "UFA"
+  },
+  "bokondji imama": {
+   "name": "Bokondji Imama",
+   "cap_hit": 850000,
+   "expiry": "2027",
+   "status": "UFA"
+  },
+  "cole reinhardt": {
+   "name": "Cole Reinhardt",
+   "cap_hit": 812000,
+   "expiry": "2027",
+   "status": "UFA"
+  },
+  "seth jones": {
+   "name": "Seth Jones",
+   "cap_hit": 7000000,
+   "expiry": "2030",
+   "status": "UFA"
+  },
+  "aaron ekblad": {
+   "name": "Aaron Ekblad",
+   "cap_hit": 6000000,
+   "expiry": "2033",
+   "status": "UFA"
+  },
+  "gustav forsling": {
+   "name": "Gustav Forsling",
+   "cap_hit": 5000000,
+   "expiry": "2032",
+   "status": "UFA"
+  },
+  "niko mikkola": {
+   "name": "Niko Mikkola",
+   "cap_hit": 5000000,
+   "expiry": "2034",
+   "status": "UFA"
+  },
+  "radko gudas": {
+   "name": "Radko Gudas",
+   "cap_hit": 1000000,
+   "expiry": "2032",
+   "status": "UFA"
+  },
+  "dmitry kulikov": {
+   "name": "Dmitry Kulikov",
+   "cap_hit": 1000000,
+   "expiry": "2028",
+   "status": "UFA"
+  },
+  "uvis balinskis": {
+   "name": "Uvis Balinskis",
+   "cap_hit": 875000,
+   "expiry": "2028",
+   "status": "UFA"
+  },
+  "jacob markstrom": {
+   "name": "Jacob Markstrom",
+   "cap_hit": 6000000,
+   "expiry": "2028",
+   "status": "UFA"
+  },
+  "akira schmid": {
+   "name": "Akira Schmid",
+   "cap_hit": 2000000,
+   "expiry": "2028",
+   "status": "UFA"
+  },
+  "nick suzuki": {
+   "name": "Nick Suzuki",
+   "cap_hit": 7000000,
+   "expiry": "2030",
+   "status": "UFA"
+  },
+  "cole caufield": {
+   "name": "Cole Caufield",
+   "cap_hit": 7000000,
+   "expiry": "2031",
+   "status": "UFA"
+  },
+  "juraj slafkovsky": {
+   "name": "Juraj Slafkovský",
+   "cap_hit": 7000000,
+   "expiry": "2033",
+   "status": "UFA"
+  },
+  "phillip danault": {
+   "name": "Phillip Danault",
+   "cap_hit": 5000000,
+   "expiry": "2027",
+   "status": "UFA"
+  },
+  "josh anderson": {
+   "name": "Josh Anderson",
+   "cap_hit": 5000000,
+   "expiry": "2027",
+   "status": "UFA"
+  },
+  "zack bolduc": {
+   "name": "Zack Bolduc",
+   "cap_hit": 4000000,
+   "expiry": "2030",
+   "status": "UFA"
+  },
+  "kirby dach": {
+   "name": "Kirby Dach",
+   "cap_hit": 3000000,
+   "expiry": "2027",
+   "status": "UFA"
+  },
+  "alex newhook": {
+   "name": "Alex Newhook",
+   "cap_hit": 2000000,
+   "expiry": "2031",
+   "status": "UFA"
+  },
+  "jake evans": {
+   "name": "Jake Evans",
+   "cap_hit": 2000000,
+   "expiry": "2029",
+   "status": "UFA"
+  },
+  "alexandre texier": {
+   "name": "Alexandre Texier",
+   "cap_hit": 2000000,
+   "expiry": "2028",
+   "status": "UFA"
+  },
+  "chris kreider": {
+   "name": "Chris Kreider",
+   "cap_hit": 2000000,
+   "expiry": "2027",
+   "status": "UFA"
+  },
+  "oliver kapanen": {
+   "name": "Oliver Kapanen",
+   "cap_hit": 942000,
+   "expiry": "2027",
+   "status": "RFA"
+  },
+  "florian xhekaj": {
+   "name": "Florian Xhekaj",
+   "cap_hit": 941000,
+   "expiry": "2027",
+   "status": "RFA"
+  },
+  "ivan demidov": {
+   "name": "Ivan Demidov",
+   "cap_hit": 940000,
+   "expiry": "2035",
+   "status": "UFA"
+  },
+  "owen beck": {
+   "name": "Owen Beck",
+   "cap_hit": 853000,
+   "expiry": "2027",
+   "status": "RFA"
+  },
+  "noah dobson": {
+   "name": "Noah Dobson",
+   "cap_hit": 9000000,
+   "expiry": "2033",
+   "status": "UFA"
+  },
+  "lane hutson": {
+   "name": "Lane Hutson",
+   "cap_hit": 8000000,
+   "expiry": "2034",
+   "status": "UFA"
+  },
+  "mike matheson": {
+   "name": "Mike Matheson",
+   "cap_hit": 6000000,
+   "expiry": "2031",
+   "status": "UFA"
+  },
+  "kaiden guhle": {
+   "name": "Kaiden Guhle",
+   "cap_hit": 5000000,
+   "expiry": "2031",
+   "status": "UFA"
+  },
+  "alexandre carrier": {
+   "name": "Alexandre Carrier",
+   "cap_hit": 3000000,
+   "expiry": "2027",
+   "status": "UFA"
+  },
+  "arber xhekaj": {
+   "name": "Arber Xhekaj",
+   "cap_hit": 1000000,
+   "expiry": "2027",
+   "status": "RFA"
+  },
+  "david reinbacher": {
+   "name": "David Reinbacher",
+   "cap_hit": 909000,
+   "expiry": "2028",
+   "status": "RFA"
+  },
+  "adam engstrom": {
+   "name": "Adam Engström",
+   "cap_hit": 896000,
+   "expiry": "2027",
+   "status": "RFA"
+  },
+  "sam montembeault": {
+   "name": "Sam Montembeault",
+   "cap_hit": 3000000,
+   "expiry": "2027",
+   "status": "UFA"
+  },
+  "jakub dobes": {
+   "name": "Jakub Dobes",
+   "cap_hit": 965000,
+   "expiry": "2030",
+   "status": "UFA"
+  },
+  "jacob fowler": {
+   "name": "Jacob Fowler",
+   "cap_hit": 945000,
+   "expiry": "2028",
+   "status": "RFA"
+  },
+  "tim stutzle": {
+   "name": "Tim Stutzle",
+   "cap_hit": 8000000,
+   "expiry": "2031",
+   "status": "UFA"
+  },
+  "shane pinto": {
+   "name": "Shane Pinto",
+   "cap_hit": 7000000,
+   "expiry": "2030",
+   "status": "UFA"
+  },
+  "dylan cozens": {
+   "name": "Dylan Cozens",
+   "cap_hit": 7000000,
+   "expiry": "2030",
+   "status": "UFA"
+  },
+  "william eklund": {
+   "name": "William Eklund",
+   "cap_hit": 5000000,
+   "expiry": "2029",
+   "status": "RFA"
+  },
+  "andre burakovsky": {
+   "name": "Andre Burakovsky",
+   "cap_hit": 5000000,
+   "expiry": "2027",
+   "status": "UFA"
+  },
+  "drake batherson": {
+   "name": "Drake Batherson",
+   "cap_hit": 4000000,
+   "expiry": "2035",
+   "status": "UFA"
+  },
+  "fabian zetterlund": {
+   "name": "Fabian Zetterlund",
+   "cap_hit": 4000000,
+   "expiry": "2028",
+   "status": "UFA"
+  },
+  "warren foegele": {
+   "name": "Warren Foegele",
+   "cap_hit": 3000000,
+   "expiry": "2027",
+   "status": "UFA"
+  },
+  "ridly greig": {
+   "name": "Ridly Greig",
+   "cap_hit": 3000000,
+   "expiry": "2029",
+   "status": "RFA"
+  },
+  "michael amadio": {
+   "name": "Michael Amadio",
+   "cap_hit": 2000000,
+   "expiry": "2027",
+   "status": "UFA"
+  },
+  "claude giroux": {
+   "name": "Claude Giroux",
+   "cap_hit": 2000000,
+   "expiry": "2027",
+   "status": "UFA"
+  },
+  "nick cousins": {
+   "name": "Nick Cousins",
+   "cap_hit": 1000000,
+   "expiry": "2028",
+   "status": "UFA"
+  },
+  "kurtis macdermid": {
+   "name": "Kurtis MacDermid",
+   "cap_hit": 1000000,
+   "expiry": "2027",
+   "status": "UFA"
+  },
+  "stephen halliday": {
+   "name": "Stephen Halliday",
+   "cap_hit": 1000000,
+   "expiry": "2028",
+   "status": "RFA"
+  },
+  "hayden hodgson": {
+   "name": "Hayden Hodgson",
+   "cap_hit": 850000,
+   "expiry": "2027",
+   "status": "UFA"
+  },
+  "jake sanderson": {
+   "name": "Jake Sanderson",
+   "cap_hit": 8000000,
+   "expiry": "2032",
+   "status": "UFA"
+  },
+  "thomas chabot": {
+   "name": "Thomas Chabot",
+   "cap_hit": 8000000,
+   "expiry": "2028",
+   "status": "UFA"
+  },
+  "jordan spence": {
+   "name": "Jordan Spence",
+   "cap_hit": 5000000,
+   "expiry": "2030",
+   "status": "UFA"
+  },
+  "artyom zub": {
+   "name": "Artyom Zub",
+   "cap_hit": 4000000,
+   "expiry": "2027",
+   "status": "UFA"
+  },
+  "tyler kleven": {
+   "name": "Tyler Kleven",
+   "cap_hit": 1000000,
+   "expiry": "2027",
+   "status": "RFA"
+  },
+  "carter yakemchuk": {
+   "name": "Carter Yakemchuk",
+   "cap_hit": 941000,
+   "expiry": "2029",
+   "status": "RFA"
+  },
+  "nikolas matinpalo": {
+   "name": "Nikolas Matinpalo",
+   "cap_hit": 875000,
+   "expiry": "2027",
+   "status": "UFA"
+  },
+  "cameron crotty": {
+   "name": "Cameron Crotty",
+   "cap_hit": 812000,
+   "expiry": "2027",
+   "status": "UFA"
+  },
+  "linus ullmark": {
+   "name": "Linus Ullmark",
+   "cap_hit": 8000000,
+   "expiry": "2029",
+   "status": "UFA"
+  },
+  "samuel ersson": {
+   "name": "Samuel Ersson",
+   "cap_hit": 2000000,
+   "expiry": "2028",
+   "status": "UFA"
+  },
+  "nikita kucherov": {
+   "name": "Nikita Kucherov",
+   "cap_hit": 9000000,
+   "expiry": "2027",
+   "status": "UFA"
+  },
+  "brayden point": {
+   "name": "Brayden Point",
+   "cap_hit": 9000000,
+   "expiry": "2030",
+   "status": "UFA"
+  },
+  "jake guentzel": {
+   "name": "Jake Guentzel",
+   "cap_hit": 9000000,
+   "expiry": "2031",
+   "status": "UFA"
+  },
+  "brandon hagel": {
+   "name": "Brandon Hagel",
+   "cap_hit": 6000000,
+   "expiry": "2032",
+   "status": "UFA"
+  },
+  "anthony cirelli": {
+   "name": "Anthony Cirelli",
+   "cap_hit": 6000000,
+   "expiry": "2031",
+   "status": "UFA"
+  },
+  "ilya mikheyev": {
+   "name": "Ilya Mikheyev",
+   "cap_hit": 3000000,
+   "expiry": "2030",
+   "status": "UFA"
+  },
+  "jeffrey viel": {
+   "name": "Jeffrey Viel",
+   "cap_hit": 2000000,
+   "expiry": "2031",
+   "status": "UFA"
+  },
+  "yanni gourde": {
+   "name": "Yanni Gourde",
+   "cap_hit": 2000000,
+   "expiry": "2031",
+   "status": "UFA"
+  },
+  "pontus holmberg": {
+   "name": "Pontus Holmberg",
+   "cap_hit": 1000000,
+   "expiry": "2027",
+   "status": "UFA"
+  },
+  "gage goncalves": {
+   "name": "Gage Goncalves",
+   "cap_hit": 1000000,
+   "expiry": "2027",
+   "status": "RFA"
+  },
+  "zemgus girgensons": {
+   "name": "Zemgus Girgensons",
+   "cap_hit": 925000,
+   "expiry": "2027",
+   "status": "UFA"
+  },
+  "dominic james": {
+   "name": "Dominic James",
+   "cap_hit": 910000,
+   "expiry": "2027",
+   "status": "RFA"
+  },
+  "conor geekie": {
+   "name": "Conor Geekie",
+   "cap_hit": 886000,
+   "expiry": "2027",
+   "status": "RFA"
+  },
+  "scott sabourin": {
+   "name": "Scott Sabourin",
+   "cap_hit": 850000,
+   "expiry": "2027",
+   "status": "UFA"
+  },
+  "john carlson": {
+   "name": "John Carlson",
+   "cap_hit": 8000000,
+   "expiry": "2028",
+   "status": "UFA"
+  },
+  "victor hedman": {
+   "name": "Victor Hedman",
+   "cap_hit": 8000000,
+   "expiry": "2029",
+   "status": "UFA"
+  },
+  "janis jerome moser": {
+   "name": "Janis Jérôme Moser",
+   "cap_hit": 6000000,
+   "expiry": "2034",
+   "status": "UFA"
+  },
+  "erik cernak": {
+   "name": "Erik Cernak",
+   "cap_hit": 5000000,
+   "expiry": "2031",
+   "status": "UFA"
+  },
+  "ryan mcdonagh": {
+   "name": "Ryan McDonagh",
+   "cap_hit": 4000000,
+   "expiry": "2029",
+   "status": "UFA"
+  },
+  "maxwell crozier": {
+   "name": "Maxwell Crozier",
+   "cap_hit": 875000,
+   "expiry": "2028",
+   "status": "UFA"
+  },
+  "charle-edouard d'astous": {
+   "name": "Charle-Edouard D'Astous",
+   "cap_hit": 875000,
+   "expiry": "2027",
+   "status": "UFA"
+  },
+  "emil lilleberg": {
+   "name": "Emil Lilleberg",
+   "cap_hit": 850000,
+   "expiry": "2027",
+   "status": "RFA"
+  },
+  "andrei vasilevskiy": {
+   "name": "Andrei Vasilevskiy",
+   "cap_hit": 9000000,
+   "expiry": "2028",
+   "status": "UFA"
+  },
+  "dennis hildeby": {
+   "name": "Dennis Hildeby",
+   "cap_hit": 841000,
+   "expiry": "2028",
+   "status": "RFA"
+  },
+  "auston matthews": {
+   "name": "Auston Matthews",
+   "cap_hit": 13000000,
+   "expiry": "2028",
+   "status": "UFA"
+  },
+  "william nylander": {
+   "name": "William Nylander",
+   "cap_hit": 11000000,
+   "expiry": "2032",
+   "status": "UFA"
+  },
+  "john tavares": {
+   "name": "John Tavares",
+   "cap_hit": 4000000,
+   "expiry": "2029",
+   "status": "UFA"
+  },
+  "colton sissons": {
+   "name": "Colton Sissons",
+   "cap_hit": 4000000,
+   "expiry": "2028",
+   "status": "UFA"
+  },
+  "jack roslovic": {
+   "name": "Jack Roslovic",
+   "cap_hit": 4000000,
+   "expiry": "2028",
+   "status": "UFA"
+  },
+  "kirill marchenko": {
+   "name": "Kirill Marchenko",
+   "cap_hit": 3000000,
+   "expiry": "2033",
+   "status": "UFA"
+  },
+  "max domi": {
+   "name": "Max Domi",
+   "cap_hit": 3000000,
+   "expiry": "2028",
+   "status": "UFA"
+  },
+  "dakota joshua": {
+   "name": "Dakota Joshua",
+   "cap_hit": 3000000,
+   "expiry": "2028",
+   "status": "UFA"
+  },
+  "nick paul": {
+   "name": "Nick Paul",
+   "cap_hit": 3000000,
+   "expiry": "2029",
+   "status": "UFA"
+  },
+  "brandon duhaime": {
+   "name": "Brandon Duhaime",
+   "cap_hit": 2000000,
+   "expiry": "2029",
+   "status": "UFA"
+  },
+  "teddy blueger": {
+   "name": "Teddy Blueger",
+   "cap_hit": 2000000,
+   "expiry": "2028",
+   "status": "UFA"
+  },
+  "miles wood": {
+   "name": "Miles Wood",
+   "cap_hit": 2000000,
+   "expiry": "2029",
+   "status": "UFA"
+  },
+  "gavin mckenna": {
+   "name": "Gavin McKenna",
+   "cap_hit": 1000000,
+   "expiry": "2029",
+   "status": "RFA"
+  },
+  "easton cowan": {
+   "name": "Easton Cowan",
+   "cap_hit": 900000,
+   "expiry": "2028",
+   "status": "RFA"
+  },
+  "zack macewen": {
+   "name": "Zack MacEwen",
+   "cap_hit": 875000,
+   "expiry": "2028",
+   "status": "UFA"
+  },
+  "vinni lettieri": {
+   "name": "Vinni Lettieri",
+   "cap_hit": 850000,
+   "expiry": "2027",
+   "status": "UFA"
+  },
+  "bo groulx": {
+   "name": "Bo Groulx",
+   "cap_hit": 812000,
+   "expiry": "2027",
+   "status": "UFA"
+  },
+  "darren raddysh": {
+   "name": "Darren Raddysh",
+   "cap_hit": 8000000,
+   "expiry": "2034",
+   "status": "UFA"
+  },
+  "morgan rielly": {
+   "name": "Morgan Rielly",
+   "cap_hit": 7000000,
+   "expiry": "2030",
+   "status": "UFA"
+  },
+  "jake mccabe": {
+   "name": "Jake McCabe",
+   "cap_hit": 4000000,
+   "expiry": "2030",
+   "status": "UFA"
+  },
+  "christopher tanev": {
+   "name": "Christopher Tanev",
+   "cap_hit": 4000000,
+   "expiry": "2030",
+   "status": "UFA"
+  },
+  "oliver ekman-larsson": {
+   "name": "Oliver Ekman-Larsson",
+   "cap_hit": 3000000,
+   "expiry": "2028",
+   "status": "UFA"
+  },
+  "nick blankenburg": {
+   "name": "Nick Blankenburg",
+   "cap_hit": 1000000,
+   "expiry": "2027",
+   "status": "UFA"
+  },
+  "troy stecher": {
+   "name": "Troy Stecher",
+   "cap_hit": 1000000,
+   "expiry": "2028",
+   "status": "UFA"
+  },
+  "marshall rifai": {
+   "name": "Marshall Rifai",
+   "cap_hit": 850000,
+   "expiry": "2027",
+   "status": "UFA"
+  },
+  "cade webber": {
+   "name": "Cade Webber",
+   "cap_hit": 825000,
+   "expiry": "2027",
+   "status": "RFA"
+  },
+  "sergei bobrovsky": {
+   "name": "Sergei Bobrovsky",
+   "cap_hit": 7000000,
+   "expiry": "2029",
+   "status": "UFA"
+  },
+  "elvis merzlikins": {
+   "name": "Elvis Merzlikins",
+   "cap_hit": 4000000,
+   "expiry": "2027",
+   "status": "UFA"
+  },
+  "anthony stolarz": {
+   "name": "Anthony Stolarz",
+   "cap_hit": 3000000,
+   "expiry": "2030",
+   "status": "UFA"
+  },
+  "artur akhtyamov": {
+   "name": "Artur Akhtyamov",
+   "cap_hit": 900000,
+   "expiry": "2029",
+   "status": "UFA"
+  },
+  "jonathan huberdeau": {
+   "name": "Jonathan Huberdeau",
+   "cap_hit": 10500000,
+   "expiry": "2031",
+   "status": "UFA"
+  },
+  "matt coronato": {
+   "name": "Matt Coronato",
+   "cap_hit": 6500000,
+   "expiry": "2032",
+   "status": "UFA"
+  },
+  "yegor sharangovich": {
+   "name": "Yegor Sharangovich",
+   "cap_hit": 5750000,
+   "expiry": "2030",
+   "status": "UFA"
+  },
+  "ryan strome": {
+   "name": "Ryan Strome",
+   "cap_hit": 5000000,
+   "expiry": "2027",
+   "status": "UFA"
+  },
+  "joel farabee": {
+   "name": "Joel Farabee",
+   "cap_hit": 5000000,
+   "expiry": "2028",
+   "status": "UFA"
+  },
+  "morgan frost": {
+   "name": "Morgan Frost",
+   "cap_hit": 4375000,
+   "expiry": "2027",
+   "status": "UFA"
+  },
+  "mikael backlund": {
+   "name": "Mikael Backlund",
+   "cap_hit": 3250000,
+   "expiry": "2028",
+   "status": "UFA"
+  },
+  "martin pospisil": {
+   "name": "Martin Pospisil",
+   "cap_hit": 2500000,
+   "expiry": "2029",
+   "status": "UFA"
+  },
+  "maxim tsyplakov": {
+   "name": "Maxim Tsyplakov",
+   "cap_hit": 2250000,
+   "expiry": "2027",
+   "status": "UFA"
+  },
+  "adam klapka": {
+   "name": "Adam Klapka",
+   "cap_hit": 1250000,
+   "expiry": "2027",
+   "status": "RFA"
+  },
+  "jonathan castagna": {
+   "name": "Jonathan Castagna",
+   "cap_hit": 1075000,
+   "expiry": "2029",
+   "status": "RFA"
+  },
+  "brennan othmann": {
+   "name": "Brennan Othmann",
+   "cap_hit": 975000,
+   "expiry": "2027",
+   "status": "RFA"
+  },
+  "matvei gridin": {
+   "name": "Matvei Gridin",
+   "cap_hit": 953750,
+   "expiry": "2028",
+   "status": "RFA"
+  },
+  "aydar suniev": {
+   "name": "Aydar Suniev",
+   "cap_hit": 923333,
+   "expiry": "2027",
+   "status": "RFA 10.2c"
+  },
+  "samuel honzek": {
+   "name": "Samuel Honzek",
+   "cap_hit": 909166,
+   "expiry": "2028",
+   "status": "RFA"
+  },
+  "simon nemec": {
+   "name": "Simon Nemec",
+   "cap_hit": 7250000,
+   "expiry": "2031",
+   "status": "UFA"
+  },
+  "kevin bahl": {
+   "name": "Kevin Bahl",
+   "cap_hit": 5350000,
+   "expiry": "2031",
+   "status": "UFA"
+  },
+  "jacob middleton": {
+   "name": "Jacob Middleton",
+   "cap_hit": 4350000,
+   "expiry": "2029",
+   "status": "UFA"
+  },
+  "zach whitecloud": {
+   "name": "Zach Whitecloud",
+   "cap_hit": 2750000,
+   "expiry": "2028",
+   "status": "UFA"
+  },
+  "joel hanley": {
+   "name": "Joel Hanley",
+   "cap_hit": 1750000,
+   "expiry": "2027",
+   "status": "UFA"
+  },
+  "zayne parekh": {
+   "name": "Zayne Parekh",
+   "cap_hit": 953750,
+   "expiry": "2028",
+   "status": "RFA"
+  },
+  "yan kuznetsov": {
+   "name": "Yan Kuznetsov",
+   "cap_hit": 812500,
+   "expiry": "2027",
+   "status": "UFA-GROUP 6"
+  },
+  "dustin wolf": {
+   "name": "Dustin Wolf",
+   "cap_hit": 7500000,
+   "expiry": "2033",
+   "status": "UFA"
+  },
+  "devin cooley": {
+   "name": "Devin Cooley",
+   "cap_hit": 1350000,
+   "expiry": "2028",
+   "status": "UFA"
+  },
+  "leo carlsson": {
+   "name": "Leo Carlsson",
+   "cap_hit": 18000000,
+   "expiry": "2031",
+   "status": "UFA"
+  },
+  "cutter gauthier": {
+   "name": "Cutter Gauthier",
+   "cap_hit": 13500000,
+   "expiry": "2032",
+   "status": "UFA"
+  },
+  "mikael granlund": {
+   "name": "Mikael Granlund",
+   "cap_hit": 7000000,
+   "expiry": "2028",
+   "status": "UFA"
+  },
+  "troy terry": {
+   "name": "Troy Terry",
+   "cap_hit": 7000000,
+   "expiry": "2030",
+   "status": "UFA"
+  },
+  "alex killorn": {
+   "name": "Alex Killorn",
+   "cap_hit": 6250000,
+   "expiry": "2027",
+   "status": "UFA"
+  },
+  "frank vatrano": {
+   "name": "Frank Vatrano",
+   "cap_hit": 4571189,
+   "expiry": "2028",
+   "status": "UFA"
+  },
+  "a.j. greer": {
+   "name": "A.J. Greer",
+   "cap_hit": 4250000,
+   "expiry": "2030",
+   "status": "UFA"
+  },
+  "ryan poehling": {
+   "name": "Ryan Poehling",
+   "cap_hit": 3750000,
+   "expiry": "2030",
+   "status": "UFA"
+  },
+  "jeff malott": {
+   "name": "Jeff Malott",
+   "cap_hit": 1850000,
+   "expiry": "2029",
+   "status": "UFA"
+  },
+  "roger mcqueen": {
+   "name": "Roger McQueen",
+   "cap_hit": 1075000,
+   "expiry": "2029",
+   "status": "RFA"
+  },
+  "nikita klepov": {
+   "name": "Nikita Klepov",
+   "cap_hit": 1075000,
+   "expiry": "2029",
+   "status": "RFA"
+  },
+  "beckett sennecke": {
+   "name": "Beckett Sennecke",
+   "cap_hit": 953750,
+   "expiry": "2028",
+   "status": "RFA"
+  },
+  "judd caulfield": {
+   "name": "Judd Caulfield",
+   "cap_hit": 875000,
+   "expiry": "2028",
+   "status": "UFA"
+  },
+  "sam colangelo": {
+   "name": "Sam Colangelo",
+   "cap_hit": 850000,
+   "expiry": "2027",
+   "status": "UFA-GROUP 6"
+  },
+  "nikita nesterenko": {
+   "name": "Nikita Nesterenko",
+   "cap_hit": 837500,
+   "expiry": "2027",
+   "status": "UFA-GROUP 6"
+  },
+  "tim washe": {
+   "name": "Tim Washe",
+   "cap_hit": 812500,
+   "expiry": "2031",
+   "status": "UFA"
+  },
+  "jackson lacombe": {
+   "name": "Jackson LaCombe",
+   "cap_hit": 9000000,
+   "expiry": "2034",
+   "status": "UFA"
+  },
+  "pavel mintyukov": {
+   "name": "Pavel Mintyukov",
+   "cap_hit": 7200000,
+   "expiry": "2031",
+   "status": "UFA"
+  },
+  "nick jensen": {
+   "name": "Nick Jensen",
+   "cap_hit": 2250000,
+   "expiry": "2028",
+   "status": "UFA"
+  },
+  "ian moore": {
+   "name": "Ian Moore",
+   "cap_hit": 1150000,
+   "expiry": "2028",
+   "status": "RFA"
+  },
+  "drew helleson": {
+   "name": "Drew Helleson",
+   "cap_hit": 1100000,
+   "expiry": "2027",
+   "status": "RFA"
+  },
+  "tyson hinds": {
+   "name": "Tyson Hinds",
+   "cap_hit": 900000,
+   "expiry": "2028",
+   "status": "RFA"
+  },
+  "tristan luneau": {
+   "name": "Tristan Luneau",
+   "cap_hit": 865000,
+   "expiry": "2033",
+   "status": "UFA"
+  },
+  "noah warren": {
+   "name": "Noah Warren",
+   "cap_hit": 865000,
+   "expiry": "2027",
+   "status": "RFA"
+  },
+  "lukas dostal": {
+   "name": "Lukas Dostal",
+   "cap_hit": 6500000,
+   "expiry": "2030",
+   "status": "UFA"
+  },
+  "ville husso": {
+   "name": "Ville Husso",
+   "cap_hit": 2200000,
+   "expiry": "2027",
+   "status": "UFA"
+  },
+  "leon draisaitl": {
+   "name": "Leon Draisaitl",
+   "cap_hit": 14000000,
+   "expiry": "2033",
+   "status": "UFA"
+  },
+  "connor mcdavid": {
+   "name": "Connor McDavid",
+   "cap_hit": 12500000,
+   "expiry": "2028",
+   "status": "UFA"
+  },
+  "zach hyman": {
+   "name": "Zach Hyman",
+   "cap_hit": 5500000,
+   "expiry": "2028",
+   "status": "UFA"
+  },
+  "ryan nugent-hopkins": {
+   "name": "Ryan Nugent-Hopkins",
+   "cap_hit": 5125000,
+   "expiry": "2029",
+   "status": "UFA"
+  },
+  "jason dickinson": {
+   "name": "Jason Dickinson",
+   "cap_hit": 4000000,
+   "expiry": "2031",
+   "status": "UFA"
+  },
+  "trent frederic": {
+   "name": "Trent Frederic",
+   "cap_hit": 3850000,
+   "expiry": "2033",
+   "status": "UFA"
+  },
+  "vasily podkolzin": {
+   "name": "Vasily Podkolzin",
+   "cap_hit": 2950000,
+   "expiry": "2029",
+   "status": "UFA"
+  },
+  "kasperi kapanen": {
+   "name": "Kasperi Kapanen",
+   "cap_hit": 2600000,
+   "expiry": "2027",
+   "status": "UFA"
+  },
+  "mattias janmark": {
+   "name": "Mattias Janmark",
+   "cap_hit": 1450000,
+   "expiry": "2027",
+   "status": "UFA"
+  },
+  "colton dach": {
+   "name": "Colton Dach",
+   "cap_hit": 1200000,
+   "expiry": "2028",
+   "status": "RFA"
+  },
+  "mathieu joseph": {
+   "name": "Mathieu Joseph",
+   "cap_hit": 1000000,
+   "expiry": "2027",
+   "status": "UFA"
+  },
+  "isaac howard": {
+   "name": "Isaac Howard",
+   "cap_hit": 972500,
+   "expiry": "2028",
+   "status": "RFA"
+  },
+  "owen michaels": {
+   "name": "Owen Michaels",
+   "cap_hit": 900000,
+   "expiry": "2028",
+   "status": "RFA"
+  },
+  "matthew savoie": {
+   "name": "Matthew Savoie",
+   "cap_hit": 886666,
+   "expiry": "2027",
+   "status": "RFA"
+  },
+  "max jones": {
+   "name": "Max Jones",
+   "cap_hit": 850000,
+   "expiry": "2027",
+   "status": "UFA"
+  },
+  "alex formenton": {
+   "name": "Alex Formenton",
+   "cap_hit": 850000,
+   "expiry": "2027",
+   "status": "UFA"
+  },
+  "filip hallander": {
+   "name": "Filip Hallander",
+   "cap_hit": 850000,
+   "expiry": "2027",
+   "status": "UFA"
+  },
+  "evan bouchard": {
+   "name": "Evan Bouchard",
+   "cap_hit": 10500000,
+   "expiry": "2029",
+   "status": "UFA"
+  },
+  "jake walman": {
+   "name": "Jake Walman",
+   "cap_hit": 7000000,
+   "expiry": "2033",
+   "status": "UFA"
+  },
+  "connor murphy": {
+   "name": "Connor Murphy",
+   "cap_hit": 4100000,
+   "expiry": "2031",
+   "status": "UFA"
+  },
+  "mattias ekholm": {
+   "name": "Mattias Ekholm",
+   "cap_hit": 4000000,
+   "expiry": "2029",
+   "status": "UFA"
+  },
+  "ryan shea": {
+   "name": "Ryan Shea",
+   "cap_hit": 4000000,
+   "expiry": "2031",
+   "status": "UFA"
+  },
+  "shakir mukhamadullin": {
+   "name": "Shakir Mukhamadullin",
+   "cap_hit": 1750000,
+   "expiry": "2028",
+   "status": "RFA"
+  },
+  "ty emberson": {
+   "name": "Ty Emberson",
+   "cap_hit": 1300000,
+   "expiry": "2027",
+   "status": "UFA"
+  },
+  "alec regula": {
+   "name": "Alec Regula",
+   "cap_hit": 850000,
+   "expiry": "2027",
+   "status": "UFA-GROUP 6"
+  },
+  "tristan jarry": {
+   "name": "Tristan Jarry",
+   "cap_hit": 5375000,
+   "expiry": "2028",
+   "status": "UFA"
+  },
+  "frederik andersen": {
+   "name": "Frederik Andersen",
+   "cap_hit": 1000000,
+   "expiry": "2027",
+   "status": "UFA"
+  },
+  "devon levi": {
+   "name": "Devon Levi",
+   "cap_hit": 812500,
+   "expiry": "2027",
+   "status": "RFA"
+  },
+  "artemi panarin": {
+   "name": "Artemi Panarin",
+   "cap_hit": 11000000,
+   "expiry": "2028",
+   "status": "UFA"
+  },
+  "adrian kempe": {
+   "name": "Adrian Kempe",
+   "cap_hit": 10625000,
+   "expiry": "2034",
+   "status": "UFA"
+  },
+  "kevin fiala": {
+   "name": "Kevin Fiala",
+   "cap_hit": 7875000,
+   "expiry": "2029",
+   "status": "UFA"
+  },
+  "quinton byfield": {
+   "name": "Quinton Byfield",
+   "cap_hit": 6250000,
+   "expiry": "2029",
+   "status": "UFA"
+  },
+  "trevor moore": {
+   "name": "Trevor Moore",
+   "cap_hit": 4200000,
+   "expiry": "2028",
+   "status": "UFA"
+  },
+  "alex laferriere": {
+   "name": "Alex Laferriere",
+   "cap_hit": 4100000,
+   "expiry": "2028",
+   "status": "RFA"
+  },
+  "erik haula": {
+   "name": "Erik Haula",
+   "cap_hit": 3600000,
+   "expiry": "2028",
+   "status": "UFA"
+  },
+  "scott laughton": {
+   "name": "Scott Laughton",
+   "cap_hit": 3500000,
+   "expiry": "2029",
+   "status": "UFA"
+  },
+  "joel armia": {
+   "name": "Joel Armia",
+   "cap_hit": 2500000,
+   "expiry": "2027",
+   "status": "UFA"
+  },
+  "corey perry": {
+   "name": "Corey Perry",
+   "cap_hit": 1000000,
+   "expiry": "2027",
+   "status": "UFA"
+  },
+  "mats zuccarello": {
+   "name": "Mats Zuccarello",
+   "cap_hit": 1000000,
+   "expiry": "2027",
+   "status": "UFA"
+  },
+  "samuel helenius": {
+   "name": "Samuel Helenius",
+   "cap_hit": 875000,
+   "expiry": "2028",
+   "status": "RFA"
+  },
+  "taylor ward": {
+   "name": "Taylor Ward",
+   "cap_hit": 875000,
+   "expiry": "2028",
+   "status": "UFA"
+  },
+  "alex turcotte": {
+   "name": "Alex Turcotte",
+   "cap_hit": 850000,
+   "expiry": "2027",
+   "status": "RFA"
+  },
+  "andre lee": {
+   "name": "Andre Lee",
+   "cap_hit": 850000,
+   "expiry": "2027",
+   "status": "UFA-GROUP 6"
+  },
+  "drew doughty": {
+   "name": "Drew Doughty",
+   "cap_hit": 11000000,
+   "expiry": "2027",
+   "status": "UFA"
+  },
+  "brandt clarke": {
+   "name": "Brandt Clarke",
+   "cap_hit": 7400000,
+   "expiry": "2031",
+   "status": "UFA"
+  },
+  "cody ceci": {
+   "name": "Cody Ceci",
+   "cap_hit": 4500000,
+   "expiry": "2029",
+   "status": "UFA"
+  },
+  "mikey anderson": {
+   "name": "Mikey Anderson",
+   "cap_hit": 4125000,
+   "expiry": "2031",
+   "status": "UFA"
+  },
+  "brian dumoulin": {
+   "name": "Brian Dumoulin",
+   "cap_hit": 4000000,
+   "expiry": "2028",
+   "status": "UFA"
+  },
+  "joel edmundson": {
+   "name": "Joel Edmundson",
+   "cap_hit": 3850000,
+   "expiry": "2028",
+   "status": "UFA"
+  },
+  "erik gustafsson": {
+   "name": "Erik Gustafsson",
+   "cap_hit": 1000000,
+   "expiry": "2027",
+   "status": "UFA"
+  },
+  "darcy kuemper": {
+   "name": "Darcy Kuemper",
+   "cap_hit": 5250000,
+   "expiry": "2027",
+   "status": "UFA"
+  },
+  "anton forsberg": {
+   "name": "Anton Forsberg",
+   "cap_hit": 2250000,
+   "expiry": "2027",
+   "status": "UFA"
+  },
+  "jack eichel": {
+   "name": "Jack Eichel",
+   "cap_hit": 13500000,
+   "expiry": "2034",
+   "status": "UFA"
+  },
+  "mitch marner": {
+   "name": "Mitch Marner",
+   "cap_hit": 12000000,
+   "expiry": "2033",
+   "status": "UFA"
+  },
+  "mark stone": {
+   "name": "Mark Stone",
+   "cap_hit": 9500000,
+   "expiry": "2029",
+   "status": "UFA"
+  },
+  "tomas hertl": {
+   "name": "Tomas Hertl",
+   "cap_hit": 6750000,
+   "expiry": "2030",
+   "status": "UFA"
+  },
+  "william karlsson": {
+   "name": "William Karlsson",
+   "cap_hit": 5900000,
+   "expiry": "2029",
+   "status": "UFA"
+  },
+  "ivan barbashev": {
+   "name": "Ivan Barbashev",
+   "cap_hit": 5000000,
+   "expiry": "2028",
+   "status": "UFA"
+  },
+  "nic dowd": {
+   "name": "Nic Dowd",
+   "cap_hit": 3000000,
+   "expiry": "2027",
+   "status": "UFA"
+  },
+  "brett howden": {
+   "name": "Brett Howden",
+   "cap_hit": 2500000,
+   "expiry": "2030",
+   "status": "UFA"
+  },
+  "victor olofsson": {
+   "name": "Victor Olofsson",
+   "cap_hit": 1638330,
+   "expiry": "2027",
+   "status": "UFA"
+  },
+  "trevor connelly": {
+   "name": "Trevor Connelly",
+   "cap_hit": 974167,
+   "expiry": "2029",
+   "status": "RFA"
+  },
+  "braeden bowman": {
+   "name": "Braeden Bowman",
+   "cap_hit": 912500,
+   "expiry": "2033",
+   "status": "UFA"
+  },
+  "raphael lavoie": {
+   "name": "Raphael Lavoie",
+   "cap_hit": 900000,
+   "expiry": "2027",
+   "status": "UFA-GROUP 6"
+  },
+  "marc gatcomb": {
+   "name": "Marc Gatcomb",
+   "cap_hit": 875000,
+   "expiry": "2028",
+   "status": "UFA"
+  },
+  "alex pietrangelo": {
+   "name": "Alex Pietrangelo",
+   "cap_hit": 8800000,
+   "expiry": "2027",
+   "status": "UFA"
+  },
+  "rasmus andersson": {
+   "name": "Rasmus Andersson",
+   "cap_hit": 8500000,
+   "expiry": "2033",
+   "status": "UFA"
+  },
+  "shea theodore": {
+   "name": "Shea Theodore",
+   "cap_hit": 7425000,
+   "expiry": "2032",
+   "status": "UFA"
+  },
+  "noah hanifin": {
+   "name": "Noah Hanifin",
+   "cap_hit": 7350000,
+   "expiry": "2032",
+   "status": "UFA"
+  },
+  "jeremy lauzon": {
+   "name": "Jeremy Lauzon",
+   "cap_hit": 4000000,
+   "expiry": "2032",
+   "status": "UFA"
+  },
+  "brayden mcnabb": {
+   "name": "Brayden McNabb",
+   "cap_hit": 3650000,
+   "expiry": "2028",
+   "status": "UFA"
+  },
+  "dylan coghlan": {
+   "name": "Dylan Coghlan",
+   "cap_hit": 875000,
+   "expiry": "2028",
+   "status": "UFA"
+  },
+  "parker wotherspoon": {
+   "name": "Parker Wotherspoon",
+   "cap_hit": 500000,
+   "expiry": "2027",
+   "status": "UFA"
+  },
+  "adin hill": {
+   "name": "Adin Hill",
+   "cap_hit": 6250000,
+   "expiry": "2031",
+   "status": "UFA"
+  },
+  "carter hart": {
+   "name": "Carter Hart",
+   "cap_hit": 2000000,
+   "expiry": "2027",
+   "status": "UFA"
+  },
+  "logan couture": {
+   "name": "Logan Couture",
+   "cap_hit": 8000000,
+   "expiry": "2027",
+   "status": "UFA"
+  },
+  "mason marchment": {
+   "name": "Mason Marchment",
+   "cap_hit": 6750000,
+   "expiry": "2031",
+   "status": "UFA"
+  },
+  "tyler toffoli": {
+   "name": "Tyler Toffoli",
+   "cap_hit": 6000000,
+   "expiry": "2028",
+   "status": "UFA"
+  },
+  "alexander wennberg": {
+   "name": "Alexander Wennberg",
+   "cap_hit": 6000000,
+   "expiry": "2029",
+   "status": "UFA"
+  },
+  "kiefer sherwood": {
+   "name": "Kiefer Sherwood",
+   "cap_hit": 5750000,
+   "expiry": "2031",
+   "status": "UFA"
+  },
+  "collin graf": {
+   "name": "Collin Graf",
+   "cap_hit": 4250000,
+   "expiry": "2029",
+   "status": "RFA"
+  },
+  "barclay goodrow": {
+   "name": "Barclay Goodrow",
+   "cap_hit": 3641667,
+   "expiry": "2027",
+   "status": "UFA"
+  },
+  "zack ostapchuk": {
+   "name": "Zack Ostapchuk",
+   "cap_hit": 2350000,
+   "expiry": "2030",
+   "status": "UFA"
+  },
+  "adam gaudette": {
+   "name": "Adam Gaudette",
+   "cap_hit": 2000000,
+   "expiry": "2027",
+   "status": "UFA"
+  },
+  "ty dellandrea": {
+   "name": "Ty Dellandrea",
+   "cap_hit": 1625000,
+   "expiry": "2028",
+   "status": "UFA"
+  },
+  "ivar stenberg": {
+   "name": "Ivar Stenberg",
+   "cap_hit": 1075000,
+   "expiry": "2029",
+   "status": "RFA"
+  },
+  "michael misa": {
+   "name": "Michael Misa",
+   "cap_hit": 986250,
+   "expiry": "2028",
+   "status": "RFA"
+  },
+  "macklin celebrini": {
+   "name": "Macklin Celebrini",
+   "cap_hit": 975000,
+   "expiry": "2032",
+   "status": "UFA"
+  },
+  "will smith": {
+   "name": "Will Smith",
+   "cap_hit": 950000,
+   "expiry": "2027",
+   "status": "RFA"
+  },
+  "igor chernyshov": {
+   "name": "Igor Chernyshov",
+   "cap_hit": 945417,
+   "expiry": "2028",
+   "status": "RFA"
+  },
+  "darnell nurse": {
+   "name": "Darnell Nurse",
+   "cap_hit": 9250000,
+   "expiry": "2030",
+   "status": "UFA"
+  },
+  "jacob trouba": {
+   "name": "Jacob Trouba",
+   "cap_hit": 8250000,
+   "expiry": "2030",
+   "status": "UFA"
+  },
+  "dmitry orlov": {
+   "name": "Dmitry Orlov",
+   "cap_hit": 6500000,
+   "expiry": "2027",
+   "status": "UFA"
+  },
+  "michael kesselring": {
+   "name": "Michael Kesselring",
+   "cap_hit": 4500000,
+   "expiry": "2029",
+   "status": "UFA"
+  },
+  "sam dickinson": {
+   "name": "Sam Dickinson",
+   "cap_hit": 953750,
+   "expiry": "2028",
+   "status": "RFA"
+  },
+  "luca cagnoni": {
+   "name": "Luca Cagnoni",
+   "cap_hit": 920000,
+   "expiry": "2027",
+   "status": "RFA"
+  },
+  "nolan allan": {
+   "name": "Nolan Allan",
+   "cap_hit": 875000,
+   "expiry": "2028",
+   "status": "RFA"
+  },
+  "alex nedeljkovic": {
+   "name": "Alex Nedeljkovic",
+   "cap_hit": 3000000,
+   "expiry": "2028",
+   "status": "UFA"
+  },
+  "yaroslav askarov": {
+   "name": "Yaroslav Askarov",
+   "cap_hit": 2000000,
+   "expiry": "2027",
+   "status": "RFA"
+  },
+  "matthew beniers": {
+   "name": "Matthew Beniers",
+   "cap_hit": 7142857,
+   "expiry": "2031",
+   "status": "UFA"
+  },
+  "chandler stephenson": {
+   "name": "Chandler Stephenson",
+   "cap_hit": 6250000,
+   "expiry": "2031",
+   "status": "UFA"
+  },
+  "bobby mcmann": {
+   "name": "Bobby McMann",
+   "cap_hit": 5750000,
+   "expiry": "2032",
+   "status": "UFA"
+  },
+  "jordan eberle": {
+   "name": "Jordan Eberle",
+   "cap_hit": 5500000,
+   "expiry": "2028",
+   "status": "UFA"
+  },
+  "jared mccann": {
+   "name": "Jared McCann",
+   "cap_hit": 5000000,
+   "expiry": "2027",
+   "status": "UFA"
+  },
+  "kaapo kakko": {
+   "name": "Kaapo Kakko",
+   "cap_hit": 4525000,
+   "expiry": "2028",
+   "status": "UFA"
+  },
+  "mackie samoskevich": {
+   "name": "Mackie Samoskevich",
+   "cap_hit": 3850000,
+   "expiry": "2029",
+   "status": "RFA"
+  },
+  "frederick gaudreau": {
+   "name": "Frederick Gaudreau",
+   "cap_hit": 2100000,
+   "expiry": "2028",
+   "status": "UFA"
+  },
+  "jacob melanson": {
+   "name": "Jacob Melanson",
+   "cap_hit": 1450000,
+   "expiry": "2029",
+   "status": "RFA"
+  },
+  "curtis douglas": {
+   "name": "Curtis Douglas",
+   "cap_hit": 1250000,
+   "expiry": "2028",
+   "status": "UFA"
+  },
+  "ryan winterton": {
+   "name": "Ryan Winterton",
+   "cap_hit": 1125000,
+   "expiry": "2028",
+   "status": "RFA"
+  },
+  "ben meyers": {
+   "name": "Ben Meyers",
+   "cap_hit": 1000000,
+   "expiry": "2028",
+   "status": "UFA"
+  },
+  "berkly catton": {
+   "name": "Berkly Catton",
+   "cap_hit": 953750,
+   "expiry": "2028",
+   "status": "RFA"
+  },
+  "shane wright": {
+   "name": "Shane Wright",
+   "cap_hit": 886666,
+   "expiry": "2027",
+   "status": "RFA"
+  },
+  "vince dunn": {
+   "name": "Vince Dunn",
+   "cap_hit": 7350000,
+   "expiry": "2027",
+   "status": "UFA"
+  },
+  "brandon montour": {
+   "name": "Brandon Montour",
+   "cap_hit": 7142857,
+   "expiry": "2031",
+   "status": "UFA"
+  },
+  "adam larsson": {
+   "name": "Adam Larsson",
+   "cap_hit": 5250000,
+   "expiry": "2029",
+   "status": "UFA"
+  },
+  "ryan lindgren": {
+   "name": "Ryan Lindgren",
+   "cap_hit": 4500000,
+   "expiry": "2029",
+   "status": "UFA"
+  },
+  "ryker evans": {
+   "name": "Ryker Evans",
+   "cap_hit": 2050000,
+   "expiry": "2027",
+   "status": "RFA"
+  },
+  "ty nelson": {
+   "name": "Ty Nelson",
+   "cap_hit": 911667,
+   "expiry": "2027",
+   "status": "RFA"
+  },
+  "josh mahura": {
+   "name": "Josh Mahura",
+   "cap_hit": 907500,
+   "expiry": "2027",
+   "status": "UFA"
+  },
+  "cale fleury": {
+   "name": "Cale Fleury",
+   "cap_hit": 890000,
+   "expiry": "2027",
+   "status": "UFA"
+  },
+  "ville ottavainen": {
+   "name": "Ville Ottavainen",
+   "cap_hit": 850000,
+   "expiry": "2027",
+   "status": "RFA"
+  },
+  "philipp grubauer": {
+   "name": "Philipp Grubauer",
+   "cap_hit": 5900000,
+   "expiry": "2027",
+   "status": "UFA"
+  },
+  "joey daccord": {
+   "name": "Joey Daccord",
+   "cap_hit": 5000000,
+   "expiry": "2030",
+   "status": "UFA"
+  },
+  "elias pettersson": {
+   "name": "Elias Pettersson",
+   "cap_hit": 913333,
+   "expiry": "2027",
+   "status": "RFA"
+  },
+  "brock boeser": {
+   "name": "Brock Boeser",
+   "cap_hit": 7250000,
+   "expiry": "2032",
+   "status": "UFA"
+  },
+  "jake debrusk": {
+   "name": "Jake DeBrusk",
+   "cap_hit": 5500000,
+   "expiry": "2031",
+   "status": "UFA"
+  },
+  "marco rossi": {
+   "name": "Marco Rossi",
+   "cap_hit": 5000000,
+   "expiry": "2028",
+   "status": "RFA"
+  },
+  "filip chytil": {
+   "name": "Filip Chytil",
+   "cap_hit": 4437500,
+   "expiry": "2027",
+   "status": "UFA"
+  },
+  "brendan gallagher": {
+   "name": "Brendan Gallagher",
+   "cap_hit": 3250000,
+   "expiry": "2027",
+   "status": "UFA"
+  },
+  "drew o'connor": {
+   "name": "Drew O'Connor",
+   "cap_hit": 2500000,
+   "expiry": "2027",
+   "status": "UFA"
+  },
+  "linus karlsson": {
+   "name": "Linus Karlsson",
+   "cap_hit": 2250000,
+   "expiry": "2028",
+   "status": "UFA"
+  },
+  "paul cotter": {
+   "name": "Paul Cotter",
+   "cap_hit": 2150000,
+   "expiry": "2027",
+   "status": "UFA"
+  },
+  "max sasson": {
+   "name": "Max Sasson",
+   "cap_hit": 1000000,
+   "expiry": "2028",
+   "status": "UFA"
+  },
+  "jonathan lekkerimaki": {
+   "name": "Jonathan Lekkerimaki",
+   "cap_hit": 918333,
+   "expiry": "2027",
+   "status": "RFA"
+  },
+  "liam ohgren": {
+   "name": "Liam Öhgren",
+   "cap_hit": 886666,
+   "expiry": "2027",
+   "status": "RFA"
+  },
+  "arshdeep bains": {
+   "name": "Arshdeep Bains",
+   "cap_hit": 850000,
+   "expiry": "2027",
+   "status": "UFA-GROUP 6"
+  },
+  "filip hronek": {
+   "name": "Filip Hronek",
+   "cap_hit": 7250000,
+   "expiry": "2032",
+   "status": "UFA"
+  },
+  "jamie oleksiak": {
+   "name": "Jamie Oleksiak",
+   "cap_hit": 5000000,
+   "expiry": "2028",
+   "status": "UFA"
+  },
+  "luke schenn": {
+   "name": "Luke Schenn",
+   "cap_hit": 2250000,
+   "expiry": "2027",
+   "status": "UFA"
+  },
+  "victor mancini": {
+   "name": "Victor Mancini",
+   "cap_hit": 1000000,
+   "expiry": "2028",
+   "status": "RFA"
+  },
+  "tom willander": {
+   "name": "Tom Willander",
+   "cap_hit": 972500,
+   "expiry": "2028",
+   "status": "RFA"
+  },
+  "zeev buium": {
+   "name": "Zeev Buium",
+   "cap_hit": 966667,
+   "expiry": "2035",
+   "status": "UFA"
+  },
+  "guillaume brisebois": {
+   "name": "Guillaume Brisebois",
+   "cap_hit": 900000,
+   "expiry": "2027",
+   "status": "UFA"
+  },
+  "thatcher demko": {
+   "name": "Thatcher Demko",
+   "cap_hit": 8500000,
+   "expiry": "2029",
+   "status": "UFA"
+  },
+  "kevin lankinen": {
+   "name": "Kevin Lankinen",
+   "cap_hit": 4500000,
+   "expiry": "2030",
+   "status": "UFA"
+  },
+  "leevi merilainen": {
+   "name": "Leevi Merilainen",
+   "cap_hit": 1100000,
+   "expiry": "2027",
+   "status": "RFA"
+  },
+  "sebastian aho": {
+   "name": "Sebastian Aho",
+   "cap_hit": 9750000,
+   "expiry": "2032",
+   "status": "UFA"
+  },
+  "nikolaj ehlers": {
+   "name": "Nikolaj Ehlers",
+   "cap_hit": 8500000,
+   "expiry": "2031",
+   "status": "UFA"
+  },
+  "andrei svechnikov": {
+   "name": "Andrei Svechnikov",
+   "cap_hit": 7750000,
+   "expiry": "2029",
+   "status": "UFA"
+  },
+  "seth jarvis": {
+   "name": "Seth Jarvis",
+   "cap_hit": 7420087,
+   "expiry": "2032",
+   "status": "UFA"
+  },
+  "logan stankoven": {
+   "name": "Logan Stankoven",
+   "cap_hit": 6000000,
+   "expiry": "2034",
+   "status": "UFA"
+  },
+  "jackson blake": {
+   "name": "Jackson Blake",
+   "cap_hit": 5117002,
+   "expiry": "2034",
+   "status": "UFA"
+  },
+  "jesperi kotkaniemi": {
+   "name": "Jesperi Kotkaniemi",
+   "cap_hit": 4820000,
+   "expiry": "2030",
+   "status": "UFA"
+  },
+  "taylor hall": {
+   "name": "Taylor Hall",
+   "cap_hit": 3166667,
+   "expiry": "2028",
+   "status": "UFA"
+  },
+  "jordan martinook": {
+   "name": "Jordan Martinook",
+   "cap_hit": 3125000,
+   "expiry": "2027",
+   "status": "UFA"
+  },
+  "jordan staal": {
+   "name": "Jordan Staal",
+   "cap_hit": 2975000,
+   "expiry": "2028",
+   "status": "UFA"
+  },
+  "william carrier": {
+   "name": "William Carrier",
+   "cap_hit": 2150000,
+   "expiry": "2030",
+   "status": "UFA"
+  },
+  "mark jankowski": {
+   "name": "Mark Jankowski",
+   "cap_hit": 1850000,
+   "expiry": "2028",
+   "status": "UFA"
+  },
+  "eric robinson": {
+   "name": "Eric Robinson",
+   "cap_hit": 1700000,
+   "expiry": "2029",
+   "status": "UFA"
+  },
+  "bradly nadeau": {
+   "name": "Bradly Nadeau",
+   "cap_hit": 918333,
+   "expiry": "2027",
+   "status": "RFA"
+  },
+  "felix unger sorum": {
+   "name": "Felix Unger Sörum",
+   "cap_hit": 903334,
+   "expiry": "2028",
+   "status": "RFA"
+  },
+  "nicolas deslauriers": {
+   "name": "Nicolas Deslauriers",
+   "cap_hit": 875000,
+   "expiry": "2028",
+   "status": "UFA"
+  },
+  "k'andre miller": {
+   "name": "K'Andre Miller",
+   "cap_hit": 7500000,
+   "expiry": "2033",
+   "status": "UFA"
+  },
+  "jaccob slavin": {
+   "name": "Jaccob Slavin",
+   "cap_hit": 6396062,
+   "expiry": "2033",
+   "status": "UFA"
+  },
+  "sean walker": {
+   "name": "Sean Walker",
+   "cap_hit": 3625000,
+   "expiry": "2029",
+   "status": "UFA"
+  },
+  "shayne gostisbehere": {
+   "name": "Shayne Gostisbehere",
+   "cap_hit": 3200000,
+   "expiry": "2027",
+   "status": "UFA"
+  },
+  "jalen chatfield": {
+   "name": "Jalen Chatfield",
+   "cap_hit": 3075000,
+   "expiry": "2027",
+   "status": "UFA"
+  },
+  "juuso valimaki": {
+   "name": "Juuso Valimaki",
+   "cap_hit": 900000,
+   "expiry": "2027",
+   "status": "UFA"
+  },
+  "mike reilly": {
+   "name": "Mike Reilly",
+   "cap_hit": 850000,
+   "expiry": "2027",
+   "status": "UFA"
+  },
+  "pyotr kochetkov": {
+   "name": "Pyotr Kochetkov",
+   "cap_hit": 2000000,
+   "expiry": "2029",
+   "status": "UFA"
+  },
+  "brandon bussi": {
+   "name": "Brandon Bussi",
+   "cap_hit": 1900000,
+   "expiry": "2029",
+   "status": "UFA"
+  },
+  "adam fantilli": {
+   "name": "Adam Fantilli",
+   "cap_hit": 13750000,
+   "expiry": "2032",
+   "status": "UFA"
+  },
+  "matthew knies": {
+   "name": "Matthew Knies",
+   "cap_hit": 7750000,
+   "expiry": "2031",
+   "status": "UFA"
+  },
+  "valeri nichushkin": {
+   "name": "Valeri Nichushkin",
+   "cap_hit": 6125000,
+   "expiry": "2030",
+   "status": "UFA"
+  },
+  "charlie coyle": {
+   "name": "Charlie Coyle",
+   "cap_hit": 6000000,
+   "expiry": "2032",
+   "status": "UFA"
+  },
+  "conor garland": {
+   "name": "Conor Garland",
+   "cap_hit": 6000000,
+   "expiry": "2032",
+   "status": "UFA"
+  },
+  "sean monahan": {
+   "name": "Sean Monahan",
+   "cap_hit": 5500000,
+   "expiry": "2029",
+   "status": "UFA"
+  },
+  "cole sillinger": {
+   "name": "Cole Sillinger",
+   "cap_hit": 4625000,
+   "expiry": "2029",
+   "status": "UFA"
+  },
+  "dmitri voronkov": {
+   "name": "Dmitri Voronkov",
+   "cap_hit": 4175000,
+   "expiry": "2027",
+   "status": "RFA"
+  },
+  "mathieu olivier": {
+   "name": "Mathieu Olivier",
+   "cap_hit": 3000000,
+   "expiry": "2031",
+   "status": "UFA"
+  },
+  "kent johnson": {
+   "name": "Kent Johnson",
+   "cap_hit": 1800000,
+   "expiry": "2027",
+   "status": "RFA"
+  },
+  "ryan lomberg": {
+   "name": "Ryan Lomberg",
+   "cap_hit": 1300000,
+   "expiry": "2028",
+   "status": "UFA"
+  },
+  "isac lundestrom": {
+   "name": "Isac Lundestrom",
+   "cap_hit": 1300000,
+   "expiry": "2027",
+   "status": "UFA"
+  },
+  "danton heinen": {
+   "name": "Danton Heinen",
+   "cap_hit": 1000000,
+   "expiry": "2027",
+   "status": "UFA"
+  },
+  "luca del bel belluz": {
+   "name": "Luca Del Bel Belluz",
+   "cap_hit": 859999,
+   "expiry": "2027",
+   "status": "RFA"
+  },
+  "zach werenski": {
+   "name": "Zach Werenski",
+   "cap_hit": 9583334,
+   "expiry": "2028",
+   "status": "UFA"
+  },
+  "ivan provorov": {
+   "name": "Ivan Provorov",
+   "cap_hit": 8500000,
+   "expiry": "2032",
+   "status": "UFA"
+  },
+  "damon severson": {
+   "name": "Damon Severson",
+   "cap_hit": 6250000,
+   "expiry": "2031",
+   "status": "UFA"
+  },
+  "dante fabbro": {
+   "name": "Dante Fabbro",
+   "cap_hit": 4125000,
+   "expiry": "2029",
+   "status": "UFA"
+  },
+  "erik gudbranson": {
+   "name": "Erik Gudbranson",
+   "cap_hit": 1750000,
+   "expiry": "2027",
+   "status": "UFA"
+  },
+  "emil andrae": {
+   "name": "Emil Andrae",
+   "cap_hit": 1550000,
+   "expiry": "2028",
+   "status": "RFA"
+  },
+  "carson soucy": {
+   "name": "Carson Soucy",
+   "cap_hit": 1150000,
+   "expiry": "2027",
+   "status": "UFA"
+  },
+  "jake christiansen": {
+   "name": "Jake Christiansen",
+   "cap_hit": 975000,
+   "expiry": "2027",
+   "status": "UFA"
+  },
+  "denton mateychuk": {
+   "name": "Denton Mateychuk",
+   "cap_hit": 886666,
+   "expiry": "2027",
+   "status": "RFA"
+  },
+  "jet greaves": {
+   "name": "Jet Greaves",
+   "cap_hit": 5000000,
+   "expiry": "2029",
+   "status": "UFA"
+  },
+  "cam talbot": {
+   "name": "Cam Talbot",
+   "cap_hit": 950000,
+   "expiry": "2027",
+   "status": "UFA"
+  },
+  "pavel dorofeyev": {
+   "name": "Pavel Dorofeyev",
+   "cap_hit": 11000000,
+   "expiry": "2033",
+   "status": "UFA"
+  },
+  "mika zibanejad": {
+   "name": "Mika Zibanejad",
+   "cap_hit": 8500000,
+   "expiry": "2030",
+   "status": "UFA"
+  },
+  "j.t. miller": {
+   "name": "J.T. Miller",
+   "cap_hit": 8000000,
+   "expiry": "2030",
+   "status": "UFA"
+  },
+  "alexis lafreniere": {
+   "name": "Alexis Lafreniere",
+   "cap_hit": 7450000,
+   "expiry": "2032",
+   "status": "UFA"
+  },
+  "oliver bjorkstrand": {
+   "name": "Oliver Bjorkstrand",
+   "cap_hit": 4500000,
+   "expiry": "2027",
+   "status": "UFA"
+  },
+  "will cuylle": {
+   "name": "Will Cuylle",
+   "cap_hit": 3900000,
+   "expiry": "2027",
+   "status": "RFA"
+  },
+  "taylor raddysh": {
+   "name": "Taylor Raddysh",
+   "cap_hit": 1500000,
+   "expiry": "2027",
+   "status": "UFA"
+  },
+  "eeli tolvanen": {
+   "name": "Eeli Tolvanen",
+   "cap_hit": 1500000,
+   "expiry": "2027",
+   "status": "UFA"
+  },
+  "tye kartye": {
+   "name": "Tye Kartye",
+   "cap_hit": 1250000,
+   "expiry": "2027",
+   "status": "RFA"
+  },
+  "joseph veleno": {
+   "name": "Joseph Veleno",
+   "cap_hit": 1200000,
+   "expiry": "2027",
+   "status": "UFA"
+  },
+  "matt rempe": {
+   "name": "Matt Rempe",
+   "cap_hit": 975000,
+   "expiry": "2027",
+   "status": "RFA"
+  },
+  "noah laba": {
+   "name": "Noah Laba",
+   "cap_hit": 945000,
+   "expiry": "2027",
+   "status": "RFA"
+  },
+  "gabe perreault": {
+   "name": "Gabe Perreault",
+   "cap_hit": 941667,
+   "expiry": "2027",
+   "status": "RFA 10.2c"
+  },
+  "justin dowling": {
+   "name": "Justin Dowling",
+   "cap_hit": 850000,
+   "expiry": "2027",
+   "status": "UFA"
+  },
+  "adam fox": {
+   "name": "Adam Fox",
+   "cap_hit": 9500000,
+   "expiry": "2029",
+   "status": "UFA"
+  },
+  "vladislav gavrikov": {
+   "name": "Vladislav Gavrikov",
+   "cap_hit": 7000000,
+   "expiry": "2032",
+   "status": "UFA"
+  },
+  "sean durzi": {
+   "name": "Sean Durzi",
+   "cap_hit": 6000000,
+   "expiry": "2028",
+   "status": "UFA"
+  },
+  "marcus pettersson": {
+   "name": "Marcus Pettersson",
+   "cap_hit": 5500000,
+   "expiry": "2031",
+   "status": "UFA"
+  },
+  "braden schneider": {
+   "name": "Braden Schneider",
+   "cap_hit": 5500000,
+   "expiry": "2027",
+   "status": "RFA"
+  },
+  "alberts smits": {
+   "name": "Alberts Smits",
+   "cap_hit": 1075000,
+   "expiry": "2029",
+   "status": "RFA"
+  },
+  "scott morrow": {
+   "name": "Scott Morrow",
+   "cap_hit": 850000,
+   "expiry": "2027",
+   "status": "RFA"
+  },
+  "igor shesterkin": {
+   "name": "Igor Shesterkin",
+   "cap_hit": 11567857,
+   "expiry": "2033",
+   "status": "UFA"
+  },
+  "joonas korpisalo": {
+   "name": "Joonas Korpisalo",
+   "cap_hit": 3000000,
+   "expiry": "2028",
+   "status": "UFA"
+  },
+  "dylan garand": {
+   "name": "Dylan Garand",
+   "cap_hit": 875000,
+   "expiry": "2028",
+   "status": "RFA"
+  },
+  "spencer martin": {
+   "name": "Spencer Martin",
+   "cap_hit": 850000,
+   "expiry": "2027",
+   "status": "UFA"
+  },
+  "trevor zegras": {
+   "name": "Trevor Zegras",
+   "cap_hit": 9125000,
+   "expiry": "2030",
+   "status": "UFA"
+  },
+  "travis konecny": {
+   "name": "Travis Konecny",
+   "cap_hit": 8750000,
+   "expiry": "2033",
+   "status": "UFA"
+  },
+  "sean couturier": {
+   "name": "Sean Couturier",
+   "cap_hit": 7750000,
+   "expiry": "2030",
+   "status": "UFA"
+  },
+  "owen tippett": {
+   "name": "Owen Tippett",
+   "cap_hit": 6200000,
+   "expiry": "2032",
+   "status": "UFA"
+  },
+  "christian dvorak": {
+   "name": "Christian Dvorak",
+   "cap_hit": 5150000,
+   "expiry": "2031",
+   "status": "UFA"
+  },
+  "noah cates": {
+   "name": "Noah Cates",
+   "cap_hit": 4000000,
+   "expiry": "2029",
+   "status": "UFA"
+  },
+  "tyson foerster": {
+   "name": "Tyson Foerster",
+   "cap_hit": 3750000,
+   "expiry": "2035",
+   "status": "UFA"
+  },
+  "noel acciari": {
+   "name": "Noel Acciari",
+   "cap_hit": 2800000,
+   "expiry": "2028",
+   "status": "UFA"
+  },
+  "michael bunting": {
+   "name": "Michael Bunting",
+   "cap_hit": 1215054,
+   "expiry": "2027",
+   "status": "UFA"
+  },
+  "nikita grebenkin": {
+   "name": "Nikita Grebenkin",
+   "cap_hit": 1100000,
+   "expiry": "2028",
+   "status": "RFA"
+  },
+  "cole knuble": {
+   "name": "Cole Knuble",
+   "cap_hit": 980000,
+   "expiry": "2028",
+   "status": "RFA"
+  },
+  "porter martone": {
+   "name": "Porter Martone",
+   "cap_hit": 977917,
+   "expiry": "2028",
+   "status": "RFA"
+  },
+  "alex bump": {
+   "name": "Alex Bump",
+   "cap_hit": 972500,
+   "expiry": "2028",
+   "status": "RFA"
+  },
+  "matvei michkov": {
+   "name": "Matvei Michkov",
+   "cap_hit": 950000,
+   "expiry": "2027",
+   "status": "RFA"
+  },
+  "denver barkey": {
+   "name": "Denver Barkey",
+   "cap_hit": 925833,
+   "expiry": "2028",
+   "status": "RFA"
+  },
+  "garrett wilson": {
+   "name": "Garrett Wilson",
+   "cap_hit": 850000,
+   "expiry": "2027",
+   "status": "UFA"
+  },
+  "jacob gaucher": {
+   "name": "Jacob Gaucher",
+   "cap_hit": 850000,
+   "expiry": "2027",
+   "status": "UFA Group 6"
+  },
+  "jamie drysdale": {
+   "name": "Jamie Drysdale",
+   "cap_hit": 6500000,
+   "expiry": "2030",
+   "status": "UFA"
+  },
+  "travis sanheim": {
+   "name": "Travis Sanheim",
+   "cap_hit": 6250000,
+   "expiry": "2031",
+   "status": "UFA"
+  },
+  "cameron york": {
+   "name": "Cameron York",
+   "cap_hit": 5150000,
+   "expiry": "2030",
+   "status": "UFA"
+  },
+  "rasmus ristolainen": {
+   "name": "Rasmus Ristolainen",
+   "cap_hit": 5100000,
+   "expiry": "2027",
+   "status": "UFA"
+  },
+  "nick seeler": {
+   "name": "Nick Seeler",
+   "cap_hit": 2700000,
+   "expiry": "2028",
+   "status": "UFA"
+  },
+  "david jiricek": {
+   "name": "David Jiricek",
+   "cap_hit": 1500000,
+   "expiry": "2028",
+   "status": "RFA"
+  },
+  "simon benoit": {
+   "name": "Simon Benoit",
+   "cap_hit": 1350000,
+   "expiry": "2027",
+   "status": "UFA"
+  },
+  "hunter mcdonald": {
+   "name": "Hunter McDonald",
+   "cap_hit": 912500,
+   "expiry": "2028",
+   "status": "RFA"
+  },
+  "oliver bonk": {
+   "name": "Oliver Bonk",
+   "cap_hit": 909166,
+   "expiry": "2028",
+   "status": "RFA"
+  },
+  "joseph woll": {
+   "name": "Joseph Woll",
+   "cap_hit": 3666667,
+   "expiry": "2028",
+   "status": "UFA"
+  },
+  "dan vladar": {
+   "name": "Dan Vladar",
+   "cap_hit": 3350000,
+   "expiry": "2032",
+   "status": "UFA"
+  },
+  "sidney crosby": {
+   "name": "Sidney Crosby",
+   "cap_hit": 8700000,
+   "expiry": "2027",
+   "status": "UFA"
+  },
+  "egor chinakhov": {
+   "name": "Egor Chinakhov",
+   "cap_hit": 6250000,
+   "expiry": "2029",
+   "status": "UFA"
+  },
+  "evgeni malkin": {
+   "name": "Evgeni Malkin",
+   "cap_hit": 5500000,
+   "expiry": "2027",
+   "status": "UFA"
+  },
+  "bryan rust": {
+   "name": "Bryan Rust",
+   "cap_hit": 5125000,
+   "expiry": "2028",
+   "status": "UFA"
+  },
+  "rickard rakell": {
+   "name": "Rickard Rakell",
+   "cap_hit": 5000000,
+   "expiry": "2028",
+   "status": "UFA"
+  },
+  "andrei kuzmenko": {
+   "name": "Andrei Kuzmenko",
+   "cap_hit": 5000000,
+   "expiry": "2027",
+   "status": "UFA"
+  },
+  "ville koivunen": {
+   "name": "Ville Koivunen",
+   "cap_hit": 4000000,
+   "expiry": "2034",
+   "status": "UFA"
+  },
+  "thomas novak": {
+   "name": "Thomas Novak",
+   "cap_hit": 3500000,
+   "expiry": "2030",
+   "status": "UFA"
+  },
+  "nicholas robertson": {
+   "name": "Nicholas Robertson",
+   "cap_hit": 3250000,
+   "expiry": "2028",
+   "status": "RFA"
+  },
+  "connor dewar": {
+   "name": "Connor Dewar",
+   "cap_hit": 2250000,
+   "expiry": "2028",
+   "status": "UFA"
+  },
+  "blake lizotte": {
+   "name": "Blake Lizotte",
+   "cap_hit": 2250000,
+   "expiry": "2029",
+   "status": "UFA"
+  },
+  "justin brazeau": {
+   "name": "Justin Brazeau",
+   "cap_hit": 1500000,
+   "expiry": "2027",
+   "status": "UFA"
+  },
+  "hendrix lapierre": {
+   "name": "Hendrix Lapierre",
+   "cap_hit": 1300000,
+   "expiry": "2028",
+   "status": "RFA"
+  },
+  "elmer soderblom": {
+   "name": "Elmer Soderblom",
+   "cap_hit": 1125000,
+   "expiry": "2027",
+   "status": "RFA"
+  },
+  "benjamin kindel": {
+   "name": "Benjamin Kindel",
+   "cap_hit": 986250,
+   "expiry": "2028",
+   "status": "RFA"
+  },
+  "erik karlsson": {
+   "name": "Erik Karlsson",
+   "cap_hit": 10000000,
+   "expiry": "2027",
+   "status": "UFA"
+  },
+  "kris letang": {
+   "name": "Kris Letang",
+   "cap_hit": 6100000,
+   "expiry": "2028",
+   "status": "UFA"
+  },
+  "samuel girard": {
+   "name": "Samuel Girard",
+   "cap_hit": 5000000,
+   "expiry": "2027",
+   "status": "UFA"
+  },
+  "ryan graves": {
+   "name": "Ryan Graves",
+   "cap_hit": 4500000,
+   "expiry": "2029",
+   "status": "UFA"
+  },
+  "trevor van riemsdyk": {
+   "name": "Trevor van Riemsdyk",
+   "cap_hit": 4000000,
+   "expiry": "2028",
+   "status": "UFA"
+  },
+  "kaedan korczak": {
+   "name": "Kaedan Korczak",
+   "cap_hit": 3250000,
+   "expiry": "2030",
+   "status": "UFA"
+  },
+  "spencer stastney": {
+   "name": "Spencer Stastney",
+   "cap_hit": 1525000,
+   "expiry": "2027",
+   "status": "UFA"
+  },
+  "declan carlile": {
+   "name": "Declan Carlile",
+   "cap_hit": 1500000,
+   "expiry": "2028",
+   "status": "UFA"
+  },
+  "ilya solovyov": {
+   "name": "Ilya Solovyov",
+   "cap_hit": 850000,
+   "expiry": "2027",
+   "status": "UFA Group 6"
+  },
+  "arturs silovs": {
+   "name": "Arturs Silovs",
+   "cap_hit": 2800000,
+   "expiry": "2027",
+   "status": "RFA"
+  },
+  "sergei murashov": {
+   "name": "Sergei Murashov",
+   "cap_hit": 936110,
+   "expiry": "2027",
+   "status": "RFA"
+  },
+  "timo meier": {
+   "name": "Timo Meier",
+   "cap_hit": 8800000,
+   "expiry": "2031",
+   "status": "UFA"
+  },
+  "jack hughes": {
+   "name": "Jack Hughes",
+   "cap_hit": 8000000,
+   "expiry": "2030",
+   "status": "UFA"
+  },
+  "jesper bratt": {
+   "name": "Jesper Bratt",
+   "cap_hit": 7875000,
+   "expiry": "2031",
+   "status": "UFA"
+  },
+  "nico hischier": {
+   "name": "Nico Hischier",
+   "cap_hit": 7250000,
+   "expiry": "2032",
+   "status": "UFA"
+  },
+  "anthony mantha": {
+   "name": "Anthony Mantha",
+   "cap_hit": 4750000,
+   "expiry": "2028",
+   "status": "UFA"
+  },
+  "dawson mercer": {
+   "name": "Dawson Mercer",
+   "cap_hit": 4000000,
+   "expiry": "2027",
+   "status": "RFA"
+  },
+  "arseny gritsyuk": {
+   "name": "Arseny Gritsyuk",
+   "cap_hit": 3250000,
+   "expiry": "2029",
+   "status": "UFA"
+  },
+  "evan rodrigues": {
+   "name": "Evan Rodrigues",
+   "cap_hit": 3075000,
+   "expiry": "2027",
+   "status": "UFA"
+  },
+  "connor brown": {
+   "name": "Connor Brown",
+   "cap_hit": 3000000,
+   "expiry": "2029",
+   "status": "UFA"
+  },
+  "luke evangelista": {
+   "name": "Luke Evangelista",
+   "cap_hit": 3000000,
+   "expiry": "2032",
+   "status": "UFA"
+  },
+  "stefan noesen": {
+   "name": "Stefan Noesen",
+   "cap_hit": 2750000,
+   "expiry": "2027",
+   "status": "UFA"
+  },
+  "cody glass": {
+   "name": "Cody Glass",
+   "cap_hit": 2500000,
+   "expiry": "2027",
+   "status": "UFA"
+  },
+  "nick bjugstad": {
+   "name": "Nick Bjugstad",
+   "cap_hit": 1750000,
+   "expiry": "2027",
+   "status": "UFA"
+  },
+  "jesper boqvist": {
+   "name": "Jesper Boqvist",
+   "cap_hit": 1500000,
+   "expiry": "2027",
+   "status": "UFA"
+  },
+  "amadeus lombardi": {
+   "name": "Amadeus Lombardi",
+   "cap_hit": 875000,
+   "expiry": "2028",
+   "status": "RFA"
+  },
+  "dougie hamilton": {
+   "name": "Dougie Hamilton",
+   "cap_hit": 9000000,
+   "expiry": "2028",
+   "status": "UFA"
+  },
+  "luke hughes": {
+   "name": "Luke Hughes",
+   "cap_hit": 9000000,
+   "expiry": "2032",
+   "status": "UFA"
+  },
+  "brett pesce": {
+   "name": "Brett Pesce",
+   "cap_hit": 5500000,
+   "expiry": "2030",
+   "status": "UFA"
+  },
+  "brenden dillon": {
+   "name": "Brenden Dillon",
+   "cap_hit": 4000000,
+   "expiry": "2027",
+   "status": "UFA"
+  },
+  "johnathan kovacevic": {
+   "name": "Johnathan Kovacevic",
+   "cap_hit": 4000000,
+   "expiry": "2030",
+   "status": "UFA"
+  },
+  "jonas siegenthaler": {
+   "name": "Jonas Siegenthaler",
+   "cap_hit": 3400000,
+   "expiry": "2028",
+   "status": "UFA"
+  },
+  "declan chisholm": {
+   "name": "Declan Chisholm",
+   "cap_hit": 1600000,
+   "expiry": "2027",
+   "status": "UFA"
+  },
+  "jake allen": {
+   "name": "Jake Allen",
+   "cap_hit": 1800000,
+   "expiry": "2030",
+   "status": "UFA"
+  },
+  "nico daws": {
+   "name": "Nico Daws",
+   "cap_hit": 1100000,
+   "expiry": "2028",
+   "status": "UFA"
+  },
+  "remi poirier": {
+   "name": "Remi Poirier",
+   "cap_hit": 850000,
+   "expiry": "2027",
+   "status": "UFA Group 6"
+  },
+  "alex tuch": {
+   "name": "Alex Tuch",
+   "cap_hit": 10500000,
+   "expiry": "2034",
+   "status": "UFA"
+  },
+  "pierre-luc dubois": {
+   "name": "Pierre-Luc Dubois",
+   "cap_hit": 8500000,
+   "expiry": "2031",
+   "status": "UFA"
+  },
+  "jordan kyrou": {
+   "name": "Jordan Kyrou",
+   "cap_hit": 8125000,
+   "expiry": "2031",
+   "status": "UFA"
+  },
+  "tom wilson": {
+   "name": "Tom Wilson",
+   "cap_hit": 6540000,
+   "expiry": "2031",
+   "status": "UFA"
+  },
+  "boone jenner": {
+   "name": "Boone Jenner",
+   "cap_hit": 5750000,
+   "expiry": "2030",
+   "status": "UFA"
+  },
+  "dylan strome": {
+   "name": "Dylan Strome",
+   "cap_hit": 5000000,
+   "expiry": "2028",
+   "status": "UFA"
+  },
+  "alex ovechkin": {
+   "name": "Alex Ovechkin",
+   "cap_hit": 4250000,
+   "expiry": "2027",
+   "status": "UFA"
+  },
+  "aliaksei protas": {
+   "name": "Aliaksei Protas",
+   "cap_hit": 3375000,
+   "expiry": "2029",
+   "status": "UFA"
+  },
+  "anthony beauvillier": {
+   "name": "Anthony Beauvillier",
+   "cap_hit": 2750000,
+   "expiry": "2027",
+   "status": "UFA"
+  },
+  "ethen frank": {
+   "name": "Ethen Frank",
+   "cap_hit": 2000000,
+   "expiry": "2028",
+   "status": "UFA"
+  },
+  "ryan leonard": {
+   "name": "Ryan Leonard",
+   "cap_hit": 950000,
+   "expiry": "2035",
+   "status": "UFA"
+  },
+  "ilya protas": {
+   "name": "Ilya Protas",
+   "cap_hit": 932500,
+   "expiry": "2029",
+   "status": "RFA"
+  },
+  "ivan miroshnichenko": {
+   "name": "Ivan Miroshnichenko",
+   "cap_hit": 925000,
+   "expiry": "2028",
+   "status": "RFA"
+  },
+  "jonny brodzinski": {
+   "name": "Jonny Brodzinski",
+   "cap_hit": 850000,
+   "expiry": "2027",
+   "status": "UFA"
+  },
+  "justin sourdif": {
+   "name": "Justin Sourdif",
+   "cap_hit": 825000,
+   "expiry": "2035",
+   "status": "UFA"
+  },
+  "jakob chychrun": {
+   "name": "Jakob Chychrun",
+   "cap_hit": 9000000,
+   "expiry": "2033",
+   "status": "UFA"
+  },
+  "martin fehervary": {
+   "name": "Martin Fehervary",
+   "cap_hit": 6000000,
+   "expiry": "2033",
+   "status": "UFA"
+  },
+  "matt roy": {
+   "name": "Matt Roy",
+   "cap_hit": 5750000,
+   "expiry": "2030",
+   "status": "UFA"
+  },
+  "rasmus sandin": {
+   "name": "Rasmus Sandin",
+   "cap_hit": 4600000,
+   "expiry": "2029",
+   "status": "UFA"
+  },
+  "vincent desharnais": {
+   "name": "Vincent Desharnais",
+   "cap_hit": 4200000,
+   "expiry": "2030",
+   "status": "UFA"
+  },
+  "timothy liljegren": {
+   "name": "Timothy Liljegren",
+   "cap_hit": 3250000,
+   "expiry": "2028",
+   "status": "UFA"
+  },
+  "cole hutson": {
+   "name": "Cole Hutson",
+   "cap_hit": 952083,
+   "expiry": "2028",
+   "status": "RFA"
+  },
+  "dylan mcilrath": {
+   "name": "Dylan McIlrath",
+   "cap_hit": 850000,
+   "expiry": "2027",
+   "status": "UFA"
+  },
+  "logan thompson": {
+   "name": "Logan Thompson",
+   "cap_hit": 5850000,
+   "expiry": "2031",
+   "status": "UFA"
+  },
+  "charlie lindgren": {
+   "name": "Charlie Lindgren",
+   "cap_hit": 3000000,
+   "expiry": "2028",
+   "status": "UFA"
+  },
+  "mathew barzal": {
+   "name": "Mathew Barzal",
+   "cap_hit": 9150000,
+   "expiry": "2031",
+   "status": "UFA"
+  },
+  "bo horvat": {
+   "name": "Bo Horvat",
+   "cap_hit": 8500000,
+   "expiry": "2031",
+   "status": "UFA"
+  },
+  "brayden schenn": {
+   "name": "Brayden Schenn",
+   "cap_hit": 6500000,
+   "expiry": "2028",
+   "status": "UFA"
+  },
+  "ondrej palat": {
+   "name": "Ondrej Palat",
+   "cap_hit": 6000000,
+   "expiry": "2027",
+   "status": "UFA"
+  },
+  "jean-gabriel pageau": {
+   "name": "Jean-Gabriel Pageau",
+   "cap_hit": 4850000,
+   "expiry": "2029",
+   "status": "UFA"
+  },
+  "kyle palmieri": {
+   "name": "Kyle Palmieri",
+   "cap_hit": 4750000,
+   "expiry": "2027",
+   "status": "UFA"
+  },
+  "simon holmstrom": {
+   "name": "Simon Holmstrom",
+   "cap_hit": 3625000,
+   "expiry": "2027",
+   "status": "RFA"
+  },
+  "anthony duclair": {
+   "name": "Anthony Duclair",
+   "cap_hit": 3500000,
+   "expiry": "2028",
+   "status": "UFA"
+  },
+  "casey cizikas": {
+   "name": "Casey Cizikas",
+   "cap_hit": 2500000,
+   "expiry": "2027",
+   "status": "UFA"
+  },
+  "matias maccelli": {
+   "name": "Matias Maccelli",
+   "cap_hit": 2250000,
+   "expiry": "2027",
+   "status": "RFA"
+  },
+  "emil heineman": {
+   "name": "Emil Heineman",
+   "cap_hit": 1100000,
+   "expiry": "2027",
+   "status": "RFA"
+  },
+  "victor eklund": {
+   "name": "Victor Eklund",
+   "cap_hit": 974167,
+   "expiry": "2029",
+   "status": "RFA"
+  },
+  "calum ritchie": {
+   "name": "Calum Ritchie",
+   "cap_hit": 940833,
+   "expiry": "2028",
+   "status": "RFA"
+  },
+  "kyle maclean": {
+   "name": "Kyle MacLean",
+   "cap_hit": 850000,
+   "expiry": "2027",
+   "status": "UFA"
+  },
+  "mitchell chaffee": {
+   "name": "Mitchell Chaffee",
+   "cap_hit": 850000,
+   "expiry": "2027",
+   "status": "UFA"
+  },
+  "alexander romanov": {
+   "name": "Alexander Romanov",
+   "cap_hit": 6250000,
+   "expiry": "2033",
+   "status": "UFA"
+  },
+  "ryan pulock": {
+   "name": "Ryan Pulock",
+   "cap_hit": 6150000,
+   "expiry": "2030",
+   "status": "UFA"
+  },
+  "adam pelech": {
+   "name": "Adam Pelech",
+   "cap_hit": 5750000,
+   "expiry": "2029",
+   "status": "UFA"
+  },
+  "tony deangelo": {
+   "name": "Tony DeAngelo",
+   "cap_hit": 4500000,
+   "expiry": "2028",
+   "status": "UFA"
+  },
+  "scott mayfield": {
+   "name": "Scott Mayfield",
+   "cap_hit": 3500000,
+   "expiry": "2030",
+   "status": "UFA"
+  },
+  "logan stanley": {
+   "name": "Logan Stanley",
+   "cap_hit": 1500000,
+   "expiry": "2027",
+   "status": "UFA"
+  },
+  "matthew schaefer": {
+   "name": "Matthew Schaefer",
+   "cap_hit": 986250,
+   "expiry": "2028",
+   "status": "RFA"
+  },
+  "matthew kessel": {
+   "name": "Matthew Kessel",
+   "cap_hit": 850000,
+   "expiry": "2027",
+   "status": "UFA"
+  },
+  "ilya sorokin": {
+   "name": "Ilya Sorokin",
+   "cap_hit": 8250000,
+   "expiry": "2032",
+   "status": "UFA"
+  },
+  "semyon varlamov": {
+   "name": "Semyon Varlamov",
+   "cap_hit": 2750000,
+   "expiry": "2027",
+   "status": "UFA"
+  }
+ }
+}
