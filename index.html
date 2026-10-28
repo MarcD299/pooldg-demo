@@ -68,9 +68,12 @@
         <input id="login-email" type="email" placeholder="Courriel" required style="display:block;width:100%;max-width:320px">
         <input id="login-pass" type="password" placeholder="Mot de passe" required style="display:block;width:100%;max-width:320px">
         <button type="submit" style="border:0;border-radius:999px;padding:9px 18px;font-size:15px;cursor:pointer;background:var(--red);color:#fff">Se connecter</button>
+        <button type="button" id="signup-btn" style="border:0;border-radius:999px;padding:9px 18px;font-size:15px;cursor:pointer;background:var(--pale);color:var(--navy)">Créer un compte</button>
       </form>
       <div id="login-state" hidden></div>
-      <p class="muted" style="margin:10px 0 0;font-size:13px">Mode démo : ton courriel est mémorisé dans ce navigateur seulement, et ton mot de passe n'est ni vérifié ni conservé. La vraie vérification des comptes et le lien avec ton équipe arriveront avec le branchement entre amis. Pas encore de compte? Les comptes seront créés lors du branchement.</p>
+      <p id="login-msg" class="muted" style="margin:10px 0 0;font-size:13px"></p>
+      <p id="sb-note" class="muted" style="margin:6px 0 0;font-size:13px"></p>
+      <p class="muted" style="margin:10px 0 0;font-size:13px">Comptes partagés : crée ton compte avec ton courriel, puis le commissaire relie ton compte à ton équipe. Seul le propriétaire d’une équipe peut la modifier ; les autres équipes restent visibles en lecture seule.</p>
     </div>
     <div style="margin-top:14px">
       <h3 style="margin:0 0 10px">Qui joue ce soir</h3>
@@ -416,6 +419,7 @@
     <div style="text-align:right;margin-top:12px"><button id="fiche-close" style="border:0;border-radius:999px;padding:9px 18px;font-size:15px;cursor:pointer;background:var(--pale);color:var(--navy)">Fermer</button></div>
   </div>
 </div>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 <script>
   document.querySelectorAll('nav button').forEach(b => b.addEventListener('click', () => {
     document.querySelectorAll('nav button').forEach(x => x.classList.remove('active'));
@@ -423,34 +427,216 @@
     document.querySelectorAll('main section').forEach(s => s.hidden = true);
     document.getElementById('tab-' + b.dataset.tab).hidden = false;
   }));
-  // Connexion (mode démo : le mot de passe n'est jamais stocké ni envoyé;
-  // la vraie vérification arrivera avec le branchement entre amis).
-  const storeGet = k => { try { return localStorage.getItem(k); } catch (e) { return null; } };
-  const storeSet = (k, v) => { try { localStorage.setItem(k, v); } catch (e) {} };
-  const storeDel = k => { try { localStorage.removeItem(k); } catch (e) {} };
+  // --- Supabase (28 oct. 2026) : comptes réels + ligue partagée ---
+  // Clé publiable : elle est publique par conception (visible dans le code
+  // de la page, comme pour toute appli Supabase dans un navigateur).
+  const SB_URL = 'https://blhzotnqpmtczebiinpz.supabase.co';
+  const SB_KEY = 'sb_publishable_G2Qizw6GEA-vkxvIHiFhCg_rTh53YD9';
+  const COMM_EMAIL = 'dpmarcx69@gmail.com';
+  const sb = (typeof supabase !== 'undefined') ? supabase.createClient(SB_URL, SB_KEY) : null;
+  let SB_USER = null, MY_TEAM = null, SB_MODE = false;
   const escHtml = s => s.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+  // Clé joueur, identique à supabase-seed.sql : préfixe S ou G + id LNH,
+  // ou préfixe + n: + nom normalisé pour les joueurs sans id LNH.
+  function keyName(n) {
+    return n.normalize('NFKD').replace(/[^\x00-\x7F]/g, '').toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-+|-+$/g, '');
+  }
+  function pkey(x) {
+    const pre = (x.pos === 'G') ? 'G' : 'S';
+    if (x.id !== null && x.id !== undefined) return pre + x.id;
+    return pre + 'n:' + keyName(x.name);
+  }
+  function isComm() { return SB_USER && SB_USER.email && SB_USER.email.toLowerCase() === COMM_EMAIL; }
+  function canEdit(team) { return SB_MODE && SB_USER && MY_TEAM === team; }
+  function sbNote() {
+    const el = document.getElementById('sb-note');
+    if (!el) return;
+    el.textContent = SB_MODE
+      ? 'Données partagées entre les poolers (Supabase).'
+      : 'Données locales : la ligue partagée n’est pas encore remplie (le remplissage initial doit être exécuté).';
+  }
   function renderLogin() {
-    const email = storeGet('pooldg-demo-user');
     const form = document.getElementById('login-form');
     const state = document.getElementById('login-state');
-    if (email) {
+    const msg = document.getElementById('login-msg');
+    if (SB_USER) {
       form.hidden = true;
       state.hidden = false;
-      state.innerHTML = '<p>Connecté en tant que <b>' + escHtml(email) + '</b> (mode démo).</p><button id="logout-btn" style="border:0;border-radius:999px;padding:9px 18px;font-size:15px;cursor:pointer;background:var(--pale);color:var(--navy)">Se déconnecter</button>';
-      document.getElementById('logout-btn').addEventListener('click', () => { storeDel('pooldg-demo-user'); renderLogin(); });
+      const teamLine = MY_TEAM ? 'Ton équipe : <b>' + escHtml(MY_TEAM) + '</b>.' : 'Aucune équipe associée pour l’instant : le commissaire doit relier ton compte à ton équipe.';
+      state.innerHTML = '<p>Connecté en tant que <b>' + escHtml(SB_USER.email) + '</b>.</p><p>' + teamLine + '</p><button id="logout-btn" style="border:0;border-radius:999px;padding:9px 18px;font-size:15px;cursor:pointer;background:var(--pale);color:var(--navy)">Se déconnecter</button>';
+      document.getElementById('logout-btn').addEventListener('click', async () => { if (sb) await sb.auth.signOut(); });
     } else {
       form.hidden = false;
       state.hidden = true;
     }
+    if (msg) msg.textContent = '';
   }
-  document.getElementById('login-form').addEventListener('submit', e => {
+  function authMsg(t) { const m = document.getElementById('login-msg'); if (m) m.textContent = t; }
+  function authErr(e) {
+    const m = (e && e.message) || '';
+    if (m.indexOf('Invalid login credentials') >= 0) return 'Courriel ou mot de passe invalide.';
+    if (m.indexOf('already registered') >= 0 || m.indexOf('already exists') >= 0) return 'Ce courriel a déjà un compte : connecte-toi.';
+    if (m.indexOf('Email not confirmed') >= 0) return 'Confirme ton compte avec le courriel reçu, puis reconnecte-toi.';
+    if (m.indexOf('Password') >= 0) return 'Le mot de passe doit compter au moins 6 caractères.';
+    return 'Connexion impossible : ' + m;
+  }
+  const loginForm = document.getElementById('login-form');
+  if (loginForm) loginForm.addEventListener('submit', async e => {
     e.preventDefault();
+    if (!sb) { authMsg('La connexion partagée est indisponible pour l’instant (réessaie plus tard).'); return; }
     const email = document.getElementById('login-email').value.trim();
-    if (!email) return;
-    storeSet('pooldg-demo-user', email);
-    renderLogin();
+    const pass = document.getElementById('login-pass').value;
+    if (!email || !pass) return;
+    const res = await sb.auth.signInWithPassword({email: email, password: pass});
+    if (res.error) authMsg(authErr(res.error));
   });
+  const signupBtn = document.getElementById('signup-btn');
+  if (signupBtn) signupBtn.addEventListener('click', async () => {
+    if (!sb) { authMsg('La connexion partagée est indisponible pour l’instant (réessaie plus tard).'); return; }
+    const email = document.getElementById('login-email').value.trim();
+    const pass = document.getElementById('login-pass').value;
+    if (!email || !pass) { authMsg('Indique un courriel et un mot de passe pour créer ton compte.'); return; }
+    const res = await sb.auth.signUp({email: email, password: pass});
+    if (res.error) { authMsg(authErr(res.error)); return; }
+    if (!res.data.session) authMsg('Compte créé : confirme-le avec le courriel reçu, puis connecte-toi.');
+  });
+  async function resolveMyTeam() {
+    MY_TEAM = null;
+    if (!sb || !SB_USER) return;
+    const res = await sb.from('teams').select('name').eq('owner_id', SB_USER.id).maybeSingle();
+    if (!res.error && res.data) MY_TEAM = res.data.name;
+  }
+  async function refreshAuthUI() {
+    await resolveMyTeam();
+    renderLogin();
+    sbNote();
+    setCommFormState();
+    if (LEAGUE) renderPooler();
+  }
+  if (sb) {
+    sb.auth.onAuthStateChange(async (ev, session) => {
+      SB_USER = session ? session.user : null;
+      await refreshAuthUI();
+    });
+  }
   renderLogin();
+  // --- Ligue partagée : lecture depuis Supabase, repli local si vide ---
+  const PICK_KIND_JS = {regulier: 'regular', recrue: 'rookies', 'mi-saison': 'midseason', equipe: 'team'};
+  function buildCatalog(refLeague, playersData) {
+    const cat = {};
+    refLeague.poolers.forEach(p => {
+      ['skaters', 'goalies', 'bench', 'farm'].forEach(sec => {
+        (p[sec] || []).forEach(x => { cat[pkey(x)] = x; });
+      });
+    });
+    (playersData.skaters || []).forEach(s => {
+      const k = 'S' + s.playerId;
+      if (!cat[k]) cat[k] = {id: s.playerId, name: s.firstName.default + ' ' + s.lastName.default, team: s.teamAbbrev, pos: s.positionCode, g: s.goals, a: s.assists, pts: s.points};
+    });
+    (playersData.goalies || []).forEach(g => {
+      const k = 'G' + g.playerId;
+      if (!cat[k]) cat[k] = {id: g.playerId, name: g.firstName.default + ' ' + g.lastName.default, team: g.teamAbbrev, pos: 'G', pj: g.gamesPlayed, w: g.wins, l: g.losses, otl: g.overtimeLosses, a: g.assists, g: g.goals, so: g.shutouts || 0};
+    });
+    return cat;
+  }
+  function buildLeagueState(rows, refLeague, catalog) {
+    const poolers = refLeague.poolers.map(rp => ({
+      name: rp.name, url: rp.url, skaters: [], goalies: [], bench: [], farm: [],
+      picks: {2027: {regular: [], rookies: [], midseason: [], team: []}, 2028: {regular: [], rookies: [], midseason: [], team: []}}
+    }));
+    const byName = {};
+    poolers.forEach(p => { byName[p.name] = p; });
+    (rows.roster || []).forEach(r => {
+      const p = byName[r.team_id];
+      const pl = catalog[r.player_key];
+      if (!p || !pl) return;
+      if (r.slot === 'actif') { if (pl.pos === 'G') p.goalies.push(pl); else p.skaters.push(pl); }
+      else if (r.slot === 'reserve') p.bench.push(pl);
+      else if (r.slot === 'recrue') p.farm.push(pl);
+    });
+    (rows.picks || []).forEach(r => {
+      const p = byName[r.team_id];
+      if (!p) return;
+      const kind = PICK_KIND_JS[r.kind];
+      if (!kind) return;
+      if (!p.picks[r.year]) p.picks[r.year] = {regular: [], rookies: [], midseason: [], team: []};
+      if (kind === 'team') p.picks[r.year][kind].push({o: r.origin});
+      else p.picks[r.year][kind].push({r: r.round, o: r.origin});
+    });
+    const league = {league: refLeague.league, date: refLeague.date, method: refLeague.method, scoring_demo: refLeague.scoring_demo, picks_rule: refLeague.picks_rule, roster_rules: refLeague.roster_rules, keeper: refLeague.keeper, poolers: poolers, proposals: []};
+    (rows.proposals || []).forEach(r => {
+      if (r.status !== 'envoyee') return;
+      league.proposals.push({id: r.id, from: r.from_team, to: r.to_team, fromOffer: (r.payload && r.payload.fromOffer) || [], toOffer: (r.payload && r.payload.toOffer) || []});
+    });
+    const ce = {};
+    (rows.ce || []).forEach(r => { ce[r.team_id] = {C: r.concession_key || null, E: r.equipe_key || null}; });
+    const keep = {};
+    (rows.keep || []).forEach(r => { (keep[r.team_id] = keep[r.team_id] || new Set()).add(r.player_key); });
+    const injured = (rows.injured || []).map(r => ({team: r.team_id, player: catalog[r.player_key] ? catalog[r.player_key].name : r.player_key, key: r.player_key, note: r.note || ''}));
+    const commMsgs = (rows.msgs || []).slice().sort((a, b) => (b.created_at || '').localeCompare(a.created_at || '')).map(m => ({title: m.title, text: m.body, date: m.created_at ? new Date(m.created_at).toLocaleDateString('fr-CA') : ''}));
+    return {league: league, ce: ce, keep: keep, injured: injured, commMsgs: commMsgs};
+  }
+  async function loadSupabaseState(refLeague, playersData) {
+    if (!sb) return null;
+    try {
+      const res = await Promise.all([sb.from('teams').select('*'), sb.from('roster_slots').select('*'), sb.from('picks').select('*'), sb.from('proposals').select('*'), sb.from('injured').select('*'), sb.from('keeper_picks').select('*'), sb.from('ce_designations').select('*'), sb.from('commissioner_messages').select('*')]);
+      for (const r of res) if (r.error) return null;
+      const teams = res[0].data || [];
+      if (!teams.length) return null;
+      const catalog = buildCatalog(refLeague, playersData);
+      return buildLeagueState({roster: res[1].data, picks: res[2].data, proposals: res[3].data, injured: res[4].data, keep: res[5].data, ce: res[6].data, msgs: res[7].data}, refLeague, catalog);
+    } catch (e) { return null; }
+  }
+  async function boot(playersData, leagueData, otherData) {
+    window._refLeague = leagueData;
+    window._playersData = playersData;
+    window._catalog = buildCatalog(leagueData, playersData);
+    if (sb) {
+      try {
+        const s = await sb.auth.getSession();
+        SB_USER = s.data.session ? s.data.session.user : null;
+        await resolveMyTeam();
+      } catch (e) {}
+    }
+    const st = await loadSupabaseState(leagueData, playersData);
+    if (st) {
+      SB_MODE = true;
+      CE = st.ce; KEEP = st.keep; INJURED = st.injured; COMM_MSGS = st.commMsgs;
+      init(playersData, st.league, otherData);
+    } else {
+      init(playersData, leagueData, otherData);
+    }
+    renderLogin();
+    sbNote();
+    setCommFormState();
+  }
+  function renderAll() {
+    renderStandings();
+    renderDraft();
+    renderPooler();
+    renderDaily();
+    refreshTxForms();
+    renderCommMsgs();
+    renderInjured();
+    fillInjPlayers();
+    renderTonight();
+  }
+  async function refreshLeague() {
+    if (!SB_MODE || !window._refLeague || !window._playersData) return;
+    const st = await loadSupabaseState(window._refLeague, window._playersData);
+    if (!st) return;
+    CE = st.ce; KEEP = st.keep; INJURED = st.injured; COMM_MSGS = st.commMsgs;
+    window._catalog = buildCatalog(window._refLeague, window._playersData);
+    LEAGUE.poolers = st.league.poolers;
+    LEAGUE.proposals = st.league.proposals;
+    LEAGUE.poolers.forEach(recomputeScores);
+    renderAll();
+  }
+  function setCommFormState() {
+    const btn = document.getElementById('comm-btn');
+    if (!btn) return;
+    btn.disabled = SB_MODE && !isComm();
+  }
   let LEAGUE = null, OTHER = null;
   function init(playersData, leagueData, otherData) {
     LEAGUE = leagueData; OTHER = otherData;
@@ -620,17 +806,37 @@
     return h;
   }
   function buildCESelects(p) {
-    const cands = (p.skaters || []).map(x => ({key: 'S' + x.id, label: x.name + ' (' + x.pos + ')'}))
-      .concat((p.goalies || []).map(x => ({key: 'G' + x.id, label: x.name + ' (G)'})))
-      .concat((p.bench || []).map(x => ({key: (x.pos === 'G' ? 'G' : 'S') + x.id, label: x.name + ' (' + x.pos + ')'})));
+    const cands = (p.skaters || []).map(x => ({key: pkey(x), label: x.name + ' (' + x.pos + ')'}))
+      .concat((p.goalies || []).map(x => ({key: pkey(x), label: x.name + ' (G)'})))
+      .concat((p.bench || []).map(x => ({key: pkey(x), label: x.name + ' (' + x.pos + ')'})));
     const opts = cands.map(c => '<option value="' + c.key + '">' + c.label + '</option>').join('');
     const cSel = document.getElementById('ce-c'), eSel = document.getElementById('ce-e');
     cSel.innerHTML = '<option value="">— Aucun —</option>' + opts;
     eSel.innerHTML = '<option value="">— Aucun —</option>' + opts;
     cSel.value = ceKey(p, 'C') || '';
     eSel.value = ceKey(p, 'E') || '';
-    cSel.onchange = () => { (CE[p.name] = CE[p.name] || {}).C = cSel.value || null; renderPooler(); };
-    eSel.onchange = () => { (CE[p.name] = CE[p.name] || {}).E = eSel.value || null; renderPooler(); };
+    cSel.disabled = SB_MODE && !canEdit(p.name);
+    eSel.disabled = SB_MODE && !canEdit(p.name);
+    cSel.onchange = async () => {
+      if (SB_MODE && !canEdit(p.name)) { cSel.value = ceKey(p, 'C') || ''; logTx('Seul le propriétaire de ' + p.name + ' peut désigner ses joueurs de concession et d’équipe.'); return; }
+      (CE[p.name] = CE[p.name] || {}).C = cSel.value || null;
+      if (SB_MODE) {
+        const cur = CE[p.name];
+        const res = await sb.from('ce_designations').upsert({team_id: p.name, concession_key: cur.C, equipe_key: cur.E}, {onConflict: 'team_id'});
+        if (res.error) logTx('La désignation n’a pas pu être enregistrée.');
+        await refreshLeague();
+      } else { renderPooler(); }
+    };
+    eSel.onchange = async () => {
+      if (SB_MODE && !canEdit(p.name)) { eSel.value = ceKey(p, 'E') || ''; logTx('Seul le propriétaire de ' + p.name + ' peut désigner ses joueurs de concession et d’équipe.'); return; }
+      (CE[p.name] = CE[p.name] || {}).E = eSel.value || null;
+      if (SB_MODE) {
+        const cur = CE[p.name];
+        const res = await sb.from('ce_designations').upsert({team_id: p.name, concession_key: cur.C, equipe_key: cur.E}, {onConflict: 'team_id'});
+        if (res.error) logTx('La désignation n’a pas pu être enregistrée.');
+        await refreshLeague();
+      } else { renderPooler(); }
+    };
   }
   function renderPooler() {
     const name = document.getElementById('pooler-select').value;
@@ -640,12 +846,12 @@
     const forwards = p.skaters.filter(s => s.pos !== 'D');
     const defense = p.skaters.filter(s => s.pos === 'D');
     const skaterRow = s =>
-      '<tr><td>' + s.name + ceBadges('S' + s.id, p) + '</td><td>' + s.team + '</td><td>' + s.pos + '</td><td>' + s.g +
+      '<tr><td>' + s.name + ceBadges(pkey(s), p) + '</td><td>' + s.team + '</td><td>' + s.pos + '</td><td>' + s.g +
       '</td><td>' + s.a + '</td><td><b>' + s.pts + '</b></td>' + capCells(s.name) + '</tr>';
     document.getElementById('pooler-forwards').innerHTML = forwards.map(skaterRow).join('');
     document.getElementById('pooler-defense').innerHTML = defense.map(skaterRow).join('');
     document.getElementById('pooler-goalies').innerHTML = p.goalies.map(g =>
-      '<tr><td>' + g.name + ceBadges('G' + g.id, p) + '</td><td>' + g.team + '</td><td>' + g.pj + '</td><td><b>' + g.w + '</b></td><td>' + g.l +
+      '<tr><td>' + g.name + ceBadges(pkey(g), p) + '</td><td>' + g.team + '</td><td>' + g.pj + '</td><td><b>' + g.w + '</b></td><td>' + g.l +
       '</td><td>' + g.otl + '</td><td>' + g.a + '</td><td>' + g.g + '</td>' + capCells(g.name) + '</tr>').join('');
     function capTotal(list) {
       let tot = 0, missing = 0;
@@ -685,7 +891,7 @@
       const df = list.filter(x => x.pos === 'D');
       const go = list.filter(x => x.pos === 'G');
       const skTable = arr => '<div style="overflow-x:auto"><table><thead><tr><th>Joueur</th><th>Équipe</th><th>Pos</th><th>PJ</th><th>B</th><th>A</th><th>Pts</th><th>Salaire</th><th>Contrat</th></tr></thead><tbody>' +
-        arr.map(s => '<tr><td>' + s.name + ceBadges('S' + s.id, p) + '</td><td>' + s.team + '</td><td>' + s.pos + '</td><td>' + statCell(s.gp) + '</td><td>' + statCell(s.g) + '</td><td>' + statCell(s.a) + '</td><td><b>' + statCell(s.pts) + '</b></td>' + capCells(s.name) + '</tr>').join('') + '</tbody></table></div>';
+        arr.map(s => '<tr><td>' + s.name + ceBadges(pkey(s), p) + '</td><td>' + s.team + '</td><td>' + s.pos + '</td><td>' + statCell(s.gp) + '</td><td>' + statCell(s.g) + '</td><td>' + statCell(s.a) + '</td><td><b>' + statCell(s.pts) + '</b></td>' + capCells(s.name) + '</tr>').join('') + '</tbody></table></div>';
       let h = '';
       if (fw.length && df.length) {
         h += '<p style="margin:8px 0 4px"><b>Attaquants</b></p>' + skTable(fw) +
@@ -696,7 +902,7 @@
         h += skTable(df);
       }
       if (go.length) h += '<div style="overflow-x:auto;margin-top:12px"><table><thead><tr><th>Gardien</th><th>Équipe</th><th>PJ</th><th>V</th><th>D</th><th>DP</th><th>A</th><th>B</th><th>Salaire</th><th>Contrat</th></tr></thead><tbody>' +
-        go.map(g => '<tr><td>' + g.name + ceBadges('G' + g.id, p) + '</td><td>' + g.team + '</td><td>' + statCell(g.gp) + '</td><td><b>' + statCell(g.w) + '</b></td><td>' + statCell(g.l) + '</td><td>' + statCell(g.otl) + '</td><td>' + statCell(g.a) + '</td><td>' + statCell(g.g) + '</td>' + capCells(g.name) + '</tr>').join('') + '</tbody></table></div>';
+        go.map(g => '<tr><td>' + g.name + ceBadges(pkey(g), p) + '</td><td>' + g.team + '</td><td>' + statCell(g.gp) + '</td><td><b>' + statCell(g.w) + '</b></td><td>' + statCell(g.l) + '</td><td>' + statCell(g.otl) + '</td><td>' + statCell(g.a) + '</td><td>' + statCell(g.g) + '</td>' + capCells(g.name) + '</tr>').join('') + '</tbody></table></div>';
       if (!h) h = '<p class="muted">Aucun.</p>';
       return h;
     }
@@ -748,8 +954,8 @@
     return !((after.f < 12 && after.f < before.f) || (after.d < 6 && after.d < before.d) || (after.g < 2 && after.g < before.g));
   }
   function rosterOptions(p) {
-    const sk = p.skaters.map(s => '<option value="S' + s.id + '">' + s.name + ' (' + s.pos + ')</option>').join('');
-    const go = p.goalies.map(g => '<option value="G' + g.id + '">' + g.name + ' (G)</option>').join('');
+    const sk = p.skaters.map(s => '<option value="' + pkey(s) + '">' + s.name + ' (' + s.pos + ')</option>').join('');
+    const go = p.goalies.map(g => '<option value="' + pkey(g) + '">' + g.name + ' (G)</option>').join('');
     return sk + go;
   }
   function freeAgents() {
@@ -902,11 +1108,52 @@
     refreshTxForms();
     renderProposals();
   }
-  function doAddDrop() {
+  async function doAddDropSb(p, dropVal, addVal) {
+    if (!canEdit(p.name)) { logTx('Seul le propriétaire de ' + p.name + ' peut modifier son équipe par ballottage.'); return; }
+    const dropKind = dropVal[0], dropId = +dropVal.slice(1);
+    const addKind = addVal[0], addId = +addVal.slice(1);
+    const dropList = dropKind === 'S' ? p.skaters : p.goalies;
+    const dropped = dropList.find(x => x.id === dropId);
+    if (!dropped) return;
+    let added = null, addedLabel = '';
+    if (addKind === 'S') {
+      const s = window._skaters.find(x => x.id === addId);
+      if (!s) return;
+      added = {id: s.id, name: s.nom, team: s.eq, pos: s.pos, g: s.b, a: s.a, pts: s.pts};
+      addedLabel = s.nom + ' (' + s.pos + ')';
+    } else {
+      const g = window._goaliesAll.find(x => x.playerId === addId);
+      if (!g) return;
+      added = {id: g.playerId, name: g.firstName.default + ' ' + g.lastName.default, team: g.teamAbbrev, pos: 'G', pj: g.gamesPlayed, w: g.wins, l: g.losses, otl: g.overtimeLosses, a: g.assists, g: g.goals, so: g.shutouts || 0};
+      addedLabel = added.name + ' (G)';
+    }
+    const sim = JSON.parse(JSON.stringify({skaters: p.skaters, goalies: p.goalies}));
+    const before = countsGroup(p);
+    if (dropKind === 'S') { const i = sim.skaters.findIndex(s => s.id === dropId); sim.skaters.splice(i, 1); }
+    else { const i = sim.goalies.findIndex(g => g.id === dropId); sim.goalies.splice(i, 1); }
+    if (addKind === 'S') sim.skaters.push(added); else sim.goalies.push(added);
+    if (!plancherOk(before, countsGroup(sim))) {
+      logTx('Ballottage refusé pour ' + p.name + ' : les minimums d’effectif (12 attaquants, 6 défenseurs, 2 gardiens) ne seraient plus respectés.');
+      refreshTxForms();
+      return;
+    }
+    const del = await sb.from('roster_slots').delete().eq('team_id', p.name).eq('player_key', pkey(dropped));
+    if (del.error) { logTx('Le ballottage n’a pas pu être enregistré.'); return; }
+    const ins = await sb.from('roster_slots').insert({team_id: p.name, player_key: pkey(added), slot: 'actif'});
+    if (ins.error) {
+      await sb.from('roster_slots').insert({team_id: p.name, player_key: pkey(dropped), slot: 'actif'});
+      logTx('Le ballottage n’a pas pu être enregistré.');
+      return;
+    }
+    logTx(p.name + ' : ajoute ' + addedLabel + ' et retire ' + dropped.name + '.');
+    await refreshLeague();
+  }
+  async function doAddDrop() {
     const p = LEAGUE.poolers.find(x => x.name === document.getElementById('tx-pooler').value);
     const dropVal = document.getElementById('tx-drop').value;
     const addVal = document.getElementById('tx-add').value;
     if (!p || !dropVal || !addVal) return;
+    if (SB_MODE) { await doAddDropSb(p, dropVal, addVal); return; }
     const dropKind = dropVal[0], dropId = +dropVal.slice(1);
     const addKind = addVal[0], addId = +addVal.slice(1);
     const before = countsGroup(p);
@@ -946,6 +1193,10 @@
   }
   function proposalLabel(val, holder) {
     if (val[0] === 'P') return pickLabel(val.slice(1), holder);
+    if (val.slice(1, 3) === 'n:' && window._catalog && window._catalog[val]) {
+      const pl = window._catalog[val];
+      return pl.name + ' (' + pl.pos + ')';
+    }
     const id = +val.slice(1);
     for (const p of LEAGUE.poolers) {
       const list = val[0] === 'S' ? p.skaters : p.goalies;
@@ -995,10 +1246,11 @@
     return 'Date limite des transactions : lundi 1er mars 2027 à 15 h (HE), comme dans la LNH. Après cette date et cette heure, aucun échange ne peut être proposé ou accepté.'
       + (tradeDeadlinePassed() ? ' — date limite passée, les échanges sont fermés.' : '');
   }
-  function doTrade() {
+  async function doTrade() {
     const pa = LEAGUE.poolers.find(x => x.name === document.getElementById('tr-pooler-a').value);
     const pb = LEAGUE.poolers.find(x => x.name === document.getElementById('tr-pooler-b').value);
     if (!pa || !pb || pa === pb) return;
+    if (SB_MODE && !canEdit(pa.name)) { logTx('Seul le propriétaire de ' + pa.name + ' peut proposer un échange pour son équipe.'); return; }
     if (tradeDeadlinePassed()) { logTx('Échange non proposé : la date limite est passée (1er mars 2027 à 15 h, comme dans la LNH).'); return; }
     function readSlots(side) {
       const vals = [];
@@ -1030,6 +1282,13 @@
       });
     }
     if (!available(pa, va) || !available(pb, vb)) { logTx('Échange non proposé : un élément sélectionné n’est plus disponible.'); return; }
+    if (SB_MODE) {
+      const res = await sb.from('proposals').insert({from_team: pa.name, to_team: pb.name, payload: {fromOffer: va, toOffer: vb}, status: 'envoyee'});
+      if (res.error) { logTx('La proposition n’a pas pu être envoyée.'); return; }
+      logTx('Proposition envoyée : ' + pa.name + ' propose à ' + pb.name + ' (' + va.map(v => proposalLabel(v, pa.name)).join(', ') + ') contre (' + vb.map(v => proposalLabel(v, pb.name)).join(', ') + ').');
+      await refreshLeague();
+      return;
+    }
     if (!LEAGUE.proposals) LEAGUE.proposals = [];
     const id = LEAGUE.proposals.length ? Math.max(...LEAGUE.proposals.map(pr => pr.id)) + 1 : 1;
     LEAGUE.proposals.push({id: id, from: pa.name, to: pb.name, fromOffer: va, toOffer: vb});
@@ -1041,56 +1300,105 @@
     if (!box) return;
     const list = LEAGUE.proposals || [];
     if (!list.length) { box.innerHTML = '<p class="muted">Aucune proposition en attente.</p>'; return; }
-    box.innerHTML = list.map(pr => {
+    box.innerHTML = list.map((pr, i) => {
       return '<div style="border:1px solid #ccc;border-radius:10px;padding:10px;margin-top:8px">'
         + '<b>' + pr.from + ' → ' + pr.to + '</b> : (' + pr.fromOffer.map(v => proposalLabel(v, pr.from)).join(', ') + ') contre (' + pr.toOffer.map(v => proposalLabel(v, pr.to)).join(', ') + ')'
-        + '<br><button onclick="acceptProposal(' + pr.id + ')" style="background:var(--navy);color:#fff;border:0;border-radius:999px;padding:6px 14px;margin:6px 6px 0 0;cursor:pointer">Accepter</button>'
-        + '<button onclick="refuseProposal(' + pr.id + ')" style="background:#888;color:#fff;border:0;border-radius:999px;padding:6px 14px;margin:6px 6px 0 0;cursor:pointer">Refuser</button>'
-        + '<button onclick="counterProposal(' + pr.id + ')" style="background:var(--red);color:#fff;border:0;border-radius:999px;padding:6px 14px;margin-top:6px;cursor:pointer">Contre-proposition</button>'
+        + '<br><button data-acc="' + i + '" style="background:var(--navy);color:#fff;border:0;border-radius:999px;padding:6px 14px;margin:6px 6px 0 0;cursor:pointer">Accepter</button>'
+        + '<button data-ref="' + i + '" style="background:#888;color:#fff;border:0;border-radius:999px;padding:6px 14px;margin:6px 6px 0 0;cursor:pointer">Refuser</button>'
+        + '<button data-cnt="' + i + '" style="background:var(--red);color:#fff;border:0;border-radius:999px;padding:6px 14px;margin-top:6px;cursor:pointer">Contre-proposition</button>'
         + '</div>';
     }).join('');
+    box.querySelectorAll('[data-acc]').forEach(b => b.addEventListener('click', () => acceptProposal(list[+b.getAttribute('data-acc')].id)));
+    box.querySelectorAll('[data-ref]').forEach(b => b.addEventListener('click', () => refuseProposal(list[+b.getAttribute('data-ref')].id)));
+    box.querySelectorAll('[data-cnt]').forEach(b => b.addEventListener('click', () => counterProposal(list[+b.getAttribute('data-cnt')].id)));
   }
-  function acceptProposal(id) {
-    const pr = (LEAGUE.proposals || []).find(x => x.id === id);
+  async function acceptProposal(id) {
+    const pr = (LEAGUE.proposals || []).find(x => String(x.id) === String(id));
     if (!pr) return;
-    if (tradeDeadlinePassed()) {
-      LEAGUE.proposals = LEAGUE.proposals.filter(x => x.id !== id);
-      logTx('Proposition expirée : la date limite est passée (1er mars 2027 à 15 h, comme dans la LNH).');
-      renderProposals(); return;
-    }
     const pa = LEAGUE.poolers.find(x => x.name === pr.from);
     const pb = LEAGUE.poolers.find(x => x.name === pr.to);
     if (!pa || !pb) return;
+    if (tradeDeadlinePassed()) {
+      if (SB_MODE) {
+        if (!canEdit(pb.name)) { logTx('Seul le propriétaire de ' + pb.name + ' peut traiter cette proposition.'); return; }
+        await sb.from('proposals').update({status: 'expiree'}).eq('id', pr.id);
+        await refreshLeague();
+      } else {
+        LEAGUE.proposals = LEAGUE.proposals.filter(x => String(x.id) !== String(id));
+        renderProposals();
+      }
+      logTx('Proposition expirée : la date limite est passée (1er mars 2027 à 15 h, comme dans la LNH).');
+      return;
+    }
+    if (SB_MODE) {
+      if (!canEdit(pb.name)) { logTx('Seul le propriétaire de ' + pb.name + ' peut accepter cette proposition.'); return; }
+      const simA = JSON.parse(JSON.stringify({name: pa.name, skaters: pa.skaters, goalies: pa.goalies, picks: pa.picks}));
+      const simB = JSON.parse(JSON.stringify({name: pb.name, skaters: pb.skaters, goalies: pb.goalies, picks: pb.picks}));
+      const sim = executeTrade(simA, simB, pr.fromOffer, pr.toOffer);
+      if (!sim.ok) {
+        logTx(sim.reason === 'plancher'
+          ? 'Échange refusé entre ' + pa.name + ' et ' + pb.name + ' : les minimums d’effectif (12 attaquants, 6 défenseurs, 2 gardiens) ne seraient plus respectés.'
+          : 'Échange non conclu : un élément de la proposition n’est plus disponible.');
+        return;
+      }
+      const upd = await sb.from('proposals').update({status: 'acceptee'}).eq('id', pr.id);
+      if (upd.error) { logTx('L’acceptation n’a pas pu être enregistrée.'); return; }
+      const rpc = await sb.rpc('execute_trade', {p_proposal: pr.id});
+      if (rpc.error) {
+        await sb.from('proposals').update({status: 'envoyee'}).eq('id', pr.id);
+        logTx('L’échange n’a pas pu être exécuté : ' + (rpc.error.message || 'erreur inconnue'));
+        await refreshLeague();
+        return;
+      }
+      logTx('Échange accepté : ' + pa.name + ' (' + sim.namesA.join(', ') + ') ⇄ ' + pb.name + ' (' + sim.namesB.join(', ') + ').');
+      await refreshLeague();
+      return;
+    }
     const res = executeTrade(pa, pb, pr.fromOffer, pr.toOffer);
-    LEAGUE.proposals = LEAGUE.proposals.filter(x => x.id !== id);
+    LEAGUE.proposals = LEAGUE.proposals.filter(x => String(x.id) !== String(id));
     if (!res.ok) {
       logTx(res.reason === 'plancher'
-        ? 'Échange refusé entre ' + pa.name + ' et ' + pb.name + ' : les minimums d\'effectif (12 attaquants, 6 défenseurs, 2 gardiens) ne seraient plus respectés.'
+        ? 'Échange refusé entre ' + pa.name + ' et ' + pb.name + ' : les minimums d’effectif (12 attaquants, 6 défenseurs, 2 gardiens) ne seraient plus respectés.'
         : 'Échange non conclu : un élément de la proposition n’est plus disponible.');
     } else {
       logTx('Échange accepté : ' + pa.name + ' (' + res.namesA.join(', ') + ') ⇄ ' + pb.name + ' (' + res.namesB.join(', ') + ').');
     }
     renderProposals(); renderStandings(); renderDraft(); renderPooler(); refreshTxForms();
   }
-  function refuseProposal(id) {
-    const pr = (LEAGUE.proposals || []).find(x => x.id === id);
+  async function refuseProposal(id) {
+    const pr = (LEAGUE.proposals || []).find(x => String(x.id) === String(id));
     if (!pr) return;
-    LEAGUE.proposals = LEAGUE.proposals.filter(x => x.id !== id);
+    if (SB_MODE) {
+      if (!canEdit(pr.to)) { logTx('Seul le propriétaire de ' + pr.to + ' peut refuser cette proposition.'); return; }
+      const res = await sb.from('proposals').update({status: 'refusee'}).eq('id', pr.id);
+      if (res.error) { logTx('Le refus n’a pas pu être enregistré.'); return; }
+      logTx(pr.to + ' refuse la proposition de ' + pr.from + '.');
+      await refreshLeague();
+      return;
+    }
+    LEAGUE.proposals = LEAGUE.proposals.filter(x => String(x.id) !== String(id));
     logTx(pr.to + ' refuse la proposition de ' + pr.from + '.');
     renderProposals();
   }
-  function counterProposal(id) {
-    const pr = (LEAGUE.proposals || []).find(x => x.id === id);
+  async function counterProposal(id) {
+    const pr = (LEAGUE.proposals || []).find(x => String(x.id) === String(id));
     if (!pr) return;
     const pa = LEAGUE.poolers.find(x => x.name === pr.to);
     const pb = LEAGUE.poolers.find(x => x.name === pr.from);
     if (!pa || !pb) return;
-    LEAGUE.proposals = LEAGUE.proposals.filter(x => x.id !== id);
+    if (SB_MODE) {
+      if (!canEdit(pa.name)) { logTx('Seul le propriétaire de ' + pa.name + ' peut faire une contre-proposition.'); return; }
+      const res = await sb.from('proposals').delete().eq('id', pr.id);
+      if (res.error) { logTx('La contre-proposition n’a pas pu être préparée.'); return; }
+      await refreshLeague();
+    } else {
+      LEAGUE.proposals = LEAGUE.proposals.filter(x => String(x.id) !== String(id));
+    }
     document.getElementById('tr-pooler-a').value = pa.name;
     document.getElementById('tr-pooler-b').value = pb.name;
     buildTradeSlots();
     function validValues(p) {
-      const vals = p.skaters.map(s => 'S' + s.id).concat(p.goalies.map(g => 'G' + g.id));
+      const vals = p.skaters.map(s => pkey(s)).concat(p.goalies.map(g => pkey(g)));
       Object.keys(p.picks).forEach(y => {
         p.picks[y].regular.forEach(pk => vals.push('P' + y + ':regular:' + pk.r + ':' + pk.o));
         p.picks[y].rookies.forEach(pk => vals.push('P' + y + ':rookies:' + pk.r + ':' + pk.o));
@@ -1227,20 +1535,27 @@
     const rows = [];
     p.skaters.forEach(s => {
       const c = capInfo(s.name);
-      rows.push({name: s.name, pos: s.pos, val: s.pts, valLabel: s.pts + ' pts', pace: pace82(s.pts, gpMap[s.id]), cap: c});
+      rows.push({key: pkey(s), name: s.name, pos: s.pos, val: s.pts, valLabel: s.pts + ' pts', pace: pace82(s.pts, gpMap[s.id]), cap: c});
     });
     p.goalies.forEach(g => {
       const c = capInfo(g.name);
-      rows.push({name: g.name, pos: 'G', val: g.w, valLabel: g.w + ' V', pace: pace82(g.w, g.pj), cap: c});
+      rows.push({key: pkey(g), name: g.name, pos: 'G', val: g.w, valLabel: g.w + ' V', pace: pace82(g.w, g.pj), cap: c});
     });
     rows.sort((a, b) => b.val - a.val);
     document.getElementById('keeper-rows').innerHTML = rows.map(r => {
-      const checked = kept.has(r.name) ? ' checked' : '';
-      return '<tr><td><input type="checkbox" data-keep="' + escHtml(r.name) + '"' + checked + '></td><td>' + r.name + '</td><td>' + r.pos + '</td><td>' + r.valLabel + '</td><td>' + r.pace + '</td><td>' + (r.cap ? fmtM(r.cap.cap_hit) : '—') + '</td><td>' + (r.cap ? r.cap.status + ' ' + (r.cap.expiry || '') : '—') + '</td></tr>';
+      const checked = kept.has(r.key) ? ' checked' : '';
+      return '<tr><td><input type="checkbox" data-keep="' + r.key + '"' + checked + (SB_MODE && !canEdit(name) ? ' disabled' : '') + '></td><td>' + r.name + '</td><td>' + r.pos + '</td><td>' + r.valLabel + '</td><td>' + r.pace + '</td><td>' + (r.cap ? fmtM(r.cap.cap_hit) : '—') + '</td><td>' + (r.cap ? r.cap.status + ' ' + (r.cap.expiry || '') : '—') + '</td></tr>';
     }).join('');
-    document.querySelectorAll('#keeper-rows input[type="checkbox"]').forEach(cb => cb.addEventListener('change', () => {
-      const nm = cb.getAttribute('data-keep');
-      if (cb.checked) kept.add(nm); else kept.delete(nm);
+    document.querySelectorAll('#keeper-rows input[type="checkbox"]').forEach(cb => cb.addEventListener('change', async () => {
+      const key = cb.getAttribute('data-keep');
+      if (SB_MODE) {
+        if (!canEdit(name)) { cb.checked = !cb.checked; logTx('Seul le propriétaire de ' + name + ' peut choisir ses conservés.'); return; }
+        const res = cb.checked
+          ? await sb.from('keeper_picks').insert({team_id: name, player_key: key})
+          : await sb.from('keeper_picks').delete().eq('team_id', name).eq('player_key', key);
+        if (res.error) { cb.checked = !cb.checked; logTx('La sélection n’a pas pu être enregistrée.'); return; }
+      }
+      if (cb.checked) kept.add(key); else kept.delete(key);
       updateKeeperCount();
     }));
     updateKeeperCount();
@@ -1254,7 +1569,7 @@
     const p = LEAGUE.poolers.find(x => x.name === name);
     if (p) {
       p.skaters.concat(p.goalies).forEach(pl => {
-        if (kept.has(pl.name)) { const c = capInfo(pl.name); if (c) tot += c.cap_hit; }
+        if (kept.has(pkey(pl))) { const c = capInfo(pl.name); if (c) tot += c.cap_hit; }
       });
     }
     document.getElementById('keeper-total').textContent = 'Masse salariale des conservés sélectionnés : ' + fmtM(tot) + '.';
@@ -1280,10 +1595,21 @@
     tsel.innerHTML = LEAGUE.poolers.map(p => '<option>' + p.name + '</option>').join('');
     tsel.addEventListener('change', fillInjPlayers);
     fillInjPlayers();
-    document.getElementById('inj-btn').addEventListener('click', () => {
+    document.getElementById('inj-btn').addEventListener('click', async () => {
       const team = tsel.value, player = document.getElementById('inj-player').value;
       const note = document.getElementById('inj-note').value.trim();
       if (!team || !player) return;
+      if (SB_MODE) {
+        if (!canEdit(team)) { logTx('Seul le propriétaire de ' + team + ' peut inscrire ses blessés.'); return; }
+        const p = LEAGUE.poolers.find(x => x.name === team);
+        const pl = p ? p.skaters.concat(p.goalies).concat(p.bench || []).find(x => x.name === player) : null;
+        if (!pl) return;
+        const res = await sb.from('injured').insert({team_id: team, player_key: pkey(pl), note: note});
+        if (res.error) { logTx('Le blessé n’a pas pu être enregistré.'); return; }
+        document.getElementById('inj-note').value = '';
+        await refreshLeague();
+        return;
+      }
       INJURED.push({team: team, player: player, note: note, date: new Date().toLocaleDateString('fr-CA')});
       document.getElementById('inj-note').value = '';
       renderInjured();
@@ -1298,9 +1624,17 @@
   }
   function renderInjured() {
     document.getElementById('inj-list').innerHTML = INJURED.length ? INJURED.map((r, i) =>
-      '<li><b>' + r.player + '</b> (' + r.team + ')' + (r.note ? ' — ' + r.note : '') + ' <small>' + r.date + '</small> <button data-inj="' + i + '" style="border:0;border-radius:999px;padding:4px 10px;cursor:pointer;background:var(--pale)">Retirer</button></li>').join('')
+      '<li><b>' + r.player + '</b> (' + r.team + ')' + (r.note ? ' — ' + r.note : '') + (r.date ? ' <small>' + r.date + '</small>' : '') + ' <button data-inj="' + i + '" data-team="' + r.team + '" data-key="' + (r.key || '') + '" style="border:0;border-radius:999px;padding:4px 10px;cursor:pointer;background:var(--pale)">Retirer</button></li>').join('')
       : '<li class="muted">Aucun blessé inscrit.</li>';
-    document.querySelectorAll('#inj-list button[data-inj]').forEach(b => b.addEventListener('click', () => {
+    document.querySelectorAll('#inj-list button[data-inj]').forEach(b => b.addEventListener('click', async () => {
+      const key = b.getAttribute('data-key'), team = b.getAttribute('data-team');
+      if (SB_MODE && key) {
+        if (!canEdit(team)) { logTx('Seul le propriétaire de ' + team + ' peut retirer ses blessés.'); return; }
+        const res = await sb.from('injured').delete().eq('team_id', team).eq('player_key', key);
+        if (res.error) { logTx('Le retrait n’a pas pu être enregistré.'); return; }
+        await refreshLeague();
+        return;
+      }
       INJURED.splice(parseInt(b.getAttribute('data-inj'), 10), 1);
       renderInjured();
     }));
@@ -1317,7 +1651,7 @@
       const p = LEAGUE.poolers.find(x => x.name === team);
       let label = val;
       if (p) {
-        const found = p.skaters.concat(p.goalies).find(pl => ('S' + pl.id === val) || ('G' + pl.id === val));
+        const found = p.skaters.concat(p.goalies).find(pl => pkey(pl) === val);
         if (found) label = found.name;
       }
       (TRADEBLOCK[team] = TRADEBLOCK[team] || {offer: [], want: []}).offer.push(label);
@@ -1401,16 +1735,26 @@
       : '<p class="muted">Aucun message pour l\'instant.</p>';
   }
   function buildVestiaire() {
-    document.getElementById('comm-btn').addEventListener('click', () => {
+    document.getElementById('comm-btn').addEventListener('click', async () => {
       const title = document.getElementById('comm-title').value.trim();
       const text = document.getElementById('comm-text').value.trim();
       if (!title && !text) return;
+      if (SB_MODE) {
+        if (!isComm()) { logTx('Seul le commissaire peut publier un message.'); return; }
+        const res = await sb.from('commissioner_messages').insert({title: title || 'Message du commissaire', body: text});
+        if (res.error) { logTx('Le message n’a pas pu être publié.'); return; }
+        document.getElementById('comm-title').value = '';
+        document.getElementById('comm-text').value = '';
+        await refreshLeague();
+        return;
+      }
       COMM_MSGS.unshift({title: title || 'Message du commissaire', text: text, date: new Date().toLocaleDateString('fr-CA')});
       document.getElementById('comm-title').value = '';
       document.getElementById('comm-text').value = '';
       renderCommMsgs();
     });
     renderCommMsgs();
+    setCommFormState();
   }
   // __INIT_START__
   if (typeof PREVIEW_DATA !== 'undefined' && typeof DEMO_LEAGUE !== 'undefined' && typeof OTHER_LEAGUES !== 'undefined' && typeof DAILY_SCORING !== 'undefined' && typeof CAP_HITS !== 'undefined' && typeof CHAMPIONS !== 'undefined' && typeof SCHEDULE !== 'undefined') {
@@ -1419,10 +1763,10 @@
     window._capMap = CAP_HITS.players;
     window._champions = CHAMPIONS;
     window._schedule = SCHEDULE;
-    init(PREVIEW_DATA, DEMO_LEAGUE, OTHER_LEAGUES);
+    boot(PREVIEW_DATA, DEMO_LEAGUE, OTHER_LEAGUES);
   } else {
     Promise.all([fetch('data/nhl-players-full.json').then(r => r.json()), fetch('data/demo-league.json').then(r => r.json()), fetch('data/other-leagues.json').then(r => r.json()), fetch('data/daily-scoring.json').then(r => r.json()), fetch('data/cap-hits.json').then(r => r.json()), fetch('data/champions.json').then(r => r.json()), fetch('data/nhl-schedule-compact.json').then(r => r.json())])
-      .then(([p, l, o, ds, cap, ch, sch]) => { window._daily = ds; window._cap = cap; window._capMap = cap.players; window._champions = ch; window._schedule = sch; init(p, l, o); })
+      .then(([p, l, o, ds, cap, ch, sch]) => { window._daily = ds; window._cap = cap; window._capMap = cap.players; window._champions = ch; window._schedule = sch; boot(p, l, o); })
       .catch(() => {
         document.getElementById('data-note').textContent =
           'Les données se chargent quand la page est servie par un site (pas en ouvrant le fichier directement).';
