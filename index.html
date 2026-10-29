@@ -377,12 +377,11 @@
     <select id="tx-add"></select>
     <button id="tx-adddrop-btn" style="background:var(--red);color:#fff;border:0;border-radius:999px;padding:9px 16px;font-size:15px;cursor:pointer">Ajouter / retirer</button>
     <h3 style="margin-top:22px">Bloc d'échanges</h3>
-    <p class="muted">Chaque équipe affiche ce qu'elle magasine et ce qu'elle recherche. En session seulement pour l'instant.</p>
+    <p class="muted" id="tb-note">Chaque équipe affiche ce qu'elle magasine et ce qu'elle recherche.</p>
     <select id="tb-team"></select>
     <select id="tb-offer"></select>
     <button id="tb-offer-btn" style="background:var(--navy);color:#fff;border:0;border-radius:999px;padding:9px 16px;font-size:15px;cursor:pointer">Magasiner ce joueur</button>
-    <input id="tb-want" placeholder="Recherché (ex. : défenseur gaucher, choix 1re 2027)">
-    <button id="tb-want-btn" style="background:var(--navy);color:#fff;border:0;border-radius:999px;padding:9px 16px;font-size:15px;cursor:pointer">Ajouter à la recherche</button>
+    <div id="tb-want" style="margin-top:10px"></div>
     <div id="tb-board" style="margin-top:12px"></div>
     <h3 style="margin-top:22px">Échange entre deux poolers</h3>
     <p class="muted" id="trade-deadline-note"></p>
@@ -511,7 +510,7 @@
     renderLogin();
     sbNote();
     setCommFormState();
-    if (LEAGUE) renderPooler();
+    if (LEAGUE) { renderPooler(); fillTbTeams(); renderTradeBlock(); }
   }
   if (sb) {
     sb.auth.onAuthStateChange(async (ev, session) => {
@@ -584,6 +583,7 @@
       const teams = res[0].data || [];
       if (!teams.length) return null;
       const catalog = buildCatalog(refLeague, playersData);
+      await loadTradeBlock();
       return buildLeagueState({roster: res[1].data, picks: res[2].data, proposals: res[3].data, injured: res[4].data, keep: res[5].data, ce: res[6].data, msgs: res[7].data}, refLeague, catalog);
     } catch (e) { return null; }
   }
@@ -620,11 +620,13 @@
     renderInjured();
     fillInjPlayers();
     renderTonight();
+    renderTradeBlock();
   }
   async function refreshLeague() {
     if (!SB_MODE || !window._refLeague || !window._playersData) return;
     const st = await loadSupabaseState(window._refLeague, window._playersData);
     if (!st) return;
+    await loadTradeBlock();
     CE = st.ce; KEEP = st.keep; INJURED = st.injured; COMM_MSGS = st.commMsgs;
     window._catalog = buildCatalog(window._refLeague, window._playersData);
     LEAGUE.poolers = st.league.poolers;
@@ -777,7 +779,7 @@
     const years = LEAGUE.poolers.length ? Object.keys(LEAGUE.poolers[0].picks) : [];
     let head = '<tr><th>Équipe</th>' + years.map(y => '<th>Choix ' + y + '</th>').join('') + '</tr>';
     let body = LEAGUE.poolers.map(p => '<tr><td><b>' + p.name + '</b></td>' +
-      years.map(y => '<td>' + p.picks[y].regular.length + ' choix (rondes ' + pickRounds(p.picks[y].regular, 0, p.name) + ') + ' + p.picks[y].rookies.length + ' recrues (' + pickRookieNums(p.picks[y].rookies, p.name) + ') + ' + (p.picks[y].midseason || []).length + ' mi-saison (' + pickRounds(p.picks[y].midseason, 0, p.name) + ') + ' + (p.picks[y].team || []).length + ' choix d\'équipe (' + (p.picks[y].team || []).map(pk => pk.o).join(', ') + ')</td>').join('') + '</tr>').join('');
+      years.map(y => '<td>' + (p.picks[y].regular.length + p.picks[y].rookies.length) + ' choix (' + p.picks[y].rookies.length + ' recrues) + ' + (p.picks[y].midseason || []).length + ' mi-saison (' + pickRounds(p.picks[y].midseason, 0, p.name) + ') + ' + (p.picks[y].team || []).length + ' choix d\'équipe (' + (p.picks[y].team || []).map(pk => pk.o).join(', ') + ')</td>').join('') + '</tr>').join('');
     document.getElementById('draft-table').innerHTML = '<thead>' + head + '</thead><tbody>' + body + '</tbody>';
   }
   function buildPoolerSelect() {
@@ -1640,29 +1642,155 @@
     }));
   }
   let TRADEBLOCK = {};
-  function buildTradeBlock() {
-    const tsel = document.getElementById('tb-team');
-    tsel.innerHTML = LEAGUE.poolers.map(p => '<option>' + p.name + '</option>').join('');
-    tsel.addEventListener('change', fillTbOffer);
-    fillTbOffer();
-    document.getElementById('tb-offer-btn').addEventListener('click', () => {
-      const team = tsel.value, val = document.getElementById('tb-offer').value;
-      if (!team || !val) return;
-      const p = LEAGUE.poolers.find(x => x.name === team);
-      let label = val;
-      if (p) {
-        const found = p.skaters.concat(p.goalies).find(pl => pkey(pl) === val);
-        if (found) label = found.name;
-      }
-      (TRADEBLOCK[team] = TRADEBLOCK[team] || {offer: [], want: []}).offer.push(label);
-      renderTradeBlock();
+  const TB_NEEDS = ['Attaquant', 'Défenseur', 'Gardien', 'Jeune espoir', 'Choix 1re ronde', 'Choix 2e ronde'];
+  const TB_NEED_WORD = {Attaquant: 'un attaquant', 'Défenseur': 'un défenseur', Gardien: 'un gardien'};
+  function tbOf(team) { return TRADEBLOCK[team] || {offer: [], want: []}; }
+  function tbFindPlayer(team, key) {
+    const p = LEAGUE.poolers.find(x => x.name === team);
+    if (!p) return null;
+    return p.skaters.concat(p.goalies).find(pl => pkey(pl) === key) || null;
+  }
+  function tbStatLine(pl) {
+    let s = pl.pos === 'G' ? (pl.w || 0) + ' V' : (pl.pts || 0) + ' pts';
+    const c = capInfo(pl.name);
+    if (c) s += ' · ' + fmtM(c.cap_hit);
+    return s;
+  }
+  function tbNeedCat(need) {
+    if (need === 'Attaquant') return 'A';
+    if (need === 'Défenseur') return 'D';
+    if (need === 'Gardien') return 'G';
+    return null;
+  }
+  function tbPlayerCat(pl) {
+    if (!pl) return null;
+    if (pl.pos === 'G') return 'G';
+    if (pl.pos === 'D') return 'D';
+    return 'A';
+  }
+  function tbMatches() {
+    const out = [];
+    LEAGUE.poolers.forEach(seeker => {
+      tbOf(seeker.name).want.forEach(need => {
+        const cat = tbNeedCat(need);
+        if (!cat) return;
+        let found = null;
+        LEAGUE.poolers.forEach(offerer => {
+          if (found || offerer.name === seeker.name) return;
+          tbOf(offerer.name).offer.forEach(key => {
+            if (found) return;
+            const pl = tbFindPlayer(offerer.name, key);
+            if (pl && tbPlayerCat(pl) === cat) found = {seeker: seeker.name, need: need, offerer: offerer.name, player: pl};
+          });
+        });
+        if (found) out.push(found);
+      });
     });
-    document.getElementById('tb-want-btn').addEventListener('click', () => {
-      const team = tsel.value, want = document.getElementById('tb-want').value.trim();
-      if (!team || !want) return;
-      (TRADEBLOCK[team] = TRADEBLOCK[team] || {offer: [], want: []}).want.push(want);
-      document.getElementById('tb-want').value = '';
-      renderTradeBlock();
+    return out;
+  }
+  async function loadTradeBlock() {
+    if (!sb) return;
+    try {
+      const res = await sb.from('trade_block').select('*');
+      if (res.error || !res.data) return;
+      const tb = {};
+      res.data.forEach(r => { tb[r.team_id] = {offer: (r.offer_keys || []).slice(), want: (r.want_needs || []).slice()}; });
+      TRADEBLOCK = tb;
+    } catch (e) {}
+  }
+  async function saveTradeBlock(team) {
+    const tb = tbOf(team);
+    if (sb && SB_MODE && canEdit(team)) {
+      try {
+        await sb.from('trade_block').upsert({team_id: team, offer_keys: tb.offer, want_needs: tb.want}, {onConflict: 'team_id'});
+      } catch (e) {}
+    }
+    renderTradeBlock();
+  }
+  async function tbAddOffer(team, val) {
+    if (!team || !val) return;
+    const tb = (TRADEBLOCK[team] = TRADEBLOCK[team] || {offer: [], want: []});
+    if (tb.offer.indexOf(val) >= 0) return;
+    tb.offer.push(val);
+    await saveTradeBlock(team);
+  }
+  async function tbToggleNeed(need) {
+    const team = document.getElementById('tb-team').value;
+    if (!team) return;
+    const tb = (TRADEBLOCK[team] = TRADEBLOCK[team] || {offer: [], want: []});
+    const i = tb.want.indexOf(need);
+    if (i >= 0) tb.want.splice(i, 1); else tb.want.push(need);
+    renderNeedChips();
+    await saveTradeBlock(team);
+  }
+  async function tbRemove(packed, kind) {
+    const sep = packed.indexOf('|');
+    if (sep < 0) return;
+    const team = packed.slice(0, sep), val = packed.slice(sep + 1);
+    const tb = TRADEBLOCK[team];
+    if (!tb) return;
+    const list = kind === 'offer' ? tb.offer : tb.want;
+    const i = list.indexOf(val);
+    if (i >= 0) list.splice(i, 1);
+    if (kind === 'want') renderNeedChips();
+    await saveTradeBlock(team);
+  }
+  function tbPropose(team, key) {
+    const a = (SB_MODE && MY_TEAM) ? MY_TEAM : document.getElementById('tb-team').value;
+    if (!a || a === team) return;
+    document.getElementById('tr-pooler-a').value = a;
+    document.getElementById('tr-pooler-b').value = team;
+    refreshTxForms();
+    const slot = document.getElementById('tr-slot-b1');
+    if (slot) slot.value = key;
+    updateTradeTotals();
+    const box = document.getElementById('trade-slots-b');
+    if (box && box.scrollIntoView) box.scrollIntoView();
+  }
+  function fillTbTeams() {
+    const tsel = document.getElementById('tb-team');
+    if (!tsel) return;
+    if (SB_MODE) {
+      tsel.innerHTML = MY_TEAM ? '<option>' + escHtml(MY_TEAM) + '</option>' : '';
+      const dis = !MY_TEAM;
+      tsel.disabled = dis;
+      document.getElementById('tb-offer').disabled = dis;
+      document.getElementById('tb-offer-btn').disabled = dis;
+    } else {
+      tsel.innerHTML = LEAGUE.poolers.map(p => '<option>' + p.name + '</option>').join('');
+      tsel.disabled = false;
+      document.getElementById('tb-offer').disabled = false;
+      document.getElementById('tb-offer-btn').disabled = false;
+    }
+    fillTbOffer();
+    renderNeedChips();
+  }
+  function renderNeedChips() {
+    const box = document.getElementById('tb-want');
+    if (!box) return;
+    const team = document.getElementById('tb-team').value;
+    const tb = tbOf(team);
+    const dis = SB_MODE && !MY_TEAM;
+    box.innerHTML = TB_NEEDS.map(n => {
+      const on = tb.want.indexOf(n) >= 0;
+      return '<button data-tb-need="' + n + '"' + (dis ? ' disabled' : '') + ' style="border:2px solid #00358f;border-radius:999px;padding:5px 12px;font-size:14px;margin:0 6px 6px 0;cursor:pointer;background:' + (on ? '#e9eefb' : '#fff') + ';font-weight:' + (on ? '700' : '400') + '">' + n + '</button>';
+    }).join('');
+  }
+  function buildTradeBlock() {
+    fillTbTeams();
+    document.getElementById('tb-team').addEventListener('change', () => { fillTbOffer(); renderNeedChips(); renderTradeBlock(); });
+    document.getElementById('tb-offer-btn').addEventListener('click', async () => {
+      await tbAddOffer(document.getElementById('tb-team').value, document.getElementById('tb-offer').value);
+    });
+    document.addEventListener('click', e => {
+      const nd = e.target.closest ? e.target.closest('[data-tb-need]') : null;
+      if (nd) { tbToggleNeed(nd.getAttribute('data-tb-need')); return; }
+      const pr = e.target.closest ? e.target.closest('[data-tb-propose]') : null;
+      if (pr) { tbPropose(pr.getAttribute('data-tb-propose'), pr.getAttribute('data-tb-key')); return; }
+      const doff = e.target.closest ? e.target.closest('[data-tb-del-offer]') : null;
+      if (doff) { tbRemove(doff.getAttribute('data-tb-del-offer'), 'offer'); return; }
+      const dneed = e.target.closest ? e.target.closest('[data-tb-del-need]') : null;
+      if (dneed) { tbRemove(dneed.getAttribute('data-tb-del-need'), 'want'); }
     });
     renderTradeBlock();
   }
@@ -1673,12 +1801,57 @@
     document.getElementById('tb-offer').innerHTML = rosterOptions(p);
   }
   function renderTradeBlock() {
-    document.getElementById('tb-board').innerHTML = LEAGUE.poolers.map(p => {
-      const tb = TRADEBLOCK[p.name] || {offer: [], want: []};
-      return '<p style="margin:10px 0 4px"><b>' + p.name + '</b></p>' +
-        '<p style="margin:2px 0">À échanger : ' + (tb.offer.length ? tb.offer.join(', ') : '<span class="muted">rien affiché</span>') + '</p>' +
-        '<p style="margin:2px 0">Recherché : ' + (tb.want.length ? tb.want.join(', ') : '<span class="muted">rien affiché</span>') + '</p>';
-    }).join('');
+    const board = document.getElementById('tb-board');
+    if (!board) return;
+    const note = document.getElementById('tb-note');
+    if (note) note.textContent = SB_MODE ? 'Partagé entre les poolers connectés : chaque équipe gère son propre bloc.' : 'En session seulement pour l’instant : connecte-toi pour partager ton bloc avec la ligue.';
+    const shown = LEAGUE.poolers.filter(p => { const tb = tbOf(p.name); return tb.offer.length || tb.want.length; });
+    const empty = LEAGUE.poolers.length - shown.length;
+    let html = '';
+    const matches = tbMatches();
+    if (matches.length) {
+      html += '<div style="background:#fdf3e7;border:2px solid #c0392b;border-radius:16px;padding:14px 18px;margin-bottom:16px"><h3 style="margin:0 0 8px;color:#c0392b;font-size:17px">Matchs potentiels (' + matches.length + ')</h3>';
+      matches.forEach(m => {
+        html += '<p style="margin:4px 0;font-size:15px"><b>' + escHtml(m.seeker) + ' cherche ' + TB_NEED_WORD[m.need] + '</b> — ' + escHtml(m.offerer) + ' en offre un : ' + escHtml(m.player.name) + ' (' + escHtml(m.player.pos) + ', ' + tbStatLine(m.player) + ').</p>';
+      });
+      html += '</div>';
+    }
+    shown.forEach(p => {
+      const tb = tbOf(p.name);
+      const removable = SB_MODE ? canEdit(p.name) : true;
+      const tbTeam = document.getElementById('tb-team') ? document.getElementById('tb-team').value : '';
+      const showPropose = SB_MODE ? !!(MY_TEAM && MY_TEAM !== p.name) : (tbTeam !== p.name);
+      html += '<div style="border:2px solid #e9eefb;border-radius:16px;padding:14px 18px;margin-bottom:12px"><h3 style="margin:0 0 10px">' + escHtml(p.name) + '</h3>';
+      if (tb.offer.length) {
+        html += '<p style="margin:0 0 8px;font-size:14px;color:#44546e">À ÉCHANGER</p><div style="display:flex;flex-wrap:wrap;gap:10px">';
+        tb.offer.forEach(key => {
+          const pl = tbFindPlayer(p.name, key);
+          if (!pl) {
+            if (removable) html += '<p class="muted" style="margin:2px 0">Offre introuvable (' + escHtml(key) + ') <button data-tb-del-offer="' + escHtml(p.name) + '|' + escHtml(key) + '" style="border:0;background:transparent;cursor:pointer;font-weight:700">×</button></p>';
+            return;
+          }
+          html += '<div style="border:2px solid #00358f;border-radius:14px;padding:10px 14px;min-width:230px;flex:1 1 230px">' +
+            '<span style="display:inline-block;background:#0b1b33;color:#fff;border-radius:6px;padding:2px 8px;font-size:12px;font-weight:700">' + escHtml(p.name) + '</span>' +
+            '<div style="font-weight:700;font-size:16px;margin-top:6px"><span data-fiche="' + escHtml(key) + '" style="cursor:pointer;text-decoration:underline">' + escHtml(pl.name) + '</span></div>' +
+            '<div style="color:#44546e;font-size:14px;margin:2px 0 8px">' + escHtml(pl.pos) + ' · ' + tbStatLine(pl) + '</div>';
+          if (removable) html += '<button data-tb-del-offer="' + escHtml(p.name) + '|' + escHtml(key) + '" style="border:0;background:transparent;cursor:pointer;font-weight:700;font-size:16px" title="Retirer">×</button> ';
+          if (showPropose) html += '<button data-tb-propose="' + escHtml(p.name) + '" data-tb-key="' + escHtml(key) + '" style="background:#00358f;color:#fff;border:0;border-radius:999px;padding:7px 14px;font-size:14px;cursor:pointer;font-weight:600">Proposer un échange</button>';
+          html += '</div>';
+        });
+        html += '</div>';
+      }
+      if (tb.want.length) {
+        html += '<p style="margin:12px 0 8px;font-size:14px;color:#44546e">RECHERCHÉ</p>';
+        tb.want.forEach(n => {
+          html += '<span style="display:inline-block;border:2px solid #00358f;border-radius:999px;padding:5px 12px;font-size:14px;margin:0 6px 6px 0;background:#e9eefb;font-weight:700">' + escHtml(n);
+          if (removable) html += ' <button data-tb-del-need="' + escHtml(p.name) + '|' + escHtml(n) + '" style="border:0;background:transparent;cursor:pointer;font-weight:700">×</button>';
+          html += '</span>';
+        });
+      }
+      html += '</div>';
+    });
+    if (empty > 0) html += '<p class="muted" style="text-align:center">' + (empty === 1 ? '1 autre équipe n’a rien affiché pour l’instant.' : empty + ' autres équipes n’ont rien affiché pour l’instant.') + '</p>';
+    board.innerHTML = html;
   }
   let DRAFTPICKS = {};
   function buildDraftBoard() {
