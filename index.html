@@ -946,8 +946,9 @@
   function leagueCardMap() {
     if (_leagueCardMap) return _leagueCardMap;
     const m = {};
-    const put = (name, rec) => { const k = keyName(name); if (name && !m[k]) m[k] = rec; };
+    const put = (name, rec) => { const k = keyName(name); if (name && !m[k]) m[k] = rec; const sq = squeezeName(name); if (name && sq && !m[sq]) m[sq] = rec; };
     (window._ncaa ? window._ncaa.players || [] : []).forEach(r => put(r.name, {name: r.name, ligue: 'NCAA', team: r.team, goalie: !!r.goalie, gp: r.gp, g: r.g, a: r.a, pts: r.pts, w: r.w, l: r.l, gaa: r.gaa, svp: r.svp, source: 'College Hockey News, 30 octobre 2026'}));
+    (window._khl ? window._khl.players || [] : []).forEach(r => put(r.name, {name: r.name, ligue: 'KHL', team: r.team, goalie: !!r.goalie, gp: r.gp, g: r.g, a: r.a, pts: r.pts, w: r.w, l: r.l, source: 'KHL, 30 octobre 2026'}));
     (OTHER && OTHER.espoirs ? OTHER.espoirs : []).forEach(e => put(e.name, {name: e.name, ligue: 'Espoirs (' + (e.league || 'NCAA') + ')', team: e.team, goalie: e.pos === 'G', gp: e.pj, g: e.g, a: e.a, pts: e.pts, source: 'Données démo, 27 octobre 2026'}));
     const lg = OTHER && OTHER.leagues ? OTHER.leagues : {};
     Object.keys(lg).forEach(k => {
@@ -958,12 +959,20 @@
     _leagueCardMap = m;
     return m;
   }
+  function squeezeName(n) {
+    return n ? n.normalize('NFKD').replace(/[^\x00-\x7F]/g, '').toLowerCase().replace(/[^a-z0-9]/g, '') : '';
+  }
   function farmNameHtml(s) {
     const h = ficheNameHtml(s);
     if (h.indexOf('data-fiche') !== -1) return h;
-    const rec = leagueCardMap()[keyName(s.name)];
-    if (!rec) return h;
-    return '<span class="name-link" data-fiche="L' + keyName(s.name) + '">' + escHtml(s.name) + '</span>';
+    const aliases = {'matthew-beniers': 'S8482665', 'matthew-coronato': 'S8482679', 'gabriel-perreault': 'S8484210', 'bradley-nadeau': 'S8484203', 'benjamin-kindel': 'S8485414', 'dmitry-simashev': 'S8484386', 'dmitry-voronkov': 'S8481716'};
+    const ak = aliases[keyName(s.name)];
+    if (ak) return '<span class="name-link" data-fiche="' + ak + '">' + escHtml(s.name) + '</span>';
+    const map = leagueCardMap();
+    const k = keyName(s.name);
+    const key = map[k] ? k : squeezeName(s.name);
+    if (!key || !map[key]) return h;
+    return '<span class="name-link" data-fiche="L' + key + '">' + escHtml(s.name) + '</span>';
   }
   function showLeagueFiche(key) {
     const rec = leagueCardMap()[key];
@@ -1878,6 +1887,11 @@
       const alias = DF_NAME_ALIASES[normName(e.name)];
       if (alias) map[alias + '|' + (e.team || '')] = e;
     });
+    const vsrc = window._verifiedInjuries || {players: []};
+    (vsrc.players || []).forEach(e => {
+      const k = normName(e.name) + '|' + (e.team || '');
+      map[k] = Object.assign({}, e, {verified: true});
+    });
     return map;
   }
   function dfDateLabel() {
@@ -1888,7 +1902,7 @@
     const dg = dgInjuryFor(key, name);
     if (dg) return {source: 'dg', text: dg.note || ''};
     const df = dfInjuryMap()[normName(name || '') + '|' + (teamAbbr || '')];
-    if (df) return {source: 'df', text: (df.details || '') + ' (Daily Faceoff, ' + dfDateLabel() + ')'};
+    if (df) return {source: 'df', text: (df.details || '') + (df.verified ? ' (Blessure vérifiée, 30 octobre 2026)' : ' (Daily Faceoff, ' + dfDateLabel() + ')')};
     return null;
   }
   function escAttr(s) { return escHtml(s).split(String.fromCharCode(34)).join('&quot;'); }
@@ -2886,8 +2900,8 @@
     window._schedule = SCHEDULE;
     boot(PREVIEW_DATA, DEMO_LEAGUE, OTHER_LEAGUES);
   } else {
-    Promise.all([fetch('data/nhl-players-full.json').then(r => r.json()), fetch('data/demo-league.json').then(r => r.json()), fetch('data/other-leagues.json').then(r => r.json()), fetch('data/daily-scoring.json').then(r => r.json()), fetch('data/cap-hits.json').then(r => r.json()), fetch('data/champions.json').then(r => r.json()), fetch('data/nhl-schedule-compact.json').then(r => r.json()), fetch('data/nhl-prev-season.json').then(r => r.json()).catch(() => null), fetch('data/nhl-career-gp.json').then(r => r.json()).catch(() => null), fetch('data/df-injuries.json').then(r => r.json()).catch(() => null), fetch('data/ncaa.json').then(r => r.json()).catch(() => null)])
-      .then(([p, l, o, ds, cap, ch, sch, ps, cg, df, nc]) => { window._daily = ds; window._cap = cap; window._capMap = cap.players; window._champions = ch; window._schedule = sch; window._prevSeason = ps || {skaters: {}, goalies: {}}; window._careerGp = cg || {skaters: {}, goalies: {}}; window._dfInjuries = df || {players: []}; window._ncaa = nc || {players: []}; boot(p, l, o); })
+    Promise.all([fetch('data/nhl-players-full.json').then(r => r.json()), fetch('data/demo-league.json').then(r => r.json()), fetch('data/other-leagues.json').then(r => r.json()), fetch('data/daily-scoring.json').then(r => r.json()), fetch('data/cap-hits.json').then(r => r.json()), fetch('data/champions.json').then(r => r.json()), fetch('data/nhl-schedule-compact.json').then(r => r.json()), fetch('data/nhl-prev-season.json').then(r => r.json()).catch(() => null), fetch('data/nhl-career-gp.json').then(r => r.json()).catch(() => null), fetch('data/df-injuries.json').then(r => r.json()).catch(() => null), fetch('data/ncaa.json').then(r => r.json()).catch(() => null), fetch('data/khl.json').then(r => r.json()).catch(() => null), fetch('data/verified-injuries.json').then(r => r.json()).catch(() => null)])
+      .then(([p, l, o, ds, cap, ch, sch, ps, cg, df, nc, kh, vi]) => { window._daily = ds; window._cap = cap; window._capMap = cap.players; window._champions = ch; window._schedule = sch; window._prevSeason = ps || {skaters: {}, goalies: {}}; window._careerGp = cg || {skaters: {}, goalies: {}}; window._dfInjuries = df || {players: []}; window._ncaa = nc || {players: []}; window._khl = kh || {players: []}; window._verifiedInjuries = vi || {players: []}; boot(p, l, o); })
       .catch(() => {
         document.getElementById('data-note').textContent =
           'Les données se chargent quand la page est servie par un site (pas en ouvrant le fichier directement).';
