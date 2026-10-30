@@ -942,6 +942,49 @@
     if (f.pos === 'D') return (pts !== null && pts !== undefined && pts >= 40) ? 'Diplômé' : 'Espoir';
     return (pts !== null && pts !== undefined && pts >= 65) ? 'Diplômé' : 'Espoir';
   }
+  let _leagueCardMap = null;
+  function leagueCardMap() {
+    if (_leagueCardMap) return _leagueCardMap;
+    const m = {};
+    const put = (name, rec) => { const k = keyName(name); if (name && !m[k]) m[k] = rec; };
+    (window._ncaa ? window._ncaa.players || [] : []).forEach(r => put(r.name, {name: r.name, ligue: 'NCAA', team: r.team, goalie: !!r.goalie, gp: r.gp, g: r.g, a: r.a, pts: r.pts, w: r.w, l: r.l, gaa: r.gaa, svp: r.svp, source: 'College Hockey News, 30 octobre 2026'}));
+    (OTHER && OTHER.espoirs ? OTHER.espoirs : []).forEach(e => put(e.name, {name: e.name, ligue: 'Espoirs (' + (e.league || 'NCAA') + ')', team: e.team, goalie: e.pos === 'G', gp: e.pj, g: e.g, a: e.a, pts: e.pts, source: 'Données démo, 27 octobre 2026'}));
+    const lg = OTHER && OTHER.leagues ? OTHER.leagues : {};
+    Object.keys(lg).forEach(k => {
+      const lab = lg[k].label || k;
+      (lg[k].skaters || []).forEach(s => put(s.name, {name: s.name, ligue: lab, team: s.team, goalie: false, gp: null, g: s.g, a: s.a, pts: s.pts, source: 'Données démo, 27 octobre 2026'}));
+      (lg[k].goalies || []).forEach(g => put(g.name, {name: g.name, ligue: lab, team: g.team, goalie: true, gp: g.pj, w: g.w, l: g.l, source: 'Données démo, 27 octobre 2026'}));
+    });
+    _leagueCardMap = m;
+    return m;
+  }
+  function farmNameHtml(s) {
+    const h = ficheNameHtml(s);
+    if (h.indexOf('data-fiche') !== -1) return h;
+    const rec = leagueCardMap()[keyName(s.name)];
+    if (!rec) return h;
+    return '<span class="name-link" data-fiche="L' + keyName(s.name) + '">' + escHtml(s.name) + '</span>';
+  }
+  function showLeagueFiche(key) {
+    const rec = leagueCardMap()[key];
+    const modal = document.getElementById('player-modal');
+    const nameEl = document.getElementById('fiche-name');
+    const bodyEl = document.getElementById('fiche-body');
+    if (!rec || !modal || !nameEl || !bodyEl) return;
+    nameEl.textContent = rec.name;
+    let h = ficheLine('Ligue', rec.ligue) + ficheLine('Équipe', rec.team);
+    if (rec.goalie) {
+      h += ficheLine('Matchs joués', rec.gp ?? '—') + ficheLine('Victoires', rec.w ?? '—') + ficheLine('Défaites', rec.l ?? '—');
+      if (rec.gaa) h += ficheLine('Moyenne', rec.gaa);
+      if (rec.svp) h += ficheLine('% arrêts', rec.svp);
+    } else {
+      h += ficheLine('Matchs joués', rec.gp ?? '—') + ficheLine('Buts', rec.g ?? '—') + ficheLine('Passes', rec.a ?? '—') + ficheLine('Points', rec.pts ?? '—');
+      if (rec.gp && rec.pts !== null && rec.pts !== undefined) h += ficheLine('Moyenne de points par match', (rec.pts / rec.gp).toFixed(2));
+    }
+    h += ficheLine('Source', rec.source);
+    bodyEl.innerHTML = h;
+    modal.hidden = false;
+  }
   function normName(n) {
     return n.normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase().replace(/\s+/g, ' ').trim();
   }
@@ -1049,7 +1092,7 @@
       const df = list.filter(x => x.pos === 'D');
       const go = list.filter(x => x.pos === 'G');
       const skTable = arr => '<div style="overflow-x:auto"><table><thead><tr><th>Joueur</th><th>Équipe</th><th>Pos</th><th>PJ</th><th>B</th><th>A</th><th>Pts</th><th>Salaire</th><th>Contrat</th></tr></thead><tbody>' +
-        arr.map(s => '<tr><td>' + ficheNameHtml(s) + ceBadges(pkey(s), p) + injMark(pkey(s), s.name, s.team) + '</td><td>' + s.team + '</td><td>' + s.pos + '</td><td>' + statCell(s.gp) + '</td><td>' + statCell(s.g) + '</td><td>' + statCell(s.a) + '</td><td><b>' + statCell(s.pts) + '</b></td>' + capCells(s.name) + '</tr>').join('') + '</tbody></table></div>';
+        arr.map(s => '<tr><td>' + farmNameHtml(s) + ceBadges(pkey(s), p) + injMark(pkey(s), s.name, s.team) + '</td><td>' + s.team + '</td><td>' + s.pos + '</td><td>' + statCell(s.gp) + '</td><td>' + statCell(s.g) + '</td><td>' + statCell(s.a) + '</td><td><b>' + statCell(s.pts) + '</b></td>' + capCells(s.name) + '</tr>').join('') + '</tbody></table></div>';
       let h = '';
       if (fw.length && df.length) {
         h += '<p style="margin:8px 0 4px"><b>Attaquants</b></p>' + skTable(fw) +
@@ -1060,7 +1103,7 @@
         h += skTable(df);
       }
       if (go.length) h += '<div style="overflow-x:auto;margin-top:12px"><table><thead><tr><th>Gardien</th><th>Équipe</th><th>PJ</th><th>V</th><th>D</th><th>DP</th><th>A</th><th>B</th><th>Salaire</th><th>Contrat</th></tr></thead><tbody>' +
-        go.map(g => '<tr><td>' + ficheNameHtml(g) + ceBadges(pkey(g), p) + injMark(pkey(g), g.name, g.team) + '</td><td>' + g.team + '</td><td>' + statCell(g.gp) + '</td><td><b>' + statCell(g.w) + '</b></td><td>' + statCell(g.l) + '</td><td>' + statCell(g.otl) + '</td><td>' + statCell(g.a) + '</td><td>' + statCell(g.g) + '</td>' + capCells(g.name) + '</tr>').join('') + '</tbody></table></div>';
+        go.map(g => '<tr><td>' + farmNameHtml(g) + ceBadges(pkey(g), p) + injMark(pkey(g), g.name, g.team) + '</td><td>' + g.team + '</td><td>' + statCell(g.gp) + '</td><td><b>' + statCell(g.w) + '</b></td><td>' + statCell(g.l) + '</td><td>' + statCell(g.otl) + '</td><td>' + statCell(g.a) + '</td><td>' + statCell(g.g) + '</td>' + capCells(g.name) + '</tr>').join('') + '</tbody></table></div>';
       if (!h) h = '<p class="muted">Aucun.</p>';
       return h;
     }
@@ -1663,6 +1706,7 @@
     const t = e.target.closest ? e.target.closest('[data-fiche]') : null;
     if (!t) return;
     const v = t.getAttribute('data-fiche');
+    if (v.charAt(0) === 'L') { showLeagueFiche(v.slice(1)); return; }
     showFiche(v.charAt(0), parseInt(v.slice(1), 10));
   });
   function renderChampions() {
@@ -2842,8 +2886,8 @@
     window._schedule = SCHEDULE;
     boot(PREVIEW_DATA, DEMO_LEAGUE, OTHER_LEAGUES);
   } else {
-    Promise.all([fetch('data/nhl-players-full.json').then(r => r.json()), fetch('data/demo-league.json').then(r => r.json()), fetch('data/other-leagues.json').then(r => r.json()), fetch('data/daily-scoring.json').then(r => r.json()), fetch('data/cap-hits.json').then(r => r.json()), fetch('data/champions.json').then(r => r.json()), fetch('data/nhl-schedule-compact.json').then(r => r.json()), fetch('data/nhl-prev-season.json').then(r => r.json()).catch(() => null), fetch('data/nhl-career-gp.json').then(r => r.json()).catch(() => null), fetch('data/df-injuries.json').then(r => r.json()).catch(() => null)])
-      .then(([p, l, o, ds, cap, ch, sch, ps, cg, df]) => { window._daily = ds; window._cap = cap; window._capMap = cap.players; window._champions = ch; window._schedule = sch; window._prevSeason = ps || {skaters: {}, goalies: {}}; window._careerGp = cg || {skaters: {}, goalies: {}}; window._dfInjuries = df || {players: []}; boot(p, l, o); })
+    Promise.all([fetch('data/nhl-players-full.json').then(r => r.json()), fetch('data/demo-league.json').then(r => r.json()), fetch('data/other-leagues.json').then(r => r.json()), fetch('data/daily-scoring.json').then(r => r.json()), fetch('data/cap-hits.json').then(r => r.json()), fetch('data/champions.json').then(r => r.json()), fetch('data/nhl-schedule-compact.json').then(r => r.json()), fetch('data/nhl-prev-season.json').then(r => r.json()).catch(() => null), fetch('data/nhl-career-gp.json').then(r => r.json()).catch(() => null), fetch('data/df-injuries.json').then(r => r.json()).catch(() => null), fetch('data/ncaa.json').then(r => r.json()).catch(() => null)])
+      .then(([p, l, o, ds, cap, ch, sch, ps, cg, df, nc]) => { window._daily = ds; window._cap = cap; window._capMap = cap.players; window._champions = ch; window._schedule = sch; window._prevSeason = ps || {skaters: {}, goalies: {}}; window._careerGp = cg || {skaters: {}, goalies: {}}; window._dfInjuries = df || {players: []}; window._ncaa = nc || {players: []}; boot(p, l, o); })
       .catch(() => {
         document.getElementById('data-note').textContent =
           'Les données se chargent quand la page est servie par un site (pas en ouvrant le fichier directement).';
