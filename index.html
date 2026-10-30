@@ -470,7 +470,7 @@
   <div class="fiche">
     <h3 id="fiche-name"></h3>
     <div id="fiche-body"></div>
-    <div style="text-align:right;margin-top:12px"><button id="fiche-close" style="border:0;border-radius:999px;padding:9px 18px;font-size:15px;cursor:pointer;background:var(--pale);color:var(--navy)">Fermer</button></div>
+    <div style="display:flex;justify-content:space-between;align-items:center;margin-top:12px"><div id="fiche-tabs" style="display:flex;gap:8px"><button id="fiche-tab-saison" style="border:0;border-radius:999px;padding:9px 16px;font-size:15px;cursor:pointer">Saison</button><button id="fiche-tab-carriere" style="border:0;border-radius:999px;padding:9px 16px;font-size:15px;cursor:pointer">Carrière</button></div><button id="fiche-close" style="border:0;border-radius:999px;padding:9px 18px;font-size:15px;cursor:pointer;background:var(--pale);color:var(--navy)">Fermer</button></div>
   </div>
 </div>
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
@@ -992,7 +992,43 @@
     }
     h += ficheLine('Source', rec.source);
     bodyEl.innerHTML = h;
+    const tabsHide = document.getElementById('fiche-tabs');
+    if (tabsHide) tabsHide.style.display = 'none';
     modal.hidden = false;
+  }
+  function fmtGaa(v) {
+    return (v === null || v === undefined) ? '—' : v.toFixed(2).replace('.', ',');
+  }
+  function fmtSvp(v) {
+    return (v === null || v === undefined) ? '—' : v.toFixed(3).replace('.', ',');
+  }
+  function careerHtml(kind, id) {
+    const data = window._career || {skaters: {}, goalies: {}};
+    const rows = kind === 'G' ? ((data.goalies || {})[id] || []) : ((data.skaters || {})[id] || []);
+    if (!rows.length) return '<p class="muted">Aucune saison LNH précédente.</p>';
+    const sorted = rows.slice().sort((a, b) => (a.s < b.s ? 1 : a.s > b.s ? -1 : (a.q || 0) - (b.q || 0)));
+    let h = '<div style="overflow-x:auto"><table><thead><tr><th>Saison</th><th>Équipe</th>';
+    if (kind === 'G') {
+      h += '<th>PJ</th><th>V</th><th>D</th><th>MOY</th><th>%ARR</th></tr></thead><tbody>';
+      sorted.forEach(r => {
+        h += '<tr><td>' + r.s + '</td><td>' + r.t + '</td><td>' + (r.gp ?? '—') + '</td><td>' + (r.w ?? '—') + '</td><td>' + (r.l ?? '—') + '</td><td>' + fmtGaa(r.gaa) + '</td><td>' + fmtSvp(r.svp) + '</td></tr>';
+      });
+    } else {
+      h += '<th>PJ</th><th>B</th><th>A</th><th>Pts</th><th>PPG</th></tr></thead><tbody>';
+      sorted.forEach(r => {
+        h += '<tr><td>' + r.s + '</td><td>' + r.t + '</td><td>' + (r.gp ?? '—') + '</td><td>' + (r.g ?? '—') + '</td><td>' + (r.a ?? '—') + '</td><td>' + (r.pts ?? '—') + '</td><td>' + fmtPpm(r.pts, r.gp) + '</td></tr>';
+      });
+    }
+    return h + '</tbody></table></div>';
+  }
+  function setFicheTab(active) {
+    const ts = document.getElementById('fiche-tab-saison');
+    const tc = document.getElementById('fiche-tab-carriere');
+    if (!ts || !tc) return;
+    const on = 'background:var(--navy);color:#fff';
+    const off = 'background:var(--pale);color:var(--navy)';
+    ts.style.cssText = 'border:0;border-radius:999px;padding:9px 16px;font-size:15px;cursor:pointer;' + (active === 'saison' ? on : off);
+    tc.style.cssText = 'border:0;border-radius:999px;padding:9px 16px;font-size:15px;cursor:pointer;' + (active === 'carriere' ? on : off);
   }
   function normName(n) {
     return n.normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase().replace(/\s+/g, ' ').trim();
@@ -1707,6 +1743,16 @@
         ficheLine('Contrat', c ? c.status + ' ' + (c.expiry || '') : '—') +
         ficheLine('Pooler', ownerOf(g.playerId, nm)) + ficheInjLine('G' + g.playerId, nm, g.teamAbbrev);
     }
+    const tabsEl = document.getElementById('fiche-tabs');
+    const tabS = document.getElementById('fiche-tab-saison');
+    const tabC = document.getElementById('fiche-tab-carriere');
+    if (tabsEl) tabsEl.style.display = 'flex';
+    const saisonHtml = body.innerHTML;
+    const carriereHtml = careerHtml(kind, id);
+    body.innerHTML = saisonHtml;
+    setFicheTab('saison');
+    if (tabS) tabS.onclick = () => { body.innerHTML = saisonHtml; setFicheTab('saison'); };
+    if (tabC) tabC.onclick = () => { body.innerHTML = carriereHtml; setFicheTab('carriere'); };
     modal.hidden = false;
   }
   document.getElementById('fiche-close').addEventListener('click', () => { document.getElementById('player-modal').hidden = true; });
@@ -2716,6 +2762,8 @@
     }
     const injP = injuryFor(r.key, r.nom, r.eq);
     if (injP) body.innerHTML += ficheLine('Blessure', '✚ ' + injP.text);
+    const tabsHide2 = document.getElementById('fiche-tabs');
+    if (tabsHide2) tabsHide2.style.display = 'none';
     modal.hidden = false;
   }
   function renderPrep() {
@@ -2900,8 +2948,8 @@
     window._schedule = SCHEDULE;
     boot(PREVIEW_DATA, DEMO_LEAGUE, OTHER_LEAGUES);
   } else {
-    Promise.all([fetch('data/nhl-players-full.json').then(r => r.json()), fetch('data/demo-league.json').then(r => r.json()), fetch('data/other-leagues.json').then(r => r.json()), fetch('data/daily-scoring.json').then(r => r.json()), fetch('data/cap-hits.json').then(r => r.json()), fetch('data/champions.json').then(r => r.json()), fetch('data/nhl-schedule-compact.json').then(r => r.json()), fetch('data/nhl-prev-season.json').then(r => r.json()).catch(() => null), fetch('data/nhl-career-gp.json').then(r => r.json()).catch(() => null), fetch('data/df-injuries.json').then(r => r.json()).catch(() => null), fetch('data/ncaa.json').then(r => r.json()).catch(() => null), fetch('data/khl.json').then(r => r.json()).catch(() => null), fetch('data/verified-injuries.json').then(r => r.json()).catch(() => null)])
-      .then(([p, l, o, ds, cap, ch, sch, ps, cg, df, nc, kh, vi]) => { window._daily = ds; window._cap = cap; window._capMap = cap.players; window._champions = ch; window._schedule = sch; window._prevSeason = ps || {skaters: {}, goalies: {}}; window._careerGp = cg || {skaters: {}, goalies: {}}; window._dfInjuries = df || {players: []}; window._ncaa = nc || {players: []}; window._khl = kh || {players: []}; window._verifiedInjuries = vi || {players: []}; boot(p, l, o); })
+    Promise.all([fetch('data/nhl-players-full.json').then(r => r.json()), fetch('data/demo-league.json').then(r => r.json()), fetch('data/other-leagues.json').then(r => r.json()), fetch('data/daily-scoring.json').then(r => r.json()), fetch('data/cap-hits.json').then(r => r.json()), fetch('data/champions.json').then(r => r.json()), fetch('data/nhl-schedule-compact.json').then(r => r.json()), fetch('data/nhl-prev-season.json').then(r => r.json()).catch(() => null), fetch('data/nhl-career-gp.json').then(r => r.json()).catch(() => null), fetch('data/df-injuries.json').then(r => r.json()).catch(() => null), fetch('data/ncaa.json').then(r => r.json()).catch(() => null), fetch('data/khl.json').then(r => r.json()).catch(() => null), fetch('data/verified-injuries.json').then(r => r.json()).catch(() => null), fetch('data/nhl-career.json').then(r => r.json()).catch(() => null)])
+      .then(([p, l, o, ds, cap, ch, sch, ps, cg, df, nc, kh, vi, ca]) => { window._daily = ds; window._cap = cap; window._capMap = cap.players; window._champions = ch; window._schedule = sch; window._prevSeason = ps || {skaters: {}, goalies: {}}; window._careerGp = cg || {skaters: {}, goalies: {}}; window._dfInjuries = df || {players: []}; window._ncaa = nc || {players: []}; window._khl = kh || {players: []}; window._verifiedInjuries = vi || {players: []}; window._career = ca || {skaters: {}, goalies: {}}; boot(p, l, o); })
       .catch(() => {
         document.getElementById('data-note').textContent =
           'Les données se chargent quand la page est servie par un site (pas en ouvrant le fichier directement).';
