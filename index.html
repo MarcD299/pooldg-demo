@@ -32,6 +32,8 @@
   #player-modal:not([hidden]){display:flex}
   #player-modal .fiche{background:#fff;border-radius:16px;padding:20px;max-width:420px;width:calc(100% - 40px);box-shadow:0 8px 30px rgba(0,0,0,.3)}
   #player-modal .fiche h3{margin:0 0 8px;color:var(--navy)}
+  .prep-tab{border:1px solid var(--pale);background:#fff;color:var(--navy);border-radius:999px;padding:8px 16px;font-size:15px;cursor:pointer;margin-right:8px}
+  .prep-tab.on{background:var(--navy);color:#fff}
   .fiche-line{display:flex;justify-content:space-between;padding:6px 0;border-bottom:1px solid var(--pale)}
   .keeper-warn{color:var(--red);font-weight:bold}
   .name-link{color:var(--bright);cursor:pointer;text-decoration:underline}
@@ -112,6 +114,7 @@
         <tbody id="rows"></tbody>
       </table>
     </div>
+    <div id="basin-pager-sk" style="margin:8px 0"></div>
     <div id="goalies-block">
       <h3 style="margin-top:22px">Gardiens</h3>
       <div style="overflow-x:auto">
@@ -120,6 +123,7 @@
           <tbody id="goalie-rows"></tbody>
         </table>
       </div>
+      <div id="basin-pager-go" style="margin:8px 0"></div>
     </div>
     <div id="ufa-block" hidden>
       <h3>Attaquants — Joueurs UFA</h3>
@@ -284,7 +288,7 @@
       <table id="draft-table"></table>
     </div>
     <h3 style="margin-top:22px">Tableau de repêchage 2027 — repêchage lent</h3>
-    <p class="muted">L'ordre du repêchage est fixé par le commissaire; le tableau suit les choix effectués, en session seulement pour l'instant. Rondes 1 à 12 (choix réguliers) et 4 recrues par équipe (peuvent être prises en tout temps). Le détail complet des choix détenus reste dans le tableau ci-dessus.</p>
+    <p class="muted">L'ordre du repêchage est fixé par le commissaire; le tableau suit les choix effectués, en session seulement pour l'instant. Rondes 1 à 12 (choix réguliers) et rondes 13 à 16 (emplacements recrues, peuvent être prises en tout temps). Le détail complet des choix détenus reste dans le tableau ci-dessus.</p>
     <div style="overflow-x:auto">
       <table id="draftboard-table"></table>
     </div>
@@ -295,7 +299,50 @@
       <datalist id="db-players"></datalist>
       <button id="db-btn" style="background:var(--red);color:#fff;border:0;border-radius:999px;padding:9px 16px;font-size:15px;cursor:pointer">Enregistrer le choix</button>
     </div>
+    <p class="muted">* = recrue, 25 matchs LNH ou moins en carrière</p>
     <p class="muted">La persistance arrive avec le branchement entre amis.</p>
+    <h3 style="margin-top:22px">Préparation du repêchage</h3>
+    <p class="muted" id="prep-intro">Tous les joueurs disponibles, triés par points de la saison en cours. Un joueur possédé par une équipe ou déjà choisi au tableau lent n’y apparaît plus. Clique sur un en-tête pour trier; ajoute tes favoris à ta liste avec le bouton +. Clique sur un nom pour voir sa carte de profil.</p>
+    <div style="margin:10px 0">
+      <button id="prep-tab-gen" class="prep-tab on">Repêchage général</button>
+      <button id="prep-tab-esp" class="prep-tab">Repêchage espoirs</button>
+    </div>
+    <div style="margin:10px 0">
+      <input id="prep-q" placeholder="Rechercher un joueur…" style="padding:8px;border-radius:8px;border:1px solid var(--pale)">
+      <select id="prep-lg" style="padding:8px;border-radius:8px;border:1px solid var(--pale)">
+        <option value="">Toutes ligues</option>
+        <option>LNH</option>
+        <option>LAH</option>
+        <option>LHJMQ</option>
+        <option>OHL</option>
+        <option>WHL</option>
+        <option>Espoirs</option>
+      </select>
+    </div>
+    <p class="muted" id="prep-count"></p>
+    <h4>Patineurs</h4>
+    <div style="overflow-x:auto">
+      <table id="prep-skaters"></table>
+    </div>
+    <div id="prep-pager-sk" style="margin:8px 0"></div>
+    <h4 style="margin-top:18px">Gardiens</h4>
+    <div style="overflow-x:auto">
+      <table id="prep-goalies"></table>
+    </div>
+    <div id="prep-pager-go" style="margin:8px 0"></div>
+    <p class="muted">— = donnée non disponible pour ce bassin. Aucune projection n’est inventée ; les prévisions 2027-28 paraîtront à l’été 2027. La colonne Rythme 82 donne le rythme projeté sur 82 matchs, pas une projection d’expert. Pour les patineurs, les totaux d’un joueur échangé en cours de saison sont additionnés sur ses équipes. L’onglet Repêchage espoirs ne retient que les joueurs avec 25 matchs LNH en carrière ou moins; un joueur des autres bassins sans fiche LNH compte pour 0 match.</p>
+    <h3 style="margin-top:22px">Ta liste personnelle — <span id="prep-prefs-tab">Repêchage général</span></h3>
+    <p class="muted">Ordre de préférence, en session seulement pour l’instant. Les joueurs repêchés ou possédés quittent la liste automatiquement.</p>
+    <div id="prep-prefs"></div>
+    <h3 style="margin-top:22px">Repêchages précédents</h3>
+    <p class="muted">Choix archivés, en lecture seule. L’archivage commence avec le repêchage 2027 : seuls les choix enregistrés une fois la table créée y apparaissent.</p>
+    <div style="margin:10px 0">
+      <label>Saison <select id="hist-season" style="padding:8px;border-radius:8px;border:1px solid var(--pale)"><option value="2027" selected>2027</option><option value="2028">2028</option></select></label>
+    </div>
+    <div style="overflow-x:auto">
+      <table id="hist-table"></table>
+    </div>
+    <p class="muted" id="hist-empty" hidden>Aucun repêchage archivé pour cette saison</p>
   </section>
   <section id="tab-pooler" class="card" hidden>
     <h2>Équipe</h2>
@@ -309,7 +356,7 @@
     <h3>Attaquants</h3>
     <div style="overflow-x:auto">
       <table>
-        <thead><tr><th>Joueur</th><th>Équipe</th><th>Pos</th><th>B</th><th>A</th><th>Pts</th><th>Salaire</th><th>Contrat</th></tr></thead>
+        <thead><tr><th>Joueur</th><th>Équipe</th><th>Pos</th><th>PJ</th><th>B</th><th>A</th><th>Pts</th><th>Salaire</th><th>Contrat</th></tr></thead>
         <tbody id="pooler-forwards"></tbody>
         <tfoot id="pooler-forwards-total"></tfoot>
       </table>
@@ -317,7 +364,7 @@
     <h3 style="margin-top:22px">Défenseurs</h3>
     <div style="overflow-x:auto">
       <table>
-        <thead><tr><th>Joueur</th><th>Équipe</th><th>Pos</th><th>B</th><th>A</th><th>Pts</th><th>Salaire</th><th>Contrat</th></tr></thead>
+        <thead><tr><th>Joueur</th><th>Équipe</th><th>Pos</th><th>PJ</th><th>B</th><th>A</th><th>Pts</th><th>Salaire</th><th>Contrat</th></tr></thead>
         <tbody id="pooler-defense"></tbody>
         <tfoot id="pooler-defense-total"></tfoot>
       </table>
@@ -334,9 +381,15 @@
     <div id="pooler-bench"></div>
     <h3 style="margin-top:22px">Recrues</h3>
     <div id="pooler-farm"></div>
+    <h3 style="margin-top:22px">Gestion de l’effectif</h3>
+    <p class="muted" id="roster-note"></p>
+    <p>Joueur <select id="roster-player"></select> &nbsp; Déplacer vers <select id="roster-dest"></select> &nbsp; <button id="roster-move-btn" style="background:var(--red);color:#fff;border:0;border-radius:999px;padding:9px 16px;font-size:15px;cursor:pointer">Déplacer</button></p>
+    <p class="muted" id="roster-move-msg"></p>
     <p class="muted" id="pooler-picks"></p>
     <h3 style="margin-top:22px">Aide aux 11 conservés</h3>
     <p class="muted">Cochez les joueurs à conserver en fin de saison (11 maximum). L'âge n'est pas disponible dans les données actuelles; le tableau montre points ou victoires, rythme projeté, salaire et fin de contrat.</p>
+    <p><label for="keeper-season">Saison des protections : </label><select id="keeper-season"><option value="2027">2027</option><option value="2028">2028</option></select></p>
+    <p id="keeper-note"></p>
     <p id="keeper-count"></p>
     <div style="overflow-x:auto">
       <table>
@@ -349,10 +402,11 @@
     <p class="muted" id="farm-note"></p>
     <div id="farm-status"></div>
     <h3 style="margin-top:22px">Liste des blessés</h3>
-    <p class="muted">Liste manuelle, en session seulement : aucune source automatique de blessures pour l'instant.</p>
+    <p class="muted">Blessures saisies par le DG, partagées en mode connecté. Les blessures signalées par Daily Faceoff s’affichent aussi avec une croix dans les tableaux et les fiches ; la saisie du DG l’emporte en cas de conflit.</p>
     <select id="inj-team"></select>
     <select id="inj-player"></select>
-    <input id="inj-note" placeholder="Note (optionnel)">
+    <input id="inj-nature" placeholder="Nature (ex. Bas du corps)">
+    <input id="inj-duree" placeholder="Durée (ex. 2-4 semaines, Saison)">
     <button id="inj-btn" style="background:var(--red);color:#fff;border:0;border-radius:999px;padding:9px 16px;font-size:15px;cursor:pointer">Ajouter aux blessés</button>
     <ul id="inj-list"></ul>
   </section>
@@ -372,6 +426,7 @@
     <p class="muted">Ordre de ballottage (inverse du classement) : <span id="waiver-order"></span></p>
     <h3>Ajout / retrait (ballottage)</h3>
     <p class="muted">Agents libres (LNH) : les meilleurs joueurs non repêchés.</p>
+    <p class="muted" id="tx-comm-note" hidden>Ajouts et retraits réservés au commissaire.</p>
     <select id="tx-pooler"></select>
     <select id="tx-drop"></select>
     <select id="tx-add"></select>
@@ -433,7 +488,7 @@
   const SB_KEY = 'sb_publishable_G2Qizw6GEA-vkxvIHiFhCg_rTh53YD9';
   const COMM_EMAIL = 'dpmarcx69@gmail.com';
   const sb = (typeof supabase !== 'undefined') ? supabase.createClient(SB_URL, SB_KEY) : null;
-  let SB_USER = null, MY_TEAM = null, SB_MODE = false;
+  let SB_USER = null, MY_TEAM = null, SB_MODE = false, TEAM_LINKED = {};
   const escHtml = s => s.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
   // Clé joueur, identique à supabase-seed.sql : préfixe S ou G + id LNH,
   // ou préfixe + n: + nom normalisé pour les joueurs sans id LNH.
@@ -510,6 +565,7 @@
     renderLogin();
     sbNote();
     setCommFormState();
+    setAddDropState();
     if (LEAGUE) { renderPooler(); fillTbTeams(); renderTradeBlock(); }
   }
   if (sb) {
@@ -570,7 +626,12 @@
     const ce = {};
     (rows.ce || []).forEach(r => { ce[r.team_id] = {C: r.concession_key || null, E: r.equipe_key || null}; });
     const keep = {};
-    (rows.keep || []).forEach(r => { (keep[r.team_id] = keep[r.team_id] || new Set()).add(r.player_key); });
+    (rows.keep || []).forEach(r => {
+      const s = r.season || 2027;
+      if (!keep[s]) keep[s] = {};
+      if (!keep[s][r.team_id]) keep[s][r.team_id] = new Set();
+      keep[s][r.team_id].add(r.player_key);
+    });
     const injured = (rows.injured || []).map(r => ({team: r.team_id, player: catalog[r.player_key] ? catalog[r.player_key].name : r.player_key, key: r.player_key, note: r.note || ''}));
     const commMsgs = (rows.msgs || []).slice().sort((a, b) => (b.created_at || '').localeCompare(a.created_at || '')).map(m => ({title: m.title, text: m.body, date: m.created_at ? new Date(m.created_at).toLocaleDateString('fr-CA') : ''}));
     return {league: league, ce: ce, keep: keep, injured: injured, commMsgs: commMsgs};
@@ -582,6 +643,8 @@
       for (const r of res) if (r.error) return null;
       const teams = res[0].data || [];
       if (!teams.length) return null;
+      TEAM_LINKED = {};
+      teams.forEach(t => { TEAM_LINKED[t.id] = !!t.owner_id; if (t.name) TEAM_LINKED[t.name] = !!t.owner_id; });
       const catalog = buildCatalog(refLeague, playersData);
       await loadTradeBlock();
       return buildLeagueState({roster: res[1].data, picks: res[2].data, proposals: res[3].data, injured: res[4].data, keep: res[5].data, ce: res[6].data, msgs: res[7].data}, refLeague, catalog);
@@ -621,6 +684,7 @@
     fillInjPlayers();
     renderTonight();
     renderTradeBlock();
+    renderPrep();
   }
   async function refreshLeague() {
     if (!SB_MODE || !window._refLeague || !window._playersData) return;
@@ -639,6 +703,15 @@
     if (!btn) return;
     btn.disabled = SB_MODE && !isComm();
   }
+  function setAddDropState() {
+    const locked = SB_MODE && !isComm();
+    ['tx-pooler', 'tx-drop', 'tx-add', 'tx-adddrop-btn'].forEach(id => {
+      const el = document.getElementById(id);
+      if (el) el.disabled = locked;
+    });
+    const note = document.getElementById('tx-comm-note');
+    if (note) note.hidden = !locked;
+  }
   let LEAGUE = null, OTHER = null;
   function init(playersData, leagueData, otherData) {
     LEAGUE = leagueData; OTHER = otherData;
@@ -655,9 +728,32 @@
     renderDaily();
     buildTransactions();
     buildNewSelects();
+    buildPrep();
     buildVestiaire();
     renderChampions();
     renderTonight();
+  }
+  const BASIN_PAGE_SIZE = 50;
+  let BASIN_PAGES = {sk: 1, go: 1};
+  function basinResetPages() { BASIN_PAGES.sk = 1; BASIN_PAGES.go = 1; }
+  function basinPageCount(total) { return Math.max(1, Math.ceil(total / BASIN_PAGE_SIZE)); }
+  function basinPager(total, page, kind) {
+    const pages = basinPageCount(total);
+    const p = Math.min(Math.max(1, page), pages);
+    const win = [];
+    for (let i = 1; i <= pages; i++) {
+      if (i === 1 || i === pages || Math.abs(i - p) <= 2) win.push(i);
+      else if (win[win.length - 1] !== '…') win.push('…');
+    }
+    let nums = '';
+    win.forEach(v => {
+      if (v === '…') nums += '<span style="padding:0 4px">…</span>';
+      else if (v === p) nums += '<button disabled style="font-weight:bold">' + v + '</button> ';
+      else nums += '<button data-page="' + v + '" data-kind="' + kind + '">' + v + '</button> ';
+    });
+    const prev = (p > 1) ? '<button data-page="' + (p - 1) + '" data-kind="' + kind + '">Précédent</button> ' : '<button disabled>Précédent</button> ';
+    const next = (p < pages) ? '<button data-page="' + (p + 1) + '" data-kind="' + kind + '">Suivant</button>' : '<button disabled>Suivant</button>';
+    return prev + nums + next;
   }
   function renderBasin() {
     if (!OTHER || !window._skaters) return;
@@ -672,6 +768,8 @@
     const skWrap = document.getElementById('basin-skaters-wrap');
     const posSel = document.getElementById('pos');
     const expSel = document.getElementById('ufa-expiry');
+    const skPager = document.getElementById('basin-pager-sk');
+    const goPager = document.getElementById('basin-pager-go');
     const isUfa = lg === 'ufa';
     skWrap.hidden = isUfa;
     ufaBlock.hidden = !isUfa;
@@ -723,6 +821,8 @@
       document.getElementById('ufa-nostats').innerHTML = ns.map(p =>
         '<tr><td>' + p.nom + '</td><td>' + fmtM(p.cap.cap_hit) + '</td><td>UFA ' + p.cap.expiry + '</td><td>' + p.owner + '</td></tr>').join('');
       document.getElementById('ufa-nostats-wrap').hidden = ns.length === 0;
+      if (skPager) skPager.hidden = true;
+      if (goPager) goPager.hidden = true;
       note.textContent = 'Joueurs UFA — contrats PuckPedia, 20 octobre 2026, classés par points accumulés : ' +
         fw.length + ' attaquants, ' + df.length + ' défenseurs, ' + gl.length + ' gardiens' + (ns.length ? ', ' + ns.length + ' sans match joué cette saison' : '') +
         '. En fin de saison, filtrez par année d’expiration pour voir les joueurs qui deviennent autonomes cet été.';
@@ -730,49 +830,87 @@
     }
     if (lg === 'LNH') {
       note.textContent = 'Bassin LNH au ' + window._lnhMeta.date + ' : ' + window._lnhMeta.nsk + ' patineurs et ' + window._lnhMeta.ngo + ' gardiens. Cliquez sur un nom pour sa fiche. La colonne Proj. donne le rythme projeté sur 82 matchs.';
-      skHead.innerHTML = '<tr><th>Joueur</th><th>Équipe</th><th>Pos</th><th>B</th><th>A</th><th>Pts</th><th>Proj.</th></tr>';
+      skHead.innerHTML = '<tr><th>Joueur</th><th>Équipe</th><th>Pos</th><th>PJ</th><th>B</th><th>A</th><th>Pts</th><th>Moy. pts/match</th><th>Proj.</th></tr>';
       goBlock.hidden = false;
       goHead.innerHTML = '<tr><th>Gardien</th><th>Équipe</th><th>PJ</th><th>V</th><th>D</th><th>DP</th><th>A</th><th>B</th><th>Proj. V</th></tr>';
-      const list = window._skaters.filter(p => (!q || p.nom.toLowerCase().includes(q)) && (!pos || p.pos === pos))
-        .sort((a, b) => b.pts - a.pts).slice(0, 100);
+      const skAll = window._skaters.filter(p => (!q || p.nom.toLowerCase().includes(q)) && (!pos || p.pos === pos))
+        .sort((a, b) => b.pts - a.pts);
+      const skPages = basinPageCount(skAll.length);
+      if (BASIN_PAGES.sk > skPages) BASIN_PAGES.sk = skPages;
+      const list = skAll.slice((BASIN_PAGES.sk - 1) * BASIN_PAGE_SIZE, BASIN_PAGES.sk * BASIN_PAGE_SIZE);
       document.getElementById('rows').innerHTML = list.map(p =>
-        '<tr><td><span class="name-link" data-fiche="S' + p.id + '">' + p.nom + '</span></td><td>' + p.eq + '</td><td>' + p.pos + '</td><td>' + p.b +
-        '</td><td>' + p.a + '</td><td><b>' + p.pts + '</b></td><td>' + pace82(p.pts, p.gp) + '</td></tr>').join('');
-      const gl = window._goaliesAll.slice().sort((a, b) => b.wins - a.wins).slice(0, 100);
+        '<tr><td><span class="name-link" data-fiche="S' + p.id + '">' + p.nom + '</span></td><td>' + p.eq + '</td><td>' + p.pos + '</td><td>' + (p.gp ?? '—') + '</td><td>' + p.b +
+        '</td><td>' + p.a + '</td><td><b>' + p.pts + '</b></td><td>' + fmtPpm(p.pts, p.gp) + '</td><td>' + pace82(p.pts, p.gp) + '</td></tr>').join('');
+      const goAll = window._goaliesAll.slice().sort((a, b) => b.wins - a.wins);
+      const goPages = basinPageCount(goAll.length);
+      if (BASIN_PAGES.go > goPages) BASIN_PAGES.go = goPages;
+      const gl = goAll.slice((BASIN_PAGES.go - 1) * BASIN_PAGE_SIZE, BASIN_PAGES.go * BASIN_PAGE_SIZE);
       document.getElementById('goalie-rows').innerHTML = gl.map(g =>
         '<tr><td><span class="name-link" data-fiche="G' + g.playerId + '">' + g.firstName.default + ' ' + g.lastName.default + '</span></td><td>' + g.teamAbbrev + '</td><td>' + g.gamesPlayed +
         '</td><td><b>' + g.wins + '</b></td><td>' + g.losses + '</td><td>' + g.overtimeLosses + '</td><td>' +
         g.assists + '</td><td>' + g.goals + '</td><td>' + pace82(g.wins, g.gamesPlayed) + '</td></tr>').join('');
+      if (skPager) { skPager.hidden = false; skPager.innerHTML = 'Patineurs : page ' + BASIN_PAGES.sk + ' sur ' + skPages + ' — ' + basinPager(skAll.length, BASIN_PAGES.sk, 'sk'); }
+      if (goPager) { goPager.hidden = false; goPager.innerHTML = 'Gardiens : page ' + BASIN_PAGES.go + ' sur ' + goPages + ' — ' + basinPager(goAll.length, BASIN_PAGES.go, 'go'); }
     } else if (lg === 'espoirs') {
       note.textContent = 'Espoirs admissibles au repêchage 2027 — top 40 consensus (Centrale de dépistage, 23 octobre 2026).';
-      skHead.innerHTML = '<tr><th>Rang</th><th>Joueur</th><th>Pos</th><th>Équipe</th><th>Ligue</th><th>PJ</th><th>B</th><th>A</th><th>Pts</th></tr>';
+      skHead.innerHTML = '<tr><th>Rang</th><th>Joueur</th><th>Pos</th><th>Équipe</th><th>Ligue</th><th>PJ</th><th>B</th><th>A</th><th>Pts</th><th>Moy. pts/match</th></tr>';
       goBlock.hidden = true;
-      const list = OTHER.espoirs.filter(e => !q || e.name.toLowerCase().includes(q)).sort((a, b) => a.rank - b.rank);
+      const espAll = OTHER.espoirs.filter(e => !q || e.name.toLowerCase().includes(q)).sort((a, b) => a.rank - b.rank);
+      const skPages = basinPageCount(espAll.length);
+      if (BASIN_PAGES.sk > skPages) BASIN_PAGES.sk = skPages;
+      const list = espAll.slice((BASIN_PAGES.sk - 1) * BASIN_PAGE_SIZE, BASIN_PAGES.sk * BASIN_PAGE_SIZE);
       document.getElementById('rows').innerHTML = list.map(e =>
         '<tr><td>' + e.rank + '</td><td>' + e.name + '</td><td>' + e.pos + '</td><td>' + e.team + '</td><td>' + e.league +
-        '</td><td>' + (e.pj ?? '—') + '</td><td>' + (e.g ?? '—') + '</td><td>' + (e.a ?? '—') + '</td><td><b>' + (e.pts ?? '—') + '</b></td></tr>').join('');
+        '</td><td>' + (e.pj ?? '—') + '</td><td>' + (e.g ?? '—') + '</td><td>' + (e.a ?? '—') + '</td><td><b>' + (e.pts ?? '—') + '</b></td><td>' + fmtPpm(e.pts, e.pj) + '</td></tr>').join('');
+      if (skPager) { skPager.hidden = false; skPager.innerHTML = 'Patineurs : page ' + BASIN_PAGES.sk + ' sur ' + skPages + ' — ' + basinPager(espAll.length, BASIN_PAGES.sk, 'sk'); }
+      if (goPager) goPager.hidden = true;
     } else {
       const L = OTHER.leagues[lg];
-      note.textContent = L.label + ' au 27 octobre 2026 : ' + L.skaters.length + ' patineurs et ' + L.goalies.length + ' gardiens (positions non disponibles dans cette source; DP, passes et buts des gardiens non disponibles).';
-      skHead.innerHTML = '<tr><th>Joueur</th><th>Équipe</th><th>B</th><th>A</th><th>Pts</th></tr>';
+      note.textContent = L.label + ' au 27 octobre 2026 : ' + L.skaters.length + ' patineurs et ' + L.goalies.length + ' gardiens (positions non disponibles dans cette source; matchs joués des patineurs non disponibles; DP, passes et buts des gardiens non disponibles).';
+      skHead.innerHTML = '<tr><th>Joueur</th><th>Équipe</th><th>PJ</th><th>B</th><th>A</th><th>Pts</th><th>Moy. pts/match</th></tr>';
       goBlock.hidden = false;
       goHead.innerHTML = '<tr><th>Gardien</th><th>Équipe</th><th>PJ</th><th>V</th><th>D</th><th>DP</th><th>A</th><th>B</th></tr>';
-      const sk = L.skaters.filter(s => !q || s.name.toLowerCase().includes(q)).sort((a, b) => b.pts - a.pts).slice(0, 100);
+      const skAll = L.skaters.filter(s => !q || s.name.toLowerCase().includes(q)).sort((a, b) => b.pts - a.pts);
+      const skPages = basinPageCount(skAll.length);
+      if (BASIN_PAGES.sk > skPages) BASIN_PAGES.sk = skPages;
+      const sk = skAll.slice((BASIN_PAGES.sk - 1) * BASIN_PAGE_SIZE, BASIN_PAGES.sk * BASIN_PAGE_SIZE);
       document.getElementById('rows').innerHTML = sk.map(s =>
-        '<tr><td>' + s.name + '</td><td>' + s.team + '</td><td>' + s.g + '</td><td>' + s.a + '</td><td><b>' + s.pts + '</b></td></tr>').join('');
-      const go = L.goalies.filter(g => !q || g.name.toLowerCase().includes(q)).sort((a, b) => b.w - a.w).slice(0, 100);
+        '<tr><td>' + s.name + '</td><td>' + s.team + '</td><td>' + (s.pj ?? '—') + '</td><td>' + s.g + '</td><td>' + s.a + '</td><td><b>' + s.pts + '</b></td><td>' + fmtPpm(s.pts, s.pj) + '</td></tr>').join('');
+      const goAll = L.goalies.filter(g => !q || g.name.toLowerCase().includes(q)).sort((a, b) => b.w - a.w);
+      const goPages = basinPageCount(goAll.length);
+      if (BASIN_PAGES.go > goPages) BASIN_PAGES.go = goPages;
+      const go = goAll.slice((BASIN_PAGES.go - 1) * BASIN_PAGE_SIZE, BASIN_PAGES.go * BASIN_PAGE_SIZE);
       document.getElementById('goalie-rows').innerHTML = go.map(g =>
         '<tr><td>' + g.name + '</td><td>' + g.team + '</td><td>' + g.pj + '</td><td><b>' + g.w + '</b></td><td>' + g.l +
         '</td><td>—</td><td>—</td><td>—</td></tr>').join('');
+      if (skPager) { skPager.hidden = false; skPager.innerHTML = 'Patineurs : page ' + BASIN_PAGES.sk + ' sur ' + skPages + ' — ' + basinPager(skAll.length, BASIN_PAGES.sk, 'sk'); }
+      if (goPager) { goPager.hidden = false; goPager.innerHTML = 'Gardiens : page ' + BASIN_PAGES.go + ' sur ' + goPages + ' — ' + basinPager(goAll.length, BASIN_PAGES.go, 'go'); }
     }
   }
   function renderStandings() {
     const rows = LEAGUE.poolers.slice().sort((a, b) => b.score - a.score);
     document.getElementById('standings-note').textContent = LEAGUE.scoring_demo;
     document.getElementById('standings-rows').innerHTML = rows.map((p, i) =>
-      '<tr><td>' + (i + 1) + '</td><td><b>' + (p.url ? '<a href="' + p.url + '" target="_blank" rel="noopener">' + p.name + '</a>' : p.name) + '</b></td><td><b>' + p.score + '</b></td><td>' + p.sk_pts +
+      '<tr><td>' + (i + 1) + '</td><td><b><a href="#" data-pooler-team="' + p.name + '">' + p.name + '</a></b></td><td><b>' + p.score + '</b></td><td>' + p.sk_pts +
       '</td><td>' + p.go_pts + '</td><td>' + Object.values(p.picks).reduce((t, y) => t + y.regular.length + y.rookies.length + (y.midseason || []).length + (y.team || []).length, 0) + ' (' + Object.keys(p.picks).join(', ') + ')</td></tr>').join('');
   }
+  // --- Clic sur une equipe du classement Ligue (29 oct. 2026) : bascule vers
+  // l’onglet Pooler avec cette equipe selectionnee (joueurs et stats) ---
+  function goPooler(name) {
+    const sel = document.getElementById('pooler-select');
+    if (sel) sel.value = name;
+    renderPooler();
+    const btn = document.querySelector('nav button[data-tab="pooler"]');
+    if (btn) btn.click();
+    const sec = document.getElementById('tab-pooler');
+    if (sec && sec.scrollIntoView) sec.scrollIntoView();
+  }
+  document.addEventListener('click', e => {
+    const t = e.target.closest ? e.target.closest('[data-pooler-team]') : null;
+    if (!t) return;
+    e.preventDefault();
+    goPooler(t.getAttribute('data-pooler-team'));
+  });
   function renderDraft() {
     document.getElementById('draft-note').textContent =
       'Repêchage annuel keeper : 12 choix + 4 recrues par équipe, pour 2027 et 2028 (les recrues peuvent être prises en tout temps, pas nécessairement aux rondes 13 à 16), plus un repêchage de mi-saison de 3 choix par équipe (1er, 2e, 3e) et un choix d\'équipe par année. Tous échangeables, seulement les 2 années suivant la saison en cours. Les choix acquis par échange affichent leur équipe d\'origine.';
@@ -786,6 +924,11 @@
     const sel = document.getElementById('pooler-select');
     sel.innerHTML = LEAGUE.poolers.map(p => '<option>' + p.name + '</option>').join('');
     sel.addEventListener('change', renderPooler);
+  }
+  function poolerPjOf(s) {
+    if (s.gp !== null && s.gp !== undefined) return s.gp;
+    const hit = (window._skaters || []).find(x => x.id === s.id);
+    return hit ? hit.gp : null;
   }
   function normName(n) {
     return n.normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase().replace(/\s+/g, ' ').trim();
@@ -848,12 +991,12 @@
     const forwards = p.skaters.filter(s => s.pos !== 'D');
     const defense = p.skaters.filter(s => s.pos === 'D');
     const skaterRow = s =>
-      '<tr><td>' + s.name + ceBadges(pkey(s), p) + '</td><td>' + s.team + '</td><td>' + s.pos + '</td><td>' + s.g +
+      '<tr><td>' + ficheNameHtml(s) + ceBadges(pkey(s), p) + injMark(pkey(s), s.name, s.team) + '</td><td>' + s.team + '</td><td>' + s.pos + '</td><td>' + statCell(poolerPjOf(s)) + '</td><td>' + s.g +
       '</td><td>' + s.a + '</td><td><b>' + s.pts + '</b></td>' + capCells(s.name) + '</tr>';
     document.getElementById('pooler-forwards').innerHTML = forwards.map(skaterRow).join('');
     document.getElementById('pooler-defense').innerHTML = defense.map(skaterRow).join('');
     document.getElementById('pooler-goalies').innerHTML = p.goalies.map(g =>
-      '<tr><td>' + g.name + ceBadges(pkey(g), p) + '</td><td>' + g.team + '</td><td>' + g.pj + '</td><td><b>' + g.w + '</b></td><td>' + g.l +
+      '<tr><td>' + ficheNameHtml(g) + ceBadges(pkey(g), p) + injMark(pkey(g), g.name, g.team) + '</td><td>' + g.team + '</td><td>' + g.pj + '</td><td><b>' + g.w + '</b></td><td>' + g.l +
       '</td><td>' + g.otl + '</td><td>' + g.a + '</td><td>' + g.g + '</td>' + capCells(g.name) + '</tr>').join('');
     function capTotal(list) {
       let tot = 0, missing = 0;
@@ -866,8 +1009,8 @@
     function totalRow(label, span, t) {
       return '<tr><td colspan="' + span + '"><b>Total des salaires — ' + label + '</b></td><td><b>' + fmtM(t.tot) + '</b></td><td>' + (t.missing ? t.missing + ' joueur(s) sans salaire affiché' : '') + '</td></tr>';
     }
-    document.getElementById('pooler-forwards-total').innerHTML = totalRow('Attaquants', 6, capTotal(forwards));
-    document.getElementById('pooler-defense-total').innerHTML = totalRow('Défenseurs', 6, capTotal(defense));
+    document.getElementById('pooler-forwards-total').innerHTML = totalRow('Attaquants', 7, capTotal(forwards));
+    document.getElementById('pooler-defense-total').innerHTML = totalRow('Défenseurs', 7, capTotal(defense));
     document.getElementById('pooler-goalies-total').innerHTML = totalRow('Gardiens', 8, capTotal(p.goalies));
     let masse = 0, sansSalaire = 0;
     p.skaters.concat(p.goalies).forEach(pl => {
@@ -887,13 +1030,14 @@
       (nf < 12 ? ' — attaquants sous le minimum.' : '') +
       ' · ' + nb + ' réservistes · ' + nfr + ' recrues (maximum 20)' + (nfr > 20 ? ' — au-dessus du maximum.' : '') + '.';
     buildCESelects(p);
+    buildRosterMoveForm(p);
     function statCell(v) { return (v === null || v === undefined) ? '—' : v; }
     function groupTables(list, p) {
       const fw = list.filter(x => x.pos !== 'D' && x.pos !== 'G');
       const df = list.filter(x => x.pos === 'D');
       const go = list.filter(x => x.pos === 'G');
       const skTable = arr => '<div style="overflow-x:auto"><table><thead><tr><th>Joueur</th><th>Équipe</th><th>Pos</th><th>PJ</th><th>B</th><th>A</th><th>Pts</th><th>Salaire</th><th>Contrat</th></tr></thead><tbody>' +
-        arr.map(s => '<tr><td>' + s.name + ceBadges(pkey(s), p) + '</td><td>' + s.team + '</td><td>' + s.pos + '</td><td>' + statCell(s.gp) + '</td><td>' + statCell(s.g) + '</td><td>' + statCell(s.a) + '</td><td><b>' + statCell(s.pts) + '</b></td>' + capCells(s.name) + '</tr>').join('') + '</tbody></table></div>';
+        arr.map(s => '<tr><td>' + ficheNameHtml(s) + ceBadges(pkey(s), p) + injMark(pkey(s), s.name, s.team) + '</td><td>' + s.team + '</td><td>' + s.pos + '</td><td>' + statCell(s.gp) + '</td><td>' + statCell(s.g) + '</td><td>' + statCell(s.a) + '</td><td><b>' + statCell(s.pts) + '</b></td>' + capCells(s.name) + '</tr>').join('') + '</tbody></table></div>';
       let h = '';
       if (fw.length && df.length) {
         h += '<p style="margin:8px 0 4px"><b>Attaquants</b></p>' + skTable(fw) +
@@ -904,7 +1048,7 @@
         h += skTable(df);
       }
       if (go.length) h += '<div style="overflow-x:auto;margin-top:12px"><table><thead><tr><th>Gardien</th><th>Équipe</th><th>PJ</th><th>V</th><th>D</th><th>DP</th><th>A</th><th>B</th><th>Salaire</th><th>Contrat</th></tr></thead><tbody>' +
-        go.map(g => '<tr><td>' + g.name + ceBadges(pkey(g), p) + '</td><td>' + g.team + '</td><td>' + statCell(g.gp) + '</td><td><b>' + statCell(g.w) + '</b></td><td>' + statCell(g.l) + '</td><td>' + statCell(g.otl) + '</td><td>' + statCell(g.a) + '</td><td>' + statCell(g.g) + '</td>' + capCells(g.name) + '</tr>').join('') + '</tbody></table></div>';
+        go.map(g => '<tr><td>' + ficheNameHtml(g) + ceBadges(pkey(g), p) + injMark(pkey(g), g.name, g.team) + '</td><td>' + g.team + '</td><td>' + statCell(g.gp) + '</td><td><b>' + statCell(g.w) + '</b></td><td>' + statCell(g.l) + '</td><td>' + statCell(g.otl) + '</td><td>' + statCell(g.a) + '</td><td>' + statCell(g.g) + '</td>' + capCells(g.name) + '</tr>').join('') + '</tbody></table></div>';
       if (!h) h = '<p class="muted">Aucun.</p>';
       return h;
     }
@@ -1095,6 +1239,7 @@
     const dlNote = document.getElementById('trade-deadline-note');
     if (dlNote) dlNote.textContent = tradeDeadlineNote();
     document.getElementById('tr-btn').disabled = tradeDeadlinePassed();
+    setAddDropState();
   }
   function buildTransactions() {
     const opts = LEAGUE.poolers.map(p => '<option>' + p.name + '</option>').join('');
@@ -1111,7 +1256,7 @@
     renderProposals();
   }
   async function doAddDropSb(p, dropVal, addVal) {
-    if (!canEdit(p.name)) { logTx('Seul le propriétaire de ' + p.name + ' peut modifier son équipe par ballottage.'); return; }
+    if (!isComm()) { logTx('Ajouts et retraits réservés au commissaire.'); return; }
     const dropKind = dropVal[0], dropId = +dropVal.slice(1);
     const addKind = addVal[0], addId = +addVal.slice(1);
     const dropList = dropKind === 'S' ? p.skaters : p.goalies;
@@ -1151,6 +1296,7 @@
     await refreshLeague();
   }
   async function doAddDrop() {
+    if (SB_MODE && !isComm()) { logTx('Ajouts et retraits réservés au commissaire.'); return; }
     const p = LEAGUE.poolers.find(x => x.name === document.getElementById('tx-pooler').value);
     const dropVal = document.getElementById('tx-drop').value;
     const addVal = document.getElementById('tx-add').value;
@@ -1425,14 +1571,27 @@
     logTx('Contre-proposition : ' + pa.name + ' prépare sa réponse à ' + pb.name + '.' + (dropped ? ' (' + dropped + ' élément(s) ne sont plus disponibles et ont été retirés.)' : ''));
     renderProposals();
   }
-  document.getElementById('league').addEventListener('change', renderBasin);
-  document.getElementById('q').addEventListener('input', renderBasin);
-  document.getElementById('pos').addEventListener('change', renderBasin);
+  document.getElementById('league').addEventListener('change', () => { basinResetPages(); renderBasin(); });
+  document.getElementById('q').addEventListener('input', () => { basinResetPages(); renderBasin(); });
+  document.getElementById('pos').addEventListener('change', () => { basinResetPages(); renderBasin(); });
+  ['basin-pager-sk', 'basin-pager-go'].forEach(id => {
+    const pg = document.getElementById(id);
+    if (pg) pg.addEventListener('click', e => {
+      const b = e.target.closest ? e.target.closest('button[data-page]') : null;
+      if (!b) return;
+      BASIN_PAGES[b.getAttribute('data-kind')] = parseInt(b.getAttribute('data-page'), 10);
+      renderBasin();
+    });
+  });
   document.getElementById('ufa-expiry').addEventListener('change', renderBasin);
   // --- Nouveautés 28 oct. 2026 (1/2) : rythme, fiche joueur, champions, qui joue ce soir ---
   function pace82(pts, gp) {
     if (!gp || gp <= 0 || pts === null || pts === undefined) return '—';
     return Math.round(pts * 82 / gp);
+  }
+  function fmtPpm(pts, gp) {
+    if (pts === null || pts === undefined || !gp || gp <= 0) return '—';
+    return (pts / gp).toFixed(2).replace('.', ',');
   }
   function gpByIdMap() {
     if (window._gpById) return window._gpById;
@@ -1467,10 +1626,10 @@
       nameEl.textContent = s.nom;
       body.innerHTML = ficheLine('Équipe LNH', s.eq) + ficheLine('Position', s.pos) +
         ficheLine('Matchs joués', s.gp ?? '—') + ficheLine('Buts', s.b) + ficheLine('Passes', s.a) +
-        ficheLine('Points', s.pts) + ficheLine('Rythme projeté (82 matchs)', pace82(s.pts, s.gp) + ' pts') +
+        ficheLine('Points', s.pts) + ficheLine('Moyenne de points par match', fmtPpm(s.pts, s.gp)) + ficheLine('Rythme projeté (82 matchs)', pace82(s.pts, s.gp) + ' pts') +
         ficheLine('Salaire', c ? fmtM(c.cap_hit) : '—') +
         ficheLine('Contrat', c ? c.status + ' ' + (c.expiry || '') : '—') +
-        ficheLine('Pooler', ownerOf(s.id, s.nom));
+        ficheLine('Pooler', ownerOf(s.id, s.nom)) + ficheInjLine('S' + s.id, s.nom, s.eq);
     } else {
       const g = window._goaliesAll.find(x => x.playerId === id);
       if (!g) return;
@@ -1482,7 +1641,7 @@
         ficheLine('Rythme projeté (82 matchs)', pace82(g.wins, g.gamesPlayed) + ' V') +
         ficheLine('Salaire', c ? fmtM(c.cap_hit) : '—') +
         ficheLine('Contrat', c ? c.status + ' ' + (c.expiry || '') : '—') +
-        ficheLine('Pooler', ownerOf(g.playerId, nm));
+        ficheLine('Pooler', ownerOf(g.playerId, nm)) + ficheInjLine('G' + g.playerId, nm, g.teamAbbrev);
     }
     modal.hidden = false;
   }
@@ -1526,35 +1685,270 @@
         : '<p class="muted">Aucun joueur actif de ' + team.name + ' ne joue ce soir.</p>');
   }
   // --- Nouveautés 28 oct. 2026 (2/2) : keeper, banque, blessés, bloc d'échanges, tableau de repêchage ---
+  // --- Protections (29 oct. 2026) : par saison, DG seul, date limite ---
+  // Dates limites par saison (AAAA-MM-JJ) ; null = non fixee.
+  // Marc fournira les dates plus tard : aucune date inventee ici.
+  const PROTECTION_DEADLINE = {2027: null, 2028: null};
+  function protUfaSeason() { return 2027; }
+  function protDeadlinePassed(season, deadlines, now) {
+    const d = (deadlines || {})[season];
+    if (!d) return false;
+    let day;
+    if (typeof now === 'string' && /^\d{4}-\d{2}-\d{2}$/.test(now)) day = now;
+    else {
+      const ref = now ? new Date(now) : new Date();
+      day = ref.getFullYear() + '-' + String(ref.getMonth() + 1).padStart(2, '0') + '-' + String(ref.getDate()).padStart(2, '0');
+    }
+    return day > d;
+  }
+  function protDateFr(d) {
+    const parts = (d || '').split('-');
+    const months = ['janvier', 'février', 'mars', 'avril', 'mai', 'juin', 'juillet', 'août', 'septembre', 'octobre', 'novembre', 'décembre'];
+    const y = parseInt(parts[0], 10), m = parseInt(parts[1], 10), day = parseInt(parts[2], 10);
+    if (!y || !m || m < 1 || m > 12 || !day) return d;
+    return day + ' ' + months[m - 1] + ' ' + y;
+  }
+  function protDeadlineLabel(season, deadlines) {
+    const d = (deadlines || {})[season];
+    if (!d) return 'Date limite des protections : à déterminer.';
+    const txt = protDateFr(d);
+    return protDeadlinePassed(season, deadlines) ? 'Protections verrouillées depuis le ' + txt + '.' : 'Date limite des protections : le ' + txt + '.';
+  }
+  function protKeeperKeyForRow(r) {
+    if (r.id !== null && r.id !== undefined) return r.key;
+    return (r.kind === 'G' ? 'G' : 'S') + r.key;
+  }
+  function protIsProtected(team, r, season, keep) {
+    const s = ((keep || {})[season] || {})[team];
+    if (!s) return false;
+    return s.has(protKeeperKeyForRow(r));
+  }
+  function protIsPoolUfa(r, owner, season, keep, deadlines) {
+    if (!owner) return false;
+    if (!protDeadlinePassed(season, deadlines)) return false;
+    return !protIsProtected(owner, r, season, keep);
+  }
+  function keeperSeason() {
+    const el = document.getElementById('keeper-season');
+    const v = el ? parseInt(el.value, 10) : 2027;
+    return (v === 2028) ? 2028 : 2027;
+  }
+  function keeperCanEdit(name, season) {
+    if (protDeadlinePassed(season, PROTECTION_DEADLINE)) return {ok: false, why: 'locked'};
+    if (SB_MODE && TEAM_LINKED[name] && !canEdit(name)) return {ok: false, why: 'dg'};
+    return {ok: true, why: ''};
+  }
+  function keeperNote(name, season) {
+    if (protDeadlinePassed(season, PROTECTION_DEADLINE)) return protDeadlineLabel(season, PROTECTION_DEADLINE);
+    if (SB_MODE && !TEAM_LINKED[name]) return 'Équipe non reliée — dès que le compte du DG sera relié, lui seul pourra modifier ses protections.';
+    if (SB_MODE && TEAM_LINKED[name] && !canEdit(name)) return 'Seul le DG de l’équipe peut modifier ses joueurs protégés.';
+    return protDeadlineLabel(season, PROTECTION_DEADLINE);
+  }
+  // __ROSTER_MGMT_START__
+  // --- Gestion de l’effectif Pooler (29 oct. 2026) : déplacements de slot + blessures ---
+  function poolerCanEdit(name) {
+    if (!SB_MODE) return {ok: true, why: ''};
+    if (!TEAM_LINKED[name]) return {ok: true, why: 'unlinked'};
+    if (!canEdit(name)) return {ok: false, why: 'dg'};
+    return {ok: true, why: ''};
+  }
+  function poolerEditNote(name) {
+    const r = poolerCanEdit(name);
+    if (r.why === 'unlinked') return 'Équipe non reliée — dès que le compte du DG sera relié, lui seul pourra gérer son effectif.';
+    if (r.why === 'dg') return 'Seul le DG de l’équipe peut gérer cet effectif.';
+    return '';
+  }
+  function slotLabel(slot) { return slot === 'actif' ? 'Alignement régulier' : slot === 'reserve' ? 'Réserve' : 'Recrue'; }
+  function slotOfPlayer(p, key) {
+    if ((p.skaters || []).some(s => pkey(s) === key) || (p.goalies || []).some(g => pkey(g) === key)) return 'actif';
+    if ((p.bench || []).some(x => pkey(x) === key)) return 'reserve';
+    if ((p.farm || []).some(x => pkey(x) === key)) return 'recrue';
+    return null;
+  }
+  function slotMoveTargets(from) {
+    if (from === 'actif') return ['reserve'];
+    if (from === 'reserve') return ['actif'];
+    if (from === 'recrue') return ['actif', 'reserve'];
+    return [];
+  }
+  function slotMoveCheck(p, key, to) {
+    p.skaters = p.skaters || []; p.goalies = p.goalies || [];
+    const from = slotOfPlayer(p, key);
+    if (!from) return {ok: false, why: 'introuvable'};
+    if (slotMoveTargets(from).indexOf(to) < 0) return {ok: false, why: 'mouvement'};
+    let pl = null;
+    [p.skaters, p.goalies, p.bench || [], p.farm || []].forEach(arr => arr.forEach(x => { if (pkey(x) === key) pl = x; }));
+    if (!pl) return {ok: false, why: 'introuvable'};
+    const before = countsGroup(p);
+    const cat = pl.pos === 'G' ? 'g' : pl.pos === 'D' ? 'd' : 'f';
+    const after = {f: before.f, d: before.d, g: before.g};
+    if (from === 'actif' && to !== 'actif') after[cat]--;
+    if (from !== 'actif' && to === 'actif') after[cat]++;
+    if (!plancherOk(before, after)) return {ok: false, why: 'plancher'};
+    return {ok: true, why: '', from: from, player: pl};
+  }
+  function slotMoveLocal(p, key, to) {
+    const chk = slotMoveCheck(p, key, to);
+    if (!chk.ok) return chk;
+    p.bench = p.bench || []; p.farm = p.farm || [];
+    const srcKey = chk.from === 'actif' ? (chk.player.pos === 'G' ? 'goalies' : 'skaters') : chk.from === 'reserve' ? 'bench' : 'farm';
+    const src = {skaters: p.skaters, goalies: p.goalies, bench: p.bench, farm: p.farm}[srcKey];
+    const i = src.findIndex(x => pkey(x) === key);
+    if (i < 0) return {ok: false, why: 'introuvable'};
+    const pl = src.splice(i, 1)[0];
+    if (to === 'actif') (pl.pos === 'G' ? p.goalies : p.skaters).push(pl);
+    else if (to === 'reserve') p.bench.push(pl);
+    else p.farm.push(pl);
+    return {ok: true, why: '', from: chk.from, player: pl};
+  }
+  function injNoteCombine(nature, duree) {
+    const n = (nature || '').trim(), d = (duree || '').trim();
+    if (n && d) return n + ' — ' + d;
+    return n || d;
+  }
+  function dgInjuryFor(key, name, list) {
+    const arr = list || INJURED;
+    if (key) { const byKey = arr.find(e => e.key === key); if (byKey) return byKey; }
+    const nn = normName(name || '');
+    return arr.find(e => normName(e.player || '') === nn) || null;
+  }
+  const DF_NAME_ALIASES = {'sam montembeault': 'samuel montembeault'};
+  function dfInjuryMap() {
+    const map = {};
+    const src = window._dfInjuries || {players: []};
+    (src.players || []).forEach(e => {
+      const k = normName(e.name) + '|' + (e.team || '');
+      map[k] = e;
+      const alias = DF_NAME_ALIASES[normName(e.name)];
+      if (alias) map[alias + '|' + (e.team || '')] = e;
+    });
+    return map;
+  }
+  function dfDateLabel() {
+    const src = window._dfInjuries || {};
+    return src.collected ? protDateFr(src.collected) : '';
+  }
+  function injuryFor(key, name, teamAbbr) {
+    const dg = dgInjuryFor(key, name);
+    if (dg) return {source: 'dg', text: dg.note || ''};
+    const df = dfInjuryMap()[normName(name || '') + '|' + (teamAbbr || '')];
+    if (df) return {source: 'df', text: (df.details || '') + ' (Daily Faceoff, ' + dfDateLabel() + ')'};
+    return null;
+  }
+  function escAttr(s) { return escHtml(s).split(String.fromCharCode(34)).join('&quot;'); }
+  function injMark(key, name, teamAbbr) {
+    const inj = injuryFor(key, name, teamAbbr);
+    if (!inj) return '';
+    return ' <span style="color:#c0392b;font-weight:700" title="' + escAttr(inj.text) + '">✚</span>';
+  }
+  function ficheInjLine(key, name, teamAbbr) {
+    const inj = injuryFor(key, name, teamAbbr);
+    return inj ? ficheLine('Blessure', '✚ ' + inj.text) : '';
+  }
+  function ficheNameHtml(pl) {
+    const id = pl.id;
+    if (!id) return escHtml(pl.name);
+    const kind = pl.pos === 'G' ? 'G' : 'S';
+    const found = kind === 'G'
+      ? (window._goaliesAll || []).some(g => g.playerId === id)
+      : (window._skaters || []).some(s => s.id === id);
+    if (!found) return escHtml(pl.name);
+    return '<span class="name-link" data-fiche="' + kind + id + '">' + escHtml(pl.name) + '</span>';
+  }
+  function buildRosterMoveForm(p) {
+    const pSel = document.getElementById('roster-player'), dSel = document.getElementById('roster-dest'),
+      btn = document.getElementById('roster-move-btn'), note = document.getElementById('roster-note'),
+      msg = document.getElementById('roster-move-msg');
+    if (!pSel || !dSel || !btn) return;
+    const cands = [];
+    (p.skaters || []).forEach(x => cands.push({key: pkey(x), label: x.name + ' (' + x.pos + ') — Alignement régulier', slot: 'actif'}));
+    (p.goalies || []).forEach(x => cands.push({key: pkey(x), label: x.name + ' (G) — Alignement régulier', slot: 'actif'}));
+    (p.bench || []).forEach(x => cands.push({key: pkey(x), label: x.name + ' (' + x.pos + ') — Réserve', slot: 'reserve'}));
+    (p.farm || []).forEach(x => cands.push({key: pkey(x), label: x.name + ' (' + x.pos + ') — Recrue', slot: 'recrue'}));
+    pSel.innerHTML = cands.map(c => '<option value="' + c.key + '">' + c.label + '</option>').join('');
+    const refreshDest = () => {
+      const cur = cands.find(c => c.key === pSel.value);
+      const targets = cur ? slotMoveTargets(cur.slot) : [];
+      dSel.innerHTML = targets.map(t => '<option value="' + t + '">' + slotLabel(t) + '</option>').join('');
+    };
+    pSel.onchange = refreshDest;
+    refreshDest();
+    const can = poolerCanEdit(p.name);
+    pSel.disabled = dSel.disabled = btn.disabled = !can.ok;
+    if (note) note.textContent = poolerEditNote(p.name);
+    btn.onclick = async () => {
+      const key = pSel.value, to = dSel.value;
+      if (!key || !to) return;
+      if (!poolerCanEdit(p.name).ok) { if (msg) msg.textContent = 'Seul le DG de l’équipe peut gérer cet effectif.'; return; }
+      const chk = slotMoveCheck(p, key, to);
+      if (!chk.ok) {
+        if (msg) msg.textContent = chk.why === 'plancher'
+          ? 'Déplacement refusé : l’équipe passerait sous le minimum d’effectif (12 attaquants, 6 défenseurs, 2 gardiens).'
+          : 'Déplacement impossible.';
+        return;
+      }
+      if (SB_MODE) {
+        const del = await sb.from('roster_slots').delete().eq('team_id', p.name).eq('player_key', key);
+        if (del.error) { if (msg) msg.textContent = 'Le déplacement n’a pas pu être enregistré.'; return; }
+        const ins = await sb.from('roster_slots').insert({team_id: p.name, player_key: key, slot: to});
+        if (ins.error) {
+          await sb.from('roster_slots').insert({team_id: p.name, player_key: key, slot: chk.from});
+          if (msg) msg.textContent = 'Le déplacement n’a pas pu être enregistré.';
+          return;
+        }
+        if (msg) msg.textContent = chk.player.name + ' déplacé vers ' + slotLabel(to) + '.';
+        await refreshLeague();
+      } else {
+        slotMoveLocal(p, key, to);
+        recomputeScores(p);
+        renderAll();
+        if (msg) msg.textContent = chk.player.name + ' déplacé vers ' + slotLabel(to) + '.';
+      }
+    };
+  }
+  // __ROSTER_MGMT_END__
   let KEEP = {};
   function renderKeeperHelp() {
     const name = document.getElementById('pooler-select').value;
     const p = LEAGUE.poolers.find(x => x.name === name);
     if (!p) return;
-    if (!KEEP[name]) KEEP[name] = new Set();
-    const kept = KEEP[name];
+    const season = keeperSeason();
+    if (!KEEP[season]) KEEP[season] = {};
+    if (!KEEP[season][name]) KEEP[season][name] = new Set();
+    const kept = KEEP[season][name];
+    const ksel = document.getElementById('keeper-season');
+    if (ksel && !ksel.dataset.bound) { ksel.dataset.bound = '1'; ksel.addEventListener('change', renderKeeperHelp); }
     const gpMap = gpByIdMap();
     const rows = [];
     p.skaters.forEach(s => {
       const c = capInfo(s.name);
-      rows.push({key: pkey(s), name: s.name, pos: s.pos, val: s.pts, valLabel: s.pts + ' pts', pace: pace82(s.pts, gpMap[s.id]), cap: c});
+      rows.push({key: pkey(s), name: s.name, pos: s.pos, team: s.team, val: s.pts, valLabel: s.pts + ' pts', pace: pace82(s.pts, gpMap[s.id]), cap: c});
     });
     p.goalies.forEach(g => {
       const c = capInfo(g.name);
-      rows.push({key: pkey(g), name: g.name, pos: 'G', val: g.w, valLabel: g.w + ' V', pace: pace82(g.w, g.pj), cap: c});
+      rows.push({key: pkey(g), name: g.name, pos: 'G', team: g.team, val: g.w, valLabel: g.w + ' V', pace: pace82(g.w, g.pj), cap: c});
     });
     rows.sort((a, b) => b.val - a.val);
+    const perm = keeperCanEdit(name, season);
     document.getElementById('keeper-rows').innerHTML = rows.map(r => {
       const checked = kept.has(r.key) ? ' checked' : '';
-      return '<tr><td><input type="checkbox" data-keep="' + r.key + '"' + checked + (SB_MODE && !canEdit(name) ? ' disabled' : '') + '></td><td>' + r.name + '</td><td>' + r.pos + '</td><td>' + r.valLabel + '</td><td>' + r.pace + '</td><td>' + (r.cap ? fmtM(r.cap.cap_hit) : '—') + '</td><td>' + (r.cap ? r.cap.status + ' ' + (r.cap.expiry || '') : '—') + '</td></tr>';
+      return '<tr><td><input type="checkbox" data-keep="' + r.key + '"' + checked + (perm.ok ? '' : ' disabled') + '></td><td>' + r.name + injMark(r.key, r.name, r.team) + '</td><td>' + r.pos + '</td><td>' + r.valLabel + '</td><td>' + r.pace + '</td><td>' + (r.cap ? fmtM(r.cap.cap_hit) : '—') + '</td><td>' + (r.cap ? r.cap.status + ' ' + (r.cap.expiry || '') : '—') + '</td></tr>';
     }).join('');
+    const noteEl = document.getElementById('keeper-note');
+    if (noteEl) noteEl.textContent = keeperNote(name, season);
     document.querySelectorAll('#keeper-rows input[type="checkbox"]').forEach(cb => cb.addEventListener('change', async () => {
       const key = cb.getAttribute('data-keep');
+      const perm2 = keeperCanEdit(name, season);
+      if (!perm2.ok) { cb.checked = !cb.checked; logTx(perm2.why === 'locked' ? 'Protections verrouillées.' : 'Seul le DG de l’équipe peut modifier ses joueurs protégés.'); return; }
       if (SB_MODE) {
-        if (!canEdit(name)) { cb.checked = !cb.checked; logTx('Seul le propriétaire de ' + name + ' peut choisir ses conservés.'); return; }
-        const res = cb.checked
-          ? await sb.from('keeper_picks').insert({team_id: name, player_key: key})
-          : await sb.from('keeper_picks').delete().eq('team_id', name).eq('player_key', key);
+        let res = cb.checked
+          ? await sb.from('keeper_picks').insert({team_id: name, player_key: key, season: season})
+          : await sb.from('keeper_picks').delete().eq('team_id', name).eq('player_key', key).eq('season', season);
+        if (res.error && /season/i.test(res.error.message || '')) {
+          res = cb.checked
+            ? await sb.from('keeper_picks').insert({team_id: name, player_key: key})
+            : await sb.from('keeper_picks').delete().eq('team_id', name).eq('player_key', key);
+        }
         if (res.error) { cb.checked = !cb.checked; logTx('La sélection n’a pas pu être enregistrée.'); return; }
       }
       if (cb.checked) kept.add(key); else kept.delete(key);
@@ -1564,7 +1958,8 @@
   }
   function updateKeeperCount() {
     const name = document.getElementById('pooler-select').value;
-    const kept = KEEP[name] || new Set();
+    const season = keeperSeason();
+    const kept = (KEEP[season] || {})[name] || new Set();
     const el = document.getElementById('keeper-count');
     el.innerHTML = 'Sélectionnés : <b>' + kept.size + ' / 11</b>' + (kept.size > 11 ? ' <span class="keeper-warn">— au-dessus de la limite de 11 conservés.</span>' : '');
     let tot = 0;
@@ -1599,21 +1994,21 @@
     fillInjPlayers();
     document.getElementById('inj-btn').addEventListener('click', async () => {
       const team = tsel.value, player = document.getElementById('inj-player').value;
-      const note = document.getElementById('inj-note').value.trim();
+      const note = injNoteCombine(document.getElementById('inj-nature').value, document.getElementById('inj-duree').value);
       if (!team || !player) return;
       if (SB_MODE) {
-        if (!canEdit(team)) { logTx('Seul le propriétaire de ' + team + ' peut inscrire ses blessés.'); return; }
+        if (TEAM_LINKED[team] && !canEdit(team)) { logTx('Seul le propriétaire de ' + team + ' peut inscrire ses blessés.'); return; }
         const p = LEAGUE.poolers.find(x => x.name === team);
-        const pl = p ? p.skaters.concat(p.goalies).concat(p.bench || []).find(x => x.name === player) : null;
+        const pl = p ? p.skaters.concat(p.goalies).concat(p.bench || []).concat(p.farm || []).find(x => x.name === player) : null;
         if (!pl) return;
         const res = await sb.from('injured').insert({team_id: team, player_key: pkey(pl), note: note});
         if (res.error) { logTx('Le blessé n’a pas pu être enregistré.'); return; }
-        document.getElementById('inj-note').value = '';
+        document.getElementById('inj-nature').value = ''; document.getElementById('inj-duree').value = '';
         await refreshLeague();
         return;
       }
       INJURED.push({team: team, player: player, note: note, date: new Date().toLocaleDateString('fr-CA')});
-      document.getElementById('inj-note').value = '';
+      document.getElementById('inj-nature').value = ''; document.getElementById('inj-duree').value = '';
       renderInjured();
     });
     renderInjured();
@@ -1622,7 +2017,7 @@
     const team = document.getElementById('inj-team').value;
     const p = LEAGUE.poolers.find(x => x.name === team);
     if (!p) return;
-    document.getElementById('inj-player').innerHTML = p.skaters.concat(p.goalies).concat(p.bench || []).map(pl => '<option>' + pl.name + '</option>').join('');
+    document.getElementById('inj-player').innerHTML = p.skaters.concat(p.goalies).concat(p.bench || []).concat(p.farm || []).map(pl => '<option>' + pl.name + '</option>').join('');
   }
   function renderInjured() {
     document.getElementById('inj-list').innerHTML = INJURED.length ? INJURED.map((r, i) =>
@@ -1631,7 +2026,7 @@
     document.querySelectorAll('#inj-list button[data-inj]').forEach(b => b.addEventListener('click', async () => {
       const key = b.getAttribute('data-key'), team = b.getAttribute('data-team');
       if (SB_MODE && key) {
-        if (!canEdit(team)) { logTx('Seul le propriétaire de ' + team + ' peut retirer ses blessés.'); return; }
+        if (TEAM_LINKED[team] && !canEdit(team)) { logTx('Seul le propriétaire de ' + team + ' peut retirer ses blessés.'); return; }
         const res = await sb.from('injured').delete().eq('team_id', team).eq('player_key', key);
         if (res.error) { logTx('Le retrait n’a pas pu être enregistré.'); return; }
         await refreshLeague();
@@ -1860,7 +2255,7 @@
     const rsel = document.getElementById('db-round');
     let opts = '';
     for (let r = 1; r <= 12; r++) opts += '<option value="' + r + '">' + (r === 1 ? '1re ronde' : r + 'e ronde') + '</option>';
-    for (let r = 13; r <= 16; r++) opts += '<option value="' + r + '">Recrue ' + (r - 12) + ' (à tout moment)</option>';
+    for (let r = 13; r <= 16; r++) opts += '<option value="' + r + '">' + r + 'e ronde</option>';
     rsel.innerHTML = opts;
     document.getElementById('db-players').innerHTML = window._skaters.slice().sort((a, b) => b.pts - a.pts).map(s => '<option value="' + escHtml(s.nom) + '">').join('');
     document.getElementById('db-btn').addEventListener('click', () => {
@@ -1869,15 +2264,21 @@
       DRAFTPICKS[team + '|' + round] = player;
       document.getElementById('db-player').value = '';
       renderDraftBoard();
+      renderPrep();
+      dbArchivePick(sb, SB_MODE && (canEdit(team) || isComm()), dbDraftPayload(team, round, player, dbCareerByName())).then(loadDraftHistory);
     });
     renderDraftBoard();
+    const hsel = document.getElementById('hist-season');
+    if (hsel) hsel.addEventListener('change', loadDraftHistory);
+    loadDraftHistory();
   }
   function renderDraftBoard() {
     const teams = LEAGUE.poolers.map(p => p.name);
+    const car = dbCareerByName();
     let head = '<tr><th>Ronde</th>' + teams.map(t => '<th>' + t + '</th>').join('') + '</tr>';
     let body = '';
     for (let r = 1; r <= 16; r++) {
-      body += '<tr><td><b>' + (r <= 12 ? r : 'Recrue ' + (r - 12)) + '</b></td>';
+      body += '<tr><td><b>' + (r <= 12 ? r : r + 'e') + '</b></td>';
       teams.forEach(t => {
         const p = LEAGUE.poolers.find(x => x.name === t);
         const picks = p.picks['2027'];
@@ -1886,12 +2287,505 @@
         else origins = (picks.rookies || []).filter(x => x.r === r - 12).map(x => x.o);
         const picked = DRAFTPICKS[t + '|' + r] || '';
         const origin = origins.length ? origins.join(', ') : '—';
-        body += '<td>' + (picked ? '<b>' + picked + '</b> (' + origin + ')' : origin) + '</td>';
+        body += '<td>' + (picked ? '<b>' + escHtml(picked) + (dbIsRookieName(picked, car) ? ' *' : '') + '</b> (' + origin + ')' : origin) + '</td>';
       });
       body += '</tr>';
     }
     document.getElementById('draftboard-table').innerHTML = '<thead>' + head + '</thead><tbody>' + body + '</tbody>';
   }
+  // --- Tableau lent : etiquettes 13e-16e, marque recrue et archivage ---
+  function dbRoundLabel(r) {
+    return (r === 1) ? '1re' : r + 'e';
+  }
+  function dbCareerByName() {
+    const cg = window._careerGp || {skaters: {}, goalies: {}};
+    const byName = {};
+    (window._skaters || []).forEach(s => { const gp = cg.skaters[s.id]; if (gp !== undefined) byName[keyName(s.nom)] = gp; });
+    (window._goaliesAll || []).forEach(g => { const nm = g.firstName.default + ' ' + g.lastName.default; const gp = cg.goalies[g.playerId]; if (gp !== undefined) byName[keyName(nm)] = gp; });
+    return byName;
+  }
+  function dbIsRookieName(name, byName) {
+    const gp = (byName || {})[keyName(name)];
+    return gp === undefined || gp <= 25;
+  }
+  function dbPlayerKey(name) {
+    const hit = (window._skaters || []).find(s => s.nom === name);
+    if (hit) return 'S' + hit.id;
+    return 'Sn:' + keyName(name);
+  }
+  function dbDraftPayload(team, round, player, byName) {
+    return {season: 2027, round_label: dbRoundLabel(round), team_id: team, player_key: dbPlayerKey(player), player_name: player, is_rookie: dbIsRookieName(player, byName), picked_at: new Date().toISOString()};
+  }
+  function dbRoundOrder(label) {
+    const n = parseInt(label, 10);
+    return isNaN(n) ? 999 : n;
+  }
+  function dbHistoryFilter(rows, season) {
+    return (rows || []).filter(r => r.season === season);
+  }
+  function dbHistoryHtml(rows, byName) {
+    const sorted = (rows || []).slice().sort((a, b) => (dbRoundOrder(a.round_label) - dbRoundOrder(b.round_label)) || String(a.team_id).localeCompare(String(b.team_id)));
+    return sorted.map(r => {
+      const mark = (r.is_rookie === true || (r.is_rookie === undefined && dbIsRookieName(r.player_name, byName))) ? ' *' : '';
+      return '<tr><td><b>' + escHtml(r.round_label) + '</b></td><td>' + escHtml(r.team_id) + '</td><td>' + escHtml(r.player_name) + mark + '</td></tr>';
+    }).join('');
+  }
+  async function dbArchivePick(client, allowed, payload) {
+    if (!client || !allowed) return 'skip';
+    try {
+      const res = await client.from('draft_picks').upsert(payload, {onConflict: 'season,round_label,team_id'});
+      if (res.error) return 'fail';
+      return 'ok';
+    } catch (e) {
+      return 'fail';
+    }
+  }
+  async function loadDraftHistory() {
+    const sel = document.getElementById('hist-season');
+    const tbl = document.getElementById('hist-table');
+    const empty = document.getElementById('hist-empty');
+    if (!tbl) return;
+    const season = sel ? (parseInt(sel.value, 10) || 2027) : 2027;
+    let rows = [];
+    if (sb) {
+      try {
+        const res = await sb.from('draft_picks').select('*').eq('season', season);
+        if (!res.error && res.data) rows = res.data;
+      } catch (e) {
+        rows = [];
+      }
+    }
+    tbl.innerHTML = '<thead><tr><th>Ronde</th><th>Équipe</th><th>Joueur</th></tr></thead><tbody>' + dbHistoryHtml(rows, dbCareerByName()) + '</tbody>';
+    if (empty) empty.hidden = rows.length > 0;
+  }
+  // --- Préparation du repêchage (29 oct. 2026) : disponibles, liste personnelle, retrait auto ---
+  function ageAt2027(dob) {
+    if (!dob || dob.length < 10) return null;
+    const y = parseInt(dob.slice(0, 4), 10);
+    const m = parseInt(dob.slice(5, 7), 10);
+    const d = parseInt(dob.slice(8, 10), 10);
+    if (isNaN(y) || isNaN(m) || isNaN(d)) return null;
+    let a = 2027 - y;
+    if (m > 7 || (m === 7 && d > 1)) a -= 1;
+    return a;
+  }
+  function prepPpm(pts, gp) {
+    if (pts === null || pts === undefined || !gp || gp <= 0) return null;
+    return Math.round(pts / gp * 10) / 10;
+  }
+  function prepPace82(pts, gp) {
+    const r = pace82(pts, gp);
+    return (r === '—') ? null : r;
+  }
+  function prepCell(v) {
+    return (v === null || v === undefined) ? '—' : v;
+  }
+  function prepNum(v, dec) {
+    if (v === null || v === undefined) return '—';
+    return v.toFixed(dec).replace('.', ',');
+  }
+  function prepCmp(a, b, key, dir, num) {
+    const va = a[key], vb = b[key];
+    const ma = (va === null || va === undefined), mb = (vb === null || vb === undefined);
+    if (ma && mb) return a.nom.localeCompare(b.nom);
+    if (ma) return 1;
+    if (mb) return -1;
+    let c = num ? (va - vb) : String(va).localeCompare(String(vb));
+    if (c === 0) c = a.nom.localeCompare(b.nom);
+    return dir * c;
+  }
+  function prepBuildRows() {
+    const prev = window._prevSeason || {skaters: {}, goalies: {}};
+    const sk = [], go = [];
+    const byId = {};
+    (window._skaters || []).forEach(s => {
+      const cur = byId[s.id];
+      if (!cur) {
+        byId[s.id] = {key: 'S' + s.id, nom: s.nom, eq: s.eq, pos: s.pos, gp: s.gp, b: s.b, a: s.a, pts: s.pts, ligue: 'LNH', kind: 'S', id: s.id, maxGp: s.gp};
+      } else {
+        cur.gp += s.gp; cur.b += s.b; cur.a += s.a; cur.pts += s.pts;
+        if (s.gp > cur.maxGp) { cur.maxGp = s.gp; cur.eq = s.eq; cur.pos = s.pos; }
+      }
+    });
+    Object.values(byId).forEach(r => {
+      const p = prev.skaters[r.id] || {};
+      r.prevPts = (p.pts === null || p.pts === undefined) ? null : p.pts;
+      r.age = ageAt2027(p.dob || null);
+      r.ppm = prepPpm(r.pts, r.gp);
+      r.proj = prepPace82(r.pts, r.gp);
+      delete r.maxGp;
+      sk.push(r);
+    });
+    (window._goaliesAll || []).forEach(g => {
+      const p = prev.goalies[g.playerId] || {};
+      go.push({key: 'G' + g.playerId, nom: g.firstName.default + ' ' + g.lastName.default, eq: g.teamAbbrev, pos: 'G',
+        pj: g.gamesPlayed, w: g.wins, l: g.losses, dp: g.overtimeLosses, moy: g.goalsAgainstAverage,
+        arr: g.savePercentage, jb: g.shutouts, projV: prepPace82(g.wins, g.gamesPlayed),
+        prevW: (p.w === null || p.w === undefined) ? null : p.w, age: ageAt2027(p.dob || null), ligue: 'LNH', kind: 'G', id: g.playerId});
+    });
+    const nhlNames = {};
+    sk.forEach(r => { nhlNames[keyName(r.nom)] = true; });
+    go.forEach(r => { nhlNames[keyName(r.nom)] = true; });
+    const seen = {};
+    const pushSk = (r) => {
+      const k = keyName(r.nom);
+      if (nhlNames[k] || seen[k]) return;
+      seen[k] = true; sk.push(r);
+    };
+    const pushGo = (r) => {
+      const k = keyName(r.nom);
+      if (nhlNames[k] || seen[k]) return;
+      seen[k] = true; go.push(r);
+    };
+    if (OTHER) {
+      // Les flux autres ligues listent aussi les gardiens parmi les patineurs :
+      // on traite les gardiens d’abord pour qu’ils atterrissent dans le bon tableau.
+      Object.keys(OTHER.leagues).forEach(lk => {
+        const L = OTHER.leagues[lk];
+        (L.goalies || []).forEach(g => {
+          pushGo({key: 'n:' + keyName(g.name), nom: g.name, eq: g.team, pos: 'G', pj: g.pj, w: g.w, l: g.l, dp: null, moy: null,
+            arr: null, jb: null, projV: prepPace82(g.w, g.pj), prevW: null, age: null, ligue: L.label, kind: 'G', id: null});
+        });
+        (L.skaters || []).forEach(s => {
+          pushSk({key: 'n:' + keyName(s.name), nom: s.name, eq: s.team, pos: null, gp: null, b: s.g, a: s.a, pts: s.pts,
+            ligue: L.label, kind: 'S', id: null, ppm: null, proj: null, prevPts: null, age: null});
+        });
+      });
+      (OTHER.espoirs || []).forEach(e => {
+        pushSk({key: 'n:' + keyName(e.name), nom: e.name, eq: e.team, pos: e.pos, gp: e.pj, b: e.g, a: e.a, pts: e.pts,
+          ligue: 'Espoirs', kind: 'S', id: null, ppm: prepPpm(e.pts, e.pj), proj: prepPace82(e.pts, e.pj), prevPts: null, age: null});
+      });
+    }
+    const cm = prepCareerMap();
+    sk.concat(go).forEach(r => { r.carGp = prepCareerGp(r, cm); });
+    return {sk: sk, go: go};
+  }
+  function prepCareerMap() {
+    const cg = window._careerGp || {skaters: {}, goalies: {}};
+    const byName = {};
+    (window._skaters || []).forEach(s => { const gp = cg.skaters[s.id]; if (gp !== undefined) byName[keyName(s.nom)] = gp; });
+    (window._goaliesAll || []).forEach(g => { const nm = g.firstName.default + ' ' + g.lastName.default; const gp = cg.goalies[g.playerId]; if (gp !== undefined) byName[keyName(nm)] = gp; });
+    return {skaters: cg.skaters, goalies: cg.goalies, byName: byName};
+  }
+  function prepCareerGp(r, cm) {
+    if (r.id !== null && r.id !== undefined) {
+      const m = (r.kind === 'G') ? cm.goalies : cm.skaters;
+      const gp = m[r.id];
+      return (gp === undefined) ? null : gp;
+    }
+    const gp = cm.byName[keyName(r.nom)];
+    return (gp === undefined) ? 0 : gp;
+  }
+  function prepIsProspect(r, cm) {
+    const gp = prepCareerGp(r, cm);
+    return gp !== null && gp <= 25;
+  }
+  function prepOwnedKeys() {
+    const used = new Set();
+    (LEAGUE.poolers || []).forEach(p => {
+      (p.skaters || []).concat(p.goalies || []).concat(p.bench || []).concat(p.farm || []).forEach(x => { used.add(pkey(x)); });
+    });
+    return used;
+  }
+  function prepDraftedKeys() {
+    const byName = {};
+    (window._skaters || []).forEach(s => { if (!byName[keyName(s.nom)]) byName[keyName(s.nom)] = []; byName[keyName(s.nom)].push('S' + s.id); });
+    (window._goaliesAll || []).forEach(g => { const k = keyName(g.firstName.default + ' ' + g.lastName.default); if (!byName[k]) byName[k] = []; byName[k].push('G' + g.playerId); });
+    const keys = new Set();
+    Object.values(DRAFTPICKS).forEach(name => {
+      const k = keyName(name);
+      if (byName[k]) byName[k].forEach(x => keys.add(x));
+      else keys.add('n:' + k);
+    });
+    return keys;
+  }
+  function prepAvailable(tab) {
+    if (!tab) tab = 'gen';
+    const rows = prepBuildRows();
+    const ownedK = prepOwnedKeys();
+    const ownedByKey = {}, ownedByName = {};
+    (LEAGUE.poolers || []).forEach(p => {
+      (p.skaters || []).concat(p.goalies || []).concat(p.bench || []).concat(p.farm || []).forEach(x => { ownedByKey[pkey(x)] = p.name; ownedByName[keyName(x.name)] = p.name; });
+    });
+    const drafted = prepDraftedKeys();
+    const cm = prepCareerMap();
+    const ufaSeason = protUfaSeason();
+    const ok = (r) => {
+      if (drafted.has(r.key)) return false;
+      let owner = null;
+      if (r.id !== null && r.id !== undefined) { if (ownedK.has(r.key)) owner = ownedByKey[r.key]; }
+      else if (ownedK.has(r.key) || ownedByName[keyName(r.nom)]) owner = ownedByKey[r.key] || ownedByName[keyName(r.nom)];
+      if (owner && !protIsPoolUfa(r, owner, ufaSeason, KEEP, PROTECTION_DEADLINE)) return false;
+      if (tab === 'esp' && !prepIsProspect(r, cm)) return false;
+      return true;
+    };
+    return {sk: rows.sk.filter(ok), go: rows.go.filter(ok)};
+  }
+  function prepFilterRows(rows, q, lg) {
+    const qq = (q || '').toLowerCase();
+    return rows.filter(r => (!qq || r.nom.toLowerCase().indexOf(qq) !== -1) && (!lg || r.ligue === lg));
+  }
+  let PREP_SORT_SK = {key: 'pts', dir: -1};
+  let PREP_SORT_GO = {key: 'w', dir: -1};
+  let PREP_PREFS = [];
+  let PREP_PREFS_GEN = [];
+  let PREP_PREFS_ESP = [];
+  let PREP_TAB = 'gen';
+  const PREP_PAGE_SIZE = 50;
+  const PREP_PAGES = {gen: {sk: 1, go: 1}, esp: {sk: 1, go: 1}};
+  const PREP_NUM_SK = {gp: 1, b: 1, a: 1, pts: 1, ppm: 1, proj: 1, prevPts: 1, age: 1};
+  const PREP_NUM_GO = {pj: 1, w: 1, l: 1, dp: 1, moy: 1, arr: 1, jb: 1, projV: 1, prevW: 1, age: 1};
+  function prepSortLabel(key, cur) {
+    if (cur.key !== key) return '';
+    return cur.dir === -1 ? ' ▾' : ' ▴';
+  }
+  function prepPrefAdd(list, key) {
+    if (list.indexOf(key) === -1) list.push(key);
+    return list;
+  }
+  function prepPrefMove(list, key, dir) {
+    const i = list.indexOf(key);
+    if (i === -1) return list;
+    const j = i + dir;
+    if (j < 0 || j >= list.length) return list;
+    const tmp = list[i]; list[i] = list[j]; list[j] = tmp;
+    return list;
+  }
+  function prepPrefDel(list, key) {
+    return list.filter(k => k !== key);
+  }
+  function prepSkHead() {
+    const h = [['nom', 'Joueur'], ['ligue', 'Ligue'], ['eq', 'Équipe'], ['pos', 'Pos'], ['gp', 'PJ'], ['b', 'B'], ['a', 'A'], ['pts', 'Pts'], ['ppm', 'PPM'], ['proj', 'Rythme 82'], ['prevPts', 'Pts 2025-26'], ['age', 'Âge']];
+    return '<tr>' + h.map(c => '<th data-sort="' + c[0] + '" style="cursor:pointer">' + c[1] + prepSortLabel(c[0], PREP_SORT_SK) + '</th>').join('') + '<th>Prév. 2027-28</th><th></th></tr>';
+  }
+  function prepGoHead() {
+    const h = [['nom', 'Gardien'], ['ligue', 'Ligue'], ['eq', 'Équipe'], ['pj', 'PJ'], ['w', 'V'], ['l', 'D'], ['dp', 'DP'], ['moy', 'MOY'], ['arr', 'ARR%'], ['jb', 'JB'], ['projV', 'Rythme V'], ['prevW', 'V 2025-26'], ['age', 'Âge']];
+    return '<tr>' + h.map(c => '<th data-sort="' + c[0] + '" style="cursor:pointer">' + c[1] + prepSortLabel(c[0], PREP_SORT_GO) + '</th>').join('') + '<th>Prév. 2027-28</th><th></th></tr>';
+  }
+  function prepSkRow(r) {
+    const inPrefs = PREP_PREFS.indexOf(r.key) !== -1;
+    const add = inPrefs ? '<button disabled>Ajouté</button>' : '<button data-add="' + escHtml(r.key) + '">+</button>';
+    return '<tr><td><b><a href="#" data-prep-fiche="' + escHtml(r.key) + '" style="color:inherit;text-decoration:underline;cursor:pointer">' + escHtml(r.nom) + '</a></b></td><td>' + escHtml(r.ligue) + '</td><td>' + escHtml(r.eq) + '</td><td>' + prepCell(r.pos) +
+      '</td><td>' + prepCell(r.gp) + '</td><td>' + prepCell(r.b) + '</td><td>' + prepCell(r.a) + '</td><td><b>' + prepCell(r.pts) +
+      '</b></td><td>' + prepNum(r.ppm, 1) + '</td><td>' + prepCell(r.proj) + '</td><td>' + prepCell(r.prevPts) + '</td><td>' + prepCell(r.age) +
+      '</td><td>—</td><td>' + add + '</td></tr>';
+  }
+  function prepGoRow(r) {
+    const inPrefs = PREP_PREFS.indexOf(r.key) !== -1;
+    const add = inPrefs ? '<button disabled>Ajouté</button>' : '<button data-add="' + escHtml(r.key) + '">+</button>';
+    const arr = (r.arr === null || r.arr === undefined) ? '—' : (r.arr * 100).toFixed(1).replace('.', ',') + ' %';
+    return '<tr><td><b><a href="#" data-prep-fiche="' + escHtml(r.key) + '" style="color:inherit;text-decoration:underline;cursor:pointer">' + escHtml(r.nom) + '</a></b></td><td>' + escHtml(r.ligue) + '</td><td>' + escHtml(r.eq) +
+      '</td><td>' + prepCell(r.pj) + '</td><td><b>' + prepCell(r.w) + '</b></td><td>' + prepCell(r.l) + '</td><td>' + prepCell(r.dp) +
+      '</td><td>' + prepNum(r.moy, 2) + '</td><td>' + arr + '</td><td>' + prepCell(r.jb) + '</td><td>' + prepCell(r.projV) +
+      '</td><td>' + prepCell(r.prevW) + '</td><td>' + prepCell(r.age) + '</td><td>—</td><td>' + add + '</td></tr>';
+  }
+  function prepPageCount(total) {
+    return Math.max(1, Math.ceil(total / PREP_PAGE_SIZE));
+  }
+  function prepPager(total, page, kind) {
+    const pages = prepPageCount(total);
+    const p = Math.min(Math.max(1, page), pages);
+    const win = [];
+    for (let i = 1; i <= pages; i++) {
+      if (i === 1 || i === pages || Math.abs(i - p) <= 2) win.push(i);
+      else if (win[win.length - 1] !== '…') win.push('…');
+    }
+    let nums = '';
+    win.forEach(v => {
+      if (v === '…') nums += '<span style="padding:0 4px">…</span>';
+      else if (v === p) nums += '<button disabled style="font-weight:bold">' + v + '</button> ';
+      else nums += '<button data-page="' + v + '" data-kind="' + kind + '">' + v + '</button> ';
+    });
+    const prev = (p > 1) ? '<button data-page="' + (p - 1) + '" data-kind="' + kind + '">Précédent</button> ' : '<button disabled>Précédent</button> ';
+    const next = (p < pages) ? '<button data-page="' + (p + 1) + '" data-kind="' + kind + '">Suivant</button>' : '<button disabled>Suivant</button>';
+    return prev + nums + next;
+  }
+  function prepResetPages() {
+    PREP_PAGES[PREP_TAB].sk = 1;
+    PREP_PAGES[PREP_TAB].go = 1;
+  }
+  function prepSwitchTab(tab) {
+    if (tab === PREP_TAB) return;
+    if (PREP_TAB === 'esp') PREP_PREFS_ESP = PREP_PREFS; else PREP_PREFS_GEN = PREP_PREFS;
+    PREP_TAB = tab;
+    PREP_PREFS = (tab === 'esp') ? PREP_PREFS_ESP : PREP_PREFS_GEN;
+    const g = document.getElementById('prep-tab-gen');
+    const e = document.getElementById('prep-tab-esp');
+    if (g) g.className = (tab === 'gen') ? 'prep-tab on' : 'prep-tab';
+    if (e) e.className = (tab === 'esp') ? 'prep-tab on' : 'prep-tab';
+    const intro = document.getElementById('prep-intro');
+    if (intro) intro.textContent = (tab === 'esp')
+      ? 'Seulement les joueurs répondant au critère de recrue : 25 matchs joués et moins dans la LNH en carrière. Un joueur possédé par une équipe ou déjà choisi au tableau lent n’y apparaît plus. Clique sur un en-tête pour trier; ajoute tes favoris à ta liste avec le bouton +.'
+      : 'Tous les joueurs disponibles, triés par points de la saison en cours. Un joueur possédé par une équipe ou déjà choisi au tableau lent n’y apparaît plus. Clique sur un en-tête pour trier; ajoute tes favoris à ta liste avec le bouton +.';
+    renderPrep();
+  }
+  function showPrepFiche(key) {
+    const modal = document.getElementById('player-modal');
+    const nameEl = document.getElementById('fiche-name');
+    const body = document.getElementById('fiche-body');
+    if (!modal || !nameEl || !body) return;
+    const rows = prepBuildRows();
+    const r = rows.sk.concat(rows.go).find(x => x.key === key);
+    if (!r) return;
+    nameEl.textContent = r.nom;
+    const car = (r.carGp === null || r.carGp === undefined) ? '—' : r.carGp;
+    if (r.kind === 'S') {
+      body.innerHTML = ficheLine('Ligue', r.ligue) + ficheLine('Équipe', r.eq) + ficheLine('Position', r.pos || '—') +
+        ficheLine('Matchs joués', r.gp ?? '—') + ficheLine('Buts', r.b ?? '—') + ficheLine('Passes', r.a ?? '—') +
+        ficheLine('Points', r.pts ?? '—') + ficheLine('Points par match', (r.ppm === null || r.ppm === undefined) ? '—' : r.ppm) +
+        ficheLine('Rythme projeté (82 matchs)', (r.proj === null || r.proj === undefined) ? '—' : r.proj + ' pts') +
+        ficheLine('Points 2025-26', r.prevPts ?? '—') + ficheLine('Âge au 1er juillet 2027', r.age ?? '—') +
+        ficheLine('Matchs LNH en carrière', car) + ficheLine('Prévisions 2027-28', '—') + ficheLine('Statut', 'Agent libre');
+    } else {
+      const arr = (r.arr === null || r.arr === undefined) ? '—' : (r.arr * 100).toFixed(1).replace('.', ',') + ' %';
+      body.innerHTML = ficheLine('Ligue', r.ligue) + ficheLine('Équipe', r.eq) +
+        ficheLine('Matchs joués', r.pj ?? '—') + ficheLine('Victoires', r.w ?? '—') + ficheLine('Défaites', r.l ?? '—') +
+        ficheLine('Prolongations', r.dp ?? '—') + ficheLine('Moyenne', (r.moy === null || r.moy === undefined) ? '—' : r.moy) +
+        ficheLine('Pourcentage d’arrêts', arr) + ficheLine('Jeux blancs', r.jb ?? '—') +
+        ficheLine('Rythme projeté (82 matchs)', (r.projV === null || r.projV === undefined) ? '—' : r.projV + ' V') +
+        ficheLine('Victoires 2025-26', r.prevW ?? '—') + ficheLine('Âge au 1er juillet 2027', r.age ?? '—') +
+        ficheLine('Matchs LNH en carrière', car) + ficheLine('Prévisions 2027-28', '—') + ficheLine('Statut', 'Agent libre');
+    }
+    const injP = injuryFor(r.key, r.nom, r.eq);
+    if (injP) body.innerHTML += ficheLine('Blessure', '✚ ' + injP.text);
+    modal.hidden = false;
+  }
+  function renderPrep() {
+    const skEl = document.getElementById('prep-skaters');
+    const goEl = document.getElementById('prep-goalies');
+    const countEl = document.getElementById('prep-count');
+    if (!skEl || !goEl || !LEAGUE) return;
+    const pages = PREP_PAGES[PREP_TAB];
+    const av = prepAvailable(PREP_TAB);
+    const q = document.getElementById('prep-q') ? document.getElementById('prep-q').value : '';
+    const lg = document.getElementById('prep-lg') ? document.getElementById('prep-lg').value : '';
+    const skF = prepFilterRows(av.sk, q, lg).sort((a, b) => prepCmp(a, b, PREP_SORT_SK.key, PREP_SORT_SK.dir, !!PREP_NUM_SK[PREP_SORT_SK.key]));
+    const goF = prepFilterRows(av.go, q, lg).sort((a, b) => prepCmp(a, b, PREP_SORT_GO.key, PREP_SORT_GO.dir, !!PREP_NUM_GO[PREP_SORT_GO.key]));
+    const skPages = prepPageCount(skF.length);
+    const goPages = prepPageCount(goF.length);
+    if (pages.sk > skPages) pages.sk = skPages;
+    if (pages.go > goPages) pages.go = goPages;
+    const skShown = skF.slice((pages.sk - 1) * PREP_PAGE_SIZE, pages.sk * PREP_PAGE_SIZE);
+    const goShown = goF.slice((pages.go - 1) * PREP_PAGE_SIZE, pages.go * PREP_PAGE_SIZE);
+    skEl.innerHTML = '<thead>' + prepSkHead() + '</thead><tbody>' + skShown.map(prepSkRow).join('') + '</tbody>';
+    goEl.innerHTML = '<thead>' + prepGoHead() + '</thead><tbody>' + goShown.map(prepGoRow).join('') + '</tbody>';
+    const skPager = document.getElementById('prep-pager-sk');
+    const goPager = document.getElementById('prep-pager-go');
+    if (skPager) skPager.innerHTML = 'Patineurs : page ' + pages.sk + ' sur ' + skPages + ' — ' + prepPager(skF.length, pages.sk, 'sk');
+    if (goPager) goPager.innerHTML = 'Gardiens : page ' + pages.go + ' sur ' + goPages + ' — ' + prepPager(goF.length, pages.go, 'go');
+    if (countEl) {
+      countEl.textContent = av.sk.length + ' patineurs et ' + av.go.length + ' gardiens disponibles.';
+      if (PREP_TAB === 'esp') {
+        const cg = window._careerGp || {skaters: {}, goalies: {}};
+        if (Object.keys(cg.skaters).length === 0 && Object.keys(cg.goalies).length === 0) countEl.textContent += ' Données de carrière LNH indisponibles : seuls les joueurs des autres bassins sont affichés.';
+      }
+    }
+    renderPrepPrefs();
+  }
+  function renderPrepPrefs() {
+    const el = document.getElementById('prep-prefs');
+    const lab = document.getElementById('prep-prefs-tab');
+    if (lab) lab.textContent = (PREP_TAB === 'esp') ? 'Repêchage espoirs' : 'Repêchage général';
+    if (!el || !LEAGUE) return;
+    const rows = prepBuildRows();
+    const all = {};
+    rows.sk.concat(rows.go).forEach(r => { all[r.key] = r; });
+    const av = prepAvailable(PREP_TAB);
+    const avKeys = {};
+    av.sk.concat(av.go).forEach(r => { avKeys[r.key] = true; });
+    PREP_PREFS = PREP_PREFS.filter(k => avKeys[k]);
+    if (PREP_TAB === 'esp') PREP_PREFS_ESP = PREP_PREFS; else PREP_PREFS_GEN = PREP_PREFS;
+    if (!PREP_PREFS.length) {
+      el.innerHTML = '<p class="muted">Aucun joueur dans ta liste pour l’instant. Ajoute des joueurs avec le bouton + du tableau ci-dessus.</p>';
+      return;
+    }
+    el.innerHTML = '<div style="overflow-x:auto"><table><thead><tr><th>#</th><th>Joueur</th><th>Équipe</th><th>Pos</th><th>Ligue</th><th></th></tr></thead><tbody>' +
+      PREP_PREFS.map((k, i) => {
+        const r = all[k];
+        if (!r) return '';
+        return '<tr><td>' + (i + 1) + '</td><td><b>' + escHtml(r.nom) + '</b></td><td>' + escHtml(r.eq) + '</td><td>' + prepCell(r.pos) +
+          '</td><td>' + escHtml(r.ligue) + '</td><td><button data-up="' + escHtml(k) + '">↑</button> <button data-down="' + escHtml(k) + '">↓</button> <button data-del="' + escHtml(k) + '">×</button></td></tr>';
+      }).join('') + '</tbody></table></div>';
+  }
+  function buildPrep() {
+    const skEl = document.getElementById('prep-skaters');
+    const goEl = document.getElementById('prep-goalies');
+    const prefsEl = document.getElementById('prep-prefs');
+    if (!skEl || !goEl) return;
+    skEl.addEventListener('click', e => {
+      const fiche = e.target.closest ? e.target.closest('a[data-prep-fiche]') : null;
+      if (fiche) {
+        e.preventDefault();
+        showPrepFiche(fiche.getAttribute('data-prep-fiche'));
+        return;
+      }
+      const th = e.target.closest ? e.target.closest('th[data-sort]') : null;
+      if (th) {
+        const k = th.getAttribute('data-sort');
+        if (PREP_SORT_SK.key === k) PREP_SORT_SK.dir = -PREP_SORT_SK.dir;
+        else PREP_SORT_SK = {key: k, dir: (k === 'nom' || k === 'ligue' || k === 'eq' || k === 'pos') ? 1 : -1};
+        prepResetPages();
+        renderPrep();
+        return;
+      }
+      const btn = e.target.closest ? e.target.closest('button[data-add]') : null;
+      if (btn) {
+        prepPrefAdd(PREP_PREFS, btn.getAttribute('data-add'));
+        renderPrep();
+      }
+    });
+    goEl.addEventListener('click', e => {
+      const fiche = e.target.closest ? e.target.closest('a[data-prep-fiche]') : null;
+      if (fiche) {
+        e.preventDefault();
+        showPrepFiche(fiche.getAttribute('data-prep-fiche'));
+        return;
+      }
+      const th = e.target.closest ? e.target.closest('th[data-sort]') : null;
+      if (th) {
+        const k = th.getAttribute('data-sort');
+        if (PREP_SORT_GO.key === k) PREP_SORT_GO.dir = -PREP_SORT_GO.dir;
+        else PREP_SORT_GO = {key: k, dir: (k === 'nom' || k === 'ligue' || k === 'eq') ? 1 : -1};
+        prepResetPages();
+        renderPrep();
+        return;
+      }
+      const btn = e.target.closest ? e.target.closest('button[data-add]') : null;
+      if (btn) {
+        prepPrefAdd(PREP_PREFS, btn.getAttribute('data-add'));
+        renderPrep();
+      }
+    });
+    if (prefsEl) prefsEl.addEventListener('click', e => {
+      const up = e.target.closest ? e.target.closest('button[data-up]') : null;
+      const down = e.target.closest ? e.target.closest('button[data-down]') : null;
+      const del = e.target.closest ? e.target.closest('button[data-del]') : null;
+      if (up) { prepPrefMove(PREP_PREFS, up.getAttribute('data-up'), -1); renderPrepPrefs(); }
+      else if (down) { prepPrefMove(PREP_PREFS, down.getAttribute('data-down'), 1); renderPrepPrefs(); }
+      else if (del) { PREP_PREFS = prepPrefDel(PREP_PREFS, del.getAttribute('data-del')); renderPrepPrefs(); }
+    });
+    const q = document.getElementById('prep-q');
+    if (q) q.addEventListener('input', () => { prepResetPages(); renderPrep(); });
+    const lg = document.getElementById('prep-lg');
+    if (lg) lg.addEventListener('change', () => { prepResetPages(); renderPrep(); });
+    const psk = document.getElementById('prep-pager-sk');
+    const pgo = document.getElementById('prep-pager-go');
+    [psk, pgo].forEach(pg => {
+      if (!pg) return;
+      pg.addEventListener('click', e => {
+        const b = e.target.closest ? e.target.closest('button[data-page]') : null;
+        if (!b) return;
+        PREP_PAGES[PREP_TAB][b.getAttribute('data-kind')] = parseInt(b.getAttribute('data-page'), 10);
+        renderPrep();
+      });
+    });
+    const tg = document.getElementById('prep-tab-gen');
+    const te = document.getElementById('prep-tab-esp');
+    if (tg) tg.addEventListener('click', () => prepSwitchTab('gen'));
+    if (te) te.addEventListener('click', () => prepSwitchTab('esp'));
+    renderPrep();
+  }
+  // --- FIN Préparation du repêchage ---
   function buildNewSelects() {
     const tsel = document.getElementById('tonight-team');
     tsel.innerHTML = LEAGUE.poolers.map(p => '<option>' + p.name + '</option>').join('');
@@ -1938,8 +2832,8 @@
     window._schedule = SCHEDULE;
     boot(PREVIEW_DATA, DEMO_LEAGUE, OTHER_LEAGUES);
   } else {
-    Promise.all([fetch('data/nhl-players-full.json').then(r => r.json()), fetch('data/demo-league.json').then(r => r.json()), fetch('data/other-leagues.json').then(r => r.json()), fetch('data/daily-scoring.json').then(r => r.json()), fetch('data/cap-hits.json').then(r => r.json()), fetch('data/champions.json').then(r => r.json()), fetch('data/nhl-schedule-compact.json').then(r => r.json())])
-      .then(([p, l, o, ds, cap, ch, sch]) => { window._daily = ds; window._cap = cap; window._capMap = cap.players; window._champions = ch; window._schedule = sch; boot(p, l, o); })
+    Promise.all([fetch('data/nhl-players-full.json').then(r => r.json()), fetch('data/demo-league.json').then(r => r.json()), fetch('data/other-leagues.json').then(r => r.json()), fetch('data/daily-scoring.json').then(r => r.json()), fetch('data/cap-hits.json').then(r => r.json()), fetch('data/champions.json').then(r => r.json()), fetch('data/nhl-schedule-compact.json').then(r => r.json()), fetch('data/nhl-prev-season.json').then(r => r.json()).catch(() => null), fetch('data/nhl-career-gp.json').then(r => r.json()).catch(() => null), fetch('data/df-injuries.json').then(r => r.json()).catch(() => null)])
+      .then(([p, l, o, ds, cap, ch, sch, ps, cg, df]) => { window._daily = ds; window._cap = cap; window._capMap = cap.players; window._champions = ch; window._schedule = sch; window._prevSeason = ps || {skaters: {}, goalies: {}}; window._careerGp = cg || {skaters: {}, goalies: {}}; window._dfInjuries = df || {players: []}; boot(p, l, o); })
       .catch(() => {
         document.getElementById('data-note').textContent =
           'Les données se chargent quand la page est servie par un site (pas en ouvrant le fichier directement).';
