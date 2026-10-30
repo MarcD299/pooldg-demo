@@ -930,6 +930,18 @@
     const hit = (window._skaters || []).find(x => x.id === s.id);
     return hit ? hit.gp : null;
   }
+  function farmGradStatus(f) {
+    const prev = window._prevSeason || {skaters: {}, goalies: {}};
+    if (f.pos === 'G') {
+      const rec = f.id ? (prev.goalies || {})[f.id] : null;
+      const w = rec ? rec.w : null;
+      return (w !== null && w !== undefined && w >= 30) ? 'Diplômé' : 'Espoir';
+    }
+    const rec = f.id ? (prev.skaters || {})[f.id] : null;
+    const pts = rec ? rec.pts : null;
+    if (f.pos === 'D') return (pts !== null && pts !== undefined && pts >= 40) ? 'Diplômé' : 'Espoir';
+    return (pts !== null && pts !== undefined && pts >= 65) ? 'Diplômé' : 'Espoir';
+  }
   function normName(n) {
     return n.normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase().replace(/\s+/g, ' ').trim();
   }
@@ -1975,13 +1987,11 @@
     const name = document.getElementById('pooler-select').value;
     const p = LEAGUE.poolers.find(x => x.name === name);
     if (!p) return;
-    const gpMap = gpByIdMap();
     const rows = (p.farm || []).map(f => {
-      const gp = f.id ? gpMap[f.id] : undefined;
-      const st = (gp !== undefined && gp >= 25) ? 'Diplômé' : 'Espoir';
+      const st = farmGradStatus(f);
       return '<tr><td>' + f.name + '</td><td>' + f.team + '</td><td>' + f.pos + '</td><td>' + (f.gp ?? '—') + '</td><td>' + (f.g ?? '—') + '</td><td>' + (f.a ?? '—') + '</td><td><b>' + (f.pts ?? '—') + '</b></td><td><b>' + st + '</b></td></tr>';
     }).join('');
-    document.getElementById('farm-note').textContent = 'Règle proposée : un espoir est considéré diplômé après 25 matchs joués dans la LNH (à confirmer par le commissaire). ' + (p.farm ? p.farm.length : 0) + ' recrues (maximum 20).';
+    document.getElementById('farm-note').textContent = 'Règle décidée : un espoir est diplômé si, la saison précédente, il a atteint 65 points (attaquant), 40 points (défenseur) ou 30 victoires (gardien). Recrue au repêchage : 25 matchs LNH ou moins en carrière. ' + (p.farm ? p.farm.length : 0) + ' recrues (maximum 20).';
     document.getElementById('farm-status').innerHTML = rows ?
       '<div style="overflow-x:auto"><table><thead><tr><th>Espoir</th><th>Équipe</th><th>Pos</th><th>PJ</th><th>B</th><th>A</th><th>Pts</th><th>Statut</th></tr></thead><tbody>' + rows + '</tbody></table></div>' :
       '<p class="muted">Aucune recrue.</p>';
