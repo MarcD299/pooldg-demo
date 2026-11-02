@@ -1255,6 +1255,35 @@
     const go = p.goalies.map(g => '<option value="' + pkey(g) + '">' + g.name + ' (G)</option>').join('');
     return sk + go;
   }
+  function tbOfferOptions(p) {
+    let h = '<optgroup label="Joueurs">' + rosterOptions(p) + '</optgroup>';
+    h += '<optgroup label="Réservistes">' + (p.bench || []).map(s => '<option value="' + pkey(s) + '">' + s.name + ' (' + s.pos + ')</option>').join('') + '</optgroup>';
+    h += '<optgroup label="Recrues">' + (p.farm || []).map(s => '<option value="' + pkey(s) + '">' + s.name + ' (' + s.pos + ')</option>').join('') + '</optgroup>';
+    h += '<optgroup label="Choix au repêchage">';
+    Object.keys(p.picks).sort().forEach(y => {
+      const byRound = (a, b) => a.r - b.r || (a.o === p.name ? -1 : b.o === p.name ? 1 : (a.o < b.o ? -1 : a.o > b.o ? 1 : 0));
+      p.picks[y].regular.slice().sort(byRound).forEach(pk => {
+        h += '<option value="P' + y + ':regular:' + pk.r + ':' + pk.o + '">' + (pk.r === 1 ? '1er' : pk.r + 'e') + ' choix ' + y + ' ' + pk.o + '</option>';
+      });
+      p.picks[y].rookies.slice().sort(byRound).forEach(pk => {
+        h += '<option value="P' + y + ':rookies:' + pk.r + ':' + pk.o + '">' + (pk.r === 1 ? '1re' : pk.r + 'e') + ' recrue ' + y + ' ' + pk.o + '</option>';
+      });
+    });
+    h += '</optgroup><optgroup label="Choix mi-saison">';
+    Object.keys(p.picks).sort().forEach(y => {
+      (p.picks[y].midseason || []).slice().sort((a, b) => a.r - b.r || (a.o === p.name ? -1 : b.o === p.name ? 1 : (a.o < b.o ? -1 : a.o > b.o ? 1 : 0))).forEach(pk => {
+        h += '<option value="P' + y + ':midseason:' + pk.r + ':' + pk.o + '">' + (pk.r === 1 ? '1er' : pk.r + 'e') + ' choix mi-saison ' + y + ' ' + pk.o + '</option>';
+      });
+    });
+    h += "</optgroup><optgroup label=\"Choix d'équipe\">";
+    Object.keys(p.picks).sort().forEach(y => {
+      (p.picks[y].team || []).slice().sort((a, b) => (a.o < b.o ? -1 : a.o > b.o ? 1 : 0)).forEach(pk => {
+        h += '<option value="P' + y + ':team:' + pk.o + '">Choix équipe ' + y + ' ' + pk.o + '</option>';
+      });
+    });
+    h += '</optgroup>';
+    return h;
+  }
   function freeAgents() {
     const used = new Set();
     LEAGUE.poolers.forEach(p => { p.skaters.forEach(s => used.add(s.id)); p.goalies.forEach(g => used.add(g.id));
@@ -2222,10 +2251,30 @@
   function tbFindPlayer(team, key) {
     const p = LEAGUE.poolers.find(x => x.name === team);
     if (!p) return null;
-    return p.skaters.concat(p.goalies).find(pl => pkey(pl) === key) || null;
+    if (key.charAt(0) === 'P') {
+      const parts = key.split(':');
+      const y = parts[0].slice(1);
+      const type = parts[1];
+      const list = (p.picks[y] || {})[type] || [];
+      let found = null;
+      if (type === 'team') found = list.find(pk => pk.o === parts[2]) || null;
+      else found = list.find(pk => pk.r === +parts[2] && pk.o === parts[3]) || null;
+      if (!found) return null;
+      return {name: pickLabel(key.slice(1), team), pos: 'Choix', pick: true, year: y};
+    }
+    const act = p.skaters.concat(p.goalies).find(pl => pkey(pl) === key);
+    if (act) return act;
+    const ben = (p.bench || []).find(pl => pkey(pl) === key);
+    if (ben) return ben;
+    const far = (p.farm || []).find(pl => pkey(pl) === key);
+    if (far) return Object.assign({}, far, {tbKind: 'recrue'});
+    return null;
   }
   function tbStatLine(pl) {
-    let s = pl.pos === 'G' ? (pl.w || 0) + ' V' : (pl.pts || 0) + ' pts';
+    if (pl.pick) return 'Repêchage ' + pl.year;
+    let s;
+    if (pl.pos === 'G') s = (pl.w === null || pl.w === undefined) ? '—' : (pl.w || 0) + ' V';
+    else s = (pl.pts === null || pl.pts === undefined) ? '—' : (pl.pts || 0) + ' pts';
     const c = capInfo(pl.name);
     if (c) s += ' · ' + fmtM(c.cap_hit);
     return s;
@@ -2237,7 +2286,7 @@
     return null;
   }
   function tbPlayerCat(pl) {
-    if (!pl) return null;
+    if (!pl || pl.pick || pl.tbKind === 'recrue') return null;
     if (pl.pos === 'G') return 'G';
     if (pl.pos === 'D') return 'D';
     return 'A';
@@ -2372,7 +2421,7 @@
     const team = document.getElementById('tb-team').value;
     const p = LEAGUE.poolers.find(x => x.name === team);
     if (!p) return;
-    document.getElementById('tb-offer').innerHTML = rosterOptions(p);
+    document.getElementById('tb-offer').innerHTML = tbOfferOptions(p);
   }
   function renderTradeBlock() {
     const board = document.getElementById('tb-board');
@@ -2406,7 +2455,7 @@
           }
           html += '<div style="border:2px solid #00358f;border-radius:14px;padding:10px 14px;min-width:230px;flex:1 1 230px">' +
             '<span style="display:inline-block;background:#0b1b33;color:#fff;border-radius:6px;padding:2px 8px;font-size:12px;font-weight:700">' + escHtml(p.name) + '</span>' +
-            '<div style="font-weight:700;font-size:16px;margin-top:6px"><span data-fiche="' + escHtml(key) + '" style="cursor:pointer;text-decoration:underline">' + escHtml(pl.name) + '</span></div>' +
+            '<div style="font-weight:700;font-size:16px;margin-top:6px">' + (pl.pick ? escHtml(pl.name) : pl.tbKind === 'recrue' ? farmNameHtml(pl) : '<span data-fiche="' + escHtml(key) + '" style="cursor:pointer;text-decoration:underline">' + escHtml(pl.name) + '</span>') + '</div>' +
             '<div style="color:#44546e;font-size:14px;margin:2px 0 8px">' + escHtml(pl.pos) + ' · ' + tbStatLine(pl) + '</div>';
           if (removable) html += '<button data-tb-del-offer="' + escHtml(p.name) + '|' + escHtml(key) + '" style="border:0;background:transparent;cursor:pointer;font-weight:700;font-size:16px" title="Retirer">×</button> ';
           if (showPropose) html += '<button data-tb-propose="' + escHtml(p.name) + '" data-tb-key="' + escHtml(key) + '" style="background:#00358f;color:#fff;border:0;border-radius:999px;padding:7px 14px;font-size:14px;cursor:pointer;font-weight:600">Proposer un échange</button>';
