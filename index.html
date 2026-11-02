@@ -1162,7 +1162,7 @@
       return h;
     }
     document.getElementById('pooler-bench').innerHTML = groupTables(p.bench || [], p, true) +
-      '<p class="muted">Les réservistes comptent dans le pointage quand ils font partie des 12 meilleurs attaquants, 6 meilleurs défenseurs ou 2 meilleurs gardiens.</p>';
+      '<p class="muted">Les réservistes ne comptent pas dans le pointage : seuls les 12 meilleurs attaquants, 6 meilleurs défenseurs et 2 meilleurs gardiens parmi les actifs comptent.</p>';
     document.getElementById('pooler-farm').innerHTML = groupTables(p.farm || [], p, true) +
       '<p class="muted">Maximum 20 recrues, pas de minimum.</p>';
     document.getElementById('pooler-picks').textContent =
@@ -1189,15 +1189,15 @@
     const ul = document.getElementById('tx-log');
     ul.innerHTML = '<li>' + msg + '</li>' + ul.innerHTML;
   }
-  // --- Pointage PoolDG (28 oct. 2026) : 12 meilleurs attaquants, 6 meilleurs défenseurs, 2 meilleurs gardiens ---
+  // --- Pointage PoolDG (28 oct. 2026) : 12 meilleurs attaquants, 6 meilleurs défenseurs, 2 meilleurs gardiens, actifs seulement (2 nov. 2026) ---
   function goaliePts(g) {
     return 2 * (g.w || 0) + 1 * (g.otl || 0) + 1 * (g.a || 0) + 5 * (g.g || 0) + 3 * (g.so || 0);
   }
   function recomputeScores(p) {
-    const sk = (p.skaters || []).concat(p.bench || []).filter(x => x.pos !== 'G');
+    const sk = (p.skaters || []).filter(x => x.pos !== 'G');
     const fw = sk.filter(s => s.pos !== 'D').sort((a, b) => (b.pts || 0) - (a.pts || 0)).slice(0, 12);
     const df = sk.filter(s => s.pos === 'D').sort((a, b) => (b.pts || 0) - (a.pts || 0)).slice(0, 6);
-    const go = (p.goalies || []).concat((p.bench || []).filter(x => x.pos === 'G')).sort((a, b) => goaliePts(b) - goaliePts(a)).slice(0, 2);
+    const go = (p.goalies || []).slice().sort((a, b) => goaliePts(b) - goaliePts(a)).slice(0, 2);
     p.sk_pts = fw.reduce((t, s) => t + (s.pts || 0), 0) + df.reduce((t, s) => t + (s.pts || 0), 0);
     p.go_pts = go.reduce((t, g) => t + goaliePts(g), 0);
     p.score = p.sk_pts + p.go_pts;
