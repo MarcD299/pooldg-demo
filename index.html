@@ -875,7 +875,7 @@
       if (goPager) goPager.hidden = true;
     } else {
       const L = OTHER.leagues[lg];
-      note.textContent = L.label + ' au 27 octobre 2026 : ' + L.skaters.length + ' patineurs et ' + L.goalies.length + ' gardiens (positions non disponibles dans cette source; matchs joués des patineurs non disponibles; DP, passes et buts des gardiens non disponibles).';
+      note.textContent = L.label + ' au ' + protDateFr(OTHER.date) + ' : ' + L.skaters.length + ' patineurs et ' + L.goalies.length + ' gardiens (positions non disponibles dans cette source; DP, passes, buts et blanchissages des gardiens non disponibles).';
       skHead.innerHTML = '<tr><th>Joueur</th><th>Équipe</th><th>PJ</th><th>B</th><th>A</th><th>Pts</th><th>Moy. pts/match</th></tr>';
       goBlock.hidden = false;
       goHead.innerHTML = '<tr><th>Gardien</th><th>Équipe</th><th>PJ</th><th>V</th><th>D</th><th>DP</th><th>A</th><th>B</th><th>BL</th><th>MOY</th><th>%ARR</th></tr>';
@@ -883,15 +883,15 @@
       const skPages = basinPageCount(skAll.length);
       if (BASIN_PAGES.sk > skPages) BASIN_PAGES.sk = skPages;
       const sk = skAll.slice((BASIN_PAGES.sk - 1) * BASIN_PAGE_SIZE, BASIN_PAGES.sk * BASIN_PAGE_SIZE);
-      document.getElementById('rows').innerHTML = sk.map(s =>
-        '<tr><td>' + s.name + '</td><td>' + s.team + '</td><td>' + (s.pj ?? '—') + '</td><td>' + s.g + '</td><td>' + s.a + '</td><td><b>' + s.pts + '</b></td><td>' + fmtPpm(s.pts, s.pj) + '</td></tr>').join('');
+      document.getElementById('rows').innerHTML = sk.map((s, i) =>
+        '<tr><td><span class="name-link" data-fiche="OS' + lg + ':' + ((BASIN_PAGES.sk - 1) * BASIN_PAGE_SIZE + i) + '">' + s.name + '</span></td><td>' + s.team + '</td><td>' + (s.pj ?? '—') + '</td><td>' + s.g + '</td><td>' + s.a + '</td><td><b>' + s.pts + '</b></td><td>' + fmtPpm(s.pts, s.pj) + '</td></tr>').join('');
       const goAll = L.goalies.filter(g => !q || g.name.toLowerCase().includes(q)).sort((a, b) => b.w - a.w);
       const goPages = basinPageCount(goAll.length);
       if (BASIN_PAGES.go > goPages) BASIN_PAGES.go = goPages;
       const go = goAll.slice((BASIN_PAGES.go - 1) * BASIN_PAGE_SIZE, BASIN_PAGES.go * BASIN_PAGE_SIZE);
-      document.getElementById('goalie-rows').innerHTML = go.map(g =>
-        '<tr><td>' + g.name + '</td><td>' + g.team + '</td><td>' + g.pj + '</td><td><b>' + g.w + '</b></td><td>' + g.l +
-        '</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td></tr>').join('');
+      document.getElementById('goalie-rows').innerHTML = go.map((g, i) =>
+        '<tr><td><span class="name-link" data-fiche="OG' + lg + ':' + ((BASIN_PAGES.go - 1) * BASIN_PAGE_SIZE + i) + '">' + g.name + '</span></td><td>' + g.team + '</td><td>' + g.pj + '</td><td><b>' + g.w + '</b></td><td>' + g.l +
+        '</td><td>—</td><td>—</td><td>—</td><td>—</td><td>' + fmtGaa(g.moy) + '</td><td>' + fmtSvPct(g.arr) + '</td></tr>').join('');
       if (skPager) { skPager.hidden = false; skPager.innerHTML = 'Patineurs : page ' + BASIN_PAGES.sk + ' sur ' + skPages + ' — ' + basinPager(skAll.length, BASIN_PAGES.sk, 'sk'); }
       if (goPager) { goPager.hidden = false; goPager.innerHTML = 'Gardiens : page ' + BASIN_PAGES.go + ' sur ' + goPages + ' — ' + basinPager(goAll.length, BASIN_PAGES.go, 'go'); }
     }
@@ -1013,6 +1013,33 @@
     bodyEl.innerHTML = h;
     const tabsHide = document.getElementById('fiche-tabs');
     if (tabsHide) tabsHide.style.display = 'none';
+    modal.hidden = false;
+  }
+  function showOtherFiche(kind, lg, idx) {
+    const L = OTHER.leagues[lg];
+    if (!L) return;
+    const modal = document.getElementById('player-modal');
+    const nameEl = document.getElementById('fiche-name');
+    const bodyEl = document.getElementById('fiche-body');
+    if (!modal || !nameEl || !bodyEl) return;
+    const tabsHide = document.getElementById('fiche-tabs');
+    if (tabsHide) tabsHide.style.display = 'none';
+    const q = (document.getElementById('q').value || '').toLowerCase();
+    const arr = kind === 'S'
+      ? L.skaters.filter(s => !q || s.name.toLowerCase().includes(q)).sort((a, b) => b.pts - a.pts)
+      : L.goalies.filter(g => !q || g.name.toLowerCase().includes(q)).sort((a, b) => b.w - a.w);
+    const rec = arr[idx];
+    if (!rec) return;
+    nameEl.textContent = rec.name;
+    if (kind === 'S') {
+      bodyEl.innerHTML = ficheLine('Ligue', L.label) + ficheLine('Équipe', rec.team) +
+        ficheLine('Matchs joués', rec.pj ?? '—') + ficheLine('Buts', rec.g ?? '—') + ficheLine('Passes', rec.a ?? '—') +
+        ficheLine('Points', rec.pts ?? '—') + ficheLine('Moyenne de points par match', fmtPpm(rec.pts, rec.pj));
+    } else {
+      bodyEl.innerHTML = ficheLine('Ligue', L.label) + ficheLine('Équipe', rec.team) +
+        ficheLine('Matchs joués', rec.pj ?? '—') + ficheLine('Victoires', rec.w ?? '—') + ficheLine('Défaites', rec.l ?? '—') +
+        ficheLine('Blanchissages', rec.so ?? '—') + ficheLine('Moyenne', fmtGaa(rec.moy)) + ficheLine('Pourcentage d’arrêts', fmtSvPct(rec.arr));
+    }
     modal.hidden = false;
   }
   function fmtGaa(v) {
@@ -1799,6 +1826,7 @@
     if (!t) return;
     const v = t.getAttribute('data-fiche');
     if (v.charAt(0) === 'L') { showLeagueFiche(v.slice(1)); return; }
+    if (v.charAt(0) === 'O') { const parts = v.slice(2).split(':'); showOtherFiche(v.charAt(1), parts[0], parseInt(parts[1], 10)); return; }
     showFiche(v.charAt(0), parseInt(v.slice(1), 10));
   });
   function renderChampions() {
