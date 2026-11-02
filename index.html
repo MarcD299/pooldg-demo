@@ -137,14 +137,14 @@
       <h3>Attaquants — Joueurs UFA</h3>
       <div style="overflow-x:auto">
         <table>
-          <thead><tr><th>Joueur</th><th>Équipe</th><th>Pos</th><th>B</th><th>A</th><th>Pts</th><th>Salaire</th><th>Contrat</th><th>Pooler</th></tr></thead>
+          <thead><tr><th>Joueur</th><th>Équipe</th><th>Pos</th><th>PJ</th><th>B</th><th>A</th><th>Pts</th><th>Salaire</th><th>Contrat</th><th>Pooler</th></tr></thead>
           <tbody id="ufa-forwards"></tbody>
         </table>
       </div>
       <h3 style="margin-top:22px">Défenseurs — Joueurs UFA</h3>
       <div style="overflow-x:auto">
         <table>
-          <thead><tr><th>Joueur</th><th>Équipe</th><th>Pos</th><th>B</th><th>A</th><th>Pts</th><th>Salaire</th><th>Contrat</th><th>Pooler</th></tr></thead>
+          <thead><tr><th>Joueur</th><th>Équipe</th><th>Pos</th><th>PJ</th><th>B</th><th>A</th><th>Pts</th><th>Salaire</th><th>Contrat</th><th>Pooler</th></tr></thead>
           <tbody id="ufa-defense"></tbody>
         </table>
       </div>
@@ -811,14 +811,15 @@
         const owner = ownerByName[dkey] || ownerByName[key] || 'Agent libre';
         if (owner !== 'Agent libre') return;
         if (g) gl.push({nom: c.name, eq: g.teamAbbrev, pj: g.gamesPlayed, w: g.wins, l: g.losses, otl: g.overtimeLosses, a: g.assists, b: g.goals, pts: g.goals + g.assists, cap: c, owner: owner});
-        else if (s) (s.pos === 'D' ? df : fw).push({nom: s.nom, eq: s.eq, pos: s.pos, b: s.b, a: s.a, pts: s.pts, cap: c, owner: owner});
+        else if (s) (s.pos === 'D' ? df : fw).push({nom: s.nom, eq: s.eq, pos: s.pos, gp: s.gp, b: s.b, a: s.a, pts: s.pts, cap: c, owner: owner});
         else ns.push({nom: c.name, cap: c, owner: owner});
       });
       fw.sort((a, b) => b.pts - a.pts || b.b - a.b || a.nom.localeCompare(b.nom));
       df.sort((a, b) => b.pts - a.pts || b.b - a.b || a.nom.localeCompare(b.nom));
       gl.sort((a, b) => b.pts - a.pts || b.w - a.w || a.nom.localeCompare(b.nom));
       ns.sort((a, b) => a.nom.localeCompare(b.nom));
-      const skRow = p => '<tr><td>' + p.nom + '</td><td>' + p.eq + '</td><td>' + p.pos + '</td><td>' + p.b +
+            // --- PJ aux tableaux UFA (2 nov. 2026) ---
+      const skRow = p => '<tr><td>' + p.nom + '</td><td>' + p.eq + '</td><td>' + p.pos + '</td><td>' + (p.gp ?? '—') + '</td><td>' + p.b +
         '</td><td>' + p.a + '</td><td><b>' + p.pts + '</b></td><td>' + fmtM(p.cap.cap_hit) + '</td><td>UFA ' + p.cap.expiry + '</td><td>' + p.owner + '</td></tr>';
       document.getElementById('ufa-forwards').innerHTML = fw.map(skRow).join('');
       document.getElementById('ufa-defense').innerHTML = df.map(skRow).join('');
