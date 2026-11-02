@@ -1223,6 +1223,7 @@
       .map(g => ({id: g.playerId, label: g.firstName.default + ' ' + g.lastName.default + ' (G, ' + g.teamAbbrev + ', ' + g.wins + ' V)', kind: 'G'}));
     return sk.concat(go);
   }
+  // --- Reservistes en echange (2 nov. 2026) : le banc est selectionnable, slot conserve ---
   function tradeSlotOptions(p) {
     let h = '<option value="">— Vide —</option><optgroup label="Joueurs">';
     p.skaters.forEach(s => {
@@ -1235,6 +1236,11 @@
     });
     h += '</optgroup><optgroup label="Recrues">';
     (p.farm || []).forEach(s => {
+      const c = window._capMap ? window._capMap[normName(s.name)] : null;
+      h += '<option value="' + pkey(s) + '">' + s.name + ' (' + s.pos + ')' + (c ? ' — ' + fmtM(c.cap_hit) : '') + '</option>';
+    });
+    h += '</optgroup><optgroup label="Réservistes">';
+    (p.bench || []).forEach(s => {
       const c = window._capMap ? window._capMap[normName(s.name)] : null;
       h += '<option value="' + pkey(s) + '">' + s.name + ' (' + s.pos + ')' + (c ? ' — ' + fmtM(c.cap_hit) : '') + '</option>';
     });
@@ -1292,7 +1298,7 @@
           const v = el.value;
           n++;
           if (v[0] === 'S' || v[0] === 'G') {
-            const list = (p.skaters || []).concat(p.goalies || []).concat(p.farm || []);
+            const list = (p.skaters || []).concat(p.goalies || []).concat(p.farm || []).concat(p.bench || []);
             const pl = list.find(x => pkey(x) === v);
             if (pl) {
               const c = window._capMap ? window._capMap[normName(pl.name)] : null;
@@ -1459,26 +1465,26 @@
       return pl.name + ' (' + pl.pos + ')';
     }
     for (const p of LEAGUE.poolers) {
-      const list = (p.skaters || []).concat(p.goalies || []).concat(p.farm || []);
+      const list = (p.skaters || []).concat(p.goalies || []).concat(p.farm || []).concat(p.bench || []);
       const pl = list.find(x => pkey(x) === val);
       if (pl) return pl.name + ' (' + pl.pos + ')';
     }
     return 'Élément indisponible';
   }
   function executeTrade(pa, pb, va, vb) {
-    const snapA = JSON.parse(JSON.stringify({skaters: pa.skaters, goalies: pa.goalies, farm: pa.farm, picks: pa.picks}));
-    const snapB = JSON.parse(JSON.stringify({skaters: pb.skaters, goalies: pb.goalies, farm: pb.farm, picks: pb.picks}));
+    const snapA = JSON.parse(JSON.stringify({skaters: pa.skaters, goalies: pa.goalies, farm: pa.farm, bench: pa.bench, picks: pa.picks}));
+    const snapB = JSON.parse(JSON.stringify({skaters: pb.skaters, goalies: pb.goalies, farm: pb.farm, bench: pb.bench, picks: pb.picks}));
     const ca = countsGroup(pa), cb = countsGroup(pb);
     function takePlayer(p, val) {
-      const lists = [p.skaters, p.goalies, p.farm];
+      const lists = [p.skaters, p.goalies, p.farm, p.bench];
       for (const list of lists) {
         if (!list) continue;
         const i = list.findIndex(x => pkey(x) === val);
-        if (i >= 0) return {pl: list.splice(i, 1)[0], farm: list === p.farm};
+        if (i >= 0) return {pl: list.splice(i, 1)[0], farm: list === p.farm, bench: list === p.bench};
       }
       return null;
     }
-    function givePlayer(p, taken) { (taken.farm ? (p.farm = p.farm || []) : (taken.pl.pos === 'G' ? p.goalies : p.skaters)).push(taken.pl); }
+    function givePlayer(p, taken) { (taken.farm ? (p.farm = p.farm || []) : taken.bench ? (p.bench = p.bench || []) : (taken.pl.pos === 'G' ? p.goalies : p.skaters)).push(taken.pl); }
     const namesA = [], namesB = [];
     let ok = true;
     va.forEach(v => {
@@ -1491,8 +1497,8 @@
     });
     const farmOk = (pa.farm || []).length <= 20 && (pb.farm || []).length <= 20;
     if (!ok || !plancherOk(ca, countsGroup(pa)) || !plancherOk(cb, countsGroup(pb)) || !farmOk) {
-      pa.skaters = snapA.skaters; pa.goalies = snapA.goalies; pa.farm = snapA.farm; pa.picks = snapA.picks;
-      pb.skaters = snapB.skaters; pb.goalies = snapB.goalies; pb.farm = snapB.farm; pb.picks = snapB.picks;
+      pa.skaters = snapA.skaters; pa.goalies = snapA.goalies; pa.farm = snapA.farm; pa.bench = snapA.bench; pa.picks = snapA.picks;
+      pb.skaters = snapB.skaters; pb.goalies = snapB.goalies; pb.farm = snapB.farm; pb.bench = snapB.bench; pb.picks = snapB.picks;
       return {ok: false, reason: !ok ? 'disponible' : !farmOk ? 'recrues' : 'plancher', namesA: namesA, namesB: namesB};
     }
     recomputeScores(pa); recomputeScores(pb);
@@ -1539,7 +1545,7 @@
           if (parts[1] === 'team') return list.some(pk => pk.o === parts[2]);
           return list.some(pk => pk.r === +parts[2] && pk.o === parts[3]);
         }
-        const all = (p.skaters || []).concat(p.goalies || []).concat(p.farm || []);
+        const all = (p.skaters || []).concat(p.goalies || []).concat(p.farm || []).concat(p.bench || []);
         return all.some(x => pkey(x) === v);
       });
     }
@@ -1594,8 +1600,8 @@
     }
     if (SB_MODE) {
       if (!canEdit(pb.name)) { logTx('Seul le propriétaire de ' + pb.name + ' peut accepter cette proposition.'); return; }
-      const simA = JSON.parse(JSON.stringify({name: pa.name, skaters: pa.skaters, goalies: pa.goalies, farm: pa.farm, picks: pa.picks}));
-      const simB = JSON.parse(JSON.stringify({name: pb.name, skaters: pb.skaters, goalies: pb.goalies, farm: pb.farm, picks: pb.picks}));
+      const simA = JSON.parse(JSON.stringify({name: pa.name, skaters: pa.skaters, goalies: pa.goalies, farm: pa.farm, bench: pa.bench, picks: pa.picks}));
+      const simB = JSON.parse(JSON.stringify({name: pb.name, skaters: pb.skaters, goalies: pb.goalies, farm: pb.farm, bench: pb.bench, picks: pb.picks}));
       const sim = executeTrade(simA, simB, pr.fromOffer, pr.toOffer);
       if (!sim.ok) {
         logTx(sim.reason === 'recrues' ? 'Échange refusé entre ' + pa.name + ' et ' + pb.name + ' : une équipe dépasserait le maximum de 20 recrues.' : sim.reason === 'plancher'
