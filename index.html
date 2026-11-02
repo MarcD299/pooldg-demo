@@ -340,7 +340,7 @@
     <div id="prep-pager-go" style="margin:8px 0"></div>
     <p class="muted">— = donnée non disponible pour ce bassin. Aucune projection n’est inventée ; les prévisions 2027-28 paraîtront à l’été 2027. La colonne Rythme 82 donne le rythme projeté sur 82 matchs, pas une projection d’expert. Pour les patineurs, les totaux d’un joueur échangé en cours de saison sont additionnés sur ses équipes. L’onglet Repêchage espoirs ne retient que les joueurs avec 25 matchs LNH en carrière ou moins; un joueur des autres bassins sans fiche LNH compte pour 0 match.</p>
     <h3 style="margin-top:22px">Ta liste personnelle — <span id="prep-prefs-tab">Repêchage général</span></h3>
-    <p class="muted">Ordre de préférence, en session seulement pour l’instant. Les joueurs repêchés ou possédés quittent la liste automatiquement.</p>
+    <p class="muted" id="prep-prefs-note">Ordre de préférence, sauvegardé automatiquement. Les joueurs repêchés ou possédés quittent la liste automatiquement.</p>
     <div id="prep-prefs"></div>
     <h3 style="margin-top:22px">Repêchages précédents</h3>
     <p class="muted">Choix archivés, en lecture seule. L’archivage commence avec le repêchage 2027 : seuls les choix enregistrés une fois la table créée y apparaissent.</p>
@@ -574,7 +574,7 @@
     sbNote();
     setCommFormState();
     setAddDropState();
-    if (LEAGUE) { renderPooler(); fillTbTeams(); renderTradeBlock(); }
+    if (LEAGUE) { renderPooler(); fillTbTeams(); renderTradeBlock(); prefsLoad(); }
   }
   if (sb) {
     sb.auth.onAuthStateChange(async (ev, session) => {
@@ -2689,6 +2689,89 @@
   function prepPrefDel(list, key) {
     return list.filter(k => k !== key);
   }
+  // --- Sauvegarde des listes personnelles (2 nov. 2026) : Supabase si connecte, sinon cet appareil ---
+  let PREFS_SAVED = {gen: null, esp: null};
+  let PREFS_SB_ERROR = false;
+  function prefsLocalRead(t) {
+    try {
+      const v = localStorage.getItem('pooldg-prefs-' + t);
+      const a = v ? JSON.parse(v) : null;
+      return Array.isArray(a) ? a : null;
+    } catch (e) { return null; }
+  }
+  function prefsLocalWrite(t, list) {
+    try { localStorage.setItem('pooldg-prefs-' + t, JSON.stringify(list || [])); } catch (e) {}
+  }
+  function prefsNeedsWrite(cur, saved) {
+    const c = JSON.stringify(cur || []);
+    if (c === saved) return false;
+    if (saved === null && (cur || []).length === 0) return false;
+    return true;
+  }
+  function prefsMerge(loaded, current, start) {
+    const removed = {};
+    start.forEach(k => { if (current.indexOf(k) === -1) removed[k] = 1; });
+    const m = loaded.filter(k => !removed[k]);
+    current.forEach(k => { if (m.indexOf(k) === -1) m.push(k); });
+    return m;
+  }
+  function prefsNote() {
+    const el = document.getElementById('prep-prefs-note');
+    if (!el) return;
+    if (PREFS_SB_ERROR) el.textContent = 'Ordre de préférence. Sauvegarde partagée indisponible pour l’instant (table draft_prefs à créer dans Supabase) : ta liste est gardée sur cet appareil. Les joueurs repêchés ou possédés quittent la liste automatiquement.';
+    else if (SB_MODE && MY_TEAM) el.textContent = 'Ordre de préférence, sauvegardé pour ton équipe. Les joueurs repêchés ou possédés quittent la liste automatiquement.';
+    else el.textContent = 'Ordre de préférence, sauvegardé sur cet appareil. Connecte-toi pour retrouver ta liste sur tes autres appareils. Les joueurs repêchés ou possédés quittent la liste automatiquement.';
+  }
+  async function prefsPersist() {
+    if (PREP_TAB === 'esp') PREP_PREFS_ESP = PREP_PREFS; else PREP_PREFS_GEN = PREP_PREFS;
+    const lists = {gen: PREP_PREFS_GEN || [], esp: PREP_PREFS_ESP || []};
+    const primarySb = !!(SB_MODE && MY_TEAM && sb);
+    let sbFail = false, sbOk = false;
+    for (const t of ['gen', 'esp']) {
+      if (!prefsNeedsWrite(lists[t], PREFS_SAVED[t])) continue;
+      let ok = false;
+      if (primarySb) {
+        try {
+          const res = await sb.from('draft_prefs').upsert({team_id: MY_TEAM, list_type: t, player_keys: lists[t]}, {onConflict: 'team_id,list_type'});
+          ok = !res.error;
+        } catch (e) { ok = false; }
+      }
+      if (ok) { PREFS_SAVED[t] = JSON.stringify(lists[t]); sbOk = true; }
+      else {
+        prefsLocalWrite(t, lists[t]);
+        PREFS_SAVED[t] = JSON.stringify(lists[t]);
+        if (primarySb) sbFail = true;
+      }
+    }
+    if (sbFail) PREFS_SB_ERROR = true; else if (sbOk) PREFS_SB_ERROR = false;
+    prefsNote();
+  }
+  async function prefsLoad() {
+    const startGen = (PREP_PREFS_GEN || []).slice(), startEsp = (PREP_PREFS_ESP || []).slice();
+    let genSb = null, espSb = null;
+    if (SB_MODE && MY_TEAM && sb) {
+      try {
+        const res = await sb.from('draft_prefs').select('*').eq('team_id', MY_TEAM);
+        if (!res.error) (res.data || []).forEach(r => {
+          if (r.list_type === 'gen' && Array.isArray(r.player_keys)) genSb = r.player_keys;
+          if (r.list_type === 'esp' && Array.isArray(r.player_keys)) espSb = r.player_keys;
+        });
+      } catch (e) {}
+    }
+    const genLoc = prefsLocalRead('gen'), espLoc = prefsLocalRead('esp');
+    const loadedGen = genSb !== null ? genSb : (genLoc || []);
+    const loadedEsp = espSb !== null ? espSb : (espLoc || []);
+    const gen = prefsMerge(loadedGen, PREP_PREFS_GEN || [], startGen);
+    const esp = prefsMerge(loadedEsp, PREP_PREFS_ESP || [], startEsp);
+    PREP_PREFS_GEN = gen; PREP_PREFS_ESP = esp;
+    PREP_PREFS = (PREP_TAB === 'esp') ? esp : gen;
+    const primarySb = !!(SB_MODE && MY_TEAM && sb);
+    PREFS_SAVED = {
+      gen: primarySb ? (genSb !== null && JSON.stringify(gen) === JSON.stringify(genSb) ? JSON.stringify(genSb) : null) : JSON.stringify(gen),
+      esp: primarySb ? (espSb !== null && JSON.stringify(esp) === JSON.stringify(espSb) ? JSON.stringify(espSb) : null) : JSON.stringify(esp)
+    };
+    renderPrepPrefs();
+  }
   function prepSkHead() {
     const h = [['nom', 'Joueur'], ['ligue', 'Ligue'], ['eq', 'Équipe'], ['pos', 'Pos'], ['gp', 'PJ'], ['b', 'B'], ['a', 'A'], ['pts', 'Pts'], ['ppm', 'PPM'], ['proj', 'Rythme 82'], ['prevPts', 'Pts 2025-26'], ['age', 'Âge']];
     return '<tr>' + h.map(c => '<th data-sort="' + c[0] + '" style="cursor:pointer">' + c[1] + prepSortLabel(c[0], PREP_SORT_SK) + '</th>').join('') + '<th>Prév. 2027-28</th><th></th></tr>';
@@ -2832,6 +2915,7 @@
     av.sk.concat(av.go).forEach(r => { avKeys[r.key] = true; });
     PREP_PREFS = PREP_PREFS.filter(k => avKeys[k]);
     if (PREP_TAB === 'esp') PREP_PREFS_ESP = PREP_PREFS; else PREP_PREFS_GEN = PREP_PREFS;
+    prefsNote(); prefsPersist();
     if (!PREP_PREFS.length) {
       el.innerHTML = '<p class="muted">Aucun joueur dans ta liste pour l’instant. Ajoute des joueurs avec le bouton + du tableau ci-dessus.</p>';
       return;
@@ -2921,6 +3005,7 @@
     if (tg) tg.addEventListener('click', () => prepSwitchTab('gen'));
     if (te) te.addEventListener('click', () => prepSwitchTab('esp'));
     renderPrep();
+    prefsLoad();
   }
   // --- FIN Préparation du repêchage ---
   function buildNewSelects() {
