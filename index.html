@@ -380,7 +380,7 @@
     <h3 style="margin-top:22px">Gardiens</h3>
     <div style="overflow-x:auto">
       <table>
-        <thead><tr><th>Gardien</th><th>Équipe</th><th>PJ</th><th>V</th><th>D</th><th>DP</th><th>A</th><th>B</th><th>Salaire</th><th>Contrat</th></tr></thead>
+        <thead><tr><th>Gardien</th><th>Équipe</th><th>PJ</th><th>V</th><th>D</th><th>DP</th><th>A</th><th>B</th><th>Pts</th><th>Salaire</th><th>Contrat</th></tr></thead>
         <tbody id="pooler-goalies"></tbody>
         <tfoot id="pooler-goalies-total"></tfoot>
       </table>
@@ -419,7 +419,7 @@
     <ul id="inj-list"></ul>
   </section>
   <section id="tab-pointage" class="card" hidden>
-    <h2>Pointage du jour — 26 octobre 2026</h2>
+    <h2 id="daily-title">Pointage du jour</h2>
     <p class="muted" id="daily-games"></p>
     <p class="muted" id="daily-rule"></p>
     <div style="overflow-x:auto">
@@ -1106,7 +1106,7 @@
     document.getElementById('pooler-defense').innerHTML = defense.map(skaterRow).join('');
     document.getElementById('pooler-goalies').innerHTML = p.goalies.map(g =>
       '<tr><td>' + ficheNameHtml(g) + ceBadges(pkey(g), p) + injMark(pkey(g), g.name, g.team) + '</td><td>' + g.team + '</td><td>' + g.pj + '</td><td><b>' + g.w + '</b></td><td>' + g.l +
-      '</td><td>' + g.otl + '</td><td>' + g.a + '</td><td>' + g.g + '</td>' + capCells(g.name) + '</tr>').join('');
+      '</td><td>' + g.otl + '</td><td>' + g.a + '</td><td>' + g.g + '</td><td><b>' + goaliePts(g) + '</b></td>' + capCells(g.name) + '</tr>').join('');
     function capTotal(list) {
       let tot = 0, missing = 0;
       list.forEach(pl => {
@@ -1120,7 +1120,7 @@
     }
     document.getElementById('pooler-forwards-total').innerHTML = totalRow('Attaquants', 7, capTotal(forwards));
     document.getElementById('pooler-defense-total').innerHTML = totalRow('Défenseurs', 7, capTotal(defense));
-    document.getElementById('pooler-goalies-total').innerHTML = totalRow('Gardiens', 8, capTotal(p.goalies));
+    document.getElementById('pooler-goalies-total').innerHTML = totalRow('Gardiens', 9, capTotal(p.goalies));
     let masse = 0, sansSalaire = 0;
     p.skaters.concat(p.goalies).forEach(pl => {
       const c = window._capMap ? window._capMap[normName(pl.name)] : null;
@@ -1141,7 +1141,7 @@
     buildCESelects(p);
     buildRosterMoveForm(p);
     function statCell(v) { return (v === null || v === undefined) ? '—' : v; }
-    function groupTables(list, p) {
+    function groupTables(list, p, goPts) {
       const fw = list.filter(x => x.pos !== 'D' && x.pos !== 'G');
       const df = list.filter(x => x.pos === 'D');
       const go = list.filter(x => x.pos === 'G');
@@ -1156,14 +1156,14 @@
       } else if (df.length) {
         h += skTable(df);
       }
-      if (go.length) h += '<div style="overflow-x:auto;margin-top:12px"><table><thead><tr><th>Gardien</th><th>Équipe</th><th>PJ</th><th>V</th><th>D</th><th>DP</th><th>A</th><th>B</th><th>Salaire</th><th>Contrat</th></tr></thead><tbody>' +
-        go.map(g => '<tr><td>' + farmNameHtml(g) + ceBadges(pkey(g), p) + injMark(pkey(g), g.name, g.team) + '</td><td>' + g.team + '</td><td>' + statCell(g.gp) + '</td><td><b>' + statCell(g.w) + '</b></td><td>' + statCell(g.l) + '</td><td>' + statCell(g.otl) + '</td><td>' + statCell(g.a) + '</td><td>' + statCell(g.g) + '</td>' + capCells(g.name) + '</tr>').join('') + '</tbody></table></div>';
+      if (go.length) h += '<div style="overflow-x:auto;margin-top:12px"><table><thead><tr><th>Gardien</th><th>Équipe</th><th>PJ</th><th>V</th><th>D</th><th>DP</th><th>A</th><th>B</th>' + (goPts ? '<th>Pts</th>' : '') + '<th>Salaire</th><th>Contrat</th></tr></thead><tbody>' +
+        go.map(g => '<tr><td>' + farmNameHtml(g) + ceBadges(pkey(g), p) + injMark(pkey(g), g.name, g.team) + '</td><td>' + g.team + '</td><td>' + statCell(g.gp) + '</td><td><b>' + statCell(g.w) + '</b></td><td>' + statCell(g.l) + '</td><td>' + statCell(g.otl) + '</td><td>' + statCell(g.a) + '</td><td>' + statCell(g.g) + '</td>' + (goPts ? '<td><b>' + (g.w === null || g.w === undefined ? '—' : goaliePts(g)) + '</b></td>' : '') + capCells(g.name) + '</tr>').join('') + '</tbody></table></div>';
       if (!h) h = '<p class="muted">Aucun.</p>';
       return h;
     }
-    document.getElementById('pooler-bench').innerHTML = groupTables(p.bench || [], p) +
+    document.getElementById('pooler-bench').innerHTML = groupTables(p.bench || [], p, true) +
       '<p class="muted">Les réservistes comptent dans le pointage quand ils font partie des 12 meilleurs attaquants, 6 meilleurs défenseurs ou 2 meilleurs gardiens.</p>';
-    document.getElementById('pooler-farm').innerHTML = groupTables(p.farm || [], p) +
+    document.getElementById('pooler-farm').innerHTML = groupTables(p.farm || [], p, true) +
       '<p class="muted">Maximum 20 recrues, pas de minimum.</p>';
     document.getElementById('pooler-picks').textContent =
       'Choix détenus (échangeables, seulement les 2 années suivant la saison en cours) : ' +
@@ -1176,6 +1176,8 @@
   function renderDaily() {
     DAILY = DAILY || window._daily;
     if (!DAILY) return;
+    const dt = document.getElementById('daily-title');
+    if (dt && DAILY.date) dt.textContent = 'Pointage du jour — ' + protDateFr(DAILY.date);
     document.getElementById('daily-games').textContent =
       DAILY.games.map(g => g.away + ' ' + g.score + ' ' + g.home).join(' · ');
     document.getElementById('daily-rule').textContent = DAILY.rule;
