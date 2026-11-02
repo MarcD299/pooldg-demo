@@ -151,7 +151,7 @@
       <h3 style="margin-top:22px">Gardiens — Joueurs UFA</h3>
       <div style="overflow-x:auto">
         <table>
-          <thead><tr><th>Gardien</th><th>Équipe</th><th>PJ</th><th>V</th><th>D</th><th>DP</th><th>A</th><th>B</th><th>Pts</th><th>Salaire</th><th>Contrat</th><th>Pooler</th></tr></thead>
+          <thead><tr><th>Gardien</th><th>Équipe</th><th>PJ</th><th>V</th><th>D</th><th>DP</th><th>A</th><th>B</th><th>BL</th><th>MOY</th><th>%ARR</th><th>Pts</th><th>Salaire</th><th>Contrat</th><th>Pooler</th></tr></thead>
           <tbody id="ufa-goalies"></tbody>
         </table>
       </div>
@@ -380,7 +380,7 @@
     <h3 style="margin-top:22px">Gardiens</h3>
     <div style="overflow-x:auto">
       <table>
-        <thead><tr><th>Gardien</th><th>Équipe</th><th>PJ</th><th>V</th><th>D</th><th>DP</th><th>A</th><th>B</th><th>Pts</th><th>Salaire</th><th>Contrat</th></tr></thead>
+        <thead><tr><th>Gardien</th><th>Équipe</th><th>PJ</th><th>V</th><th>D</th><th>DP</th><th>A</th><th>B</th><th>BL</th><th>MOY</th><th>%ARR</th><th>Pts</th><th>Salaire</th><th>Contrat</th></tr></thead>
         <tbody id="pooler-goalies"></tbody>
         <tfoot id="pooler-goalies-total"></tfoot>
       </table>
@@ -810,7 +810,7 @@
         const s = skMap[dkey], g = goMap[dkey];
         const owner = ownerByName[dkey] || ownerByName[key] || 'Agent libre';
         if (owner !== 'Agent libre') return;
-        if (g) gl.push({nom: c.name, eq: g.teamAbbrev, pj: g.gamesPlayed, w: g.wins, l: g.losses, otl: g.overtimeLosses, a: g.assists, b: g.goals, pts: g.goals + g.assists, cap: c, owner: owner});
+        if (g) gl.push({nom: c.name, eq: g.teamAbbrev, pj: g.gamesPlayed, w: g.wins, l: g.losses, otl: g.overtimeLosses, a: g.assists, b: g.goals, bl: g.shutouts, moy: g.goalsAgainstAverage, arr: g.savePercentage, pts: g.goals + g.assists, cap: c, owner: owner});
         else if (s) (s.pos === 'D' ? df : fw).push({nom: s.nom, eq: s.eq, pos: s.pos, gp: s.gp, b: s.b, a: s.a, pts: s.pts, cap: c, owner: owner});
         else ns.push({nom: c.name, cap: c, owner: owner});
       });
@@ -825,7 +825,7 @@
       document.getElementById('ufa-defense').innerHTML = df.map(skRow).join('');
       document.getElementById('ufa-goalies').innerHTML = gl.map(g =>
         '<tr><td>' + g.nom + '</td><td>' + g.eq + '</td><td>' + g.pj + '</td><td><b>' + g.w + '</b></td><td>' + g.l +
-        '</td><td>' + g.otl + '</td><td>' + g.a + '</td><td>' + g.b + '</td><td><b>' + g.pts + '</b></td><td>' + fmtM(g.cap.cap_hit) +
+        '</td><td>' + g.otl + '</td><td>' + g.a + '</td><td>' + g.b + '</td><td>' + g.bl + '</td><td>' + fmtGaa(g.moy) + '</td><td>' + fmtSvPct(g.arr) + '</td><td><b>' + g.pts + '</b></td><td>' + fmtM(g.cap.cap_hit) +
         '</td><td>UFA ' + g.cap.expiry + '</td><td>' + g.owner + '</td></tr>').join('');
       document.getElementById('ufa-nostats').innerHTML = ns.map(p =>
         '<tr><td>' + p.nom + '</td><td>' + fmtM(p.cap.cap_hit) + '</td><td>UFA ' + p.cap.expiry + '</td><td>' + p.owner + '</td></tr>').join('');
@@ -841,7 +841,7 @@
       note.textContent = 'Bassin LNH au ' + window._lnhMeta.date + ' : ' + window._lnhMeta.nsk + ' patineurs et ' + window._lnhMeta.ngo + ' gardiens. Cliquez sur un nom pour sa fiche. La colonne Proj. donne le rythme projeté sur 82 matchs.';
       skHead.innerHTML = '<tr><th>Joueur</th><th>Équipe</th><th>Pos</th><th>PJ</th><th>B</th><th>A</th><th>Pts</th><th>Moy. pts/match</th><th>Proj.</th></tr>';
       goBlock.hidden = false;
-      goHead.innerHTML = '<tr><th>Gardien</th><th>Équipe</th><th>PJ</th><th>V</th><th>D</th><th>DP</th><th>A</th><th>B</th><th>Proj. V</th></tr>';
+      goHead.innerHTML = '<tr><th>Gardien</th><th>Équipe</th><th>PJ</th><th>V</th><th>D</th><th>DP</th><th>A</th><th>B</th><th>BL</th><th>MOY</th><th>%ARR</th><th>Proj. V</th></tr>';
       const skAll = window._skaters.filter(p => (!q || p.nom.toLowerCase().includes(q)) && (!pos || p.pos === pos))
         .sort((a, b) => b.pts - a.pts);
       const skPages = basinPageCount(skAll.length);
@@ -857,7 +857,7 @@
       document.getElementById('goalie-rows').innerHTML = gl.map(g =>
         '<tr><td><span class="name-link" data-fiche="G' + g.playerId + '">' + g.firstName.default + ' ' + g.lastName.default + '</span></td><td>' + g.teamAbbrev + '</td><td>' + g.gamesPlayed +
         '</td><td><b>' + g.wins + '</b></td><td>' + g.losses + '</td><td>' + g.overtimeLosses + '</td><td>' +
-        g.assists + '</td><td>' + g.goals + '</td><td>' + pace82(g.wins, g.gamesPlayed) + '</td></tr>').join('');
+        g.assists + '</td><td>' + g.goals + '</td><td>' + g.shutouts + '</td><td>' + fmtGaa(g.goalsAgainstAverage) + '</td><td>' + fmtSvPct(g.savePercentage) + '</td><td>' + pace82(g.wins, g.gamesPlayed) + '</td></tr>').join('');
       if (skPager) { skPager.hidden = false; skPager.innerHTML = 'Patineurs : page ' + BASIN_PAGES.sk + ' sur ' + skPages + ' — ' + basinPager(skAll.length, BASIN_PAGES.sk, 'sk'); }
       if (goPager) { goPager.hidden = false; goPager.innerHTML = 'Gardiens : page ' + BASIN_PAGES.go + ' sur ' + goPages + ' — ' + basinPager(goAll.length, BASIN_PAGES.go, 'go'); }
     } else if (lg === 'espoirs') {
@@ -878,7 +878,7 @@
       note.textContent = L.label + ' au 27 octobre 2026 : ' + L.skaters.length + ' patineurs et ' + L.goalies.length + ' gardiens (positions non disponibles dans cette source; matchs joués des patineurs non disponibles; DP, passes et buts des gardiens non disponibles).';
       skHead.innerHTML = '<tr><th>Joueur</th><th>Équipe</th><th>PJ</th><th>B</th><th>A</th><th>Pts</th><th>Moy. pts/match</th></tr>';
       goBlock.hidden = false;
-      goHead.innerHTML = '<tr><th>Gardien</th><th>Équipe</th><th>PJ</th><th>V</th><th>D</th><th>DP</th><th>A</th><th>B</th></tr>';
+      goHead.innerHTML = '<tr><th>Gardien</th><th>Équipe</th><th>PJ</th><th>V</th><th>D</th><th>DP</th><th>A</th><th>B</th><th>BL</th><th>MOY</th><th>%ARR</th></tr>';
       const skAll = L.skaters.filter(s => !q || s.name.toLowerCase().includes(q)).sort((a, b) => b.pts - a.pts);
       const skPages = basinPageCount(skAll.length);
       if (BASIN_PAGES.sk > skPages) BASIN_PAGES.sk = skPages;
@@ -891,7 +891,7 @@
       const go = goAll.slice((BASIN_PAGES.go - 1) * BASIN_PAGE_SIZE, BASIN_PAGES.go * BASIN_PAGE_SIZE);
       document.getElementById('goalie-rows').innerHTML = go.map(g =>
         '<tr><td>' + g.name + '</td><td>' + g.team + '</td><td>' + g.pj + '</td><td><b>' + g.w + '</b></td><td>' + g.l +
-        '</td><td>—</td><td>—</td><td>—</td></tr>').join('');
+        '</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td></tr>').join('');
       if (skPager) { skPager.hidden = false; skPager.innerHTML = 'Patineurs : page ' + BASIN_PAGES.sk + ' sur ' + skPages + ' — ' + basinPager(skAll.length, BASIN_PAGES.sk, 'sk'); }
       if (goPager) { goPager.hidden = false; goPager.innerHTML = 'Gardiens : page ' + BASIN_PAGES.go + ' sur ' + goPages + ' — ' + basinPager(goAll.length, BASIN_PAGES.go, 'go'); }
     }
@@ -938,6 +938,16 @@
     if (s.gp !== null && s.gp !== undefined) return s.gp;
     const hit = (window._skaters || []).find(x => x.id === s.id);
     return hit ? hit.gp : null;
+  }
+  function poolerGoMoy(g) {
+    if (g.moy !== null && g.moy !== undefined) return g.moy;
+    const hit = (window._goaliesAll || []).find(x => x.playerId === g.id);
+    return hit ? hit.goalsAgainstAverage : null;
+  }
+  function poolerGoArr(g) {
+    if (g.arr !== null && g.arr !== undefined) return g.arr;
+    const hit = (window._goaliesAll || []).find(x => x.playerId === g.id);
+    return hit ? hit.savePercentage : null;
   }
   function farmGradStatus(f) {
     const prev = window._prevSeason || {skaters: {}, goalies: {}};
@@ -1010,6 +1020,9 @@
   }
   function fmtSvp(v) {
     return (v === null || v === undefined) ? '—' : v.toFixed(3).replace('.', ',');
+  }
+  function fmtSvPct(v) {
+    return (v === null || v === undefined) ? '—' : (v * 100).toFixed(1).replace('.', ',') + ' %';
   }
   function careerHtml(kind, id) {
     const data = window._career || {skaters: {}, goalies: {}};
@@ -1106,7 +1119,7 @@
     document.getElementById('pooler-defense').innerHTML = defense.map(skaterRow).join('');
     document.getElementById('pooler-goalies').innerHTML = p.goalies.map(g =>
       '<tr><td>' + ficheNameHtml(g) + ceBadges(pkey(g), p) + injMark(pkey(g), g.name, g.team) + '</td><td>' + g.team + '</td><td>' + g.pj + '</td><td><b>' + g.w + '</b></td><td>' + g.l +
-      '</td><td>' + g.otl + '</td><td>' + g.a + '</td><td>' + g.g + '</td><td><b>' + goaliePts(g) + '</b></td>' + capCells(g.name) + '</tr>').join('');
+      '</td><td>' + g.otl + '</td><td>' + g.a + '</td><td>' + g.g + '</td><td>' + statCell(g.so) + '</td><td>' + fmtGaa(poolerGoMoy(g)) + '</td><td>' + fmtSvPct(poolerGoArr(g)) + '</td><td><b>' + goaliePts(g) + '</b></td>' + capCells(g.name) + '</tr>').join('');
     function capTotal(list) {
       let tot = 0, missing = 0;
       list.forEach(pl => {
@@ -1120,7 +1133,7 @@
     }
     document.getElementById('pooler-forwards-total').innerHTML = totalRow('Attaquants', 7, capTotal(forwards));
     document.getElementById('pooler-defense-total').innerHTML = totalRow('Défenseurs', 7, capTotal(defense));
-    document.getElementById('pooler-goalies-total').innerHTML = totalRow('Gardiens', 9, capTotal(p.goalies));
+    document.getElementById('pooler-goalies-total').innerHTML = totalRow('Gardiens', 12, capTotal(p.goalies));
     let masse = 0, sansSalaire = 0;
     p.skaters.concat(p.goalies).forEach(pl => {
       const c = window._capMap ? window._capMap[normName(pl.name)] : null;
@@ -1156,8 +1169,8 @@
       } else if (df.length) {
         h += skTable(df);
       }
-      if (go.length) h += '<div style="overflow-x:auto;margin-top:12px"><table><thead><tr><th>Gardien</th><th>Équipe</th><th>PJ</th><th>V</th><th>D</th><th>DP</th><th>A</th><th>B</th>' + (goPts ? '<th>Pts</th>' : '') + '<th>Salaire</th><th>Contrat</th></tr></thead><tbody>' +
-        go.map(g => '<tr><td>' + farmNameHtml(g) + ceBadges(pkey(g), p) + injMark(pkey(g), g.name, g.team) + '</td><td>' + g.team + '</td><td>' + statCell(g.gp) + '</td><td><b>' + statCell(g.w) + '</b></td><td>' + statCell(g.l) + '</td><td>' + statCell(g.otl) + '</td><td>' + statCell(g.a) + '</td><td>' + statCell(g.g) + '</td>' + (goPts ? '<td><b>' + (g.w === null || g.w === undefined ? '—' : goaliePts(g)) + '</b></td>' : '') + capCells(g.name) + '</tr>').join('') + '</tbody></table></div>';
+      if (go.length) h += '<div style="overflow-x:auto;margin-top:12px"><table><thead><tr><th>Gardien</th><th>Équipe</th><th>PJ</th><th>V</th><th>D</th><th>DP</th><th>A</th><th>B</th><th>BL</th><th>MOY</th><th>%ARR</th>' + (goPts ? '<th>Pts</th>' : '') + '<th>Salaire</th><th>Contrat</th></tr></thead><tbody>' +
+        go.map(g => '<tr><td>' + farmNameHtml(g) + ceBadges(pkey(g), p) + injMark(pkey(g), g.name, g.team) + '</td><td>' + g.team + '</td><td>' + statCell(g.gp) + '</td><td><b>' + statCell(g.w) + '</b></td><td>' + statCell(g.l) + '</td><td>' + statCell(g.otl) + '</td><td>' + statCell(g.a) + '</td><td>' + statCell(g.g) + '</td><td>' + statCell(g.so) + '</td><td>' + fmtGaa(poolerGoMoy(g)) + '</td><td>' + fmtSvPct(poolerGoArr(g)) + '</td>' + (goPts ? '<td><b>' + (g.w === null || g.w === undefined ? '—' : goaliePts(g)) + '</b></td>' : '') + capCells(g.name) + '</tr>').join('') + '</tbody></table></div>';
       if (!h) h = '<p class="muted">Aucun.</p>';
       return h;
     }
@@ -1761,6 +1774,7 @@
       nameEl.textContent = nm;
       body.innerHTML = ficheLine('Équipe LNH', g.teamAbbrev) + ficheLine('Matchs joués', g.gamesPlayed) +
         ficheLine('Victoires', g.wins) + ficheLine('Défaites', g.losses) + ficheLine('Prolongations', g.overtimeLosses) +
+        ficheLine('Blanchissages', g.shutouts ?? '—') + ficheLine('Moyenne', fmtGaa(g.goalsAgainstAverage)) + ficheLine('Pourcentage d’arrêts', fmtSvPct(g.savePercentage)) +
         ficheLine('Rythme projeté (82 matchs)', pace82(g.wins, g.gamesPlayed) + ' V') +
         ficheLine('Salaire', c ? fmtM(c.cap_hit) : '—') +
         ficheLine('Contrat', c ? c.status + ' ' + (c.expiry || '') : '—') +
