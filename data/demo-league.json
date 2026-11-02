@@ -212,16 +212,6 @@
         },
         {
           "id": null,
-          "name": "Tommy Bleyl",
-          "team": "NSH",
-          "pos": "D",
-          "gp": null,
-          "g": null,
-          "a": null,
-          "pts": null
-        },
-        {
-          "id": null,
           "name": "Brock Faber",
           "team": "MIN",
           "pos": "D",
@@ -414,6 +404,16 @@
           "g": 1,
           "a": 3,
           "pts": 4
+        },
+        {
+          "id": null,
+          "name": "Tommy Bleyl",
+          "team": "NSH",
+          "pos": "D",
+          "gp": null,
+          "g": null,
+          "a": null,
+          "pts": null
         }
       ],
       "sk_pts": 195,
