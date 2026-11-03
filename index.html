@@ -580,6 +580,12 @@
     sb.auth.onAuthStateChange(async (ev, session) => {
       SB_USER = session ? session.user : null;
       await refreshAuthUI();
+      if (ev === 'SIGNED_IN' && MY_TEAM && LEAGUE) {
+        applyMyTeamDefault(document.getElementById('pooler-select'));
+        applyMyTeamDefault(document.getElementById('tonight-team'));
+        renderPooler();
+        renderTonight();
+      }
     });
   }
   renderLogin();
@@ -929,9 +935,18 @@
       years.map(y => '<td>' + (p.picks[y].regular.length + p.picks[y].rookies.length) + ' choix (' + p.picks[y].rookies.length + ' recrues) + ' + (p.picks[y].midseason || []).length + ' mi-saison (' + pickRounds(p.picks[y].midseason, 0, p.name) + ') + ' + (p.picks[y].team || []).length + ' choix d\'équipe (' + (p.picks[y].team || []).map(pk => pk.o).join(', ') + ')</td>').join('') + '</tr>').join('');
     document.getElementById('draft-table').innerHTML = '<thead>' + head + '</thead><tbody>' + body + '</tbody>';
   }
+  // Equipe par defaut du pooler connecte (2 nov. 2026) : a l'ouverture,
+  // les selecteurs Pooler et Qui joue ce soir affichent l'equipe du compte
+  // connecte (MY_TEAM) plutot que la premiere de la liste ; les autres
+  // equipes restent choisissables dans le menu deroulant.
+  function applyMyTeamDefault(sel) {
+    if (!sel || !MY_TEAM || !LEAGUE) return;
+    if (LEAGUE.poolers.some(p => p.name === MY_TEAM)) sel.value = MY_TEAM;
+  }
   function buildPoolerSelect() {
     const sel = document.getElementById('pooler-select');
     sel.innerHTML = LEAGUE.poolers.map(p => '<option>' + p.name + '</option>').join('');
+    applyMyTeamDefault(sel);
     sel.addEventListener('change', renderPooler);
   }
   function poolerPjOf(s) {
@@ -3121,6 +3136,7 @@
   function buildNewSelects() {
     const tsel = document.getElementById('tonight-team');
     tsel.innerHTML = LEAGUE.poolers.map(p => '<option>' + p.name + '</option>').join('');
+    applyMyTeamDefault(tsel);
     tsel.addEventListener('change', renderTonight);
     buildTradeBlock();
     buildInjuredForms();
