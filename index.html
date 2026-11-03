@@ -583,6 +583,12 @@
       if (ev === 'SIGNED_IN' && MY_TEAM && LEAGUE) {
         applyMyTeamDefault(document.getElementById('pooler-select'));
         applyMyTeamDefault(document.getElementById('tonight-team'));
+        applyMyTeamDefault(document.getElementById('tr-pooler-a'));
+        if (document.getElementById('tr-pooler-b').value === document.getElementById('tr-pooler-a').value) {
+          const other = LEAGUE.poolers.find(p => p.name !== document.getElementById('tr-pooler-a').value);
+          if (other) document.getElementById('tr-pooler-b').value = other.name;
+        }
+        refreshTxForms();
         renderPooler();
         renderTonight();
       }
@@ -1454,6 +1460,11 @@
     const opts = LEAGUE.poolers.map(p => '<option>' + p.name + '</option>').join('');
     ['tx-pooler', 'tr-pooler-a', 'tr-pooler-b'].forEach(id => document.getElementById(id).innerHTML = opts);
     document.getElementById('tr-pooler-b').value = LEAGUE.poolers[1].name;
+    applyMyTeamDefault(document.getElementById('tr-pooler-a'));
+    if (document.getElementById('tr-pooler-b').value === document.getElementById('tr-pooler-a').value) {
+      const other = LEAGUE.poolers.find(p => p.name !== document.getElementById('tr-pooler-a').value);
+      if (other) document.getElementById('tr-pooler-b').value = other.name;
+    }
     document.getElementById('waiver-order').textContent =
       LEAGUE.poolers.slice().sort((a, b) => a.score - b.score).map(p => p.name).join(' → ');
     document.getElementById('tx-pooler').addEventListener('change', refreshTxForms);
