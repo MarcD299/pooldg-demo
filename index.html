@@ -470,7 +470,7 @@
     <div id="trade-proposals"></div>
     <h3 style="margin-top:22px">Journal des transactions</h3>
     <ul id="tx-log"></ul>
-    <p class="muted">État de la démo : les transactions s’appliquent à la session seulement. La persistance arrive avec le branchement entre amis.</p>
+    <p class="muted" id="tx-log-note">État de la démo : les transactions s’appliquent à la session seulement. La persistance arrive avec le branchement entre amis.</p>
   </section>
 </main>
 <footer>PoolDG — démo entre amis · Le hockey, mesurer autrement</footer>
@@ -632,8 +632,9 @@
       if (kind === 'team') p.picks[r.year][kind].push({o: r.origin});
       else p.picks[r.year][kind].push({r: r.round, o: r.origin});
     });
-    const league = {league: refLeague.league, date: refLeague.date, method: refLeague.method, scoring_demo: refLeague.scoring_demo, picks_rule: refLeague.picks_rule, roster_rules: refLeague.roster_rules, keeper: refLeague.keeper, poolers: poolers, proposals: []};
+    const league = {league: refLeague.league, date: refLeague.date, method: refLeague.method, scoring_demo: refLeague.scoring_demo, picks_rule: refLeague.picks_rule, roster_rules: refLeague.roster_rules, keeper: refLeague.keeper, poolers: poolers, proposals: [], executed: []};
     (rows.proposals || []).forEach(r => {
+      if (r.status === 'executee') { league.executed.push({from: r.from_team, to: r.to_team, fromOffer: (r.payload && r.payload.fromOffer) || [], toOffer: (r.payload && r.payload.toOffer) || [], date: r.created_at || ''}); return; }
       if (r.status !== 'envoyee') return;
       league.proposals.push({id: r.id, from: r.from_team, to: r.to_team, fromOffer: (r.payload && r.payload.fromOffer) || [], toOffer: (r.payload && r.payload.toOffer) || []});
     });
@@ -699,6 +700,7 @@
     renderTonight();
     renderTradeBlock();
     renderPrep();
+    renderJournal();
   }
   async function refreshLeague() {
     if (!SB_MODE || !window._refLeague || !window._playersData) return;
@@ -709,6 +711,7 @@
     window._catalog = buildCatalog(window._refLeague, window._playersData);
     LEAGUE.poolers = st.league.poolers;
     LEAGUE.proposals = st.league.proposals;
+    LEAGUE.executed = st.league.executed || [];
     LEAGUE.poolers.forEach(recomputeScores);
     renderAll();
   }
@@ -1650,7 +1653,31 @@
     logTx('Proposition envoyée : ' + pa.name + ' propose à ' + pb.name + ' (' + va.map(v => proposalLabel(v, pa.name)).join(', ') + ') contre (' + vb.map(v => proposalLabel(v, pb.name)).join(', ') + ').');
     renderProposals(); refreshTxForms();
   }
+  // Journal des transactions : registre des échanges terminés, lu depuis
+  // Supabase en mode partagé, du plus récent au plus ancien. Les lignes de
+  // session (logTx) restent affichées en dessous. En mode local, le journal
+  // reste le journal de session actuel.
+  function journalDate(iso) {
+    if (!iso) return '';
+    try { return new Date(iso).toLocaleDateString('fr-CA', {timeZone: 'America/Toronto', day: 'numeric', month: 'long', year: 'numeric'}); } catch (e) { return ''; }
+  }
+  function renderJournal() {
+    const ul = document.getElementById('tx-log');
+    if (!ul || !SB_MODE || !LEAGUE) return;
+    const note = document.getElementById('tx-log-note');
+    if (note) note.textContent = 'Registre des échanges complétés dans la démo partagée.';
+    const kept = [...ul.querySelectorAll('li:not([data-reg])')].map(li => li.outerHTML).join('');
+    const ex = (LEAGUE.executed || []).slice().sort((a, b) => (b.date || '').localeCompare(a.date || ''));
+    if (!ex.length) {
+      ul.innerHTML = '<li data-reg class="muted">Aucun échange complété pour le moment.</li>' + kept;
+      return;
+    }
+    ul.innerHTML = ex.map(tr =>
+      '<li data-reg><b>' + journalDate(tr.date) + ' — ' + tr.from + ' → ' + tr.to + '</b> : (' + tr.fromOffer.map(v => proposalLabel(v, tr.from)).join(', ') + ') contre (' + tr.toOffer.map(v => proposalLabel(v, tr.to)).join(', ') + ').</li>'
+    ).join('') + kept;
+  }
   function renderProposals() {
+    renderJournal();
     const box = document.getElementById('trade-proposals');
     if (!box) return;
     const list = LEAGUE.proposals || [];
