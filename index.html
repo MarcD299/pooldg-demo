@@ -394,6 +394,7 @@
     <p>Joueur <select id="roster-player"></select> &nbsp; Déplacer vers <select id="roster-dest"></select> &nbsp; <button id="roster-move-btn" style="background:var(--red);color:#fff;border:0;border-radius:999px;padding:9px 16px;font-size:15px;cursor:pointer">Déplacer</button></p>
     <p class="muted" id="roster-move-msg"></p>
     <p class="muted" id="pooler-picks"></p>
+    <div id="keeper-block">
     <h3 style="margin-top:22px">Aide aux 11 conservés</h3>
     <p class="muted">Cochez les joueurs à conserver en fin de saison (11 maximum). L'âge n'est pas disponible dans les données actuelles; le tableau montre points ou victoires, rythme projeté, salaire et fin de contrat.</p>
     <p><label for="keeper-season">Saison des protections : </label><select id="keeper-season"><option value="2027">2027</option><option value="2028">2028</option></select></p>
@@ -406,6 +407,7 @@
       </table>
     </div>
     <p class="muted" id="keeper-total"></p>
+    </div>
     <h3 style="margin-top:22px">Banque d'espoirs</h3>
     <p class="muted" id="farm-note"></p>
     <div id="farm-status"></div>
@@ -815,7 +817,7 @@
       window._skaters.forEach(s => skMap[normName(s.nom)] = s);
       const goMap = {};
       window._goaliesAll.forEach(g => goMap[normName(g.firstName.default + ' ' + g.lastName.default)] = g);
-      const UFA_ALIASES = {'anthony deangelo': 'tony deangelo', 'kristopher letang': 'kris letang', 'alexander ovechkin': 'alex ovechkin', 'michael matheson': 'mike matheson', 'matthew boldy': 'matt boldy', 'zachary werenski': 'zach werenski', 'daniel vladar': 'dan vladar', 'john-jason peterka': 'jj peterka'};
+      const UFA_ALIASES = {'anthony deangelo': 'tony deangelo', 'kristopher letang': 'kris letang', 'alexander ovechkin': 'alex ovechkin', 'michael matheson': 'mike matheson', 'matthew boldy': 'matt boldy', 'zachary werenski': 'zach werenski', 'daniel vladar': 'dan vladar', 'john-jason peterka': 'jj peterka', 'matt coronato': 'matthew coronato'};
       const fw = [], df = [], gl = [], ns = [];
       Object.entries(window._capMap).forEach(([key, c]) => {
         if (c.status !== 'UFA') return;
@@ -2175,6 +2177,11 @@
     const name = document.getElementById('pooler-select').value;
     const p = LEAGUE.poolers.find(x => x.name === name);
     if (!p) return;
+    // --- Keepers prives (4 nov. 2026) : seul le DG voit ses 11 conserves ---
+    const kb = document.getElementById('keeper-block');
+    const keeperVisible = !SB_MODE || MY_TEAM === name;
+    if (kb) kb.hidden = !keeperVisible;
+    if (!keeperVisible) return;
     const season = keeperSeason();
     if (!KEEP[season]) KEEP[season] = {};
     if (!KEEP[season][name]) KEEP[season][name] = new Set();
