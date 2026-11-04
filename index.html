@@ -1292,7 +1292,7 @@
         h += '<option value="P' + y + ':regular:' + pk.r + ':' + pk.o + '">' + (pk.r === 1 ? '1er' : pk.r + 'e') + ' choix ' + y + ' ' + pk.o + '</option>';
       });
       p.picks[y].rookies.slice().sort(byRound).forEach(pk => {
-        h += '<option value="P' + y + ':rookies:' + pk.r + ':' + pk.o + '">' + (pk.r === 1 ? '1re' : pk.r + 'e') + ' recrue ' + y + ' ' + pk.o + '</option>';
+        h += '<option value="P' + y + ':rookies:' + pk.r + ':' + pk.o + '">' + (pk.r + 12) + 'e choix ' + y + ' ' + pk.o + '</option>';
       });
     });
     h += '</optgroup><optgroup label="Choix mi-saison">';
@@ -1349,7 +1349,7 @@
         h += '<option value="P' + y + ':regular:' + pk.r + ':' + pk.o + '">' + (pk.r === 1 ? '1er' : pk.r + 'e') + ' choix ' + y + ' ' + pk.o + '</option>';
       });
       p.picks[y].rookies.slice().sort(byRound).forEach(pk => {
-        h += '<option value="P' + y + ':rookies:' + pk.r + ':' + pk.o + '">' + (pk.r === 1 ? '1re' : pk.r + 'e') + ' recrue ' + y + ' ' + pk.o + '</option>';
+        h += '<option value="P' + y + ':rookies:' + pk.r + ':' + pk.o + '">' + (pk.r + 12) + 'e choix ' + y + ' ' + pk.o + '</option>';
       });
     });
     h += '</optgroup><optgroup label="Choix mi-saison">';
@@ -1418,7 +1418,7 @@
     const suffix = origin && origin !== holder ? ' (' + origin + ')' : '';
     if (parts[1] === 'regular') return (r === 1 ? '1er' : r + 'e') + ' choix ' + parts[0] + suffix;
     if (parts[1] === 'midseason') return (r === 1 ? '1er' : r + 'e') + ' choix mi-saison ' + parts[0] + suffix;
-    return (r === 1 ? '1re' : r + 'e') + ' recrue ' + parts[0] + suffix;
+    return (r + 12) + 'e choix ' + parts[0] + suffix;
   }
   function pickRounds(list, base, holder) {
     return (list || []).slice().sort((a, b) => a.r - b.r || (a.o === holder ? -1 : b.o === holder ? 1 : (a.o < b.o ? -1 : a.o > b.o ? 1 : 0)))
@@ -1426,7 +1426,7 @@
   }
   function pickRookieNums(list, holder) {
     return (list || []).slice().sort((a, b) => a.r - b.r || (a.o === holder ? -1 : b.o === holder ? 1 : (a.o < b.o ? -1 : a.o > b.o ? 1 : 0)))
-      .map(pk => (pk.r === 1 ? '1re' : pk.r + 'e') + (pk.o !== holder ? ' (' + pk.o + ')' : '')).join(', ');
+      .map(pk => (pk.r + 12) + 'e' + (pk.o !== holder ? ' (' + pk.o + ')' : '')).join(', ');
   }
   function movePick(from, to, val) {
     if (!val) return false;
