@@ -817,7 +817,7 @@
       window._skaters.forEach(s => skMap[normName(s.nom)] = s);
       const goMap = {};
       window._goaliesAll.forEach(g => goMap[normName(g.firstName.default + ' ' + g.lastName.default)] = g);
-      const UFA_ALIASES = {'anthony deangelo': 'tony deangelo', 'kristopher letang': 'kris letang', 'alexander ovechkin': 'alex ovechkin', 'michael matheson': 'mike matheson', 'matthew boldy': 'matt boldy', 'zachary werenski': 'zach werenski', 'daniel vladar': 'dan vladar', 'john-jason peterka': 'jj peterka', 'matt coronato': 'matthew coronato'};
+      const UFA_ALIASES = {'anthony deangelo': 'tony deangelo', 'kristopher letang': 'kris letang', 'alexander ovechkin': 'alex ovechkin', 'michael matheson': 'mike matheson', 'matthew boldy': 'matt boldy', 'zachary werenski': 'zach werenski', 'daniel vladar': 'dan vladar', 'john-jason peterka': 'jj peterka'};
       const fw = [], df = [], gl = [], ns = [];
       Object.entries(window._capMap).forEach(([key, c]) => {
         if (c.status !== 'UFA') return;

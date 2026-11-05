@@ -247,14 +247,14 @@
           "pts": 11
         },
         {
-          "id": null,
-          "name": "Matthew Coronato",
+          "id": 8482679,
+          "name": "Matt Coronato",
           "team": "CGY",
-          "pos": "A",
-          "gp": null,
-          "g": null,
-          "a": null,
-          "pts": null
+          "pos": "R",
+          "gp": 15,
+          "g": 3,
+          "a": 11,
+          "pts": 14
         },
         {
           "id": null,
