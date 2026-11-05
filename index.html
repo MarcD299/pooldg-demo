@@ -308,19 +308,20 @@
       <table id="draft-table"></table>
     </div>
     <h3 style="margin-top:22px">Tableau de repêchage 2027 — repêchage lent</h3>
-    <p class="muted">L'ordre du repêchage est fixé par le commissaire; le tableau suit les choix effectués, en session seulement pour l'instant. 16 rondes simples : n'importe quel joueur peut être choisi à n'importe quelle ronde. Le détail complet des choix détenus reste dans le tableau ci-dessus.</p>
+    <p class="muted">Chaque case est un choix : les colonnes suivent l’ordre du repêchage (du dernier au premier du classement ; la 1re ronde suivra la loterie). Une équipe peut détenir plusieurs choix dans la même ronde, chacun dans sa case ; la provenance du choix est indiquée sous le nom de l’équipe. Une fois le choix fait, la case affiche le nom du joueur. Le tableau suit les choix effectués, conservés dans le jeu partagé. 16 rondes simples : n’importe quel joueur peut être choisi à n’importe quelle ronde.</p>
+    <p id="draft-pending" style="margin:10px 0 0;font-size:15px"></p>
     <div style="overflow-x:auto">
       <table id="draftboard-table"></table>
     </div>
     <div style="margin-top:12px">
-      <select id="db-team"></select>
       <select id="db-round"></select>
+      <select id="db-pos"></select>
       <input id="db-player" list="db-players" placeholder="Joueur choisi…">
       <datalist id="db-players"></datalist>
       <button id="db-btn" style="background:var(--red);color:#fff;border:0;border-radius:999px;padding:9px 16px;font-size:15px;cursor:pointer">Enregistrer le choix</button>
     </div>
     <p class="muted">* = recrue, 25 matchs LNH ou moins en carrière</p>
-    <p class="muted">La persistance arrive avec le branchement entre amis.</p>
+    <p class="muted">Les choix enregistrés sont conservés dans le jeu partagé.</p>
     <h3 style="margin-top:22px">Préparation du repêchage</h3>
     <p class="muted" id="prep-intro">Tous les joueurs disponibles, triés par points de la saison en cours. Un joueur possédé par une équipe ou déjà choisi au tableau lent n’y apparaît plus. Clique sur un en-tête pour trier; ajoute tes favoris à ta liste avec le bouton +. Clique sur un nom pour voir sa carte de profil.</p>
     <div style="margin:10px 0">
@@ -2661,49 +2662,122 @@
     board.innerHTML = html;
   }
   let DRAFTPICKS = {};
+  let DRAFT_HISTORY = [];
+  function dbBuildPos() {
+    const rsel = document.getElementById('db-round');
+    const psel = document.getElementById('db-pos');
+    if (!rsel || !psel) return;
+    const round = parseInt(rsel.value, 10) || 1;
+    const order = draftOrderTeams();
+    psel.innerHTML = order.map((origin, i) => {
+      const holder = draftPickHolder(round, origin);
+      const lbl = (i + 1) + ' \u2014 ' + (holder || '\u2014') + ((holder && holder !== origin) ? ' (via ' + origin + ')' : '');
+      return '<option value="' + (i + 1) + '">' + lbl + '</option>';
+    }).join('');
+  }
+  function dbSelectPending() {
+    const rsel = document.getElementById('db-round');
+    const psel = document.getElementById('db-pos');
+    if (!rsel || !psel) return;
+    const nx = nextDraftPick(draftMadeMap());
+    if (!nx) return;
+    rsel.value = String(nx.round);
+    dbBuildPos();
+    psel.value = String(nx.overall - (nx.round - 1) * 10);
+  }
   function buildDraftBoard() {
-    const tsel = document.getElementById('db-team');
-    tsel.innerHTML = LEAGUE.poolers.map(p => '<option>' + p.name + '</option>').join('');
     const rsel = document.getElementById('db-round');
     let opts = '';
     for (let r = 1; r <= 12; r++) opts += '<option value="' + r + '">' + (r === 1 ? '1re ronde' : r + 'e ronde') + '</option>';
     for (let r = 13; r <= 16; r++) opts += '<option value="' + r + '">' + r + 'e ronde</option>';
     rsel.innerHTML = opts;
     document.getElementById('db-players').innerHTML = window._skaters.slice().sort((a, b) => b.pts - a.pts).map(s => '<option value="' + escHtml(s.nom) + '">').join('');
+    rsel.addEventListener('change', () => { dbBuildPos(); });
     document.getElementById('db-btn').addEventListener('click', () => {
-      const team = tsel.value, round = parseInt(rsel.value, 10), player = document.getElementById('db-player').value.trim();
-      if (!team || !round || !player) return;
-      DRAFTPICKS[team + '|' + round] = player;
+      const round = parseInt(rsel.value, 10), pos = parseInt(document.getElementById('db-pos').value, 10), player = document.getElementById('db-player').value.trim();
+      if (!round || !pos || !player) return;
+      const origin = draftOrderTeams()[pos - 1];
+      const holder = draftPickHolder(round, origin);
+      if (!origin || !holder) return;
+      DRAFTPICKS[round + '|' + origin] = player;
       document.getElementById('db-player').value = '';
       renderDraftBoard();
       renderPrep();
-      dbArchivePick(sb, SB_MODE && (canEdit(team) || isComm()), dbDraftPayload(team, round, player, dbCareerByName())).then(loadDraftHistory);
+      dbSelectPending();
+      dbArchivePick(sb, SB_MODE && (canEdit(holder) || isComm()), dbDraftPayload(round, origin, holder, player, dbCareerByName())).then(loadDraftHistory);
     });
+    dbBuildPos();
+    dbSelectPending();
     renderDraftBoard();
     const hsel = document.getElementById('hist-season');
     if (hsel) hsel.addEventListener('change', loadDraftHistory);
     loadDraftHistory();
   }
+  function draftOrderTeams() {
+    if (!LEAGUE) return [];
+    return LEAGUE.poolers.slice().sort((a, b) => a.score - b.score).map(p => p.name);
+  }
+  function draftMadeMap() {
+    const made = {};
+    Object.keys(DRAFTPICKS).forEach(k => { made[k] = DRAFTPICKS[k]; });
+    DRAFT_HISTORY.forEach(r => { if (!r.origin_team) return; const k = dbRoundOrder(r.round_label) + '|' + r.origin_team; if (!made[k]) made[k] = r.player_name; });
+    return made;
+  }
+  function draftPickHolder(round, origin) {
+    for (const p of LEAGUE.poolers) {
+      const picks = p.picks['2027'];
+      if (!picks) continue;
+      if (round <= 12) { if ((picks.regular || []).some(x => x.r === round && x.o === origin)) return p.name; }
+      else if ((picks.rookies || []).some(x => x.r === round - 12 && x.o === origin)) return p.name;
+    }
+    return null;
+  }
+  function nextDraftPick(made) {
+    const order = draftOrderTeams();
+    if (!order.length) return null;
+    for (let r = 1; r <= 16; r++) {
+      for (let pos = 0; pos < 10; pos++) {
+        const origin = order[pos];
+        const holder = draftPickHolder(r, origin);
+        if (!holder) continue;
+        if (made[r + '|' + origin]) continue;
+        return {round: r, holder: holder, origin: origin, overall: (r - 1) * 10 + pos + 1};
+      }
+    }
+    return null;
+  }
+  function renderDraftPending(nx) {
+    const el = document.getElementById('draft-pending');
+    if (!el) return;
+    if (!nx) { el.innerHTML = '<b>Repêchage terminé.</b> Les 160 choix ont été effectués.'; return; }
+    const rLbl = dbRoundLabel(nx.round) + ' tour';
+    const oLbl = nx.overall === 1 ? '1er total' : nx.overall + 'e total';
+    el.innerHTML = 'En attente de sa sélection : <b style="color:var(--red)">' + rLbl + ' — ' + escHtml(nx.holder) + ' (' + oLbl + ')</b>';
+  }
   function renderDraftBoard() {
-    const teams = LEAGUE.poolers.map(p => p.name);
     const car = dbCareerByName();
-    let head = '<tr><th>Ronde</th>' + teams.map(t => '<th>' + t + '</th>').join('') + '</tr>';
+    const order = draftOrderTeams();
+    let head = '<tr><th>Ronde</th>' + order.map((t, i) => '<th>' + (i + 1) + '</th>').join('') + '</tr>';
     let body = '';
+    const made = draftMadeMap();
+    const nx = nextDraftPick(made);
     for (let r = 1; r <= 16; r++) {
       body += '<tr><td><b>' + (r <= 12 ? r : r + 'e') + '</b></td>';
-      teams.forEach(t => {
-        const p = LEAGUE.poolers.find(x => x.name === t);
-        const picks = p.picks['2027'];
-        let origins = [];
-        if (r <= 12) origins = (picks.regular || []).filter(x => x.r === r).map(x => x.o);
-        else origins = (picks.rookies || []).filter(x => x.r === r - 12).map(x => x.o);
-        const picked = DRAFTPICKS[t + '|' + r] || '';
-        const origin = origins.length ? origins.join(', ') : '—';
-        body += '<td>' + (picked ? '<b>' + escHtml(picked) + (dbIsRookieName(picked, car) ? ' *' : '') + '</b> (' + origin + ')' : origin) + '</td>';
-      });
+      for (let pos = 0; pos < 10; pos++) {
+        const origin = order[pos];
+        const holder = draftPickHolder(r, origin);
+        const picked = made[r + '|' + origin] || '';
+        const isNext = nx && nx.round === r && nx.overall === (r - 1) * 10 + pos + 1;
+        let cell = '';
+        if (picked) cell = '<b>' + escHtml(picked) + (dbIsRookieName(picked, car) ? ' *' : '') + '</b>';
+        else if (holder) cell = escHtml(holder) + ((holder !== origin) ? '<br><small>(via ' + escHtml(origin) + ')</small>' : '');
+        else cell = '\u2014';
+        body += '<td' + (isNext ? ' style="background:var(--red);color:#fff;font-weight:bold"' : '') + '>' + cell + '</td>';
+      }
       body += '</tr>';
     }
     document.getElementById('draftboard-table').innerHTML = '<thead>' + head + '</thead><tbody>' + body + '</tbody>';
+    renderDraftPending(nx);
   }
   // --- Tableau lent : etiquettes 13e-16e, marque recrue et archivage ---
   function dbRoundLabel(r) {
@@ -2725,8 +2799,8 @@
     if (hit) return 'S' + hit.id;
     return 'Sn:' + keyName(name);
   }
-  function dbDraftPayload(team, round, player, byName) {
-    return {season: 2027, round_label: dbRoundLabel(round), team_id: team, player_key: dbPlayerKey(player), player_name: player, is_rookie: dbIsRookieName(player, byName), picked_at: new Date().toISOString()};
+  function dbDraftPayload(round, origin, holder, player, byName) {
+    return {season: 2027, round_label: dbRoundLabel(round), team_id: holder, origin_team: origin, player_key: dbPlayerKey(player), player_name: player, is_rookie: dbIsRookieName(player, byName), picked_at: new Date().toISOString()};
   }
   function dbRoundOrder(label) {
     const n = parseInt(label, 10);
@@ -2736,16 +2810,18 @@
     return (rows || []).filter(r => r.season === season);
   }
   function dbHistoryHtml(rows, byName) {
-    const sorted = (rows || []).slice().sort((a, b) => (dbRoundOrder(a.round_label) - dbRoundOrder(b.round_label)) || String(a.team_id).localeCompare(String(b.team_id)));
+    const order = draftOrderTeams();
+    const posOf = o => { const i = order.indexOf(o); return i === -1 ? 99 : i; };
+    const sorted = (rows || []).slice().sort((a, b) => (dbRoundOrder(a.round_label) - dbRoundOrder(b.round_label)) || (posOf(a.origin_team) - posOf(b.origin_team)));
     return sorted.map(r => {
       const mark = (r.is_rookie === true || (r.is_rookie === undefined && dbIsRookieName(r.player_name, byName))) ? ' *' : '';
-      return '<tr><td><b>' + escHtml(r.round_label) + '</b></td><td>' + escHtml(r.team_id) + '</td><td>' + escHtml(r.player_name) + mark + '</td></tr>';
+      return '<tr><td><b>' + escHtml(r.round_label) + '</b></td><td>' + escHtml(r.team_id) + '</td><td>' + escHtml(r.origin_team || '\u2014') + '</td><td>' + escHtml(r.player_name) + mark + '</td></tr>';
     }).join('');
   }
   async function dbArchivePick(client, allowed, payload) {
     if (!client || !allowed) return 'skip';
     try {
-      const res = await client.from('draft_picks').upsert(payload, {onConflict: 'season,round_label,team_id'});
+      const res = await client.from('draft_picks').upsert(payload, {onConflict: 'season,round_label,origin_team'});
       if (res.error) return 'fail';
       return 'ok';
     } catch (e) {
@@ -2767,8 +2843,9 @@
         rows = [];
       }
     }
-    tbl.innerHTML = '<thead><tr><th>Ronde</th><th>Équipe</th><th>Joueur</th></tr></thead><tbody>' + dbHistoryHtml(rows, dbCareerByName()) + '</tbody>';
+    tbl.innerHTML = '<thead><tr><th>Ronde</th><th>Équipe</th><th>Origine</th><th>Joueur</th></tr></thead><tbody>' + dbHistoryHtml(rows, dbCareerByName()) + '</tbody>';
     if (empty) empty.hidden = rows.length > 0;
+    if (season === 2027) { DRAFT_HISTORY = rows; renderDraftBoard(); dbSelectPending(); }
   }
   // --- Préparation du repêchage (29 oct. 2026) : disponibles, liste personnelle, retrait auto ---
   function ageAt2027(dob) {
