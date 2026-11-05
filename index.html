@@ -28,6 +28,11 @@
   .card h2{margin:0 0 8px;font-size:19px;color:var(--navy);padding-bottom:8px;border-bottom:3px solid var(--bright)}
   .card h3{color:var(--navy)}
   .muted{color:#5a6b8a}
+  .hdg-news-row{display:flex;gap:8px;align-items:baseline;padding:9px 2px;border-top:1px solid var(--pale)}
+  .hdg-news-badge{flex:0 0 auto;background:var(--navy);color:#fff;font-size:11px;font-weight:700;border-radius:999px;padding:2px 8px;white-space:nowrap}
+  .hdg-news-date{flex:0 0 auto;font-size:13px;white-space:nowrap}
+  .hdg-news-row a{color:var(--navy);text-decoration:none;font-weight:600}
+  .hdg-news-row a:hover{text-decoration:underline}
   input,select{padding:9px 12px;border-radius:999px;border:2px solid var(--pale);font-size:15px;margin:0 6px 10px 0}
   table{width:100%;border-collapse:collapse;font-size:14px}
   th{background:var(--navy);color:#fff;padding:8px;text-align:left;white-space:nowrap;border-bottom:3px solid var(--bright)}
@@ -92,6 +97,12 @@
       <select id="tonight-team"></select>
       <div id="tonight-list"></div>
       <p class="muted" style="font-size:13px">Calendrier LNH 2026-2027 (dates, heure du Québec). Les joueurs affichés sont les actifs de l'équipe sélectionnée dont le club LNH joue ce soir.</p>
+    </div>
+    <div style="margin-top:14px">
+      <h3 style="margin:0 0 10px">Nouvelles HockeyDG</h3>
+      <p class="muted" id="hdg-news-note" style="font-size:13px">Les plus récentes nouvelles de hockey-dg.com.</p>
+      <div id="hdg-news-list"></div>
+      <p style="margin:10px 0 0;font-size:13px"><a href="https://hockey-dg.com/" target="_blank" rel="noopener">Toutes les nouvelles sur hockey-dg.com →</a></p>
     </div>
   </section>
   <section id="tab-joueurs" class="card" hidden>
@@ -721,6 +732,7 @@
     renderInjured();
     fillInjPlayers();
     renderTonight();
+    renderHdgNews();
     renderTradeBlock();
     renderPrep();
     renderJournal();
@@ -773,6 +785,7 @@
     buildVestiaire();
     renderChampions();
     renderTonight();
+    renderHdgNews();
   }
   const BASIN_PAGE_SIZE = 50;
   let BASIN_PAGES = {sk: 1, go: 1};
@@ -2024,6 +2037,16 @@
     document.getElementById('champions-note').textContent = ch.length ?
       "Liste fournie par le commissaire." :
       "Aucun champion inscrit pour l'instant.";
+  }
+  function renderHdgNews() {
+    const el = document.getElementById('hdg-news-list');
+    if (!el) return;
+    const news = window._hdgNews || (typeof HDG_NEWS !== 'undefined' ? HDG_NEWS : null) || {articles: []};
+    const list = (news.articles || []).slice(0, 6);
+    const note = document.getElementById('hdg-news-note');
+    if (note) note.textContent = news.date_fr ? ('Les plus récentes nouvelles de hockey-dg.com — mises à jour le ' + news.date_fr + '.') : 'Les plus récentes nouvelles de hockey-dg.com.';
+    if (!list.length) { el.innerHTML = '<p class="muted">Aucune nouvelle pour le moment.</p>'; return; }
+    el.innerHTML = list.map(a => '<div class="hdg-news-row"><span class="hdg-news-badge">' + escHtml(a.league) + '</span><span class="muted hdg-news-date">' + escHtml(a.date_courte) + '</span><a href="https://hockey-dg.com/#' + escHtml(a.anchor) + '" target="_blank" rel="noopener">' + escHtml(a.title) + '</a></div>').join('');
   }
   function renderTonight() {
     const sch = window._schedule || [];
@@ -3326,8 +3349,8 @@
     window._schedule = SCHEDULE;
     boot(PREVIEW_DATA, DEMO_LEAGUE, OTHER_LEAGUES);
   } else {
-    Promise.all([fetch('data/nhl-players-full.json').then(r => r.json()), fetch('data/demo-league.json').then(r => r.json()), fetch('data/other-leagues.json').then(r => r.json()), fetch('data/daily-scoring.json').then(r => r.json()), fetch('data/cap-hits.json').then(r => r.json()), fetch('data/champions.json').then(r => r.json()), fetch('data/nhl-schedule-compact.json').then(r => r.json()), fetch('data/nhl-prev-season.json').then(r => r.json()).catch(() => null), fetch('data/nhl-career-gp.json').then(r => r.json()).catch(() => null), fetch('data/df-injuries.json').then(r => r.json()).catch(() => null), fetch('data/ncaa.json').then(r => r.json()).catch(() => null), fetch('data/khl.json').then(r => r.json()).catch(() => null), fetch('data/verified-injuries.json').then(r => r.json()).catch(() => null), fetch('data/nhl-career.json').then(r => r.json()).catch(() => null)])
-      .then(([p, l, o, ds, cap, ch, sch, ps, cg, df, nc, kh, vi, ca]) => { window._daily = ds; window._cap = cap; window._capMap = cap.players; window._champions = ch; window._schedule = sch; window._prevSeason = ps || {skaters: {}, goalies: {}}; window._careerGp = cg || {skaters: {}, goalies: {}}; window._dfInjuries = df || {players: []}; window._ncaa = nc || {players: []}; window._khl = kh || {players: []}; window._verifiedInjuries = vi || {players: []}; window._career = ca || {skaters: {}, goalies: {}}; boot(p, l, o); })
+    Promise.all([fetch('data/nhl-players-full.json').then(r => r.json()), fetch('data/demo-league.json').then(r => r.json()), fetch('data/other-leagues.json').then(r => r.json()), fetch('data/daily-scoring.json').then(r => r.json()), fetch('data/cap-hits.json').then(r => r.json()), fetch('data/champions.json').then(r => r.json()), fetch('data/nhl-schedule-compact.json').then(r => r.json()), fetch('data/nhl-prev-season.json').then(r => r.json()).catch(() => null), fetch('data/nhl-career-gp.json').then(r => r.json()).catch(() => null), fetch('data/df-injuries.json').then(r => r.json()).catch(() => null), fetch('data/ncaa.json').then(r => r.json()).catch(() => null), fetch('data/khl.json').then(r => r.json()).catch(() => null), fetch('data/verified-injuries.json').then(r => r.json()).catch(() => null), fetch('data/nhl-career.json').then(r => r.json()).catch(() => null), fetch('data/hockeydg-news.json').then(r => r.json()).catch(() => null)])
+      .then(([p, l, o, ds, cap, ch, sch, ps, cg, df, nc, kh, vi, ca, hdg]) => { window._daily = ds; window._cap = cap; window._capMap = cap.players; window._champions = ch; window._schedule = sch; window._prevSeason = ps || {skaters: {}, goalies: {}}; window._careerGp = cg || {skaters: {}, goalies: {}}; window._dfInjuries = df || {players: []}; window._ncaa = nc || {players: []}; window._khl = kh || {players: []}; window._verifiedInjuries = vi || {players: []}; window._career = ca || {skaters: {}, goalies: {}}; window._hdgNews = hdg || {articles: []}; boot(p, l, o); })
       .catch(() => {
         document.getElementById('data-note').textContent =
           'Les données se chargent quand la page est servie par un site (pas en ouvrant le fichier directement).';
