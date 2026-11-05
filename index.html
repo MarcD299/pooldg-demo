@@ -499,7 +499,7 @@
   const COMM_EMAIL = 'dpmarcx69@gmail.com';
   const sb = (typeof supabase !== 'undefined') ? supabase.createClient(SB_URL, SB_KEY) : null;
   let SB_USER = null, MY_TEAM = null, SB_MODE = false, TEAM_LINKED = {};
-  const escHtml = s => s.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+  const escHtml = s => String(s ?? '').replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
   // Clé joueur, identique à supabase-seed.sql : préfixe S ou G + id LNH,
   // ou préfixe + n: + nom normalisé pour les joueurs sans id LNH.
   function keyName(n) {
