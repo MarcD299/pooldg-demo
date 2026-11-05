@@ -63,6 +63,7 @@
   <button data-tab="ligue">Ligue</button>
   <button data-tab="vestiaire">Vestiaire</button>
   <button data-tab="repechage">Repêchage</button>
+  <button data-tab="loterie">Loterie</button>
   <button data-tab="pooler">Pooler</button>
   <button data-tab="pointage">Pointage du jour</button>
   <button data-tab="transactions">Transactions</button>
@@ -71,7 +72,7 @@
   <section id="tab-accueil" class="card">
     <h2 style="font-size:30px;margin-bottom:4px">DG des Pals</h2>
     <p class="muted">Ligue keeper entre amis · 10 poolers · Pointage quotidien</p>
-    <p>Pool keeper : 11 joueurs conservés en fin de saison · Repêchage annuel 12 choix + 4 recrues · Plafond salarial 104 M$.</p>
+    <p>Pool keeper : 11 joueurs conservés en fin de saison · Repêchage annuel 16 choix simples · Plafond salarial 104 M$.</p>
     <div style="background:var(--brightlight);border:2px solid var(--bright);border-radius:12px;padding:16px;margin-top:14px">
       <h3 style="margin:0 0 10px">Connexion</h3>
       <form id="login-form">
@@ -176,7 +177,7 @@
       </table>
     </div>
     <p class="muted">Règles d'effectif : attaquants minimum 12 · défenseurs minimum 6 · gardiens minimum 2 · recrues maximum 20 (pas de minimum) · repêchage 17 rondes, sauf si des choix sont échangés.</p>
-    <p class="muted">Pool keeper : à la fin de chaque saison, chaque équipe conserve 11 joueurs. Repêchage annuel : 12 choix + 4 recrues (si la liste de recrues n'est pas complète, maximum 20). Début de saison : 13 attaquants, 7 défenseurs, 3 gardiens. Équipes réelles importées du pool DG DES PALS sur Marqueur le 27 octobre 2026 (actifs, réservistes et recrues). Les équipes arrivent avec 12-6-2 actifs (Ottawa et Dallas : 11 attaquants actifs) — le ballottage et les échanges permettent de compléter vers le 13-7-3.</p>
+    <p class="muted">Pool keeper : à la fin de chaque saison, chaque équipe conserve 11 joueurs. Repêchage annuel : 16 choix simples par équipe (si la liste de recrues n'est pas complète, maximum 20). Début de saison : 13 attaquants, 7 défenseurs, 3 gardiens. Équipes réelles importées du pool DG DES PALS sur Marqueur le 27 octobre 2026 (actifs, réservistes et recrues). Les équipes arrivent avec 12-6-2 actifs (Ottawa et Dallas : 11 attaquants actifs) — le ballottage et les échanges permettent de compléter vers le 13-7-3.</p>
     <h3 style="margin-top:22px">Tableau des champions</h3>
     <p class="muted">Gagnants des saisons précédentes, fournis par le commissaire.</p>
     <div style="text-align:center;margin:6px 0 14px"><img src="assets/trophee-dg-des-pals-fond.jpg" alt="Trophée DG des Pals" style="max-width:420px;width:100%;border-radius:16px"></div>
@@ -296,7 +297,7 @@
       <table id="draft-table"></table>
     </div>
     <h3 style="margin-top:22px">Tableau de repêchage 2027 — repêchage lent</h3>
-    <p class="muted">L'ordre du repêchage est fixé par le commissaire; le tableau suit les choix effectués, en session seulement pour l'instant. Rondes 1 à 12 (choix réguliers) et rondes 13 à 16 (emplacements recrues, peuvent être prises en tout temps). Le détail complet des choix détenus reste dans le tableau ci-dessus.</p>
+    <p class="muted">L'ordre du repêchage est fixé par le commissaire; le tableau suit les choix effectués, en session seulement pour l'instant. 16 rondes simples : n'importe quel joueur peut être choisi à n'importe quelle ronde. Le détail complet des choix détenus reste dans le tableau ci-dessus.</p>
     <div style="overflow-x:auto">
       <table id="draftboard-table"></table>
     </div>
@@ -351,6 +352,20 @@
       <table id="hist-table"></table>
     </div>
     <p class="muted" id="hist-empty" hidden>Aucun repêchage archivé pour cette saison</p>
+  </section>
+  <section id="tab-loterie" class="card" hidden>
+    <h2>Loterie du repêchage</h2>
+    <p>Les 3 premiers du classement final ne participent pas : leurs choix sont fixés à 10e, 9e et 8e. Les 7 autres participent à 2 tirages pour les choix 1 et 2. Montée maximale de 5 places, descente maximale de 2 : seuls les 6 derniers peuvent donc repêcher 1er. La loterie ne détermine que la 1re ronde ; les rondes 2 à 16 suivent le classement inverse.</p>
+    <p class="muted" id="loterie-standings-note"></p>
+    <div style="overflow-x:auto">
+      <table id="loterie-odds-table"></table>
+    </div>
+    <div style="display:flex;gap:8px;flex-wrap:wrap;margin:12px 0">
+      <button id="loterie-draw-btn" style="border:0;border-radius:999px;padding:9px 18px;font-size:15px;cursor:pointer;background:var(--navy);color:#fff">Lancer le tirage</button>
+      <button id="loterie-reset-btn" style="border:0;border-radius:999px;padding:9px 18px;font-size:15px;cursor:pointer;background:var(--pale);color:var(--navy)">Refaire</button>
+    </div>
+    <div id="loterie-result"></div>
+    <p class="muted">Le résultat du tirage est affiché ici pour la session en cours ; il est conservé tant que la page reste ouverte. Le tirage officiel utilisera le classement final, à la fin de la saison.</p>
   </section>
   <section id="tab-pooler" class="card" hidden>
     <h2>Équipe</h2>
@@ -748,6 +763,7 @@
     renderBasin();
     renderStandings();
     renderDraft();
+    renderLottery();
     buildPoolerSelect();
     renderPooler();
     renderDaily();
@@ -937,9 +953,94 @@
     e.preventDefault();
     goPooler(t.getAttribute('data-pooler-team'));
   });
+  // --- Loterie du repêchage (4 nov. 2026) : 7 équipes, 2 tirages, plafonds +5/-2 ---
+  const LOTTERY_BALLS = [
+    {rank: 10, balls: 250}, {rank: 9, balls: 200}, {rank: 8, balls: 150},
+    {rank: 7, balls: 130}, {rank: 6, balls: 110}, {rank: 5, balls: 90}, {rank: 4, balls: 70},
+  ];
+  function lotteryStandings() {
+    if (!LEAGUE || !LEAGUE.poolers) return [];
+    return LEAGUE.poolers.slice().sort((a, b) => b.score - a.score);
+  }
+  function lotteryTeams() {
+    const st = lotteryStandings();
+    if (st.length !== 10) return [];
+    return LOTTERY_BALLS.map(o => ({team: st[o.rank - 1].name, rank: o.rank, balls: o.balls, pct: o.balls / 10}));
+  }
+  function lotteryDrawOne(pool, rng) {
+    const total = pool.reduce((t, x) => t + x.balls, 0);
+    const n = Math.floor(rng() * total) + 1;
+    let acc = 0;
+    for (const t of pool) {
+      acc += t.balls;
+      if (n <= acc) return {team: t.team, rank: t.rank, ball: n, total: total};
+    }
+    const last = pool[pool.length - 1];
+    return {team: last.team, rank: last.rank, ball: n, total: total};
+  }
+  function lotteryRun(rng) {
+    rng = rng || Math.random;
+    const teams = lotteryTeams();
+    if (!teams.length) return null;
+    const d1 = lotteryDrawOne(teams.filter(t => t.rank !== 4), rng);
+    const rest1 = teams.filter(t => t.team !== d1.team);
+    const d2 = lotteryDrawOne(rest1, rng);
+    const rest = rest1.filter(t => t.team !== d2.team).sort((a, b) => b.rank - a.rank);
+    const st = lotteryStandings();
+    const order = [d1.team, d2.team].concat(rest.map(t => t.team)).concat([st[2].name, st[1].name, st[0].name]);
+    return {d1: d1, d2: d2, order: order};
+  }
+  function showLotteryResult(res) {
+    const el = document.getElementById("loterie-result");
+    if (!el) return;
+    const orderRows = res.order.map((t, i) => "<tr><td><b>" + (i + 1) + "</b></td><td>" + escHtml(t) + "</td></tr>").join("");
+    el.innerHTML = "<p><b>1er tirage :</b> " + escHtml(res.d1.team) + " — boule " + res.d1.ball + " sur " + res.d1.total + "</p>" +
+      "<p><b>2e tirage :</b> " + escHtml(res.d2.team) + " — boule " + res.d2.ball + " sur " + res.d2.total + "</p>" +
+      "<div style=\"overflow-x:auto\"><table><thead><tr><th>Choix</th><th>Équipe</th></tr></thead><tbody>" + orderRows + "</tbody></table></div>";
+  }
+  function renderLottery() {
+    const teams = lotteryTeams();
+    const oddsEl = document.getElementById("loterie-odds-table");
+    const noteEl = document.getElementById("loterie-standings-note");
+    if (!oddsEl) return;
+    if (!teams.length) {
+      oddsEl.innerHTML = "";
+      if (noteEl) noteEl.textContent = "La loterie demande 10 équipes.";
+      return;
+    }
+    let acc = 0;
+    const rows = teams.map(t => {
+      const lo = acc + 1;
+      acc += t.balls;
+      return "<tr><td>" + t.rank + "e</td><td><b>" + escHtml(t.team) + "</b></td><td>" + t.pct + " %</td><td>" + lo + "–" + acc + "</td></tr>";
+    }).join("");
+    oddsEl.innerHTML = "<thead><tr><th>Rang final</th><th>Équipe</th><th>Chance</th><th>Boules</th></tr></thead><tbody>" + rows + "</tbody>";
+    if (noteEl) noteEl.textContent = "Ordre utilisé : classement actuel (" + lotteryStandings().map(p => p.name).join(", ") + "). Le tirage officiel utilisera le classement final, à la fin de la saison.";
+    const drawBtn = document.getElementById("loterie-draw-btn");
+    const resetBtn = document.getElementById("loterie-reset-btn");
+    const resultEl = document.getElementById("loterie-result");
+    if (drawBtn && !window._loterieWired) {
+      window._loterieWired = true;
+      drawBtn.addEventListener("click", () => {
+        if (typeof SB_MODE !== "undefined" && SB_MODE && !isComm()) {
+          if (resultEl) resultEl.innerHTML = "<p>Tirage réservé au commissaire.</p>";
+          return;
+        }
+        const res = lotteryRun();
+        if (!res) return;
+        showLotteryResult(res);
+        drawBtn.disabled = true;
+      });
+      if (resetBtn) resetBtn.addEventListener("click", () => {
+        if (typeof SB_MODE !== "undefined" && SB_MODE && !isComm()) return;
+        if (resultEl) resultEl.innerHTML = "";
+        drawBtn.disabled = false;
+      });
+    }
+  }
   function renderDraft() {
     document.getElementById('draft-note').textContent =
-      'Repêchage annuel keeper : 12 choix + 4 recrues par équipe, pour 2027 et 2028 (les recrues peuvent être prises en tout temps, pas nécessairement aux rondes 13 à 16), plus un repêchage de mi-saison de 3 choix par équipe (1er, 2e, 3e) et un choix d\'équipe par année. Tous échangeables, seulement les 2 années suivant la saison en cours. Les choix acquis par échange affichent leur équipe d\'origine.';
+      'Repêchage annuel keeper : 16 choix simples par équipe, pour 2027 et 2028 (tout joueur peut être choisi à toute ronde), plus un repêchage de mi-saison de 3 choix par équipe (1er, 2e, 3e) et un choix d\'équipe par année. Tous échangeables, seulement les 2 années suivant la saison en cours. Les choix acquis par échange affichent leur équipe d\'origine.';
     const years = LEAGUE.poolers.length ? Object.keys(LEAGUE.poolers[0].picks) : [];
     let head = '<tr><th>Équipe</th>' + years.map(y => '<th>Choix ' + y + '</th>').join('') + '</tr>';
     let body = LEAGUE.poolers.map(p => '<tr><td><b>' + p.name + '</b></td>' +
@@ -1234,7 +1335,7 @@
     document.getElementById('pooler-picks').textContent =
       'Choix détenus (échangeables, seulement les 2 années suivant la saison en cours) : ' +
       Object.keys(p.picks).map(y => y + ' — ' + p.picks[y].regular.length + ' choix + ' + p.picks[y].rookies.length + ' recrues (peuvent être prises en tout temps) + ' + (p.picks[y].midseason || []).length + ' mi-saison + ' + (p.picks[y].team || []).length + ' choix d\'équipe').join(' ; ') +
-      '. Repêchage annuel keeper : 12 choix + 4 recrues (si la liste de recrues n\'est pas complète, maximum 20).';
+      '. Repêchage annuel keeper : 16 choix simples par équipe (si la liste de recrues n\'est pas complète, maximum 20).';
     renderKeeperHelp();
     renderFarmStatus();
   }
@@ -1758,7 +1859,7 @@
     } else {
       logTx('Échange accepté : ' + pa.name + ' (' + res.namesA.join(', ') + ') ⇄ ' + pb.name + ' (' + res.namesB.join(', ') + ').');
     }
-    renderProposals(); renderStandings(); renderDraft(); renderPooler(); refreshTxForms();
+    renderProposals(); renderStandings(); renderDraft(); renderLottery(); renderPooler(); refreshTxForms();
   }
   async function refuseProposal(id) {
     const pr = (LEAGUE.proposals || []).find(x => String(x.id) === String(id));
