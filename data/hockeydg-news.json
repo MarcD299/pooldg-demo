@@ -1,8 +1,40 @@
 {
-  "date": "2026-11-06",
-  "date_fr": "6 novembre 2026",
+  "date": "2026-11-07",
+  "date_fr": "7 novembre 2026",
   "source": "HockeyDG.com",
   "articles": [
+    {
+      "date": "2026-11-06",
+      "date_fr": "6 novembre 2026",
+      "date_courte": "6 nov.",
+      "league": "NHL",
+      "title": "Suzuki de retour, Caufield en prolongation : le Canadien efface le cauchemar de mardi",
+      "anchor": "article-fr-suzuki-retour-caufield-prolongation-canadien-2026-11-06"
+    },
+    {
+      "date": "2026-11-06",
+      "date_fr": "6 novembre 2026",
+      "date_courte": "6 nov.",
+      "league": "KHL",
+      "title": "Evander Kane prend le chemin de la KHL : 1 001 matchs de LNH derrière lui",
+      "anchor": "article-fr-evander-kane-khl-1001-matchs-2026-11-06"
+    },
+    {
+      "date": "2026-11-06",
+      "date_fr": "6 novembre 2026",
+      "date_courte": "6 nov.",
+      "league": "IIHF",
+      "title": "Sept visages nouveaux : le Canada ouvre son Mondial féminin contre la Suède",
+      "anchor": "article-fr-canada-mondial-feminin-sept-recrues-2026-11-06"
+    },
+    {
+      "date": "2026-11-05",
+      "date_fr": "5 novembre 2026",
+      "date_courte": "5 nov.",
+      "league": "PWHL",
+      "title": "La PWHL ose ce qu’aucune autre ligue pro n’a osé : jouer la rondelle au-dessus des épaules",
+      "anchor": "article-fr-pwhl-rondelle-au-dessus-epaules-2026-11-05"
+    },
     {
       "date": "2026-11-05",
       "date_fr": "5 novembre 2026",
@@ -18,38 +50,6 @@
       "league": "NCAA",
       "title": "Vingt points en neuf matchs : Michael Hage mène toute la NCAA",
       "anchor": "article-fr-michael-hage-mene-ncaa-20-points-2026-11-05"
-    },
-    {
-      "date": "2026-11-05",
-      "date_fr": "5 novembre 2026",
-      "date_courte": "5 nov.",
-      "league": "IIHF",
-      "title": "Trois premiers choix, neuf points : Canada Blanc écrase la Suède 7-2 au Défi U17",
-      "anchor": "article-fr-canada-blanc-u17-ecrase-suede-2026-11-05"
-    },
-    {
-      "date": "2026-11-05",
-      "date_fr": "5 novembre 2026",
-      "date_courte": "5 nov.",
-      "league": "AHL",
-      "title": "Mešár marque deux fois, mais le Rocket s'incline 5-4 en prolongation",
-      "anchor": "article-fr-mesar-deux-buts-rocket-phantoms-prolongation-2026-11-05"
-    },
-    {
-      "date": "2026-11-04",
-      "date_fr": "4 novembre 2026",
-      "date_courte": "4 nov.",
-      "league": "IIHF",
-      "title": "Mondial féminin : le Canada jouera sans sa feuille d'érable, en maillot générique",
-      "anchor": "article-fr-canada-mondial-feminin-maillot-generique-2026-11-04"
-    },
-    {
-      "date": "2026-11-04",
-      "date_fr": "4 novembre 2026",
-      "date_courte": "4 nov.",
-      "league": "WHL",
-      "title": "La WHL revient à Chilliwack : une 24e équipe dès 2027-2028",
-      "anchor": "article-fr-whl-chilliwack-expansion-2026-11-04"
     }
   ]
 }
