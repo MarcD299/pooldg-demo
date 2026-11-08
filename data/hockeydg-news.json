@@ -1,55 +1,55 @@
 {
-  "date": "2026-11-07",
-  "date_fr": "7 novembre 2026",
+  "date": "2026-11-08",
+  "date_fr": "8 novembre 2026",
   "source": "HockeyDG.com",
   "articles": [
     {
-      "date": "2026-11-06",
-      "date_fr": "6 novembre 2026",
-      "date_courte": "6 nov.",
+      "date": "2026-11-07",
+      "date_fr": "7 novembre 2026",
+      "date_courte": "7 nov.",
       "league": "NHL",
-      "title": "Suzuki de retour, Caufield en prolongation : le Canadien efface le cauchemar de mardi",
-      "anchor": "article-fr-suzuki-retour-caufield-prolongation-canadien-2026-11-06"
+      "title": "Carey Price, enfin immortel : lundi, le Temple ouvre ses portes au gardien du Canadien",
+      "anchor": "article-fr-carey-price-enfin-immortel-lundi-le-temple-ouvre-ses-portes-2026-11-07"
     },
     {
-      "date": "2026-11-06",
-      "date_fr": "6 novembre 2026",
-      "date_courte": "6 nov.",
-      "league": "KHL",
-      "title": "Evander Kane prend le chemin de la KHL : 1 001 matchs de LNH derrière lui",
-      "anchor": "article-fr-evander-kane-khl-1001-matchs-2026-11-06"
+      "date": "2026-11-07",
+      "date_fr": "7 novembre 2026",
+      "date_courte": "7 nov.",
+      "league": "IIHF",
+      "title": "Eldridge sonne la charge : le Canada, sans Poulin, écrase la Suède 5-1",
+      "anchor": "article-fr-eldridge-sonne-la-charge-le-canada-sans-poulin-ecrase-la-sue-2026-11-07"
+    },
+    {
+      "date": "2026-11-07",
+      "date_fr": "7 novembre 2026",
+      "date_courte": "7 nov.",
+      "league": "AHL",
+      "title": "Berard frappe deux fois : le Rocket corrige Cleveland 6-2 et reste premier",
+      "anchor": "article-fr-berard-frappe-deux-fois-le-rocket-corrige-cleveland-6-2-et-r-2026-11-07"
+    },
+    {
+      "date": "2026-11-07",
+      "date_fr": "7 novembre 2026",
+      "date_courte": "7 nov.",
+      "league": "NHL",
+      "title": "Tavares de retour, le Canadien en visite : un samedi soir comme on les aime à Toronto",
+      "anchor": "article-fr-tavares-de-retour-le-canadien-en-visite-un-samedi-soir-comme-2026-11-07"
     },
     {
       "date": "2026-11-06",
       "date_fr": "6 novembre 2026",
       "date_courte": "6 nov.",
       "league": "IIHF",
-      "title": "Sept visages nouveaux : le Canada ouvre son Mondial féminin contre la Suède",
-      "anchor": "article-fr-canada-mondial-feminin-sept-recrues-2026-11-06"
+      "title": "Le hockey perd un champion de Sarajevo : Mikhail Vasilyev s’est éteint à 64 ans",
+      "anchor": "article-fr-mikhail-vasiliev-deces-2026-11-06"
     },
     {
-      "date": "2026-11-05",
-      "date_fr": "5 novembre 2026",
-      "date_courte": "5 nov.",
-      "league": "PWHL",
-      "title": "La PWHL ose ce qu’aucune autre ligue pro n’a osé : jouer la rondelle au-dessus des épaules",
-      "anchor": "article-fr-pwhl-rondelle-au-dessus-epaules-2026-11-05"
-    },
-    {
-      "date": "2026-11-05",
-      "date_fr": "5 novembre 2026",
-      "date_courte": "5 nov.",
-      "league": "NHL",
-      "title": "Personne n'a réclamé Brad Lambert : l'ancien choix de premier tour prend le chemin du Moose",
-      "anchor": "article-fr-brad-lambert-ballottage-moose-2026-11-05"
-    },
-    {
-      "date": "2026-11-05",
-      "date_fr": "5 novembre 2026",
-      "date_courte": "5 nov.",
-      "league": "NCAA",
-      "title": "Vingt points en neuf matchs : Michael Hage mène toute la NCAA",
-      "anchor": "article-fr-michael-hage-mene-ncaa-20-points-2026-11-05"
+      "date": "2026-11-06",
+      "date_fr": "6 novembre 2026",
+      "date_courte": "6 nov.",
+      "league": "AHL",
+      "title": "Hershey perd son « Gil » : Jeannot Gilbert s’éteint à 85 ans",
+      "anchor": "article-fr-jeannot-gilbert-deces-hershey-2026-11-06"
     }
   ]
 }

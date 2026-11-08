@@ -1,7 +1,7 @@
 {
-  "collected": "2026-11-07",
+  "collected": "2026-11-08",
   "source": "Daily Faceoff",
-  "source_detail": "Collecte quotidienne goalies-lineups, 2026-11-06 05:26 HE, groupe injured_reserve (28 equipes couvertes) + 7 entrees du 2026-11-06 pour les equipes non couvertes (PHI, VGK, WPG)",
+  "source_detail": "Collecte quotidienne goalies-lineups, 2026-11-07 05:26 HE, groupe injured_reserve (30 equipes couvertes) + 1 entrees du 2026-11-07 pour les equipes non couvertes (CBJ)",
   "players": [
     {
       "name": "Troy Terry",
@@ -34,22 +34,10 @@
       "details": "Grzelycyk (lower-body) has been placed on IR."
     },
     {
-      "name": "Conor Timmins",
-      "team": "BUF",
-      "status": "ir",
-      "details": "Timmins (lower-body) is available to return vs. Ottawa on Wednesday."
-    },
-    {
       "name": "Alex Lyon",
       "team": "BUF",
       "status": "ir",
       "details": "Lyon (upper-body) is days away from return to Buffalo's lineup."
-    },
-    {
-      "name": "Jiri Kulich",
-      "team": "BUF",
-      "status": "dtd",
-      "details": "Kulich (concussion) is available to return vs. Ottawa on Wednesday."
     },
     {
       "name": "Konsta Helenius",
@@ -76,10 +64,10 @@
       "details": "Othmann (upper-body) is out on Friday and considered day-to-day."
     },
     {
-      "name": "Devin Cooley",
+      "name": "Kevin Bahl",
       "team": "CGY",
       "status": "dtd",
-      "details": "Cooley (lower-body) has been activated off IR."
+      "details": "Bahl (lower-body) is out vs. Anaheim on Friday."
     },
     {
       "name": "Jordan Staal",
@@ -112,12 +100,6 @@
       "details": "L'Heureux (upper-body) will miss at least two more games."
     },
     {
-      "name": "Isac Lundestrom",
-      "team": "CBJ",
-      "status": "ir",
-      "details": "Lundestrom (achilles) is considered month-to-month."
-    },
-    {
       "name": "Matt Duchene",
       "team": "DAL",
       "status": "ir",
@@ -139,7 +121,7 @@
       "name": "Miro Heiskanen",
       "team": "DAL",
       "status": "dtd",
-      "details": "Heiskanen (upper-body) will be out vs. Columbus on Thursday and is considered day-to-day."
+      "details": "Heiskanen (upper body) is doubtful for Saturday vs. San Jose."
     },
     {
       "name": "Albert Johansson",
@@ -175,7 +157,7 @@
       "name": "John Gibson",
       "team": "DET",
       "status": "dtd",
-      "details": "Gibson is day-to-day with a lower-body injury."
+      "details": "Gibson (lower-body) returned to practice on Friday."
     },
     {
       "name": "Alec Regula",
@@ -265,19 +247,19 @@
       "name": "Filip Gustavsson",
       "team": "MIN",
       "status": "out",
-      "details": "Gustavsson (hip) is expected to be out for at least another month."
+      "details": "Gustavsson (hip) will travel with Minnesota on their upcoming road trip."
     },
     {
       "name": "Nick Foligno",
       "team": "MIN",
       "status": "out",
-      "details": "Foligno has been placed on IR with an upper-body injury."
+      "details": "Nick Foligno (upper-body) will remain out on Friday but has a chance to return on Saturday vs. Tampa Bay."
     },
     {
       "name": "Marcus Foligno",
       "team": "MIN",
       "status": "out",
-      "details": "Foligno (lower-body) will remain out vs. Vegas and is considered day-to-day."
+      "details": "Marcus Foligno (lower-body) will remain out on Friday but has a chance to return vs. Tampa Bay on Saturday."
     },
     {
       "name": "Jared Spurgeon",
@@ -391,7 +373,7 @@
       "name": "Linus Ullmark",
       "team": "OTT",
       "status": "ir",
-      "details": "Ullmark (lower-body) travelled on Ottawa's road trip but will not return in Buffalo on Wednesday."
+      "details": "Ullmark (lower-body) has a chance to return vs. Utah on Saturday."
     },
     {
       "name": "Warren Foegele",
@@ -409,7 +391,19 @@
       "name": "Tyler Kleven",
       "team": "OTT",
       "status": "dtd",
-      "details": "Kleven (illness) is out vs. Buffalo on Wednesday."
+      "details": "Kleven (illness) returned to practice on Friday."
+    },
+    {
+      "name": "Nikita Grebenkin",
+      "team": "PHI",
+      "status": "ir",
+      "details": "Grebenkin (upper-body) has been placed on injured reserve."
+    },
+    {
+      "name": "Rasmus Ristolainen",
+      "team": "PHI",
+      "status": "ir",
+      "details": "Ristolainen (upper-body) has been placed on IR."
     },
     {
       "name": "Trevor van Riemsdyk",
@@ -504,14 +498,8 @@
     {
       "name": "John Tavares",
       "team": "TOR",
-      "status": "out",
-      "details": "Tavares (lower-body) returned to practice in a non-contact jersey on Wednesday."
-    },
-    {
-      "name": "Jack Roslovic",
-      "team": "TOR",
       "status": "dtd",
-      "details": "Roslovic (maintenance) missed practice on Wednesday."
+      "details": "Tavares (lower-body) has a good chance to return vs. Montreal on Saturday."
     },
     {
       "name": "John Marino",
@@ -538,6 +526,12 @@
       "details": "Chytil (upper-body) has been placed on IR."
     },
     {
+      "name": "Parker Wotherspoon",
+      "team": "VGK",
+      "status": "ir",
+      "details": "Wotherspoon (upper body) has been placed on IR."
+    },
+    {
       "name": "Rasmus Sandin",
       "team": "WSH",
       "status": "out",
@@ -548,30 +542,6 @@
       "team": "WSH",
       "status": "ir",
       "details": "Desharnais underwent a successful appendectomy surgery and is expected to miss the next 4-6 weeks."
-    },
-    {
-      "name": "Nikita Grebenkin",
-      "team": "PHI",
-      "status": "ir",
-      "details": "Grebenkin (upper-body) has been placed on injured reserve."
-    },
-    {
-      "name": "Rasmus Ristolainen",
-      "team": "PHI",
-      "status": "ir",
-      "details": "Ristolainen (upper-body) has been placed on IR."
-    },
-    {
-      "name": "Parker Wotherspoon",
-      "team": "VGK",
-      "status": "ir",
-      "details": "Wotherspoon (upper body) has been placed on IR."
-    },
-    {
-      "name": "Victor Olofsson",
-      "team": "VGK",
-      "status": "out",
-      "details": "Olofsson (undisclosed) will travel with Vegas on its upcoming road trip."
     },
     {
       "name": "Nick Bjugstad",
@@ -590,6 +560,12 @@
       "team": "WPG",
       "status": "ir",
       "details": "Morrissey (upper-body) is hopeful to return by the weekend."
+    },
+    {
+      "name": "Isac Lundestrom",
+      "team": "CBJ",
+      "status": "ir",
+      "details": "Lundestrom (achilles) is considered month-to-month."
     }
   ]
 }

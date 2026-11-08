@@ -1,6 +1,6 @@
 {
   "league": "DG des Pals",
-  "date": "2026-11-07",
+  "date": "2026-11-08",
   "method": "Équipes réelles du pool DG DES PALS sur Marqueur, importées le 27 octobre 2026 (actifs, réservistes, recrues). Statistiques de saison LNH; pointage PoolDG : 12 meilleurs attaquants, 6 meilleurs défenseurs, 2 meilleurs gardiens. Statistiques LNH rafraîchies le 2 novembre 2026 (correction Bleyl conservée). Règle de pointage changée le 2 novembre 2026 : actifs seulement (les réservistes ne comptent plus).",
   "scoring_demo": "Pointage : 12 meilleurs attaquants + 6 meilleurs défenseurs (1 pt par point) et 2 meilleurs gardiens (2 pts par victoire, 1 pt par défaite en prolongation ou tirs de barrage, 1 pt par passe, 5 pts par but, +3 pts pour un jeu blanc — donc 5 pts au total pour un jeu blanc). Actifs seulement : les réservistes et les recrues ne comptent jamais.",
   "poolers": [
@@ -14,17 +14,17 @@
           "team": "MIN",
           "pos": "L",
           "g": 16,
-          "a": 14,
-          "pts": 30
+          "a": 15,
+          "pts": 31
         },
         {
           "id": 8476453,
           "name": "Nikita Kucherov",
           "team": "TBL",
           "pos": "R",
-          "g": 4,
-          "a": 16,
-          "pts": 20
+          "g": 5,
+          "a": 17,
+          "pts": 22
         },
         {
           "id": 8478420,
@@ -32,8 +32,8 @@
           "team": "DAL",
           "pos": "R",
           "g": 9,
-          "a": 10,
-          "pts": 19
+          "a": 12,
+          "pts": 21
         },
         {
           "id": 8478398,
@@ -49,18 +49,18 @@
           "name": "Jack Hughes",
           "team": "NJD",
           "pos": "C",
-          "g": 8,
-          "a": 13,
-          "pts": 21
+          "g": 9,
+          "a": 14,
+          "pts": 23
         },
         {
           "id": 8480830,
           "name": "Andrei Svechnikov",
           "team": "CAR",
           "pos": "R",
-          "g": 7,
+          "g": 9,
           "a": 9,
-          "pts": 16
+          "pts": 18
         },
         {
           "id": 8478550,
@@ -68,8 +68,8 @@
           "team": "LAK",
           "pos": "L",
           "g": 8,
-          "a": 9,
-          "pts": 17
+          "a": 10,
+          "pts": 18
         },
         {
           "id": 8482702,
@@ -77,8 +77,8 @@
           "team": "CAR",
           "pos": "C",
           "g": 11,
-          "a": 6,
-          "pts": 17
+          "a": 7,
+          "pts": 18
         },
         {
           "id": 8482699,
@@ -122,8 +122,8 @@
           "team": "EDM",
           "pos": "D",
           "g": 10,
-          "a": 20,
-          "pts": 30
+          "a": 21,
+          "pts": 31
         },
         {
           "id": 8476853,
@@ -149,8 +149,8 @@
           "team": "VAN",
           "pos": "D",
           "g": 1,
-          "a": 11,
-          "pts": 12
+          "a": 12,
+          "pts": 13
         },
         {
           "id": 8474590,
@@ -158,8 +158,8 @@
           "team": "TBL",
           "pos": "D",
           "g": 5,
-          "a": 3,
-          "pts": 8
+          "a": 5,
+          "pts": 10
         },
         {
           "id": 8475167,
@@ -177,9 +177,9 @@
           "name": "Karel Vejmelka",
           "team": "UTA",
           "pos": "G",
-          "pj": 12,
+          "pj": 13,
           "w": 6,
-          "l": 5,
+          "l": 6,
           "otl": 0,
           "a": 1,
           "g": 0,
@@ -241,10 +241,10 @@
           "name": "Berkly Catton",
           "team": "SEA",
           "pos": "C",
-          "gp": 15,
+          "gp": 16,
           "g": 5,
-          "a": 7,
-          "pts": 12
+          "a": 9,
+          "pts": 14
         },
         {
           "id": 8482679,
@@ -321,7 +321,7 @@
           "name": "Ilya Protas",
           "team": "WSH",
           "pos": "L",
-          "gp": 14,
+          "gp": 15,
           "g": 1,
           "a": 5,
           "pts": 6
@@ -371,7 +371,7 @@
           "name": "Zeev Buium",
           "team": "VAN",
           "pos": "D",
-          "gp": 18,
+          "gp": 19,
           "g": 0,
           "a": 4,
           "pts": 4
@@ -417,8 +417,8 @@
           "pts": null
         }
       ],
-      "sk_pts": 283,
-      "score": 311,
+      "sk_pts": 298,
+      "score": 326,
       "picks": {
         "2027": {
           "regular": [
@@ -611,17 +611,17 @@
           "team": "EDM",
           "pos": "C",
           "g": 10,
-          "a": 34,
-          "pts": 44
+          "a": 37,
+          "pts": 47
         },
         {
           "id": 8479343,
           "name": "Clayton Keller",
           "team": "UTA",
           "pos": "R",
-          "g": 4,
-          "a": 18,
-          "pts": 22
+          "g": 5,
+          "a": 19,
+          "pts": 24
         },
         {
           "id": 8477951,
@@ -656,8 +656,8 @@
           "team": "NSH",
           "pos": "L",
           "g": 5,
-          "a": 14,
-          "pts": 19
+          "a": 15,
+          "pts": 20
         },
         {
           "id": 8476459,
@@ -665,8 +665,8 @@
           "team": "NYR",
           "pos": "C",
           "g": 3,
-          "a": 10,
-          "pts": 13
+          "a": 12,
+          "pts": 15
         },
         {
           "id": 8477960,
@@ -674,8 +674,8 @@
           "team": "LAK",
           "pos": "R",
           "g": 6,
-          "a": 6,
-          "pts": 12
+          "a": 7,
+          "pts": 13
         },
         {
           "id": 8479385,
@@ -701,8 +701,8 @@
           "team": "NJD",
           "pos": "R",
           "g": 5,
-          "a": 4,
-          "pts": 9
+          "a": 5,
+          "pts": 10
         },
         {
           "id": 8476454,
@@ -719,8 +719,8 @@
           "team": "NSH",
           "pos": "D",
           "g": 2,
-          "a": 16,
-          "pts": 18
+          "a": 18,
+          "pts": 20
         },
         {
           "id": 8474578,
@@ -728,8 +728,8 @@
           "team": "PIT",
           "pos": "D",
           "g": 3,
-          "a": 13,
-          "pts": 16
+          "a": 14,
+          "pts": 17
         },
         {
           "id": 8476885,
@@ -764,8 +764,8 @@
           "team": "OTT",
           "pos": "D",
           "g": 1,
-          "a": 6,
-          "pts": 7
+          "a": 7,
+          "pts": 8
         }
       ],
       "goalies": [
@@ -774,8 +774,8 @@
           "name": "Jake Allen",
           "team": "NJD",
           "pos": "G",
-          "pj": 8,
-          "w": 5,
+          "pj": 9,
+          "w": 6,
           "l": 3,
           "otl": 0,
           "a": 0,
@@ -787,8 +787,8 @@
           "name": "Juuse Saros",
           "team": "NSH",
           "pos": "G",
-          "pj": 11,
-          "w": 4,
+          "pj": 12,
+          "w": 5,
           "l": 3,
           "otl": 4,
           "a": 0,
@@ -812,7 +812,7 @@
           "name": "Ryan McDonagh",
           "team": "TBL",
           "pos": "D",
-          "gp": 15,
+          "gp": 16,
           "g": 2,
           "a": 2,
           "pts": 4
@@ -868,10 +868,10 @@
           "name": "Egor Chinakhov",
           "team": "PIT",
           "pos": "R",
-          "gp": 12,
-          "g": 2,
+          "gp": 13,
+          "g": 3,
           "a": 2,
-          "pts": 4
+          "pts": 5
         },
         {
           "id": 8483464,
@@ -888,7 +888,7 @@
           "name": "Hendrix Lapierre",
           "team": "PIT",
           "pos": "C",
-          "gp": 12,
+          "gp": 13,
           "g": 2,
           "a": 5,
           "pts": 7
@@ -928,10 +928,10 @@
           "name": "Shane Pinto",
           "team": "OTT",
           "pos": "C",
-          "gp": 17,
-          "g": 6,
-          "a": 6,
-          "pts": 12
+          "gp": 18,
+          "g": 7,
+          "a": 7,
+          "pts": 14
         },
         {
           "id": null,
@@ -958,7 +958,7 @@
           "name": "Danila Yurov",
           "team": "MIN",
           "pos": "R",
-          "gp": 18,
+          "gp": 19,
           "g": 6,
           "a": 1,
           "pts": 7
@@ -998,7 +998,7 @@
           "name": "Wyatt Kaiser",
           "team": "CHI",
           "pos": "D",
-          "gp": 17,
+          "gp": 18,
           "g": 2,
           "a": 4,
           "pts": 6
@@ -1040,8 +1040,8 @@
           "so": 2
         }
       ],
-      "sk_pts": 279,
-      "score": 301,
+      "sk_pts": 293,
+      "score": 319,
       "picks": {
         "2027": {
           "regular": [
@@ -1222,7 +1222,7 @@
           ]
         }
       },
-      "go_pts": 22
+      "go_pts": 26
     },
     {
       "name": "UTAH",
@@ -1233,18 +1233,18 @@
           "name": "Leon Draisaitl",
           "team": "EDM",
           "pos": "C",
-          "g": 14,
-          "a": 17,
-          "pts": 31
+          "g": 16,
+          "a": 18,
+          "pts": 34
         },
         {
           "id": 8477939,
           "name": "William Nylander",
           "team": "TOR",
           "pos": "R",
-          "g": 10,
+          "g": 11,
           "a": 11,
-          "pts": 21
+          "pts": 22
         },
         {
           "id": 8482109,
@@ -1252,8 +1252,8 @@
           "team": "NYR",
           "pos": "L",
           "g": 9,
-          "a": 7,
-          "pts": 16
+          "a": 9,
+          "pts": 18
         },
         {
           "id": 8484153,
@@ -1269,9 +1269,9 @@
           "name": "Jackson Blake",
           "team": "CAR",
           "pos": "R",
-          "g": 4,
+          "g": 5,
           "a": 14,
-          "pts": 18
+          "pts": 19
         },
         {
           "id": 8483431,
@@ -1287,9 +1287,9 @@
           "name": "Roope Hintz",
           "team": "DAL",
           "pos": "C",
-          "g": 6,
-          "a": 7,
-          "pts": 13
+          "g": 7,
+          "a": 8,
+          "pts": 15
         },
         {
           "id": 8481533,
@@ -1305,9 +1305,9 @@
           "name": "Brock Boeser",
           "team": "VAN",
           "pos": "R",
-          "g": 6,
+          "g": 7,
           "a": 9,
-          "pts": 15
+          "pts": 16
         },
         {
           "id": 8483515,
@@ -1324,8 +1324,8 @@
           "team": "STL",
           "pos": "C",
           "g": 3,
-          "a": 8,
-          "pts": 11
+          "a": 9,
+          "pts": 12
         },
         {
           "id": 8482259,
@@ -1341,9 +1341,9 @@
           "name": "Matthew Schaefer",
           "team": "NYI",
           "pos": "D",
-          "g": 4,
+          "g": 5,
           "a": 11,
-          "pts": 15
+          "pts": 16
         },
         {
           "id": 8478507,
@@ -1359,9 +1359,9 @@
           "name": "Thomas Harley",
           "team": "DAL",
           "pos": "D",
-          "g": 1,
-          "a": 7,
-          "pts": 8
+          "g": 2,
+          "a": 9,
+          "pts": 11
         },
         {
           "id": 8480434,
@@ -1387,8 +1387,8 @@
           "team": "NYI",
           "pos": "D",
           "g": 1,
-          "a": 3,
-          "pts": 4
+          "a": 4,
+          "pts": 5
         }
       ],
       "goalies": [
@@ -1397,9 +1397,9 @@
           "name": "Joel Hofer",
           "team": "STL",
           "pos": "G",
-          "pj": 11,
+          "pj": 12,
           "w": 6,
-          "l": 4,
+          "l": 5,
           "otl": 1,
           "a": 1,
           "g": 0,
@@ -1425,10 +1425,10 @@
           "name": "Seth Jarvis",
           "team": "CAR",
           "pos": "R",
-          "gp": 7,
-          "g": 1,
+          "gp": 8,
+          "g": 2,
           "a": 6,
-          "pts": 7
+          "pts": 8
         },
         {
           "id": 8481524,
@@ -1491,7 +1491,7 @@
           "name": "Michael Brandsegg-Nygård",
           "team": "DET",
           "pos": "R",
-          "gp": 17,
+          "gp": 18,
           "g": 3,
           "a": 7,
           "pts": 10
@@ -1521,7 +1521,7 @@
           "name": "Anton Frondell",
           "team": "CHI",
           "pos": "C",
-          "gp": 17,
+          "gp": 18,
           "g": 3,
           "a": 5,
           "pts": 8
@@ -1541,10 +1541,10 @@
           "name": "Gavin McKenna",
           "team": "TOR",
           "pos": "L",
-          "gp": 17,
-          "g": 5,
+          "gp": 18,
+          "g": 6,
           "a": 6,
-          "pts": 11
+          "pts": 12
         },
         {
           "id": 8483489,
@@ -1581,20 +1581,20 @@
           "name": "Max Sasson",
           "team": "VAN",
           "pos": "C",
-          "gp": 18,
-          "g": 4,
+          "gp": 19,
+          "g": 5,
           "a": 2,
-          "pts": 6
+          "pts": 7
         },
         {
           "id": 8484241,
           "name": "Matthew Wood",
           "team": "SEA",
           "pos": "R",
-          "gp": 15,
+          "gp": 16,
           "g": 1,
-          "a": 2,
-          "pts": 3
+          "a": 3,
+          "pts": 4
         },
         {
           "id": 8483482,
@@ -1669,8 +1669,8 @@
           "g": null
         }
       ],
-      "sk_pts": 246,
-      "score": 276,
+      "sk_pts": 262,
+      "score": 292,
       "picks": {
         "2027": {
           "regular": [
@@ -1872,8 +1872,8 @@
           "team": "SJS",
           "pos": "C",
           "g": 7,
-          "a": 11,
-          "pts": 18
+          "a": 14,
+          "pts": 21
         },
         {
           "id": 8479542,
@@ -1908,8 +1908,8 @@
           "team": "NJD",
           "pos": "L",
           "g": 3,
-          "a": 12,
-          "pts": 15
+          "a": 13,
+          "pts": 16
         },
         {
           "id": 8477496,
@@ -1979,9 +1979,9 @@
           "name": "Shayne Gostisbehere",
           "team": "CAR",
           "pos": "D",
-          "g": 2,
-          "a": 10,
-          "pts": 12
+          "g": 3,
+          "a": 11,
+          "pts": 14
         },
         {
           "id": 8479345,
@@ -2026,10 +2026,10 @@
           "name": "Ilya Sorokin",
           "team": "NYI",
           "pos": "G",
-          "pj": 10,
+          "pj": 11,
           "w": 6,
           "l": 4,
-          "otl": 0,
+          "otl": 1,
           "a": 0,
           "g": 0,
           "so": 1
@@ -2039,9 +2039,9 @@
           "name": "Sergei Bobrovsky",
           "team": "TOR",
           "pos": "G",
-          "pj": 11,
+          "pj": 12,
           "w": 3,
-          "l": 6,
+          "l": 7,
           "otl": 2,
           "a": 0,
           "g": 0,
@@ -2054,7 +2054,7 @@
           "name": "Darnell Nurse",
           "team": "SJS",
           "pos": "D",
-          "gp": 17,
+          "gp": 18,
           "g": 1,
           "a": 1,
           "pts": 2
@@ -2109,10 +2109,10 @@
           "name": "Oliver Kapanen",
           "team": "MTL",
           "pos": "C",
-          "gp": 9,
+          "gp": 10,
           "g": 1,
-          "a": 0,
-          "pts": 1
+          "a": 1,
+          "pts": 2
         },
         {
           "id": null,
@@ -2139,7 +2139,7 @@
           "name": "Jonathan Lekkerimäki",
           "team": "VAN",
           "pos": "R",
-          "gp": 18,
+          "gp": 19,
           "g": 6,
           "a": 8,
           "pts": 14
@@ -2149,7 +2149,7 @@
           "name": "Jack McBain",
           "team": "UTA",
           "pos": "C",
-          "gp": 17,
+          "gp": 18,
           "g": 1,
           "a": 2,
           "pts": 3
@@ -2277,8 +2277,8 @@
           "so": 0
         }
       ],
-      "sk_pts": 221,
-      "score": 244,
+      "sk_pts": 227,
+      "score": 251,
       "picks": {
         "2027": {
           "regular": [
@@ -2459,7 +2459,7 @@
           ]
         }
       },
-      "go_pts": 23
+      "go_pts": 24
     },
     {
       "name": "OTTAWA",
@@ -2470,9 +2470,9 @@
           "name": "Nathan MacKinnon",
           "team": "COL",
           "pos": "C",
-          "g": 9,
-          "a": 18,
-          "pts": 27
+          "g": 10,
+          "a": 20,
+          "pts": 30
         },
         {
           "id": 8479318,
@@ -2480,8 +2480,8 @@
           "team": "TOR",
           "pos": "C",
           "g": 11,
-          "a": 15,
-          "pts": 26
+          "a": 16,
+          "pts": 27
         },
         {
           "id": 8482116,
@@ -2489,17 +2489,17 @@
           "team": "OTT",
           "pos": "C",
           "g": 9,
-          "a": 13,
-          "pts": 22
+          "a": 14,
+          "pts": 23
         },
         {
           "id": 8477404,
           "name": "Jake Guentzel",
           "team": "TBL",
           "pos": "C",
-          "g": 8,
-          "a": 7,
-          "pts": 15
+          "g": 10,
+          "a": 8,
+          "pts": 18
         },
         {
           "id": 8482078,
@@ -2570,17 +2570,17 @@
           "team": "NYR",
           "pos": "D",
           "g": 2,
-          "a": 19,
-          "pts": 21
+          "a": 20,
+          "pts": 22
         },
         {
           "id": 8480069,
           "name": "Cale Makar",
           "team": "COL",
           "pos": "D",
-          "g": 4,
-          "a": 14,
-          "pts": 18
+          "g": 5,
+          "a": 16,
+          "pts": 21
         },
         {
           "id": 8482671,
@@ -2615,8 +2615,8 @@
           "team": "CAR",
           "pos": "D",
           "g": 1,
-          "a": 4,
-          "pts": 5
+          "a": 5,
+          "pts": 6
         }
       ],
       "goalies": [
@@ -2625,9 +2625,9 @@
           "name": "Darcy Kuemper",
           "team": "LAK",
           "pos": "G",
-          "pj": 9,
+          "pj": 10,
           "w": 5,
-          "l": 3,
+          "l": 4,
           "otl": 1,
           "a": 1,
           "g": 0,
@@ -2698,7 +2698,7 @@
           "name": "Easton Cowan",
           "team": "TOR",
           "pos": "R",
-          "gp": 17,
+          "gp": 18,
           "g": 6,
           "a": 8,
           "pts": 14
@@ -2758,7 +2758,7 @@
           "name": "Connor McMichael",
           "team": "STL",
           "pos": "L",
-          "gp": 16,
+          "gp": 17,
           "g": 2,
           "a": 7,
           "pts": 9
@@ -2808,10 +2808,10 @@
           "name": "Matthew Wood",
           "team": "SEA",
           "pos": "R",
-          "gp": 15,
+          "gp": 16,
           "g": 1,
-          "a": 2,
-          "pts": 3
+          "a": 3,
+          "pts": 4
         },
         {
           "id": null,
@@ -2828,7 +2828,7 @@
           "name": "Sam Dickinson",
           "team": "SJS",
           "pos": "D",
-          "gp": 16,
+          "gp": 17,
           "g": 1,
           "a": 2,
           "pts": 3
@@ -2886,8 +2886,8 @@
           "g": null
         }
       ],
-      "sk_pts": 248,
-      "score": 268,
+      "sk_pts": 261,
+      "score": 281,
       "picks": {
         "2027": {
           "regular": [
@@ -3079,9 +3079,9 @@
           "name": "Sebastian Aho",
           "team": "CAR",
           "pos": "C",
-          "g": 9,
-          "a": 14,
-          "pts": 23
+          "g": 10,
+          "a": 16,
+          "pts": 26
         },
         {
           "id": 8480018,
@@ -3098,8 +3098,8 @@
           "team": "NYI",
           "pos": "C",
           "g": 7,
-          "a": 7,
-          "pts": 14
+          "a": 9,
+          "pts": 16
         },
         {
           "id": 8478483,
@@ -3116,17 +3116,17 @@
           "team": "FLA",
           "pos": "C",
           "g": 9,
-          "a": 7,
-          "pts": 16
+          "a": 8,
+          "pts": 17
         },
         {
           "id": 8471675,
           "name": "Sidney Crosby",
           "team": "PIT",
           "pos": "C",
-          "g": 4,
+          "g": 6,
           "a": 6,
-          "pts": 10
+          "pts": 12
         },
         {
           "id": 8476455,
@@ -3142,9 +3142,9 @@
           "name": "Connor Bedard",
           "team": "CHI",
           "pos": "C",
-          "g": 4,
-          "a": 8,
-          "pts": 12
+          "g": 5,
+          "a": 9,
+          "pts": 14
         },
         {
           "id": 8476880,
@@ -3169,9 +3169,9 @@
           "name": "Chris Kreider",
           "team": "MTL",
           "pos": "L",
-          "g": 2,
+          "g": 3,
           "a": 6,
-          "pts": 8
+          "pts": 9
         },
         {
           "id": 8478975,
@@ -3179,8 +3179,8 @@
           "team": "SJS",
           "pos": "L",
           "g": 4,
-          "a": 2,
-          "pts": 6
+          "a": 3,
+          "pts": 7
         },
         {
           "id": 8477986,
@@ -3188,17 +3188,17 @@
           "team": "SEA",
           "pos": "D",
           "g": 3,
-          "a": 8,
-          "pts": 11
+          "a": 9,
+          "pts": 12
         },
         {
           "id": 8478407,
           "name": "Vince Dunn",
           "team": "SEA",
           "pos": "D",
-          "g": 2,
+          "g": 3,
           "a": 7,
-          "pts": 9
+          "pts": 10
         },
         {
           "id": 8480336,
@@ -3206,8 +3206,8 @@
           "team": "CAR",
           "pos": "D",
           "g": 3,
-          "a": 6,
-          "pts": 9
+          "a": 7,
+          "pts": 10
         },
         {
           "id": 8479325,
@@ -3224,8 +3224,8 @@
           "team": "PIT",
           "pos": "D",
           "g": 0,
-          "a": 6,
-          "pts": 6
+          "a": 8,
+          "pts": 8
         },
         {
           "id": 8476854,
@@ -3243,8 +3243,8 @@
           "name": "Jake Oettinger",
           "team": "DAL",
           "pos": "G",
-          "pj": 12,
-          "w": 8,
+          "pj": 13,
+          "w": 9,
           "l": 3,
           "otl": 1,
           "a": 0,
@@ -3271,10 +3271,10 @@
           "name": "Zach Hyman",
           "team": "EDM",
           "pos": "L",
-          "gp": 6,
+          "gp": 7,
           "g": 1,
-          "a": 0,
-          "pts": 1
+          "a": 1,
+          "pts": 2
         },
         {
           "id": null,
@@ -3291,7 +3291,7 @@
           "name": "Noah Dobson",
           "team": "MTL",
           "pos": "D",
-          "gp": 16,
+          "gp": 17,
           "g": 0,
           "a": 8,
           "pts": 8
@@ -3337,7 +3337,7 @@
           "name": "Dalibor Dvorsky",
           "team": "STL",
           "pos": "R",
-          "gp": 16,
+          "gp": 17,
           "g": 4,
           "a": 1,
           "pts": 5
@@ -3347,7 +3347,7 @@
           "name": "Emmitt Finnie",
           "team": "DET",
           "pos": "C",
-          "gp": 17,
+          "gp": 18,
           "g": 7,
           "a": 4,
           "pts": 11
@@ -3377,7 +3377,7 @@
           "name": "Oliver Moore",
           "team": "CHI",
           "pos": "C",
-          "gp": 16,
+          "gp": 17,
           "g": 2,
           "a": 1,
           "pts": 3
@@ -3387,7 +3387,7 @@
           "name": "Liam Ohgren",
           "team": "VAN",
           "pos": "L",
-          "gp": 17,
+          "gp": 18,
           "g": 6,
           "a": 3,
           "pts": 9
@@ -3407,20 +3407,20 @@
           "name": "Will Smith",
           "team": "SJS",
           "pos": "C",
-          "gp": 18,
-          "g": 6,
-          "a": 5,
-          "pts": 11
+          "gp": 19,
+          "g": 7,
+          "a": 6,
+          "pts": 13
         },
         {
           "id": 8483516,
           "name": "Jimmy Snuggerud",
           "team": "STL",
           "pos": "R",
-          "gp": 16,
-          "g": 8,
+          "gp": 17,
+          "g": 9,
           "a": 3,
-          "pts": 11
+          "pts": 12
         },
         {
           "id": 8481725,
@@ -3437,7 +3437,7 @@
           "name": "Justin Sourdif",
           "team": "WSH",
           "pos": "C",
-          "gp": 12,
+          "gp": 13,
           "g": 3,
           "a": 1,
           "pts": 4
@@ -3457,7 +3457,7 @@
           "name": "Adam Jiricek",
           "team": "STL",
           "pos": "D",
-          "gp": 16,
+          "gp": 17,
           "g": 1,
           "a": 2,
           "pts": 3
@@ -3479,13 +3479,13 @@
           "name": "Spencer Knight",
           "team": "CHI",
           "pos": "G",
-          "gp": 13,
+          "gp": 14,
           "w": 4,
-          "l": 9,
+          "l": 10,
           "otl": 0,
           "a": 0,
           "g": 0,
-          "pj": 13,
+          "pj": 14,
           "so": 0
         },
         {
@@ -3501,8 +3501,8 @@
           "g": null
         }
       ],
-      "sk_pts": 191,
-      "score": 229,
+      "sk_pts": 208,
+      "score": 248,
       "picks": {
         "2027": {
           "regular": [
@@ -3683,7 +3683,7 @@
           ]
         }
       },
-      "go_pts": 38
+      "go_pts": 40
     },
     {
       "name": "TORONTO",
@@ -3694,9 +3694,9 @@
           "name": "Steven Stamkos",
           "team": "NSH",
           "pos": "C",
-          "g": 9,
-          "a": 8,
-          "pts": 17
+          "g": 10,
+          "a": 9,
+          "pts": 19
         },
         {
           "id": 8480012,
@@ -3704,8 +3704,8 @@
           "team": "VAN",
           "pos": "C",
           "g": 4,
-          "a": 14,
-          "pts": 18
+          "a": 15,
+          "pts": 19
         },
         {
           "id": 8477940,
@@ -3713,8 +3713,8 @@
           "team": "CAR",
           "pos": "L",
           "g": 4,
-          "a": 10,
-          "pts": 14
+          "a": 11,
+          "pts": 15
         },
         {
           "id": 8479987,
@@ -3757,9 +3757,9 @@
           "name": "Sam Bennett",
           "team": "FLA",
           "pos": "C",
-          "g": 4,
+          "g": 5,
           "a": 3,
-          "pts": 7
+          "pts": 8
         },
         {
           "id": 8477479,
@@ -3784,9 +3784,9 @@
           "name": "Pierre-Luc Dubois",
           "team": "WSH",
           "pos": "C",
-          "g": 1,
-          "a": 6,
-          "pts": 7
+          "g": 2,
+          "a": 7,
+          "pts": 9
         },
         {
           "id": 8482720,
@@ -3803,8 +3803,8 @@
           "team": "MIN",
           "pos": "D",
           "g": 6,
-          "a": 19,
-          "pts": 25
+          "a": 20,
+          "pts": 26
         },
         {
           "id": 8481605,
@@ -3906,14 +3906,14 @@
           "name": "Philipp Grubauer",
           "team": "SEA",
           "pos": "G",
-          "gp": 9,
+          "gp": 10,
           "w": 5,
-          "l": 2,
+          "l": 3,
           "otl": 1,
           "a": 0,
           "g": 0,
           "so": 0,
-          "pj": 9
+          "pj": 10
         }
       ],
       "farm": [
@@ -3932,7 +3932,7 @@
           "name": "Bobby Brink",
           "team": "MIN",
           "pos": "R",
-          "gp": 18,
+          "gp": 19,
           "g": 1,
           "a": 8,
           "pts": 9
@@ -3962,20 +3962,20 @@
           "name": "Arseny Gritsyuk",
           "team": "NJD",
           "pos": "R",
-          "gp": 16,
+          "gp": 17,
           "g": 8,
-          "a": 4,
-          "pts": 12
+          "a": 5,
+          "pts": 13
         },
         {
           "id": 8484390,
           "name": "Roman Kantserov",
           "team": "CHI",
           "pos": "R",
-          "gp": 17,
-          "g": 8,
+          "gp": 18,
+          "g": 9,
           "a": 2,
-          "pts": 10
+          "pts": 11
         },
         {
           "id": null,
@@ -4072,7 +4072,7 @@
           "name": "Shane Wright",
           "team": "NSH",
           "pos": "C",
-          "gp": 16,
+          "gp": 17,
           "g": 3,
           "a": 1,
           "pts": 4
@@ -4106,13 +4106,13 @@
           "name": "Jacob Fowler",
           "team": "MTL",
           "pos": "G",
-          "gp": 9,
-          "w": 7,
+          "gp": 10,
+          "w": 8,
           "l": 1,
           "otl": 1,
           "a": 0,
           "g": 0,
-          "pj": 9,
+          "pj": 10,
           "so": 2
         },
         {
@@ -4130,8 +4130,8 @@
           "so": 0
         }
       ],
-      "sk_pts": 198,
-      "score": 232,
+      "sk_pts": 206,
+      "score": 240,
       "picks": {
         "2027": {
           "regular": [
@@ -4341,9 +4341,9 @@
           "name": "Brady Tkachuk",
           "team": "FLA",
           "pos": "L",
-          "g": 8,
+          "g": 10,
           "a": 9,
-          "pts": 17
+          "pts": 19
         },
         {
           "id": 8478042,
@@ -4359,9 +4359,9 @@
           "name": "Alex Tuch",
           "team": "WSH",
           "pos": "R",
-          "g": 10,
+          "g": 11,
           "a": 2,
-          "pts": 12
+          "pts": 13
         },
         {
           "id": 8478010,
@@ -4369,8 +4369,8 @@
           "team": "TBL",
           "pos": "C",
           "g": 5,
-          "a": 9,
-          "pts": 14
+          "a": 11,
+          "pts": 16
         },
         {
           "id": 8475745,
@@ -4432,8 +4432,8 @@
           "team": "MTL",
           "pos": "D",
           "g": 3,
-          "a": 13,
-          "pts": 16
+          "a": 14,
+          "pts": 17
         },
         {
           "id": 8478038,
@@ -4441,8 +4441,8 @@
           "team": "COL",
           "pos": "D",
           "g": 5,
-          "a": 10,
-          "pts": 15
+          "a": 11,
+          "pts": 16
         },
         {
           "id": 8478178,
@@ -4450,8 +4450,8 @@
           "team": "TOR",
           "pos": "D",
           "g": 0,
-          "a": 9,
-          "pts": 9
+          "a": 10,
+          "pts": 10
         },
         {
           "id": 8482684,
@@ -4459,17 +4459,17 @@
           "team": "NJD",
           "pos": "D",
           "g": 6,
-          "a": 4,
-          "pts": 10
+          "a": 5,
+          "pts": 11
         },
         {
           "id": 8475218,
           "name": "Mattias Ekholm",
           "team": "EDM",
           "pos": "D",
-          "g": 2,
+          "g": 3,
           "a": 5,
-          "pts": 7
+          "pts": 8
         },
         {
           "id": 8476875,
@@ -4487,21 +4487,21 @@
           "name": "Mackenzie Blackwood",
           "team": "COL",
           "pos": "G",
-          "pj": 13,
-          "w": 8,
+          "pj": 14,
+          "w": 9,
           "l": 3,
           "otl": 1,
           "a": 0,
           "g": 0,
-          "so": 0
+          "so": 1
         },
         {
           "id": 8480313,
           "name": "Logan Thompson",
           "team": "WSH",
           "pos": "G",
-          "pj": 10,
-          "w": 5,
+          "pj": 11,
+          "w": 6,
           "l": 4,
           "otl": 0,
           "a": 1,
@@ -4525,7 +4525,7 @@
           "name": "Oliver Ekman-Larsson",
           "team": "TOR",
           "pos": "D",
-          "gp": 17,
+          "gp": 18,
           "g": 0,
           "a": 1,
           "pts": 1
@@ -4550,7 +4550,7 @@
           "name": "Quinton Byfield",
           "team": "LAK",
           "pos": "R",
-          "gp": 12,
+          "gp": 13,
           "g": 4,
           "a": 2,
           "pts": 6
@@ -4560,20 +4560,20 @@
           "name": "Kirby Dach",
           "team": "MTL",
           "pos": "C",
-          "gp": 14,
+          "gp": 15,
           "g": 1,
-          "a": 4,
-          "pts": 5
+          "a": 5,
+          "pts": 6
         },
         {
           "id": 8485388,
           "name": "Victor Eklund",
           "team": "NYI",
           "pos": "R",
-          "gp": 15,
-          "g": 4,
+          "gp": 16,
+          "g": 5,
           "a": 3,
-          "pts": 7
+          "pts": 8
         },
         {
           "id": 8480797,
@@ -4610,10 +4610,10 @@
           "name": "Barrett Hayton",
           "team": "UTA",
           "pos": "C",
-          "gp": 17,
-          "g": 1,
+          "gp": 18,
+          "g": 2,
           "a": 8,
-          "pts": 9
+          "pts": 10
         },
         {
           "id": null,
@@ -4630,30 +4630,30 @@
           "name": "Kaapo Kakko",
           "team": "SEA",
           "pos": "R",
-          "gp": 15,
-          "g": 2,
+          "gp": 16,
+          "g": 3,
           "a": 10,
-          "pts": 12
+          "pts": 13
         },
         {
           "id": 8481789,
           "name": "Tye Kartye",
           "team": "NYR",
           "pos": "L",
-          "gp": 17,
-          "g": 5,
+          "gp": 18,
+          "g": 6,
           "a": 7,
-          "pts": 12
+          "pts": 13
         },
         {
           "id": 8485402,
           "name": "Michael Misa",
           "team": "SJS",
           "pos": "C",
-          "gp": 18,
-          "g": 3,
+          "gp": 19,
+          "g": 4,
           "a": 7,
-          "pts": 10
+          "pts": 11
         },
         {
           "id": null,
@@ -4690,10 +4690,10 @@
           "name": "Philip Broberg",
           "team": "STL",
           "pos": "D",
-          "gp": 16,
+          "gp": 17,
           "g": 4,
-          "a": 8,
-          "pts": 12
+          "a": 9,
+          "pts": 13
         },
         {
           "id": null,
@@ -4744,18 +4744,18 @@
           "name": "Samuel Ersson",
           "team": "OTT",
           "pos": "G",
-          "gp": 8,
-          "w": 2,
+          "gp": 9,
+          "w": 3,
           "l": 3,
           "otl": 1,
           "a": 0,
           "g": 0,
-          "pj": 8,
+          "pj": 9,
           "so": 0
         }
       ],
-      "sk_pts": 217,
-      "score": 245,
+      "sk_pts": 227,
+      "score": 262,
       "picks": {
         "2027": {
           "regular": [
@@ -4936,7 +4936,7 @@
           ]
         }
       },
-      "go_pts": 28
+      "go_pts": 35
     },
     {
       "name": "MINNESOTA",
@@ -4947,9 +4947,9 @@
           "name": "Martin Necas",
           "team": "COL",
           "pos": "C",
-          "g": 7,
-          "a": 12,
-          "pts": 19
+          "g": 9,
+          "a": 14,
+          "pts": 23
         },
         {
           "id": 8479314,
@@ -4957,8 +4957,8 @@
           "team": "FLA",
           "pos": "L",
           "g": 4,
-          "a": 18,
-          "pts": 22
+          "a": 21,
+          "pts": 25
         },
         {
           "id": 8481557,
@@ -4975,8 +4975,8 @@
           "team": "MIN",
           "pos": "C",
           "g": 6,
-          "a": 10,
-          "pts": 16
+          "a": 11,
+          "pts": 17
         },
         {
           "id": 8479420,
@@ -5002,8 +5002,8 @@
           "team": "DAL",
           "pos": "C",
           "g": 3,
-          "a": 11,
-          "pts": 14
+          "a": 13,
+          "pts": 16
         },
         {
           "id": 8480002,
@@ -5011,8 +5011,8 @@
           "team": "NJD",
           "pos": "C",
           "g": 7,
-          "a": 3,
-          "pts": 10
+          "a": 4,
+          "pts": 11
         },
         {
           "id": 8475314,
@@ -5020,8 +5020,8 @@
           "team": "UTA",
           "pos": "L",
           "g": 3,
-          "a": 4,
-          "pts": 7
+          "a": 5,
+          "pts": 8
         },
         {
           "id": 8478519,
@@ -5083,8 +5083,8 @@
           "team": "UTA",
           "pos": "D",
           "g": 2,
-          "a": 2,
-          "pts": 4
+          "a": 3,
+          "pts": 5
         },
         {
           "id": 8477504,
@@ -5139,7 +5139,7 @@
           "name": "Esa Lindell",
           "team": "DAL",
           "pos": "D",
-          "gp": 11,
+          "gp": 12,
           "g": 0,
           "a": 1,
           "pts": 1
@@ -5175,7 +5175,7 @@
           "name": "Conor Geekie",
           "team": "TBL",
           "pos": "C",
-          "gp": 15,
+          "gp": 16,
           "g": 4,
           "a": 0,
           "pts": 4
@@ -5205,7 +5205,7 @@
           "name": "Dylan Holloway",
           "team": "STL",
           "pos": "L",
-          "gp": 16,
+          "gp": 17,
           "g": 3,
           "a": 9,
           "pts": 12
@@ -5225,10 +5225,10 @@
           "name": "Ryan Leonard",
           "team": "WSH",
           "pos": "R",
-          "gp": 14,
+          "gp": 15,
           "g": 5,
-          "a": 5,
-          "pts": 10
+          "a": 6,
+          "pts": 11
         },
         {
           "id": null,
@@ -5255,7 +5255,7 @@
           "name": "Frank Nazar",
           "team": "CHI",
           "pos": "C",
-          "gp": 15,
+          "gp": 16,
           "g": 5,
           "a": 2,
           "pts": 7
@@ -5275,17 +5275,17 @@
           "name": "Ivar Stenberg",
           "team": "SJS",
           "pos": "L",
-          "gp": 18,
-          "g": 4,
+          "gp": 19,
+          "g": 5,
           "a": 6,
-          "pts": 10
+          "pts": 11
         },
         {
           "id": 8484873,
           "name": "Cole Hutson",
           "team": "WSH",
           "pos": "D",
-          "gp": 14,
+          "gp": 15,
           "g": 4,
           "a": 5,
           "pts": 9
@@ -5295,7 +5295,7 @@
           "name": "Kevin Korchinski",
           "team": "CHI",
           "pos": "D",
-          "gp": 4,
+          "gp": 5,
           "g": 0,
           "a": 1,
           "pts": 1
@@ -5315,7 +5315,7 @@
           "name": "Sam Rinzel",
           "team": "CHI",
           "pos": "D",
-          "gp": 16,
+          "gp": 17,
           "g": 1,
           "a": 4,
           "pts": 5
@@ -5367,8 +5367,8 @@
           "so": 0
         }
       ],
-      "sk_pts": 188,
-      "score": 217,
+      "sk_pts": 201,
+      "score": 230,
       "picks": {
         "2027": {
           "regular": [
@@ -5569,9 +5569,9 @@
           "name": "Jason Robertson",
           "team": "DAL",
           "pos": "L",
-          "g": 8,
+          "g": 9,
           "a": 10,
-          "pts": 18
+          "pts": 19
         },
         {
           "id": 8481540,
@@ -5579,8 +5579,8 @@
           "team": "MTL",
           "pos": "R",
           "g": 11,
-          "a": 4,
-          "pts": 15
+          "a": 5,
+          "pts": 16
         },
         {
           "id": 8471215,
@@ -5588,8 +5588,8 @@
           "team": "PIT",
           "pos": "C",
           "g": 6,
-          "a": 5,
-          "pts": 11
+          "a": 8,
+          "pts": 14
         },
         {
           "id": 8477409,
@@ -5623,9 +5623,9 @@
           "name": "Pavel Dorofeyev",
           "team": "NYR",
           "pos": "R",
-          "g": 5,
+          "g": 6,
           "a": 5,
-          "pts": 10
+          "pts": 11
         },
         {
           "id": 8476483,
@@ -5641,9 +5641,9 @@
           "name": "Aliaksei Protas",
           "team": "WSH",
           "pos": "L",
-          "g": 1,
-          "a": 4,
-          "pts": 5
+          "g": 2,
+          "a": 5,
+          "pts": 7
         },
         {
           "id": 8475692,
@@ -5660,8 +5660,8 @@
           "team": "FLA",
           "pos": "D",
           "g": 3,
-          "a": 16,
-          "pts": 19
+          "a": 17,
+          "pts": 20
         },
         {
           "id": 8480036,
@@ -5677,9 +5677,9 @@
           "name": "Dougie Hamilton",
           "team": "NJD",
           "pos": "D",
-          "g": 1,
+          "g": 2,
           "a": 7,
-          "pts": 8
+          "pts": 9
         },
         {
           "id": 8478397,
@@ -5763,7 +5763,7 @@
           "name": "Brent Burns",
           "team": "COL",
           "pos": "D",
-          "gp": 17,
+          "gp": 18,
           "g": 0,
           "a": 6,
           "pts": 6
@@ -5798,10 +5798,10 @@
           "name": "Zachary Bolduc",
           "team": "MTL",
           "pos": "R",
-          "gp": 16,
-          "g": 5,
+          "gp": 17,
+          "g": 6,
           "a": 2,
-          "pts": 7
+          "pts": 8
         },
         {
           "id": 8484994,
@@ -5848,10 +5848,10 @@
           "name": "Luke Evangelista",
           "team": "NJD",
           "pos": "R",
-          "gp": 13,
-          "g": 3,
-          "a": 5,
-          "pts": 8
+          "gp": 14,
+          "g": 4,
+          "a": 6,
+          "pts": 10
         },
         {
           "id": 8484166,
@@ -5888,10 +5888,10 @@
           "name": "Ville Koivunen",
           "team": "PIT",
           "pos": "R",
-          "gp": 14,
+          "gp": 15,
           "g": 2,
-          "a": 3,
-          "pts": 5
+          "a": 4,
+          "pts": 6
         },
         {
           "id": null,
@@ -5908,10 +5908,10 @@
           "name": "Maxim Shabanov",
           "team": "MIN",
           "pos": "R",
-          "gp": 17,
-          "g": 6,
+          "gp": 18,
+          "g": 8,
           "a": 5,
-          "pts": 11
+          "pts": 13
         },
         {
           "id": null,
@@ -5938,7 +5938,7 @@
           "name": "Artyom Levshunov",
           "team": "CHI",
           "pos": "D",
-          "gp": 17,
+          "gp": 18,
           "g": 1,
           "a": 2,
           "pts": 3
@@ -5990,8 +5990,8 @@
           "so": 0
         }
       ],
-      "sk_pts": 178,
-      "score": 204,
+      "sk_pts": 188,
+      "score": 214,
       "picks": {
         "2027": {
           "regular": [
