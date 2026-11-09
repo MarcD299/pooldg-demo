@@ -1,7 +1,7 @@
 {
-  "collected": "2026-11-08",
+  "collected": "2026-11-09",
   "source": "Daily Faceoff",
-  "source_detail": "Collecte quotidienne goalies-lineups, 2026-11-07 05:26 HE, groupe injured_reserve (30 equipes couvertes) + 1 entrees du 2026-11-07 pour les equipes non couvertes (CBJ)",
+  "source_detail": "Collecte quotidienne goalies-lineups, 2026-11-08 05:26 HE, groupe injured_reserve (17 equipes couvertes) + 44 entrees du 2026-11-08 pour les equipes non couvertes (CAR, CBJ, CHI, COL, DAL, DET, LAK, MIN, MTL, NSH, OTT, SEA, STL, UTA, WSH)",
   "players": [
     {
       "name": "Troy Terry",
@@ -26,6 +26,12 @@
       "team": "ANA",
       "status": "ir",
       "details": "Greer has been placed on IR with an upper-body injury."
+    },
+    {
+      "name": "James Hagens",
+      "team": "BOS",
+      "status": "ir",
+      "details": "Hagens (undisclosed) is considered week-to-week."
     },
     {
       "name": "Matt Grzelcyk",
@@ -68,6 +74,240 @@
       "team": "CGY",
       "status": "dtd",
       "details": "Bahl (lower-body) is out vs. Anaheim on Friday."
+    },
+    {
+      "name": "Alec Regula",
+      "team": "EDM",
+      "status": "ir",
+      "details": "Regula (undisclosed) has been placed on LTIR."
+    },
+    {
+      "name": "Frederik Andersen",
+      "team": "EDM",
+      "status": "ir",
+      "details": "Andersen (undisclosed) is expected to be out until December."
+    },
+    {
+      "name": "Mattias Janmark",
+      "team": "EDM",
+      "status": "ir",
+      "details": "Janmark (undisclosed) has no timeline to return."
+    },
+    {
+      "name": "Matthew Savoie",
+      "team": "EDM",
+      "status": "ir",
+      "details": "Savoie (undisclosed) has been placed on LTIR."
+    },
+    {
+      "name": "Isaac Howard",
+      "team": "EDM",
+      "status": "dtd",
+      "details": "Howard (lower-body) is considered week-to-week."
+    },
+    {
+      "name": "Aleksander Barkov",
+      "team": "FLA",
+      "status": "ir",
+      "details": "Barkov (lower-body) has started skating and is expected to be out for four more weeks."
+    },
+    {
+      "name": "Jonah Gadjovich",
+      "team": "FLA",
+      "status": "ir",
+      "details": "Gadjovich will have surgery on his upper-body injury and will miss three months."
+    },
+    {
+      "name": "Brad Marchand",
+      "team": "FLA",
+      "status": "ir",
+      "details": "Marchand (leg) has resumed skating and is expected to be out for three more weeks."
+    },
+    {
+      "name": "Anton Lundell",
+      "team": "FLA",
+      "status": "dtd",
+      "details": "Lundell (undisclosed) is out vs. Washington and considered day-to-day."
+    },
+    {
+      "name": "Seamus Casey",
+      "team": "NJD",
+      "status": "ir",
+      "details": "Casey underwent knee surgery and is expected to be out for 8-to-10 weeks."
+    },
+    {
+      "name": "Mathew Barzal",
+      "team": "NYI",
+      "status": "ir",
+      "details": "Barzal (lower-body) was a full participant in New York's practice on Saturday."
+    },
+    {
+      "name": "Alexander Romanov",
+      "team": "NYI",
+      "status": "ir",
+      "details": "Romanov will undergo surgery to repair an ACL tear and miss 6-8 months."
+    },
+    {
+      "name": "Matias Maccelli",
+      "team": "NYI",
+      "status": "ir",
+      "details": "Maccelli (lower-body) practiced in full on Saturday but will not return vs. New Jersey."
+    },
+    {
+      "name": "Calum Ritchie",
+      "team": "NYI",
+      "status": "ir",
+      "details": "Ritchie (lower-body) has been placed on IR retroactive to October 17th."
+    },
+    {
+      "name": "Ryan Pulock",
+      "team": "NYI",
+      "status": "dtd",
+      "details": "Pulock (upper body) practiced in a non-contact jersey and is 2-4 weeks away."
+    },
+    {
+      "name": "Igor Shesterkin",
+      "team": "NYR",
+      "status": "ir",
+      "details": "Shesterkin (lower-body) will miss the rest of the 2026-27 season."
+    },
+    {
+      "name": "Joe Veleno",
+      "team": "NYR",
+      "status": "ir",
+      "details": "Veleno (lower-body) will be placed on LTIR and is expected to miss 3-to-3.5 months."
+    },
+    {
+      "name": "Adam Sykora",
+      "team": "NYR",
+      "status": "ir",
+      "details": "Sykora (lower body) will miss 4-5 months."
+    },
+    {
+      "name": "Sean Durzi",
+      "team": "NYR",
+      "status": "ir",
+      "details": "Durzi (undisclosed) will remain out on Thursday and is not expected to travel to start the Rangers' upcoming road trip."
+    },
+    {
+      "name": "Alberts Smits",
+      "team": "NYR",
+      "status": "dtd",
+      "details": "Smits (upper-body) is a late scratch vs. Seattle."
+    },
+    {
+      "name": "Nikita Grebenkin",
+      "team": "PHI",
+      "status": "ir",
+      "details": "Grebenkin (upper-body) has been placed on injured reserve."
+    },
+    {
+      "name": "Rasmus Ristolainen",
+      "team": "PHI",
+      "status": "ir",
+      "details": "Ristolainen (upper-body) has been placed on IR."
+    },
+    {
+      "name": "Trevor van Riemsdyk",
+      "team": "PIT",
+      "status": "ir",
+      "details": "van Riemsdyk (lower-body) has been placed on IR."
+    },
+    {
+      "name": "Ryan Graves",
+      "team": "PIT",
+      "status": "ir",
+      "details": "Graves is expected to be back in the Penguins' lineup on Tuesday."
+    },
+    {
+      "name": "Bryan Rust",
+      "team": "PIT",
+      "status": "ir",
+      "details": "Rust (lower-body) is out and will be evaluated in six weeks."
+    },
+    {
+      "name": "Alexander Wennberg",
+      "team": "SJS",
+      "status": "ir",
+      "details": "Wennberg (upper-body) is considered week-to-week."
+    },
+    {
+      "name": "Igor Chernyshov",
+      "team": "SJS",
+      "status": "ir",
+      "details": "Chernyshov (upper-body) is considered week-to-week."
+    },
+    {
+      "name": "Yanni Gourde",
+      "team": "TBL",
+      "status": "out",
+      "details": "Gourde (hip) is expected to travel on the upcoming road trip."
+    },
+    {
+      "name": "Elvis Merzlikins",
+      "team": "TOR",
+      "status": "ir",
+      "details": "Merzlikins (shoulder) is expected to be out for another 3-to-5 months."
+    },
+    {
+      "name": "Max Domi",
+      "team": "TOR",
+      "status": "ir",
+      "details": "Domi (lower-body) has been added to LTIR."
+    },
+    {
+      "name": "Kirill Marchenko",
+      "team": "TOR",
+      "status": "ir",
+      "details": "Marchenko (lower-body) has been placed on IR and is still considered week-to-week."
+    },
+    {
+      "name": "Marshall Rifai",
+      "team": "TOR",
+      "status": "out",
+      "details": "Rifai is week-to-week with a lower-body injury."
+    },
+    {
+      "name": "Thatcher Demko",
+      "team": "VAN",
+      "status": "ir",
+      "details": "Demko (hip) is hopeful to return before Christmas."
+    },
+    {
+      "name": "Filip Chytil",
+      "team": "VAN",
+      "status": "ir",
+      "details": "Chytil (upper-body) has been placed on IR."
+    },
+    {
+      "name": "Parker Wotherspoon",
+      "team": "VGK",
+      "status": "ir",
+      "details": "Wotherspoon (upper body) has been placed on IR."
+    },
+    {
+      "name": "Nick Bjugstad",
+      "team": "WPG",
+      "status": "ir",
+      "details": "The Devils have acquired Nick Bjugstad, Dawson Mercer, Nico Daws, Alexander Command, a 2029 2nd-round pick, and a 2027 7th-round pick from the Devils for Connor Hellebuyck."
+    },
+    {
+      "name": "Vladislav Namestnikov",
+      "team": "WPG",
+      "status": "ir",
+      "details": "Namestnikov (undisclosed) is out week-to-week."
+    },
+    {
+      "name": "Josh Morrissey",
+      "team": "WPG",
+      "status": "ir",
+      "details": "Morrissey (upper-body) is a full participant in Winnipeg's practice on Saturday."
+    },
+    {
+      "name": "Elias Salomonsson",
+      "team": "WPG",
+      "status": "dtd",
+      "details": "Salomonsson (personal) missed practice on Saturday."
     },
     {
       "name": "Jordan Staal",
@@ -160,66 +400,6 @@
       "details": "Gibson (lower-body) returned to practice on Friday."
     },
     {
-      "name": "Alec Regula",
-      "team": "EDM",
-      "status": "ir",
-      "details": "Regula (undisclosed) has been placed on LTIR."
-    },
-    {
-      "name": "Frederik Andersen",
-      "team": "EDM",
-      "status": "ir",
-      "details": "Andersen (undisclosed) is expected to be out until December."
-    },
-    {
-      "name": "Mattias Janmark",
-      "team": "EDM",
-      "status": "ir",
-      "details": "Janmark (undisclosed) has no timeline to return."
-    },
-    {
-      "name": "Matthew Savoie",
-      "team": "EDM",
-      "status": "ir",
-      "details": "Savoie (undisclosed) has been placed on LTIR."
-    },
-    {
-      "name": "Zach Hyman",
-      "team": "EDM",
-      "status": "ir",
-      "details": "Hyman (upper-body) has been placed on IR."
-    },
-    {
-      "name": "Devon Levi",
-      "team": "EDM",
-      "status": "ir",
-      "details": "Levi (undisclosed) is considered week-to-week."
-    },
-    {
-      "name": "Isaac Howard",
-      "team": "EDM",
-      "status": "dtd",
-      "details": "Howard (lower-body) is considered week-to-week."
-    },
-    {
-      "name": "Aleksander Barkov",
-      "team": "FLA",
-      "status": "ir",
-      "details": "Barkov (lower-body) has started skating and is expected to be out for four more weeks."
-    },
-    {
-      "name": "Jonah Gadjovich",
-      "team": "FLA",
-      "status": "ir",
-      "details": "Gadjovich will have surgery on his upper-body injury and will miss three months."
-    },
-    {
-      "name": "Brad Marchand",
-      "team": "FLA",
-      "status": "ir",
-      "details": "Marchand (leg) has resumed skating and is expected to be out for three more weeks."
-    },
-    {
       "name": "Alex Turcotte",
       "team": "LAK",
       "status": "ir",
@@ -304,66 +484,6 @@
       "details": "Marchessault (lower-body) will not play Tuesday vs. the Hurricanes."
     },
     {
-      "name": "Seamus Casey",
-      "team": "NJD",
-      "status": "ir",
-      "details": "Casey underwent knee surgery and is expected to be out for 8-to-10 weeks."
-    },
-    {
-      "name": "Mathew Barzal",
-      "team": "NYI",
-      "status": "ir",
-      "details": "Barzal (lower-body) returned to practice in a non-contact jersey on Wednesday."
-    },
-    {
-      "name": "Alexander Romanov",
-      "team": "NYI",
-      "status": "ir",
-      "details": "Romanov will undergo surgery to repair an ACL tear and miss 6-8 months."
-    },
-    {
-      "name": "Matias Maccelli",
-      "team": "NYI",
-      "status": "ir",
-      "details": "Maccelli (lower body) practiced in a non-contact jersey and is 2-4 weeks away."
-    },
-    {
-      "name": "Calum Ritchie",
-      "team": "NYI",
-      "status": "ir",
-      "details": "Ritchie (lower-body) has been placed on IR retroactive to October 17th."
-    },
-    {
-      "name": "Ryan Pulock",
-      "team": "NYI",
-      "status": "dtd",
-      "details": "Pulock (upper body) practiced in a non-contact jersey and is 2-4 weeks away."
-    },
-    {
-      "name": "Igor Shesterkin",
-      "team": "NYR",
-      "status": "ir",
-      "details": "Shesterkin (lower-body) will miss the rest of the 2026-27 season."
-    },
-    {
-      "name": "Joe Veleno",
-      "team": "NYR",
-      "status": "ir",
-      "details": "Veleno (lower-body) will be placed on LTIR and is expected to miss 3-to-3.5 months."
-    },
-    {
-      "name": "Adam Sykora",
-      "team": "NYR",
-      "status": "ir",
-      "details": "Sykora (lower body) will miss 4-5 months."
-    },
-    {
-      "name": "Sean Durzi",
-      "team": "NYR",
-      "status": "ir",
-      "details": "Durzi (undisclosed) will remain out on Thursday and is not expected to travel to start the Rangers' upcoming road trip."
-    },
-    {
       "name": "William Eklund",
       "team": "OTT",
       "status": "ir",
@@ -392,48 +512,6 @@
       "team": "OTT",
       "status": "dtd",
       "details": "Kleven (illness) returned to practice on Friday."
-    },
-    {
-      "name": "Nikita Grebenkin",
-      "team": "PHI",
-      "status": "ir",
-      "details": "Grebenkin (upper-body) has been placed on injured reserve."
-    },
-    {
-      "name": "Rasmus Ristolainen",
-      "team": "PHI",
-      "status": "ir",
-      "details": "Ristolainen (upper-body) has been placed on IR."
-    },
-    {
-      "name": "Trevor van Riemsdyk",
-      "team": "PIT",
-      "status": "ir",
-      "details": "van Riemsdyk (lower-body) has been placed on IR."
-    },
-    {
-      "name": "Ryan Graves",
-      "team": "PIT",
-      "status": "ir",
-      "details": "Graves is expected to be back in the Penguins' lineup on Tuesday."
-    },
-    {
-      "name": "Bryan Rust",
-      "team": "PIT",
-      "status": "ir",
-      "details": "Rust (lower-body) is out and will be evaluated in six weeks."
-    },
-    {
-      "name": "Alexander Wennberg",
-      "team": "SJS",
-      "status": "ir",
-      "details": "Wennberg (upper-body) is considered week-to-week."
-    },
-    {
-      "name": "Igor Chernyshov",
-      "team": "SJS",
-      "status": "ir",
-      "details": "Chernyshov (upper-body) is considered week-to-week."
     },
     {
       "name": "Jared McCann",
@@ -466,42 +544,6 @@
       "details": "Dube will be re-evaluated in eight weeks after suffering a neck injury vs. San Jose."
     },
     {
-      "name": "Yanni Gourde",
-      "team": "TBL",
-      "status": "out",
-      "details": "Gourde (hip) is expected to travel on the upcoming road trip."
-    },
-    {
-      "name": "Elvis Merzlikins",
-      "team": "TOR",
-      "status": "ir",
-      "details": "Merzlikins (shoulder) is expected to be out for another 3-to-5 months."
-    },
-    {
-      "name": "Max Domi",
-      "team": "TOR",
-      "status": "ir",
-      "details": "Domi (lower-body) has been added to LTIR."
-    },
-    {
-      "name": "Kirill Marchenko",
-      "team": "TOR",
-      "status": "ir",
-      "details": "Marchenko (lower-body) has been placed on IR and is still considered week-to-week."
-    },
-    {
-      "name": "Marshall Rifai",
-      "team": "TOR",
-      "status": "out",
-      "details": "Rifai is week-to-week with a lower-body injury."
-    },
-    {
-      "name": "John Tavares",
-      "team": "TOR",
-      "status": "dtd",
-      "details": "Tavares (lower-body) has a good chance to return vs. Montreal on Saturday."
-    },
-    {
       "name": "John Marino",
       "team": "UTA",
       "status": "ir",
@@ -514,24 +556,6 @@
       "details": "Yamamoto (upper-body) is day-to-day and will not play on Sunday."
     },
     {
-      "name": "Thatcher Demko",
-      "team": "VAN",
-      "status": "ir",
-      "details": "Demko (hip) is hopeful to return before Christmas."
-    },
-    {
-      "name": "Filip Chytil",
-      "team": "VAN",
-      "status": "ir",
-      "details": "Chytil (upper-body) has been placed on IR."
-    },
-    {
-      "name": "Parker Wotherspoon",
-      "team": "VGK",
-      "status": "ir",
-      "details": "Wotherspoon (upper body) has been placed on IR."
-    },
-    {
       "name": "Rasmus Sandin",
       "team": "WSH",
       "status": "out",
@@ -542,24 +566,6 @@
       "team": "WSH",
       "status": "ir",
       "details": "Desharnais underwent a successful appendectomy surgery and is expected to miss the next 4-6 weeks."
-    },
-    {
-      "name": "Nick Bjugstad",
-      "team": "WPG",
-      "status": "ir",
-      "details": "The Devils have acquired Nick Bjugstad, Dawson Mercer, Nico Daws, Alexander Command, a 2029 2nd-round pick, and a 2027 7th-round pick from the Devils for Connor Hellebuyck."
-    },
-    {
-      "name": "Vladislav Namestnikov",
-      "team": "WPG",
-      "status": "ir",
-      "details": "Namestnikov (undisclosed) is out week-to-week."
-    },
-    {
-      "name": "Josh Morrissey",
-      "team": "WPG",
-      "status": "ir",
-      "details": "Morrissey (upper-body) is hopeful to return by the weekend."
     },
     {
       "name": "Isac Lundestrom",
