@@ -2047,7 +2047,7 @@
     const note = document.getElementById('hdg-news-note');
     if (note) note.textContent = news.date_fr ? ('Les plus récentes nouvelles de hockey-dg.com — mises à jour le ' + news.date_fr + '.') : 'Les plus récentes nouvelles de hockey-dg.com.';
     if (!list.length) { el.innerHTML = '<p class="muted">Aucune nouvelle pour le moment.</p>'; return; }
-    el.innerHTML = list.map(a => '<div class="hdg-news-row"><span class="hdg-news-badge">' + escHtml(a.league) + '</span><span class="muted hdg-news-date">' + escHtml(a.date_courte) + '</span><a href="https://hockey-dg.com/#' + escHtml(a.anchor) + '" target="_blank" rel="noopener">' + escHtml(a.title) + '</a></div>').join('');
+    el.innerHTML = list.map(a => '<div class="hdg-news-row"><span class="hdg-news-badge">' + escHtml(a.league) + '</span><span class="muted hdg-news-date">' + escHtml(a.date_courte) + '</span><a href="https://hockey-dg.com/#' + escHtml(a.anchor) + '" target="_blank" rel="noopener">' + escHtml(String(a.title || '').split('\n')[0]) + '</a></div>').join('');
   }
   function renderTonight() {
     const sch = window._schedule || [];
