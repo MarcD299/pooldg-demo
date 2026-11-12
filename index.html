@@ -1278,14 +1278,14 @@
     const p = LEAGUE.poolers.find(x => x.name === name);
     if (!p) return;
     document.getElementById('pooler-title').textContent = p.name + ' — score démo : ' + p.score;
-    const forwards = p.skaters.filter(s => s.pos !== 'D');
-    const defense = p.skaters.filter(s => s.pos === 'D');
+    const forwards = p.skaters.filter(s => s.pos !== 'D').sort((a, b) => (b.pts || 0) - (a.pts || 0));
+    const defense = p.skaters.filter(s => s.pos === 'D').sort((a, b) => (b.pts || 0) - (a.pts || 0));
     const skaterRow = s =>
       '<tr><td>' + ficheNameHtml(s) + ceBadges(pkey(s), p) + injMark(pkey(s), s.name, s.team) + '</td><td>' + s.team + '</td><td>' + s.pos + '</td><td>' + statCell(poolerPjOf(s)) + '</td><td>' + s.g +
       '</td><td>' + s.a + '</td><td><b>' + s.pts + '</b></td>' + capCells(s.name) + '</tr>';
     document.getElementById('pooler-forwards').innerHTML = forwards.map(skaterRow).join('');
     document.getElementById('pooler-defense').innerHTML = defense.map(skaterRow).join('');
-    document.getElementById('pooler-goalies').innerHTML = p.goalies.map(g =>
+    document.getElementById('pooler-goalies').innerHTML = p.goalies.slice().sort((a, b) => goaliePts(b) - goaliePts(a)).map(g =>
       '<tr><td>' + ficheNameHtml(g) + ceBadges(pkey(g), p) + injMark(pkey(g), g.name, g.team) + '</td><td>' + g.team + '</td><td>' + g.pj + '</td><td><b>' + g.w + '</b></td><td>' + g.l +
       '</td><td>' + g.otl + '</td><td>' + g.a + '</td><td>' + g.g + '</td><td>' + statCell(g.so) + '</td><td>' + fmtGaa(poolerGoMoy(g)) + '</td><td>' + fmtSvPct(poolerGoArr(g)) + '</td><td><b>' + goaliePts(g) + '</b></td>' + capCells(g.name) + '</tr>').join('');
     function capTotal(list) {
@@ -1323,9 +1323,9 @@
     buildRosterMoveForm(p);
     function statCell(v) { return (v === null || v === undefined) ? '—' : v; }
     function groupTables(list, p, goPts) {
-      const fw = list.filter(x => x.pos !== 'D' && x.pos !== 'G');
-      const df = list.filter(x => x.pos === 'D');
-      const go = list.filter(x => x.pos === 'G');
+      const fw = list.filter(x => x.pos !== 'D' && x.pos !== 'G').sort((a, b) => (b.pts || 0) - (a.pts || 0));
+      const df = list.filter(x => x.pos === 'D').sort((a, b) => (b.pts || 0) - (a.pts || 0));
+      const go = list.filter(x => x.pos === 'G').sort((a, b) => goaliePts(b) - goaliePts(a));
       const skTable = arr => '<div style="overflow-x:auto"><table><thead><tr><th>Joueur</th><th>Équipe</th><th>Pos</th><th>PJ</th><th>B</th><th>A</th><th>Pts</th><th>Salaire</th><th>Contrat</th></tr></thead><tbody>' +
         arr.map(s => '<tr><td>' + farmNameHtml(s) + ceBadges(pkey(s), p) + injMark(pkey(s), s.name, s.team) + '</td><td>' + s.team + '</td><td>' + s.pos + '</td><td>' + statCell(s.gp) + '</td><td>' + statCell(s.g) + '</td><td>' + statCell(s.a) + '</td><td><b>' + statCell(s.pts) + '</b></td>' + capCells(s.name) + '</tr>').join('') + '</tbody></table></div>';
       let h = '';
