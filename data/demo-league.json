@@ -1,6 +1,6 @@
 {
   "league": "DG des Pals",
-  "date": "2026-11-13",
+  "date": "2026-11-14",
   "method": "Équipes réelles du pool DG DES PALS sur Marqueur, importées le 27 octobre 2026 (actifs, réservistes, recrues). Statistiques de saison LNH; pointage PoolDG : 12 meilleurs attaquants, 6 meilleurs défenseurs, 2 meilleurs gardiens. Statistiques LNH rafraîchies le 2 novembre 2026 (correction Bleyl conservée). Règle de pointage changée le 2 novembre 2026 : actifs seulement (les réservistes ne comptent plus).",
   "scoring_demo": "Pointage : 12 meilleurs attaquants + 6 meilleurs défenseurs (1 pt par point) et 2 meilleurs gardiens (2 pts par victoire, 1 pt par défaite en prolongation ou tirs de barrage, 1 pt par passe, 5 pts par but, +3 pts pour un jeu blanc — donc 5 pts au total pour un jeu blanc). Actifs seulement : les réservistes et les recrues ne comptent jamais.",
   "poolers": [
@@ -104,8 +104,8 @@
           "team": "VGK",
           "pos": "C",
           "g": 9,
-          "a": 6,
-          "pts": 15
+          "a": 7,
+          "pts": 16
         },
         {
           "id": 8482079,
@@ -371,10 +371,10 @@
           "name": "Zeev Buium",
           "team": "VAN",
           "pos": "D",
-          "gp": 20,
+          "gp": 21,
           "g": 0,
-          "a": 4,
-          "pts": 4
+          "a": 5,
+          "pts": 5
         },
         {
           "id": null,
@@ -417,8 +417,8 @@
           "pts": null
         }
       ],
-      "sk_pts": 334,
-      "score": 366,
+      "sk_pts": 335,
+      "score": 367,
       "picks": {
         "2027": {
           "regular": [
@@ -665,8 +665,8 @@
           "team": "NYR",
           "pos": "C",
           "g": 5,
-          "a": 13,
-          "pts": 18
+          "a": 14,
+          "pts": 19
         },
         {
           "id": 8477960,
@@ -719,8 +719,8 @@
           "team": "NSH",
           "pos": "D",
           "g": 2,
-          "a": 20,
-          "pts": 22
+          "a": 21,
+          "pts": 23
         },
         {
           "id": 8474578,
@@ -787,8 +787,8 @@
           "name": "Juuse Saros",
           "team": "NSH",
           "pos": "G",
-          "pj": 13,
-          "w": 6,
+          "pj": 14,
+          "w": 7,
           "l": 3,
           "otl": 4,
           "a": 0,
@@ -1040,8 +1040,8 @@
           "so": 2
         }
       ],
-      "sk_pts": 314,
-      "score": 345,
+      "sk_pts": 316,
+      "score": 349,
       "picks": {
         "2027": {
           "regular": [
@@ -1222,7 +1222,7 @@
           ]
         }
       },
-      "go_pts": 31
+      "go_pts": 33
     },
     {
       "name": "UTAH",
@@ -1251,9 +1251,9 @@
           "name": "Alexis Lafrenière",
           "team": "NYR",
           "pos": "L",
-          "g": 9,
-          "a": 11,
-          "pts": 20
+          "g": 10,
+          "a": 12,
+          "pts": 22
         },
         {
           "id": 8484153,
@@ -1306,8 +1306,8 @@
           "team": "VAN",
           "pos": "R",
           "g": 7,
-          "a": 10,
-          "pts": 17
+          "a": 11,
+          "pts": 18
         },
         {
           "id": 8483515,
@@ -1501,7 +1501,7 @@
           "name": "Trevor Connelly",
           "team": "VGK",
           "pos": "L",
-          "gp": 20,
+          "gp": 21,
           "g": 7,
           "a": 5,
           "pts": 12
@@ -1581,7 +1581,7 @@
           "name": "Max Sasson",
           "team": "VAN",
           "pos": "C",
-          "gp": 20,
+          "gp": 21,
           "g": 5,
           "a": 2,
           "pts": 7
@@ -1651,7 +1651,7 @@
           "name": "Tom Willander",
           "team": "VAN",
           "pos": "D",
-          "gp": 16,
+          "gp": 17,
           "g": 0,
           "a": 3,
           "pts": 3
@@ -1669,8 +1669,8 @@
           "g": null
         }
       ],
-      "sk_pts": 277,
-      "score": 318,
+      "sk_pts": 280,
+      "score": 321,
       "picks": {
         "2027": {
           "regular": [
@@ -1898,9 +1898,9 @@
           "name": "Ryan O'Reilly",
           "team": "NSH",
           "pos": "C",
-          "g": 7,
+          "g": 9,
           "a": 10,
-          "pts": 17
+          "pts": 19
         },
         {
           "id": 8479407,
@@ -1926,8 +1926,8 @@
           "team": "VGK",
           "pos": "L",
           "g": 4,
-          "a": 11,
-          "pts": 15
+          "a": 12,
+          "pts": 16
         },
         {
           "id": 8477946,
@@ -2139,7 +2139,7 @@
           "name": "Jonathan Lekkerimäki",
           "team": "VAN",
           "pos": "R",
-          "gp": 20,
+          "gp": 21,
           "g": 7,
           "a": 8,
           "pts": 15
@@ -2277,8 +2277,8 @@
           "so": 0
         }
       ],
-      "sk_pts": 253,
-      "score": 280,
+      "sk_pts": 256,
+      "score": 283,
       "picks": {
         "2027": {
           "regular": [
@@ -2516,8 +2516,8 @@
           "team": "NYR",
           "pos": "C",
           "g": 4,
-          "a": 10,
-          "pts": 14
+          "a": 12,
+          "pts": 16
         },
         {
           "id": 8476460,
@@ -2570,8 +2570,8 @@
           "team": "NYR",
           "pos": "D",
           "g": 2,
-          "a": 20,
-          "pts": 22
+          "a": 21,
+          "pts": 23
         },
         {
           "id": 8480069,
@@ -2886,8 +2886,8 @@
           "g": null
         }
       ],
-      "sk_pts": 295,
-      "score": 317,
+      "sk_pts": 298,
+      "score": 320,
       "picks": {
         "2027": {
           "regular": [
@@ -3107,8 +3107,8 @@
           "team": "VGK",
           "pos": "R",
           "g": 3,
-          "a": 20,
-          "pts": 23
+          "a": 21,
+          "pts": 24
         },
         {
           "id": 8477933,
@@ -3387,7 +3387,7 @@
           "name": "Liam Ohgren",
           "team": "VAN",
           "pos": "L",
-          "gp": 19,
+          "gp": 20,
           "g": 6,
           "a": 3,
           "pts": 9
@@ -3501,8 +3501,8 @@
           "g": null
         }
       ],
-      "sk_pts": 231,
-      "score": 273,
+      "sk_pts": 232,
+      "score": 274,
       "picks": {
         "2027": {
           "regular": [
@@ -3695,17 +3695,17 @@
           "team": "NSH",
           "pos": "C",
           "g": 11,
-          "a": 9,
-          "pts": 20
+          "a": 10,
+          "pts": 21
         },
         {
           "id": 8480012,
           "name": "Elias Pettersson",
           "team": "VAN",
           "pos": "C",
-          "g": 4,
+          "g": 5,
           "a": 16,
-          "pts": 20
+          "pts": 21
         },
         {
           "id": 8477940,
@@ -3830,8 +3830,8 @@
           "team": "NYR",
           "pos": "D",
           "g": 1,
-          "a": 5,
-          "pts": 6
+          "a": 6,
+          "pts": 7
         },
         {
           "id": 8475200,
@@ -4072,7 +4072,7 @@
           "name": "Shane Wright",
           "team": "NSH",
           "pos": "C",
-          "gp": 19,
+          "gp": 20,
           "g": 4,
           "a": 3,
           "pts": 7
@@ -4130,8 +4130,8 @@
           "so": 0
         }
       ],
-      "sk_pts": 226,
-      "score": 264,
+      "sk_pts": 229,
+      "score": 267,
       "picks": {
         "2027": {
           "regular": [
@@ -4640,7 +4640,7 @@
           "name": "Tye Kartye",
           "team": "NYR",
           "pos": "L",
-          "gp": 20,
+          "gp": 21,
           "g": 7,
           "a": 7,
           "pts": 14
@@ -5111,10 +5111,10 @@
           "name": "Adin Hill",
           "team": "VGK",
           "pos": "G",
-          "pj": 9,
+          "pj": 10,
           "w": 7,
           "l": 2,
-          "otl": 0,
+          "otl": 1,
           "a": 0,
           "g": 0,
           "so": 0
@@ -5368,7 +5368,7 @@
         }
       ],
       "sk_pts": 225,
-      "score": 258,
+      "score": 259,
       "picks": {
         "2027": {
           "regular": [
@@ -5549,7 +5549,7 @@
           ]
         }
       },
-      "go_pts": 33
+      "go_pts": 34
     },
     {
       "name": "DALLAS",
@@ -5686,9 +5686,9 @@
           "name": "Rasmus Andersson",
           "team": "VGK",
           "pos": "D",
-          "g": 2,
+          "g": 3,
           "a": 4,
-          "pts": 6
+          "pts": 7
         },
         {
           "id": 8477447,
@@ -5990,8 +5990,8 @@
           "so": 0
         }
       ],
-      "sk_pts": 215,
-      "score": 245,
+      "sk_pts": 216,
+      "score": 246,
       "picks": {
         "2027": {
           "regular": [

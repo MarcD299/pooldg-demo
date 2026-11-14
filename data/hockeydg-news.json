@@ -1,8 +1,40 @@
 {
-  "date": "2026-11-13",
-  "date_fr": "13 novembre 2026",
+  "date": "2026-11-14",
+  "date_fr": "14 novembre 2026",
   "source": "HockeyDG.com",
   "articles": [
+    {
+      "date": "2026-11-13",
+      "date_fr": "13 novembre 2026",
+      "date_courte": "13 nov.",
+      "league": "NHL",
+      "title": "Cinq buts, un record et le sommet de l'Atlantique : le Canadien s'impose 5-2 à Boston",
+      "anchor": "article-fr-cinq-buts-un-record-et-le-sommet-de-l-atlantique-le-canadien-s-2026-11-13"
+    },
+    {
+      "date": "2026-11-13",
+      "date_fr": "13 novembre 2026",
+      "date_courte": "13 nov.",
+      "league": "NHL",
+      "title": "929 points : Scheifele rejoint Hawerchuk au sommet de l'histoire des Jets",
+      "anchor": "article-fr-929-points-scheifele-rejoint-hawerchuk-au-sommet-de-l-histoire-2026-11-13"
+    },
+    {
+      "date": "2026-11-13",
+      "date_fr": "13 novembre 2026",
+      "date_courte": "13 nov.",
+      "league": "SHL",
+      "title": "Dix buts d'un côté, neuf de l'autre : la soirée complètement folle de la SHL",
+      "anchor": "article-fr-dix-buts-d-un-cote-neuf-de-l-autre-la-soiree-completement-folle-2026-11-13"
+    },
+    {
+      "date": "2026-11-12",
+      "date_fr": "12 novembre 2026",
+      "date_courte": "12 nov.",
+      "league": "NHL",
+      "title": "MacKinnon et Makar quittent le match à Ottawa, l'Avalanche retient son souffle",
+      "anchor": "article-fr-mackinnon-et-makar-quittent-le-match-a-ottawa-l-avalanche-2026-11-12"
+    },
     {
       "date": "2026-11-12",
       "date_fr": "12 novembre 2026",
@@ -18,38 +50,6 @@
       "league": "KHL",
       "title": "Le Dynamo Moscou écarte son entraîneur-chef Leonids Tambijevs",
       "anchor": "article-fr-le-dynamo-moscou-ecarte-son-entraineur-chef-leonids-tambijevs-2026-11-12"
-    },
-    {
-      "date": "2026-11-12",
-      "date_fr": "12 novembre 2026",
-      "date_courte": "12 nov.",
-      "league": "NHL",
-      "title": "Quatorze buts en sept matchs : Cutter Gauthier égale un record vieux de 105 ans",
-      "anchor": "article-fr-quatorze-buts-en-sept-matchs-cutter-gauthier-egale-un-record-v-2026-11-12"
-    },
-    {
-      "date": "2026-11-12",
-      "date_fr": "12 novembre 2026",
-      "date_courte": "12 nov.",
-      "league": "NHL",
-      "title": "200 points à 20 ans : Celebrini rejoint Crosby, Gretzky, Lemieux et Carson",
-      "anchor": "article-fr-200-points-a-20-ans-celebrini-rejoint-crosby-gretzky-lemieux-e-2026-11-12"
-    },
-    {
-      "date": "2026-11-12",
-      "date_fr": "12 novembre 2026",
-      "date_courte": "12 nov.",
-      "league": "NHL",
-      "title": "Vingt matchs, vingt fois sur la feuille : McDavid ne s'arrête plus",
-      "anchor": "article-fr-vingt-matchs-vingt-fois-sur-la-feuille-mcdavid-ne-s-arrete-plu-2026-11-12"
-    },
-    {
-      "date": "2026-11-12",
-      "date_fr": "12 novembre 2026",
-      "date_courte": "12 nov.",
-      "league": "NHL",
-      "title": "Koutcherov répond sur la glace : tour du chapeau naturel et correction de 8-3 à Buffalo",
-      "anchor": "article-fr-koutcherov-repond-sur-la-glace-tour-du-chapeau-naturel-et-corr-2026-11-12"
     }
   ]
 }
