@@ -1,7 +1,7 @@
 {
-  "collected": "2026-11-14",
+  "collected": "2026-11-15",
   "source": "Daily Faceoff",
-  "source_detail": "Collecte quotidienne goalies-lineups, 2026-11-13 05:26 HE, groupe injured_reserve (32 equipes couvertes) + 0 entrees du 2026-11-13 pour les equipes non couvertes ()",
+  "source_detail": "Collecte quotidienne goalies-lineups, 2026-11-14 05:26 HE, groupe injured_reserve (31 equipes couvertes) + 5 entrees du 2026-11-14 pour les equipes non couvertes (NYR)",
   "players": [
     {
       "name": "Ian Moore",
@@ -43,7 +43,7 @@
       "name": "Jonathan Huberdeau",
       "team": "CGY",
       "status": "ir",
-      "details": "Huburdeau (hip) practiced in a regular jersey on Wednesday."
+      "details": "Huberdeau (hip) has been skating but will not travel on Calgary's upcoming road trip."
     },
     {
       "name": "Kevin Bahl",
@@ -76,10 +76,28 @@
       "details": "L'Heureux (upper-body) will miss at least two more games."
     },
     {
+      "name": "Nathan MacKinnon",
+      "team": "COL",
+      "status": "dtd",
+      "details": "MacKinnon left Thursday's game with a lower-body injury and is questionable to play Saturday."
+    },
+    {
+      "name": "Cale Makar",
+      "team": "COL",
+      "status": "dtd",
+      "details": "Makar left Thursday's game with a lower-body injury and is questionable to play Saturday."
+    },
+    {
       "name": "Isac Lundestrom",
       "team": "CBJ",
       "status": "ir",
       "details": "Lundestrom (achilles) is considered month-to-month."
+    },
+    {
+      "name": "Sean Monahan",
+      "team": "CBJ",
+      "status": "dtd",
+      "details": "Monahan (lower-body) is considered day-to-day but will undergo further evaluation."
     },
     {
       "name": "Matt Duchene",
@@ -104,6 +122,12 @@
       "team": "DAL",
       "status": "dtd",
       "details": "Heiskanen (upper-body) will remain out vs. Winnipeg on Thursday."
+    },
+    {
+      "name": "Lian Bichsel",
+      "team": "DAL",
+      "status": "dtd",
+      "details": "Bichsel (lower-body) is considered week-to-week."
     },
     {
       "name": "Albert Johansson",
@@ -175,7 +199,7 @@
       "name": "Erik Gustafsson",
       "team": "LAK",
       "status": "dtd",
-      "details": "Gustafsson (undisclosed) is out vs. Nashville and considered day-to-day."
+      "details": "Gustafsson (undisclosed) returned to practice on Friday."
     },
     {
       "name": "Brock Faber",
@@ -190,6 +214,12 @@
       "details": "Gustavsson (hip) will travel with Minnesota on their upcoming road trip."
     },
     {
+      "name": "Joel Eriksson Ek",
+      "team": "MIN",
+      "status": "dtd",
+      "details": "Eriksson Ek left Thursday's game with an upper-body injury and did not return."
+    },
+    {
       "name": "Ivan Demidov",
       "team": "MTL",
       "status": "ir",
@@ -200,6 +230,12 @@
       "team": "MTL",
       "status": "ir",
       "details": "Montembeault (lower-body) is expected to be out for the next 10 to 14 days."
+    },
+    {
+      "name": "Chris Kreider",
+      "team": "MTL",
+      "status": "dtd",
+      "details": "Kreider left Thursday's game with a lower-body injury and did not return."
     },
     {
       "name": "William Trudeau",
@@ -229,7 +265,7 @@
       "name": "Johnathan Kovacevic",
       "team": "NJD",
       "status": "out",
-      "details": "Kovacevic (undisclosed) is out vs. Washington and expected to miss some time."
+      "details": "Kovacevic (ankle) has been placed on IR retroactive to November 10th."
     },
     {
       "name": "Brett Pesce",
@@ -260,36 +296,6 @@
       "team": "NYI",
       "status": "dtd",
       "details": "Pageau (lower-body) is out vs. Los Angeles on Thursday and is considered day-to-day."
-    },
-    {
-      "name": "Igor Shesterkin",
-      "team": "NYR",
-      "status": "ir",
-      "details": "Shesterkin (lower-body) will miss the rest of the 2026-27 season."
-    },
-    {
-      "name": "Joe Veleno",
-      "team": "NYR",
-      "status": "ir",
-      "details": "Veleno (lower-body) will be placed on LTIR and is expected to miss 3-to-3.5 months."
-    },
-    {
-      "name": "Adam Sykora",
-      "team": "NYR",
-      "status": "ir",
-      "details": "Sykora (lower body) will miss 4-5 months."
-    },
-    {
-      "name": "Sean Durzi",
-      "team": "NYR",
-      "status": "ir",
-      "details": "Durzi (undisclosed) skated in a non-contact jersey at Monday's practice."
-    },
-    {
-      "name": "Alberts Smits",
-      "team": "NYR",
-      "status": "ir",
-      "details": "Smits is week-to-week with an upper-body injury."
     },
     {
       "name": "William Eklund",
@@ -472,12 +478,6 @@
       "details": "Demko (hip) is hopeful to return before Christmas."
     },
     {
-      "name": "Filip Chytil",
-      "team": "VAN",
-      "status": "ir",
-      "details": "Chytil (upper-body) has been placed on IR."
-    },
-    {
       "name": "Noah Hanifin",
       "team": "VGK",
       "status": "out",
@@ -508,10 +508,46 @@
       "details": "Namestnikov (undisclosed) is out week-to-week."
     },
     {
+      "name": "Dylan DeMelo",
+      "team": "WPG",
+      "status": "ir",
+      "details": "DeMelo (lower-body) has been placed on IR."
+    },
+    {
       "name": "Elias Salomonsson",
       "team": "WPG",
       "status": "dtd",
       "details": "Salomonsson (personal) missed practice on Saturday."
+    },
+    {
+      "name": "Igor Shesterkin",
+      "team": "NYR",
+      "status": "ir",
+      "details": "Shesterkin (lower-body) will miss the rest of the 2026-27 season."
+    },
+    {
+      "name": "Joe Veleno",
+      "team": "NYR",
+      "status": "ir",
+      "details": "Veleno (lower-body) will be placed on LTIR and is expected to miss 3-to-3.5 months."
+    },
+    {
+      "name": "Adam Sykora",
+      "team": "NYR",
+      "status": "ir",
+      "details": "Sykora (lower body) will miss 4-5 months."
+    },
+    {
+      "name": "Sean Durzi",
+      "team": "NYR",
+      "status": "ir",
+      "details": "Durzi (undisclosed) skated in a non-contact jersey at Monday's practice."
+    },
+    {
+      "name": "Alberts Smits",
+      "team": "NYR",
+      "status": "ir",
+      "details": "Smits is week-to-week with an upper-body injury."
     }
   ]
 }

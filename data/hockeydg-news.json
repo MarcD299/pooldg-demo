@@ -1,55 +1,55 @@
 {
-  "date": "2026-11-14",
-  "date_fr": "14 novembre 2026",
+  "date": "2026-11-15",
+  "date_fr": "15 novembre 2026",
   "source": "HockeyDG.com",
   "articles": [
     {
+      "date": "2026-11-14",
+      "date_fr": "14 novembre 2026",
+      "date_courte": "14 nov.",
+      "league": "NHL",
+      "title": "500 points pour Boeser, et pourtant rien à fêter à Vancouver",
+      "anchor": "article-fr-500-points-pour-boeser-et-pourtant-rien-a-feter-a-vancouve-2026-11-14"
+    },
+    {
+      "date": "2026-11-14",
+      "date_fr": "14 novembre 2026",
+      "date_courte": "14 nov.",
+      "league": "IIHF",
+      "title": "Le Canada s'en sort de justesse, les États-Unis écrasent tout sur leur passage",
+      "anchor": "article-fr-le-canada-s-en-sort-de-justesse-les-etats-unis-ecrasent-to-2026-11-14"
+    },
+    {
+      "date": "2026-11-14",
+      "date_fr": "14 novembre 2026",
+      "date_courte": "14 nov.",
+      "league": "AHL",
+      "title": "Le Rocket ne connaît plus la défaite : quatrième victoire de suite à Rochester",
+      "anchor": "article-fr-le-rocket-ne-connait-plus-la-defaite-quatrieme-victoire-de-2026-11-14"
+    },
+    {
+      "date": "2026-11-14",
+      "date_fr": "14 novembre 2026",
+      "date_courte": "14 nov.",
+      "league": "QMJHL",
+      "title": "Le Défi des espoirs a son alignement complet — et il passera par le Québec",
+      "anchor": "article-fr-le-defi-des-espoirs-a-son-alignement-complet-et-il-passera-2026-11-14"
+    },
+    {
+      "date": "2026-11-14",
+      "date_fr": "14 novembre 2026",
+      "date_courte": "14 nov.",
+      "league": "NCAA",
+      "title": "Quatre buts en une soirée : Ziemer rappelle Potulny aux partisans du Minnesota",
+      "anchor": "article-fr-quatre-buts-en-une-soiree-ziemer-rappelle-potulny-aux-part-2026-11-14"
+    },
+    {
       "date": "2026-11-13",
       "date_fr": "13 novembre 2026",
       "date_courte": "13 nov.",
-      "league": "NHL",
-      "title": "Cinq buts, un record et le sommet de l'Atlantique : le Canadien s'impose 5-2 à Boston",
-      "anchor": "article-fr-cinq-buts-un-record-et-le-sommet-de-l-atlantique-le-canadien-s-2026-11-13"
-    },
-    {
-      "date": "2026-11-13",
-      "date_fr": "13 novembre 2026",
-      "date_courte": "13 nov.",
-      "league": "NHL",
-      "title": "929 points : Scheifele rejoint Hawerchuk au sommet de l'histoire des Jets",
-      "anchor": "article-fr-929-points-scheifele-rejoint-hawerchuk-au-sommet-de-l-histoire-2026-11-13"
-    },
-    {
-      "date": "2026-11-13",
-      "date_fr": "13 novembre 2026",
-      "date_courte": "13 nov.",
-      "league": "SHL",
-      "title": "Dix buts d'un côté, neuf de l'autre : la soirée complètement folle de la SHL",
-      "anchor": "article-fr-dix-buts-d-un-cote-neuf-de-l-autre-la-soiree-completement-folle-2026-11-13"
-    },
-    {
-      "date": "2026-11-12",
-      "date_fr": "12 novembre 2026",
-      "date_courte": "12 nov.",
-      "league": "NHL",
-      "title": "MacKinnon et Makar quittent le match à Ottawa, l'Avalanche retient son souffle",
-      "anchor": "article-fr-mackinnon-et-makar-quittent-le-match-a-ottawa-l-avalanche-2026-11-12"
-    },
-    {
-      "date": "2026-11-12",
-      "date_fr": "12 novembre 2026",
-      "date_courte": "12 nov.",
-      "league": "KHL",
-      "title": "Galchenyuk rejoint Kane à Novossibirsk",
-      "anchor": "article-fr-galchenyuk-rejoint-kane-a-novossibirsk-2026-11-12"
-    },
-    {
-      "date": "2026-11-12",
-      "date_fr": "12 novembre 2026",
-      "date_courte": "12 nov.",
-      "league": "KHL",
-      "title": "Le Dynamo Moscou écarte son entraîneur-chef Leonids Tambijevs",
-      "anchor": "article-fr-le-dynamo-moscou-ecarte-son-entraineur-chef-leonids-tambijevs-2026-11-12"
+      "league": "IIHF",
+      "title": "L’IIHF conteste devant le TAS la réadmission de la Russie",
+      "anchor": "article-fr-l-iihf-conteste-devant-le-tas-la-readmission-de-la-russie-2026-11-13"
     }
   ]
 }
