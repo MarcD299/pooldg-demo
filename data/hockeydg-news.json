@@ -1,55 +1,55 @@
 {
-  "date": "2026-11-15",
-  "date_fr": "15 novembre 2026",
+  "date": "2026-11-16",
+  "date_fr": "16 novembre 2026",
   "source": "HockeyDG.com",
   "articles": [
     {
-      "date": "2026-11-14",
-      "date_fr": "14 novembre 2026",
-      "date_courte": "14 nov.",
+      "date": "2026-11-15",
+      "date_fr": "15 novembre 2026",
+      "date_courte": "15 nov.",
+      "league": "WHL",
+      "title": "Espoir en feu : Jaxon Jacobson, le capitaine qui fait tourner Brandon",
+      "anchor": "article-fr-jaxon-jacobson-brandon-2026-11-15"
+    },
+    {
+      "date": "2026-11-15",
+      "date_fr": "15 novembre 2026",
+      "date_courte": "15 nov.",
       "league": "NHL",
-      "title": "500 points pour Boeser, et pourtant rien à fêter à Vancouver",
-      "anchor": "article-fr-500-points-pour-boeser-et-pourtant-rien-a-feter-a-vancouve-2026-11-14"
+      "title": "Scheifele entre dans l'histoire, les Jets renversent Chicago après avoir tiré de l'arrière 4-0",
+      "anchor": "article-fr-scheifele-entre-dans-l-histoire-les-jets-renversent-chicago-2026-11-15"
     },
     {
-      "date": "2026-11-14",
-      "date_fr": "14 novembre 2026",
-      "date_courte": "14 nov.",
-      "league": "IIHF",
-      "title": "Le Canada s'en sort de justesse, les États-Unis écrasent tout sur leur passage",
-      "anchor": "article-fr-le-canada-s-en-sort-de-justesse-les-etats-unis-ecrasent-to-2026-11-14"
+      "date": "2026-11-15",
+      "date_fr": "15 novembre 2026",
+      "date_courte": "15 nov.",
+      "league": "NHL",
+      "title": "1 000 points pour Jamie Benn, et tout le banc des Stars s'est vidé pour le féliciter",
+      "anchor": "article-fr-1-000-points-pour-jamie-benn-et-tout-le-banc-des-stars-s-est-vide-2026-11-15"
     },
     {
-      "date": "2026-11-14",
-      "date_fr": "14 novembre 2026",
-      "date_courte": "14 nov.",
+      "date": "2026-11-15",
+      "date_fr": "15 novembre 2026",
+      "date_courte": "15 nov.",
+      "league": "NHL",
+      "title": "Le Canadien s'incline 4-1 contre l'Avalanche, et la belle séquence s'arrête à douze",
+      "anchor": "article-fr-le-canadien-s-incline-4-1-contre-l-avalanche-la-sequence-s-arrete-a-douze-2026-11-15"
+    },
+    {
+      "date": "2026-11-15",
+      "date_fr": "15 novembre 2026",
+      "date_courte": "15 nov.",
       "league": "AHL",
-      "title": "Le Rocket ne connaît plus la défaite : quatrième victoire de suite à Rochester",
-      "anchor": "article-fr-le-rocket-ne-connait-plus-la-defaite-quatrieme-victoire-de-2026-11-14"
+      "title": "Rochester renverse le Rocket en prolongation et met fin à sa série de quatre victoires",
+      "anchor": "article-fr-rochester-renverse-le-rocket-en-prolongation-et-met-fin-a-sa-serie-2026-11-15"
     },
     {
-      "date": "2026-11-14",
-      "date_fr": "14 novembre 2026",
-      "date_courte": "14 nov.",
-      "league": "QMJHL",
-      "title": "Le Défi des espoirs a son alignement complet — et il passera par le Québec",
-      "anchor": "article-fr-le-defi-des-espoirs-a-son-alignement-complet-et-il-passera-2026-11-14"
-    },
-    {
-      "date": "2026-11-14",
-      "date_fr": "14 novembre 2026",
-      "date_courte": "14 nov.",
-      "league": "NCAA",
-      "title": "Quatre buts en une soirée : Ziemer rappelle Potulny aux partisans du Minnesota",
-      "anchor": "article-fr-quatre-buts-en-une-soiree-ziemer-rappelle-potulny-aux-part-2026-11-14"
-    },
-    {
-      "date": "2026-11-13",
-      "date_fr": "13 novembre 2026",
-      "date_courte": "13 nov.",
-      "league": "IIHF",
-      "title": "L’IIHF conteste devant le TAS la réadmission de la Russie",
-      "anchor": "article-fr-l-iihf-conteste-devant-le-tas-la-readmission-de-la-russie-2026-11-13"
+      "date": "2026-11-15",
+      "date_fr": "15 novembre 2026",
+      "date_courte": "15 nov.",
+      "league": "OHL",
+      "title": "Le joueur le plus grand jamais repêché dans la LNH déménage à Windsor",
+      "anchor": "article-fr-le-joueur-le-plus-grand-jamais-repeche-dans-la-lnh-demenage-a-windsor-2026-11-15"
     }
   ]
 }
