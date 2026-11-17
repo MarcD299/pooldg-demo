@@ -1,0 +1,134 @@
+{
+  "date": "2026-11-16",
+  "games": [
+    {
+      "id": 2026020331,
+      "match": "Canadiens 1-3-",
+      "away": "Canadiens",
+      "home": "Rangers",
+      "score": "1-3"
+    },
+    {
+      "id": 2026020332,
+      "match": "Canucks 3-2-",
+      "away": "Canucks",
+      "home": "Mammoth",
+      "score": "3-2"
+    }
+  ],
+  "rule": "1 pt par point de patineur; 2 pts par victoire de gardien (DP = 0 pt, règle démo).",
+  "poolers": [
+    {
+      "name": "UTAH",
+      "pts": 4,
+      "details": [
+        {
+          "player": "Logan Cooley",
+          "team": "UTA",
+          "pts": 1,
+          "g": 0,
+          "a": 1
+        },
+        {
+          "player": "Brock Boeser",
+          "team": "VAN",
+          "pts": 3,
+          "g": 1,
+          "a": 2
+        }
+      ]
+    },
+    {
+      "name": "OTTAWA",
+      "pts": 2,
+      "details": [
+        {
+          "player": "J.T. Miller",
+          "team": "NYR",
+          "pts": 1,
+          "g": 0,
+          "a": 1
+        },
+        {
+          "player": "Adam Fox",
+          "team": "NYR",
+          "pts": 1,
+          "g": 0,
+          "a": 1
+        }
+      ]
+    },
+    {
+      "name": "COLORADO",
+      "pts": 1,
+      "details": [
+        {
+          "player": "Lane Hutson",
+          "team": "MTL",
+          "pts": 1,
+          "g": 0,
+          "a": 1
+        }
+      ]
+    },
+    {
+      "name": "FLORIDE",
+      "pts": 1,
+      "details": [
+        {
+          "player": "Clayton Keller",
+          "team": "UTA",
+          "pts": 1,
+          "g": 0,
+          "a": 1
+        }
+      ]
+    },
+    {
+      "name": "MINNESOTA",
+      "pts": 1,
+      "details": [
+        {
+          "player": "Anders Lee",
+          "team": "UTA",
+          "pts": 1,
+          "g": 0,
+          "a": 1
+        }
+      ]
+    },
+    {
+      "name": "TORONTO",
+      "pts": 1,
+      "details": [
+        {
+          "player": "Vincent Trocheck",
+          "team": "UTA",
+          "pts": 1,
+          "g": 1,
+          "a": 0
+        }
+      ]
+    },
+    {
+      "name": "CAROLINE",
+      "pts": 0,
+      "details": []
+    },
+    {
+      "name": "DALLAS",
+      "pts": 0,
+      "details": []
+    },
+    {
+      "name": "MONTREAL",
+      "pts": 0,
+      "details": []
+    },
+    {
+      "name": "VEGAS",
+      "pts": 0,
+      "details": []
+    }
+  ]
+}
