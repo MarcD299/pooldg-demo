@@ -1,6 +1,6 @@
 {
   "league": "DG des Pals",
-  "date": "2026-11-16",
+  "date": "2026-11-17",
   "method": "Équipes réelles du pool DG DES PALS sur Marqueur, importées le 27 octobre 2026 (actifs, réservistes, recrues). Statistiques de saison LNH; pointage PoolDG : 12 meilleurs attaquants, 6 meilleurs défenseurs, 2 meilleurs gardiens. Statistiques LNH rafraîchies le 2 novembre 2026 (correction Bleyl conservée). Règle de pointage changée le 2 novembre 2026 : actifs seulement (les réservistes ne comptent plus).",
   "scoring_demo": "Pointage : 12 meilleurs attaquants + 6 meilleurs défenseurs (1 pt par point) et 2 meilleurs gardiens (2 pts par victoire, 1 pt par défaite en prolongation ou tirs de barrage, 1 pt par passe, 5 pts par but, +3 pts pour un jeu blanc — donc 5 pts au total pour un jeu blanc). Actifs seulement : les réservistes et les recrues ne comptent jamais.",
   "poolers": [
@@ -177,9 +177,9 @@
           "name": "Karel Vejmelka",
           "team": "UTA",
           "pos": "G",
-          "pj": 15,
+          "pj": 16,
           "w": 6,
-          "l": 6,
+          "l": 7,
           "otl": 2,
           "a": 1,
           "g": 0,
@@ -371,7 +371,7 @@
           "name": "Zeev Buium",
           "team": "VAN",
           "pos": "D",
-          "gp": 22,
+          "gp": 23,
           "g": 0,
           "a": 5,
           "pts": 5
@@ -620,8 +620,8 @@
           "team": "UTA",
           "pos": "R",
           "g": 5,
-          "a": 22,
-          "pts": 27
+          "a": 23,
+          "pts": 28
         },
         {
           "id": 8477951,
@@ -858,7 +858,7 @@
           "name": "Daniil But",
           "team": "UTA",
           "pos": "L",
-          "gp": 16,
+          "gp": 17,
           "g": 2,
           "a": 2,
           "pts": 4
@@ -1040,8 +1040,8 @@
           "so": 2
         }
       ],
-      "sk_pts": 326,
-      "score": 359,
+      "sk_pts": 327,
+      "score": 360,
       "picks": {
         "2027": {
           "regular": [
@@ -1279,8 +1279,8 @@
           "team": "UTA",
           "pos": "C",
           "g": 11,
-          "a": 10,
-          "pts": 21
+          "a": 11,
+          "pts": 22
         },
         {
           "id": 8478449,
@@ -1305,9 +1305,9 @@
           "name": "Brock Boeser",
           "team": "VAN",
           "pos": "R",
-          "g": 7,
-          "a": 13,
-          "pts": 20
+          "g": 8,
+          "a": 15,
+          "pts": 23
         },
         {
           "id": 8483515,
@@ -1581,7 +1581,7 @@
           "name": "Max Sasson",
           "team": "VAN",
           "pos": "C",
-          "gp": 22,
+          "gp": 23,
           "g": 5,
           "a": 3,
           "pts": 8
@@ -1651,7 +1651,7 @@
           "name": "Tom Willander",
           "team": "VAN",
           "pos": "D",
-          "gp": 18,
+          "gp": 19,
           "g": 0,
           "a": 4,
           "pts": 4
@@ -1669,8 +1669,8 @@
           "g": null
         }
       ],
-      "sk_pts": 297,
-      "score": 338,
+      "sk_pts": 301,
+      "score": 342,
       "picks": {
         "2027": {
           "regular": [
@@ -2109,7 +2109,7 @@
           "name": "Oliver Kapanen",
           "team": "MTL",
           "pos": "C",
-          "gp": 13,
+          "gp": 14,
           "g": 1,
           "a": 1,
           "pts": 2
@@ -2139,17 +2139,17 @@
           "name": "Jonathan Lekkerimäki",
           "team": "VAN",
           "pos": "R",
-          "gp": 22,
+          "gp": 23,
           "g": 7,
-          "a": 9,
-          "pts": 16
+          "a": 11,
+          "pts": 18
         },
         {
           "id": 8480855,
           "name": "Jack McBain",
           "team": "UTA",
           "pos": "C",
-          "gp": 21,
+          "gp": 22,
           "g": 3,
           "a": 4,
           "pts": 7
@@ -2516,8 +2516,8 @@
           "team": "NYR",
           "pos": "C",
           "g": 4,
-          "a": 12,
-          "pts": 16
+          "a": 13,
+          "pts": 17
         },
         {
           "id": 8476460,
@@ -2570,8 +2570,8 @@
           "team": "NYR",
           "pos": "D",
           "g": 2,
-          "a": 21,
-          "pts": 23
+          "a": 22,
+          "pts": 24
         },
         {
           "id": 8480069,
@@ -2886,8 +2886,8 @@
           "g": null
         }
       ],
-      "sk_pts": 308,
-      "score": 330,
+      "sk_pts": 310,
+      "score": 332,
       "picks": {
         "2027": {
           "regular": [
@@ -3291,10 +3291,10 @@
           "name": "Noah Dobson",
           "team": "MTL",
           "pos": "D",
-          "gp": 20,
+          "gp": 21,
           "g": 0,
-          "a": 8,
-          "pts": 8
+          "a": 9,
+          "pts": 9
         },
         {
           "id": 8479394,
@@ -3387,7 +3387,7 @@
           "name": "Liam Ohgren",
           "team": "VAN",
           "pos": "L",
-          "gp": 21,
+          "gp": 22,
           "g": 6,
           "a": 4,
           "pts": 10
@@ -3748,9 +3748,9 @@
           "name": "Vincent Trocheck",
           "team": "UTA",
           "pos": "C",
-          "g": 3,
+          "g": 4,
           "a": 7,
-          "pts": 10
+          "pts": 11
         },
         {
           "id": 8477935,
@@ -4106,13 +4106,13 @@
           "name": "Jacob Fowler",
           "team": "MTL",
           "pos": "G",
-          "gp": 12,
+          "gp": 13,
           "w": 9,
-          "l": 1,
+          "l": 2,
           "otl": 2,
           "a": 0,
           "g": 0,
-          "pj": 12,
+          "pj": 13,
           "so": 2
         },
         {
@@ -4130,8 +4130,8 @@
           "so": 0
         }
       ],
-      "sk_pts": 248,
-      "score": 288,
+      "sk_pts": 249,
+      "score": 289,
       "picks": {
         "2027": {
           "regular": [
@@ -4432,8 +4432,8 @@
           "team": "MTL",
           "pos": "D",
           "g": 3,
-          "a": 15,
-          "pts": 18
+          "a": 16,
+          "pts": 19
         },
         {
           "id": 8478038,
@@ -4560,7 +4560,7 @@
           "name": "Kirby Dach",
           "team": "MTL",
           "pos": "C",
-          "gp": 18,
+          "gp": 19,
           "g": 2,
           "a": 5,
           "pts": 7
@@ -4610,10 +4610,10 @@
           "name": "Barrett Hayton",
           "team": "UTA",
           "pos": "C",
-          "gp": 21,
-          "g": 3,
+          "gp": 22,
+          "g": 4,
           "a": 8,
-          "pts": 11
+          "pts": 12
         },
         {
           "id": null,
@@ -4640,7 +4640,7 @@
           "name": "Tye Kartye",
           "team": "NYR",
           "pos": "L",
-          "gp": 21,
+          "gp": 22,
           "g": 7,
           "a": 7,
           "pts": 14
@@ -4754,8 +4754,8 @@
           "so": 0
         }
       ],
-      "sk_pts": 263,
-      "score": 304,
+      "sk_pts": 264,
+      "score": 305,
       "picks": {
         "2027": {
           "regular": [
@@ -5020,8 +5020,8 @@
           "team": "UTA",
           "pos": "L",
           "g": 3,
-          "a": 6,
-          "pts": 9
+          "a": 7,
+          "pts": 10
         },
         {
           "id": 8478519,
@@ -5367,8 +5367,8 @@
           "so": 0
         }
       ],
-      "sk_pts": 236,
-      "score": 272,
+      "sk_pts": 237,
+      "score": 273,
       "picks": {
         "2027": {
           "regular": [
@@ -5798,7 +5798,7 @@
           "name": "Zachary Bolduc",
           "team": "MTL",
           "pos": "R",
-          "gp": 20,
+          "gp": 21,
           "g": 6,
           "a": 3,
           "pts": 9

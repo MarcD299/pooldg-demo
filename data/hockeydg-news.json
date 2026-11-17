@@ -1,55 +1,55 @@
 {
-  "date": "2026-11-16",
-  "date_fr": "16 novembre 2026",
+  "date": "2026-11-17",
+  "date_fr": "17 novembre 2026",
   "source": "HockeyDG.com",
   "articles": [
     {
-      "date": "2026-11-15",
-      "date_fr": "15 novembre 2026",
-      "date_courte": "15 nov.",
-      "league": "WHL",
-      "title": "Espoir en feu : Jaxon Jacobson, le capitaine qui fait tourner Brandon",
-      "anchor": "article-fr-jaxon-jacobson-brandon-2026-11-15"
+      "date": "2026-11-16",
+      "date_fr": "16 novembre 2026",
+      "date_courte": "16 nov.",
+      "league": "NHL",
+      "title": "McDavid rejoint Gretzky : 40 passes en 22 matchs, et les Oilers ne s'arrêtent plus",
+      "anchor": "article-fr-mcdavid-rejoint-gretzky-40-passes-en-22-matchs-et-les-oilers-n-2026-11-16"
+    },
+    {
+      "date": "2026-11-16",
+      "date_fr": "16 novembre 2026",
+      "date_courte": "16 nov.",
+      "league": "NHL",
+      "title": "Neuf matchs de suite avec un but : Gauthier fait ce que personne n'avait fait depuis 29 ans",
+      "anchor": "article-fr-neuf-matchs-de-suite-avec-un-but-gauthier-fait-ce-que-personne-2026-11-16"
+    },
+    {
+      "date": "2026-11-16",
+      "date_fr": "16 novembre 2026",
+      "date_courte": "16 nov.",
+      "league": "IIHF",
+      "title": "Canada–États-Unis pour l'or : la finale que tout le monde attendait, avec une revanche à prendre",
+      "anchor": "article-fr-canada-etats-unis-pour-l-or-la-finale-que-tout-le-monde-attend-2026-11-16"
+    },
+    {
+      "date": "2026-11-16",
+      "date_fr": "16 novembre 2026",
+      "date_courte": "16 nov.",
+      "league": "PWHL",
+      "title": "La PWHL se dote d'observateurs des commotions : la sécurité des joueuses passe avant le match",
+      "anchor": "article-fr-la-pwhl-se-dote-d-observateurs-des-commotions-la-securite-des-2026-11-16"
     },
     {
       "date": "2026-11-15",
       "date_fr": "15 novembre 2026",
       "date_courte": "15 nov.",
       "league": "NHL",
-      "title": "Scheifele entre dans l'histoire, les Jets renversent Chicago après avoir tiré de l'arrière 4-0",
-      "anchor": "article-fr-scheifele-entre-dans-l-histoire-les-jets-renversent-chicago-2026-11-15"
+      "title": "Josh Anderson placé sur la liste des blessés : l'infirmerie du Canadien ne désemplit pas",
+      "anchor": "article-fr-josh-anderson-place-sur-la-liste-des-blesses-2026-11-15"
     },
     {
       "date": "2026-11-15",
       "date_fr": "15 novembre 2026",
       "date_courte": "15 nov.",
-      "league": "NHL",
-      "title": "1 000 points pour Jamie Benn, et tout le banc des Stars s'est vidé pour le féliciter",
-      "anchor": "article-fr-1-000-points-pour-jamie-benn-et-tout-le-banc-des-stars-s-est-vide-2026-11-15"
-    },
-    {
-      "date": "2026-11-15",
-      "date_fr": "15 novembre 2026",
-      "date_courte": "15 nov.",
-      "league": "NHL",
-      "title": "Le Canadien s'incline 4-1 contre l'Avalanche, et la belle séquence s'arrête à douze",
-      "anchor": "article-fr-le-canadien-s-incline-4-1-contre-l-avalanche-la-sequence-s-arrete-a-douze-2026-11-15"
-    },
-    {
-      "date": "2026-11-15",
-      "date_fr": "15 novembre 2026",
-      "date_courte": "15 nov.",
-      "league": "AHL",
-      "title": "Rochester renverse le Rocket en prolongation et met fin à sa série de quatre victoires",
-      "anchor": "article-fr-rochester-renverse-le-rocket-en-prolongation-et-met-fin-a-sa-serie-2026-11-15"
-    },
-    {
-      "date": "2026-11-15",
-      "date_fr": "15 novembre 2026",
-      "date_courte": "15 nov.",
-      "league": "OHL",
-      "title": "Le joueur le plus grand jamais repêché dans la LNH déménage à Windsor",
-      "anchor": "article-fr-le-joueur-le-plus-grand-jamais-repeche-dans-la-lnh-demenage-a-windsor-2026-11-15"
+      "league": "IIHF",
+      "title": "Décès de Don MacAdam, l’homme aux neuf pays",
+      "anchor": "article-fr-deces-de-don-macadam-l-homme-aux-neuf-pays-2026-11-15"
     }
   ]
 }
