@@ -1,8 +1,32 @@
 {
-  "date": "2026-11-17",
-  "date_fr": "17 novembre 2026",
+  "date": "2026-11-18",
+  "date_fr": "18 novembre 2026",
   "source": "HockeyDG.com",
   "articles": [
+    {
+      "date": "2026-11-17",
+      "date_fr": "17 novembre 2026",
+      "date_courte": "17 nov.",
+      "league": "IIHF",
+      "title": "Or, or et encore or : les Américaines corrigent le Canada 6-2 et bouclent une année 2026 parfaite",
+      "anchor": "article-fr-or-or-et-encore-or-les-americaines-corrigent-le-canada-6-2-2026-11-17"
+    },
+    {
+      "date": "2026-11-17",
+      "date_fr": "17 novembre 2026",
+      "date_courte": "17 nov.",
+      "league": "NHL",
+      "title": "« Inacceptable » : Chayka sort du silence, appuie Hiller et laisse planer des changements à Toronto",
+      "anchor": "article-fr-inacceptable-chayka-sort-du-silence-toronto-2026-11-17"
+    },
+    {
+      "date": "2026-11-17",
+      "date_fr": "17 novembre 2026",
+      "date_courte": "17 nov.",
+      "league": "KHL",
+      "title": "Zharovsky s'éclate à Oufa : trois points, un festival de 11 buts et un espoir du CH qui ne ralentit plus",
+      "anchor": "article-fr-zharovsky-s-eclate-a-oufa-trois-points-2026-11-17"
+    },
     {
       "date": "2026-11-16",
       "date_fr": "16 novembre 2026",
@@ -26,30 +50,6 @@
       "league": "IIHF",
       "title": "Canada–États-Unis pour l'or : la finale que tout le monde attendait, avec une revanche à prendre",
       "anchor": "article-fr-canada-etats-unis-pour-l-or-la-finale-que-tout-le-monde-attend-2026-11-16"
-    },
-    {
-      "date": "2026-11-16",
-      "date_fr": "16 novembre 2026",
-      "date_courte": "16 nov.",
-      "league": "PWHL",
-      "title": "La PWHL se dote d'observateurs des commotions : la sécurité des joueuses passe avant le match",
-      "anchor": "article-fr-la-pwhl-se-dote-d-observateurs-des-commotions-la-securite-des-2026-11-16"
-    },
-    {
-      "date": "2026-11-15",
-      "date_fr": "15 novembre 2026",
-      "date_courte": "15 nov.",
-      "league": "NHL",
-      "title": "Josh Anderson placé sur la liste des blessés : l'infirmerie du Canadien ne désemplit pas",
-      "anchor": "article-fr-josh-anderson-place-sur-la-liste-des-blesses-2026-11-15"
-    },
-    {
-      "date": "2026-11-15",
-      "date_fr": "15 novembre 2026",
-      "date_courte": "15 nov.",
-      "league": "IIHF",
-      "title": "Décès de Don MacAdam, l’homme aux neuf pays",
-      "anchor": "article-fr-deces-de-don-macadam-l-homme-aux-neuf-pays-2026-11-15"
     }
   ]
 }

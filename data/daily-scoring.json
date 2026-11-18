@@ -1,57 +1,513 @@
 {
-  "date": "2026-11-16",
+  "date": "2026-11-17",
   "games": [
     {
-      "id": 2026020331,
-      "match": "Canadiens 1-3-",
-      "away": "Canadiens",
-      "home": "Rangers",
-      "score": "1-3"
+      "id": 2026020333,
+      "match": "Kings 3-0-",
+      "away": "Kings",
+      "home": "Bruins",
+      "score": "3-0"
     },
     {
-      "id": 2026020332,
-      "match": "Canucks 3-2-",
-      "away": "Canucks",
-      "home": "Mammoth",
-      "score": "3-2"
+      "id": 2026020335,
+      "match": "Oilers 5-2-",
+      "away": "Oilers",
+      "home": "Panthers",
+      "score": "5-2"
+    },
+    {
+      "id": 2026020336,
+      "match": "Blue Jackets 1-5-",
+      "away": "Blue Jackets",
+      "home": "Islanders",
+      "score": "1-5"
+    },
+    {
+      "id": 2026020337,
+      "match": "Sabres 3-4-",
+      "away": "Sabres",
+      "home": "Flyers",
+      "score": "3-4"
+    },
+    {
+      "id": 2026020341,
+      "match": "Senators 2-1-",
+      "away": "Senators",
+      "home": "Jets",
+      "score": "2-1"
+    },
+    {
+      "id": 2026020334,
+      "match": "Capitals 2-5-",
+      "away": "Capitals",
+      "home": "Lightning",
+      "score": "2-5"
+    },
+    {
+      "id": 2026020338,
+      "match": "Maple Leafs 3-6-",
+      "away": "Maple Leafs",
+      "home": "Blackhawks",
+      "score": "3-6"
+    },
+    {
+      "id": 2026020339,
+      "match": "Ducks 6-8-",
+      "away": "Ducks",
+      "home": "Blues",
+      "score": "6-8"
+    },
+    {
+      "id": 2026020340,
+      "match": "Predators 3-7-",
+      "away": "Predators",
+      "home": "Wild",
+      "score": "3-7"
+    },
+    {
+      "id": 2026020342,
+      "match": "Stars 4-3-",
+      "away": "Stars",
+      "home": "Golden Knights",
+      "score": "4-3"
+    },
+    {
+      "id": 2026020343,
+      "match": "Flames 5-2-",
+      "away": "Flames",
+      "home": "Sharks",
+      "score": "5-2"
     }
   ],
   "rule": "1 pt par point de patineur; 2 pts par victoire de gardien (DP = 0 pt, règle démo).",
   "poolers": [
     {
-      "name": "UTAH",
-      "pts": 4,
+      "name": "MINNESOTA",
+      "pts": 15,
       "details": [
         {
-          "player": "Logan Cooley",
-          "team": "UTA",
-          "pts": 1,
-          "g": 0,
+          "player": "Matthew Tkachuk",
+          "team": "FLA",
+          "pts": 2,
+          "g": 2,
+          "a": 0
+        },
+        {
+          "player": "Matt Boldy",
+          "team": "MIN",
+          "pts": 3,
+          "g": 2,
           "a": 1
         },
         {
-          "player": "Brock Boeser",
-          "team": "VAN",
-          "pts": 3,
+          "player": "Joel Eriksson Ek",
+          "team": "MIN",
+          "pts": 4,
           "g": 1,
-          "a": 2
+          "a": 3
+        },
+        {
+          "player": "Tage Thompson",
+          "team": "BUF",
+          "pts": 2,
+          "g": 1,
+          "a": 1
+        },
+        {
+          "player": "Wyatt Johnston",
+          "team": "DAL",
+          "pts": 1,
+          "g": 1,
+          "a": 0
+        },
+        {
+          "player": "Anthony Cirelli",
+          "team": "TBL",
+          "pts": 1,
+          "g": 1,
+          "a": 0
+        },
+        {
+          "player": "Zach Werenski",
+          "team": "CBJ",
+          "pts": 1,
+          "g": 1,
+          "a": 0
+        },
+        {
+          "player": "Adin Hill",
+          "team": "VGK",
+          "pts": 1,
+          "g": 0,
+          "a": 0
         }
       ]
     },
     {
       "name": "OTTAWA",
-      "pts": 2,
+      "pts": 15,
       "details": [
         {
-          "player": "J.T. Miller",
-          "team": "NYR",
+          "player": "Auston Matthews",
+          "team": "TOR",
           "pts": 1,
           "g": 0,
           "a": 1
         },
         {
-          "player": "Adam Fox",
-          "team": "NYR",
+          "player": "Tim Stützle",
+          "team": "OTT",
+          "pts": 1,
+          "g": 0,
+          "a": 1
+        },
+        {
+          "player": "Jake Guentzel",
+          "team": "TBL",
+          "pts": 2,
+          "g": 2,
+          "a": 0
+        },
+        {
+          "player": "Pavel Buchnevich",
+          "team": "STL",
+          "pts": 1,
+          "g": 1,
+          "a": 0
+        },
+        {
+          "player": "Cutter Gauthier",
+          "team": "ANA",
+          "pts": 4,
+          "g": 3,
+          "a": 1
+        },
+        {
+          "player": "Rasmus Dahlin",
+          "team": "BUF",
+          "pts": 1,
+          "g": 0,
+          "a": 1
+        },
+        {
+          "player": "Darcy Kuemper",
+          "team": "LAK",
+          "pts": 5,
+          "g": 0,
+          "a": 0
+        }
+      ]
+    },
+    {
+      "name": "TORONTO",
+      "pts": 15,
+      "details": [
+        {
+          "player": "Steven Stamkos",
+          "team": "NSH",
+          "pts": 1,
+          "g": 0,
+          "a": 1
+        },
+        {
+          "player": "John Tavares",
+          "team": "TOR",
+          "pts": 1,
+          "g": 1,
+          "a": 0
+        },
+        {
+          "player": "Patrick Kane",
+          "team": "CHI",
+          "pts": 1,
+          "g": 0,
+          "a": 1
+        },
+        {
+          "player": "Sam Bennett",
+          "team": "FLA",
+          "pts": 1,
+          "g": 0,
+          "a": 1
+        },
+        {
+          "player": "Tyler Bertuzzi",
+          "team": "CHI",
+          "pts": 3,
+          "g": 2,
+          "a": 1
+        },
+        {
+          "player": "Quinn Hughes",
+          "team": "MIN",
+          "pts": 2,
+          "g": 0,
+          "a": 2
+        },
+        {
+          "player": "Jackson LaCombe",
+          "team": "ANA",
+          "pts": 3,
+          "g": 0,
+          "a": 3
+        },
+        {
+          "player": "Cam Fowler",
+          "team": "STL",
+          "pts": 1,
+          "g": 0,
+          "a": 1
+        },
+        {
+          "player": "Linus Ullmark",
+          "team": "OTT",
+          "pts": 2,
+          "g": 0,
+          "a": 0
+        }
+      ]
+    },
+    {
+      "name": "CAROLINE",
+      "pts": 14,
+      "details": [
+        {
+          "player": "Kirill Kaprizov",
+          "team": "MIN",
+          "pts": 3,
+          "g": 0,
+          "a": 3
+        },
+        {
+          "player": "Nikita Kucherov",
+          "team": "TBL",
+          "pts": 2,
+          "g": 0,
+          "a": 2
+        },
+        {
+          "player": "Mikko Rantanen",
+          "team": "DAL",
+          "pts": 4,
+          "g": 1,
+          "a": 3
+        },
+        {
+          "player": "Evan Bouchard",
+          "team": "EDM",
+          "pts": 1,
+          "g": 0,
+          "a": 1
+        },
+        {
+          "player": "Brandt Clarke",
+          "team": "LAK",
+          "pts": 1,
+          "g": 0,
+          "a": 1
+        },
+        {
+          "player": "John Carlson",
+          "team": "TBL",
+          "pts": 3,
+          "g": 0,
+          "a": 3
+        }
+      ]
+    },
+    {
+      "name": "UTAH",
+      "pts": 14,
+      "details": [
+        {
+          "player": "Leon Draisaitl",
+          "team": "EDM",
+          "pts": 3,
+          "g": 1,
+          "a": 2
+        },
+        {
+          "player": "Leo Carlsson",
+          "team": "ANA",
+          "pts": 1,
+          "g": 0,
+          "a": 1
+        },
+        {
+          "player": "Roope Hintz",
+          "team": "DAL",
+          "pts": 2,
+          "g": 0,
+          "a": 2
+        },
+        {
+          "player": "Robert Thomas",
+          "team": "STL",
+          "pts": 3,
+          "g": 1,
+          "a": 2
+        },
+        {
+          "player": "Matthew Schaefer",
+          "team": "NYI",
+          "pts": 3,
+          "g": 3,
+          "a": 0
+        },
+        {
+          "player": "Tony DeAngelo",
+          "team": "NYI",
+          "pts": 2,
+          "g": 1,
+          "a": 1
+        }
+      ]
+    },
+    {
+      "name": "DALLAS",
+      "pts": 10,
+      "details": [
+        {
+          "player": "Jason Robertson",
+          "team": "DAL",
+          "pts": 2,
+          "g": 0,
+          "a": 2
+        },
+        {
+          "player": "Carter Verhaeghe",
+          "team": "FLA",
+          "pts": 1,
+          "g": 0,
+          "a": 1
+        },
+        {
+          "player": "Mikael Granlund",
+          "team": "ANA",
+          "pts": 2,
+          "g": 1,
+          "a": 1
+        },
+        {
+          "player": "Aliaksei Protas",
+          "team": "WSH",
+          "pts": 1,
+          "g": 0,
+          "a": 1
+        },
+        {
+          "player": "Mats Zuccarello",
+          "team": "LAK",
+          "pts": 1,
+          "g": 1,
+          "a": 0
+        },
+        {
+          "player": "Miro Heiskanen",
+          "team": "DAL",
+          "pts": 1,
+          "g": 1,
+          "a": 0
+        },
+        {
+          "player": "Andrei Vasilevskiy",
+          "team": "TBL",
+          "pts": 2,
+          "g": 0,
+          "a": 0
+        }
+      ]
+    },
+    {
+      "name": "VEGAS",
+      "pts": 9,
+      "details": [
+        {
+          "player": "Bo Horvat",
+          "team": "NYI",
+          "pts": 1,
+          "g": 0,
+          "a": 1
+        },
+        {
+          "player": "Connor Bedard",
+          "team": "CHI",
+          "pts": 1,
+          "g": 1,
+          "a": 0
+        },
+        {
+          "player": "Tom Wilson",
+          "team": "WSH",
+          "pts": 1,
+          "g": 0,
+          "a": 1
+        },
+        {
+          "player": "William Karlsson",
+          "team": "VGK",
+          "pts": 2,
+          "g": 2,
+          "a": 0
+        },
+        {
+          "player": "Mason Marchment",
+          "team": "SJS",
+          "pts": 2,
+          "g": 1,
+          "a": 1
+        },
+        {
+          "player": "Jake Oettinger",
+          "team": "DAL",
+          "pts": 2,
+          "g": 0,
+          "a": 0
+        }
+      ]
+    },
+    {
+      "name": "FLORIDE",
+      "pts": 7,
+      "details": [
+        {
+          "player": "Connor McDavid",
+          "team": "EDM",
+          "pts": 2,
+          "g": 1,
+          "a": 1
+        },
+        {
+          "player": "Jack Roslovic",
+          "team": "TOR",
+          "pts": 1,
+          "g": 0,
+          "a": 1
+        },
+        {
+          "player": "Drake Batherson",
+          "team": "OTT",
+          "pts": 1,
+          "g": 1,
+          "a": 0
+        },
+        {
+          "player": "Filip Forsberg",
+          "team": "NSH",
+          "pts": 1,
+          "g": 1,
+          "a": 0
+        },
+        {
+          "player": "Mattias Samuelsson",
+          "team": "BUF",
+          "pts": 1,
+          "g": 1,
+          "a": 0
+        },
+        {
+          "player": "Thomas Chabot",
+          "team": "OTT",
           "pts": 1,
           "g": 0,
           "a": 1
@@ -60,75 +516,71 @@
     },
     {
       "name": "COLORADO",
-      "pts": 1,
+      "pts": 6,
       "details": [
         {
-          "player": "Lane Hutson",
-          "team": "MTL",
+          "player": "Jack Eichel",
+          "team": "VGK",
           "pts": 1,
           "g": 0,
           "a": 1
-        }
-      ]
-    },
-    {
-      "name": "FLORIDE",
-      "pts": 1,
-      "details": [
+        },
         {
-          "player": "Clayton Keller",
-          "team": "UTA",
+          "player": "Brady Tkachuk",
+          "team": "FLA",
           "pts": 1,
           "g": 0,
           "a": 1
-        }
-      ]
-    },
-    {
-      "name": "MINNESOTA",
-      "pts": 1,
-      "details": [
+        },
         {
-          "player": "Anders Lee",
-          "team": "UTA",
-          "pts": 1,
-          "g": 0,
-          "a": 1
-        }
-      ]
-    },
-    {
-      "name": "TORONTO",
-      "pts": 1,
-      "details": [
-        {
-          "player": "Vincent Trocheck",
-          "team": "UTA",
+          "player": "Alex Tuch",
+          "team": "WSH",
           "pts": 1,
           "g": 1,
           "a": 0
+        },
+        {
+          "player": "Brayden Point",
+          "team": "TBL",
+          "pts": 1,
+          "g": 0,
+          "a": 1
+        },
+        {
+          "player": "Darren Raddysh",
+          "team": "TOR",
+          "pts": 1,
+          "g": 0,
+          "a": 1
+        },
+        {
+          "player": "Mattias Ekholm",
+          "team": "EDM",
+          "pts": 1,
+          "g": 0,
+          "a": 1
         }
       ]
     },
     {
-      "name": "CAROLINE",
-      "pts": 0,
-      "details": []
-    },
-    {
-      "name": "DALLAS",
-      "pts": 0,
-      "details": []
-    },
-    {
       "name": "MONTREAL",
-      "pts": 0,
-      "details": []
-    },
-    {
-      "name": "VEGAS",
-      "pts": 0,
-      "details": []
+      "pts": 3,
+      "details": [
+        {
+          "player": "Travis Sanheim",
+          "team": "PHI",
+          "pts": 1,
+          "g": 1,
+          "a": 0
+        },
+        {
+          "player": "Ilya Sorokin",
+          "team": "NYI",
+          "pts": 2,
+          "g": 0,
+          "a": 0
+        }
+      ]
     }
   ]
 }
