@@ -1,7 +1,7 @@
 {
-  "collected": "2026-11-18",
+  "collected": "2026-11-19",
   "source": "Daily Faceoff",
-  "source_detail": "Collecte quotidienne goalies-lineups, 2026-11-17 05:26 HE, groupe injured_reserve (27 equipes couvertes) + 13 entrees du 2026-11-17 pour les equipes non couvertes (CAR, NYR, PIT, SEA, VAN)",
+  "source_detail": "Collecte quotidienne goalies-lineups, 2026-11-18 05:26 HE, groupe injured_reserve (27 equipes couvertes) + 14 entrees du 2026-11-18 pour les equipes non couvertes (CAR, FLA, NSH, NYR, SJS)",
   "players": [
     {
       "name": "Ryan Poehling",
@@ -14,6 +14,12 @@
       "team": "ANA",
       "status": "ir",
       "details": "Greer has been placed on IR with an upper-body injury."
+    },
+    {
+      "name": "Beckett Sennecke",
+      "team": "ANA",
+      "status": "dtd",
+      "details": "Sennecke (illness) will not play on Tuesday."
     },
     {
       "name": "James Hagens",
@@ -34,12 +40,6 @@
       "details": "Helenius (upper-body) has been placed on IR."
     },
     {
-      "name": "Jonathan Huberdeau",
-      "team": "CGY",
-      "status": "ir",
-      "details": "Huberdeau (hip) has been skating but will not travel on Calgary's upcoming road trip."
-    },
-    {
       "name": "Kevin Bahl",
       "team": "CGY",
       "status": "ir",
@@ -49,19 +49,19 @@
       "name": "Bowen Byram",
       "team": "CHI",
       "status": "ir",
-      "details": "Byram (upper-body) remains day-to-day and will not play on Saturday."
+      "details": "Byram (upper-body) will miss Chicago's next two games."
     },
     {
       "name": "Cole Smith",
       "team": "CHI",
       "status": "dtd",
-      "details": "Smith (undisclosed) missed practice on Monday but is likely to play Tuesday vs. Toronto."
+      "details": "Smith (undisclosed) will play vs. Toronto on Tuesday."
     },
     {
       "name": "Tyler Bertuzzi",
       "team": "CHI",
       "status": "dtd",
-      "details": "Bertuzzi (upper-body) is likely able to play vs. Toronto on Tuesday."
+      "details": "Bertuzzi (upper-body) will play vs. Toronto on Tuesday."
     },
     {
       "name": "Josh Manson",
@@ -124,12 +124,6 @@
       "details": "The Stars have placed Kyle Capobianco (leg) on LTIR."
     },
     {
-      "name": "Miro Heiskanen",
-      "team": "DAL",
-      "status": "dtd",
-      "details": "Heiskanen (upper-body) is doubtful to play Sunday vs. the Panthers."
-    },
-    {
       "name": "Lian Bichsel",
       "team": "DAL",
       "status": "ir",
@@ -139,13 +133,13 @@
       "name": "Tyler Myers",
       "team": "DAL",
       "status": "dtd",
-      "details": "Myers (upper-body) left Sunday’s game vs. Florida and did not return."
+      "details": "Myers (upper-body) is out vs. Vegas on Tuesday."
     },
     {
       "name": "Albert Johansson",
       "team": "DET",
       "status": "ir",
-      "details": "Johansson (undisclosed) has been placed on IR retroactive to October 24th."
+      "details": "Johansson (undisclosed) returned to practice in a non-contact jersey on Tuesday."
     },
     {
       "name": "Simon Edvinsson",
@@ -184,40 +178,10 @@
       "details": "Savoie (undisclosed) has been placed on LTIR."
     },
     {
-      "name": "Isaac Howard",
-      "team": "EDM",
-      "status": "ir",
-      "details": "Howard (lower-body) has been activated from IR and loaned to Bakersfield (AHL)."
-    },
-    {
       "name": "Ryan Nugent-Hopkins",
       "team": "EDM",
       "status": "out",
       "details": "Nugent-Hopkins (undisclosed) is out vs. Philadelphia on Sunday."
-    },
-    {
-      "name": "Aleksander Barkov",
-      "team": "FLA",
-      "status": "ir",
-      "details": "Barkov (lower-body) is within two weeks of returning to the lineup."
-    },
-    {
-      "name": "Jonah Gadjovich",
-      "team": "FLA",
-      "status": "ir",
-      "details": "Gadjovich will have surgery on his upper-body injury and will miss three months."
-    },
-    {
-      "name": "Brad Marchand",
-      "team": "FLA",
-      "status": "ir",
-      "details": "Marchand (leg) is expected back within the next two weeks."
-    },
-    {
-      "name": "Erik Gustafsson",
-      "team": "LAK",
-      "status": "dtd",
-      "details": "Gustafsson (undisclosed) returned to practice on Friday."
     },
     {
       "name": "Artemi Panarin",
@@ -268,18 +232,6 @@
       "details": "Kreider (lower-body) will miss 6-to-8 weeks."
     },
     {
-      "name": "William Trudeau",
-      "team": "NSH",
-      "status": "ir",
-      "details": "Trudeau has been placed on IR with an upper-body injury and is considered week-to-week."
-    },
-    {
-      "name": "Jonathan Marchessault",
-      "team": "NSH",
-      "status": "dtd",
-      "details": "Marchessault (lower-body) returned to practice on Monday."
-    },
-    {
       "name": "Seamus Casey",
       "team": "NJD",
       "status": "ir",
@@ -289,19 +241,13 @@
       "name": "Anthony Mantha",
       "team": "NJD",
       "status": "out",
-      "details": "Mantha (throat) has been placed on LTIR."
+      "details": "Mantha had surgery on Monday to repair a fracture in his throat and is expected out for a month."
     },
     {
       "name": "Johnathan Kovacevic",
       "team": "NJD",
       "status": "out",
-      "details": "Kovacevic (ankle) has been placed on IR retroactive to November 10th."
-    },
-    {
-      "name": "Brett Pesce",
-      "team": "NJD",
-      "status": "dtd",
-      "details": "Pesce (illness) is out vs. Washington on Thursday."
+      "details": "Kovacevic (ankle sprain) is expected to miss the next 4-6 weeks."
     },
     {
       "name": "Alexander Romanov",
@@ -319,7 +265,7 @@
       "name": "Jean-Gabriel Pageau",
       "team": "NYI",
       "status": "dtd",
-      "details": "Pageau (lower-body) has a chance to return vs. Columbus on Tuesday."
+      "details": "Pageau (lower-body) will be a game-time decision vs. Columbus on Tuesday."
     },
     {
       "name": "Logan Stanley",
@@ -358,28 +304,34 @@
       "details": "Grebenkin (upper-body) has been placed on injured reserve."
     },
     {
-      "name": "Denver Barkey",
-      "team": "PHI",
-      "status": "out",
-      "details": "Barkey (illness) is out vs. Edmonton on Sunday."
-    },
-    {
-      "name": "Igor Chernyshov",
-      "team": "SJS",
+      "name": "Trevor van Riemsdyk",
+      "team": "PIT",
       "status": "ir",
-      "details": "Chernyshov (upper-body) is considered week-to-week."
+      "details": "van Riemsdyk (lower-body) has been activated from IR."
     },
     {
-      "name": "Alexander Wennberg",
-      "team": "SJS",
-      "status": "dtd",
-      "details": "Wennberg (undisclosed) is out vs. Nashville on Sunday and is considered day-to-day."
+      "name": "Ryan Graves",
+      "team": "PIT",
+      "status": "ir",
+      "details": "Graves is expected to be back in the Penguins' lineup on Tuesday."
     },
     {
-      "name": "Kiefer Sherwood",
-      "team": "SJS",
-      "status": "dtd",
-      "details": "Sherwood (upper-body) left Sunday's game vs. Nashville and did not return."
+      "name": "Bryan Rust",
+      "team": "PIT",
+      "status": "ir",
+      "details": "Rust (lower-body) is out and will be evaluated in six weeks."
+    },
+    {
+      "name": "Jared McCann",
+      "team": "SEA",
+      "status": "ir",
+      "details": "McCann (lower body) has been placed on IR and will be out for 10 weeks."
+    },
+    {
+      "name": "Jacob Melanson",
+      "team": "SEA",
+      "status": "ir",
+      "details": "Melanson will be out indefinitely after suffering an upper-body injury."
     },
     {
       "name": "Dillon Dube",
@@ -394,28 +346,22 @@
       "details": "Tucker underwent a successful arthroscopic procedure on his right knee and will be re-evaluated in six weeks."
     },
     {
-      "name": "Philip Broberg",
+      "name": "Ross Johnston",
       "team": "STL",
       "status": "dtd",
-      "details": "Broberg (lower-body) returned to practice on Monday."
+      "details": "Johnston (personal) is out vs. Anaheim on Tuesday."
     },
     {
-      "name": "Brayden Point",
-      "team": "TBL",
-      "status": "out",
-      "details": "Point (undisclosed) has been placed on IR."
-    },
-    {
-      "name": "Anthony Cirelli",
+      "name": "Brandon Hagel",
       "team": "TBL",
       "status": "dtd",
-      "details": "Cirelli (lower-body) will not play on Saturday but the Lightning are hopeful he'll play Tuesday."
+      "details": "Hagel (upper-body) will not play on Tuesday; he's considered day-to-day."
     },
     {
-      "name": "Erik Cernak",
+      "name": "Conor Geekie",
       "team": "TBL",
-      "status": "dtd",
-      "details": "Cernak (undisclosed) will not play Thursday in Columbus."
+      "status": "ir",
+      "details": "Geekie (undisclosed) has been placed on IR."
     },
     {
       "name": "Elvis Merzlikins",
@@ -445,7 +391,7 @@
       "name": "Morgan Rielly",
       "team": "TOR",
       "status": "dtd",
-      "details": "Rielly (lower-body) will participate in practice on Monday but is still considered day-to-day."
+      "details": "Rielly (lower-body) will play Tuesday in Chicago."
     },
     {
       "name": "John Marino",
@@ -463,7 +409,7 @@
       "name": "Dylan Guenther",
       "team": "UTA",
       "status": "ir",
-      "details": "Guenther (upper-body) has been placed on IR and is expected to miss 2-to-4 weeks."
+      "details": "Guenther (upper-body) practiced in a non-contact jersey on Tuesday."
     },
     {
       "name": "Nick Schmaltz",
@@ -476,6 +422,12 @@
       "team": "UTA",
       "status": "dtd",
       "details": "Duda (lower-body) will not play Monday vs. the Canucks."
+    },
+    {
+      "name": "Thatcher Demko",
+      "team": "VAN",
+      "status": "ir",
+      "details": "Demko (hip) is hopeful to return before Christmas."
     },
     {
       "name": "Noah Hanifin",
@@ -520,10 +472,52 @@
       "details": "Salomonsson (personal) returned to practice on Monday."
     },
     {
-      "name": "Kyle Connor",
-      "team": "WPG",
+      "name": "Aleksander Barkov",
+      "team": "FLA",
+      "status": "ir",
+      "details": "Barkov (lower-body) is within two weeks of returning to the lineup."
+    },
+    {
+      "name": "Jonah Gadjovich",
+      "team": "FLA",
+      "status": "ir",
+      "details": "Gadjovich will have surgery on his upper-body injury and will miss three months."
+    },
+    {
+      "name": "Brad Marchand",
+      "team": "FLA",
+      "status": "ir",
+      "details": "Marchand (leg) is expected back within the next two weeks."
+    },
+    {
+      "name": "William Trudeau",
+      "team": "NSH",
+      "status": "ir",
+      "details": "Trudeau has been placed on IR with an upper-body injury and is considered week-to-week."
+    },
+    {
+      "name": "Jonathan Marchessault",
+      "team": "NSH",
       "status": "dtd",
-      "details": "8-year, $96,000,000 contract with the Winnipeg Jets. Expires 2034 (UFA)."
+      "details": "Marchessault (lower-body) returned to practice on Monday."
+    },
+    {
+      "name": "Igor Chernyshov",
+      "team": "SJS",
+      "status": "ir",
+      "details": "Chernyshov (upper-body) is considered week-to-week."
+    },
+    {
+      "name": "Alexander Wennberg",
+      "team": "SJS",
+      "status": "dtd",
+      "details": "Wennberg (undisclosed) is out vs. Nashville on Sunday and is considered day-to-day."
+    },
+    {
+      "name": "Kiefer Sherwood",
+      "team": "SJS",
+      "status": "dtd",
+      "details": "Sherwood (upper-body) left Sunday's game vs. Nashville and did not return."
     },
     {
       "name": "Igor Shesterkin",
@@ -556,52 +550,10 @@
       "details": "Smits is week-to-week with an upper-body injury."
     },
     {
-      "name": "Thatcher Demko",
-      "team": "VAN",
-      "status": "ir",
-      "details": "Demko (hip) is hopeful to return before Christmas."
-    },
-    {
       "name": "Jordan Staal",
       "team": "CAR",
       "status": "ir",
       "details": "Staal (calf tear) returned to Carolina's practice as an extra on Saturday."
-    },
-    {
-      "name": "Trevor van Riemsdyk",
-      "team": "PIT",
-      "status": "ir",
-      "details": "van Riemsdyk (lower-body) was a full participant in practice on Tuesday."
-    },
-    {
-      "name": "Ryan Graves",
-      "team": "PIT",
-      "status": "ir",
-      "details": "Graves is expected to be back in the Penguins' lineup on Tuesday."
-    },
-    {
-      "name": "Bryan Rust",
-      "team": "PIT",
-      "status": "ir",
-      "details": "Rust (lower-body) is out and will be evaluated in six weeks."
-    },
-    {
-      "name": "Jared McCann",
-      "team": "SEA",
-      "status": "ir",
-      "details": "McCann (lower body) has been placed on IR and will be out for 10 weeks."
-    },
-    {
-      "name": "Jacob Melanson",
-      "team": "SEA",
-      "status": "ir",
-      "details": "Melanson will be out indefinitely after suffering an upper-body injury."
-    },
-    {
-      "name": "Ryan Lindgren",
-      "team": "SEA",
-      "status": "out",
-      "details": "Lindgren (upper body) practiced in a non-contact jersey on Wednesday."
     }
   ]
 }

@@ -1,6 +1,6 @@
 {
   "league": "DG des Pals",
-  "date": "2026-11-18",
+  "date": "2026-11-19",
   "method": "Équipes réelles du pool DG DES PALS sur Marqueur, importées le 27 octobre 2026 (actifs, réservistes, recrues). Statistiques de saison LNH; pointage PoolDG : 12 meilleurs attaquants, 6 meilleurs défenseurs, 2 meilleurs gardiens. Statistiques LNH rafraîchies le 2 novembre 2026 (correction Bleyl conservée). Règle de pointage changée le 2 novembre 2026 : actifs seulement (les réservistes ne comptent plus).",
   "scoring_demo": "Pointage : 12 meilleurs attaquants + 6 meilleurs défenseurs (1 pt par point) et 2 meilleurs gardiens (2 pts par victoire, 1 pt par défaite en prolongation ou tirs de barrage, 1 pt par passe, 5 pts par but, +3 pts pour un jeu blanc — donc 5 pts au total pour un jeu blanc). Actifs seulement : les réservistes et les recrues ne comptent jamais.",
   "poolers": [
@@ -620,8 +620,8 @@
           "team": "UTA",
           "pos": "R",
           "g": 5,
-          "a": 23,
-          "pts": 28
+          "a": 24,
+          "pts": 29
         },
         {
           "id": 8477951,
@@ -858,7 +858,7 @@
           "name": "Daniil But",
           "team": "UTA",
           "pos": "L",
-          "gp": 17,
+          "gp": 18,
           "g": 2,
           "a": 2,
           "pts": 4
@@ -878,7 +878,7 @@
           "name": "Marco Kasper",
           "team": "DET",
           "pos": "C",
-          "gp": 4,
+          "gp": 5,
           "g": 1,
           "a": 0,
           "pts": 1
@@ -1040,8 +1040,8 @@
           "so": 2
         }
       ],
-      "sk_pts": 334,
-      "score": 367,
+      "sk_pts": 335,
+      "score": 368,
       "picks": {
         "2027": {
           "regular": [
@@ -1279,8 +1279,8 @@
           "team": "UTA",
           "pos": "C",
           "g": 11,
-          "a": 11,
-          "pts": 22
+          "a": 12,
+          "pts": 23
         },
         {
           "id": 8478449,
@@ -1315,8 +1315,8 @@
           "team": "MTL",
           "pos": "L",
           "g": 2,
-          "a": 11,
-          "pts": 13
+          "a": 12,
+          "pts": 14
         },
         {
           "id": 8480023,
@@ -1491,7 +1491,7 @@
           "name": "Michael Brandsegg-Nygård",
           "team": "DET",
           "pos": "R",
-          "gp": 21,
+          "gp": 22,
           "g": 4,
           "a": 7,
           "pts": 11
@@ -1551,7 +1551,7 @@
           "name": "Fraser Minten",
           "team": "BOS",
           "pos": "C",
-          "gp": 21,
+          "gp": 22,
           "g": 7,
           "a": 6,
           "pts": 13
@@ -1561,7 +1561,7 @@
           "name": "Matthew Poitras",
           "team": "BOS",
           "pos": "C",
-          "gp": 15,
+          "gp": 16,
           "g": 4,
           "a": 3,
           "pts": 7
@@ -1669,8 +1669,8 @@
           "g": null
         }
       ],
-      "sk_pts": 315,
-      "score": 356,
+      "sk_pts": 317,
+      "score": 358,
       "picks": {
         "2027": {
           "regular": [
@@ -1862,9 +1862,9 @@
           "name": "David Pastrnak",
           "team": "BOS",
           "pos": "R",
-          "g": 9,
-          "a": 17,
-          "pts": 26
+          "g": 10,
+          "a": 18,
+          "pts": 28
         },
         {
           "id": 8484801,
@@ -1908,8 +1908,8 @@
           "team": "NJD",
           "pos": "L",
           "g": 4,
-          "a": 17,
-          "pts": 21
+          "a": 18,
+          "pts": 22
         },
         {
           "id": 8477496,
@@ -2109,10 +2109,10 @@
           "name": "Oliver Kapanen",
           "team": "MTL",
           "pos": "C",
-          "gp": 14,
+          "gp": 15,
           "g": 1,
-          "a": 1,
-          "pts": 2
+          "a": 2,
+          "pts": 3
         },
         {
           "id": null,
@@ -2149,7 +2149,7 @@
           "name": "Jack McBain",
           "team": "UTA",
           "pos": "C",
-          "gp": 22,
+          "gp": 23,
           "g": 3,
           "a": 4,
           "pts": 7
@@ -2253,13 +2253,13 @@
           "name": "Sebastian Cossa",
           "team": "UTA",
           "pos": "G",
-          "gp": 8,
-          "w": 4,
+          "gp": 9,
+          "w": 5,
           "l": 2,
           "otl": 1,
           "a": 0,
           "g": 0,
-          "pj": 8,
+          "pj": 9,
           "so": 0
         },
         {
@@ -2277,8 +2277,8 @@
           "so": 0
         }
       ],
-      "sk_pts": 271,
-      "score": 300,
+      "sk_pts": 274,
+      "score": 303,
       "picks": {
         "2027": {
           "regular": [
@@ -2506,9 +2506,9 @@
           "name": "Lucas Raymond",
           "team": "DET",
           "pos": "L",
-          "g": 8,
+          "g": 9,
           "a": 13,
-          "pts": 21
+          "pts": 22
         },
         {
           "id": 8476468,
@@ -2551,9 +2551,9 @@
           "name": "Timo Meier",
           "team": "NJD",
           "pos": "R",
-          "g": 4,
-          "a": 5,
-          "pts": 9
+          "g": 5,
+          "a": 6,
+          "pts": 11
         },
         {
           "id": 8478439,
@@ -2886,8 +2886,8 @@
           "g": null
         }
       ],
-      "sk_pts": 320,
-      "score": 348,
+      "sk_pts": 323,
+      "score": 351,
       "picks": {
         "2027": {
           "regular": [
@@ -3088,9 +3088,9 @@
           "name": "Nick Suzuki",
           "team": "MTL",
           "pos": "C",
-          "g": 8,
+          "g": 9,
           "a": 9,
-          "pts": 17
+          "pts": 18
         },
         {
           "id": 8477500,
@@ -3291,7 +3291,7 @@
           "name": "Noah Dobson",
           "team": "MTL",
           "pos": "D",
-          "gp": 21,
+          "gp": 22,
           "g": 0,
           "a": 9,
           "pts": 9
@@ -3347,7 +3347,7 @@
           "name": "Emmitt Finnie",
           "team": "DET",
           "pos": "C",
-          "gp": 21,
+          "gp": 22,
           "g": 7,
           "a": 4,
           "pts": 11
@@ -3501,8 +3501,8 @@
           "g": null
         }
       ],
-      "sk_pts": 254,
-      "score": 305,
+      "sk_pts": 255,
+      "score": 306,
       "picks": {
         "2027": {
           "regular": [
@@ -3722,8 +3722,8 @@
           "team": "BOS",
           "pos": "C",
           "g": 5,
-          "a": 10,
-          "pts": 15
+          "a": 12,
+          "pts": 17
         },
         {
           "id": 8475166,
@@ -3748,9 +3748,9 @@
           "name": "Vincent Trocheck",
           "team": "UTA",
           "pos": "C",
-          "g": 4,
-          "a": 7,
-          "pts": 11
+          "g": 5,
+          "a": 8,
+          "pts": 13
         },
         {
           "id": 8477935,
@@ -3858,8 +3858,8 @@
           "name": "Jeremy Swayman",
           "team": "BOS",
           "pos": "G",
-          "pj": 15,
-          "w": 9,
+          "pj": 16,
+          "w": 10,
           "l": 5,
           "otl": 1,
           "a": 0,
@@ -3962,7 +3962,7 @@
           "name": "Arseny Gritsyuk",
           "team": "NJD",
           "pos": "R",
-          "gp": 21,
+          "gp": 22,
           "g": 8,
           "a": 9,
           "pts": 17
@@ -4106,13 +4106,13 @@
           "name": "Jacob Fowler",
           "team": "MTL",
           "pos": "G",
-          "gp": 13,
-          "w": 9,
+          "gp": 14,
+          "w": 10,
           "l": 2,
           "otl": 2,
           "a": 0,
           "g": 0,
-          "pj": 13,
+          "pj": 14,
           "so": 2
         },
         {
@@ -4130,8 +4130,8 @@
           "so": 0
         }
       ],
-      "sk_pts": 262,
-      "score": 304,
+      "sk_pts": 266,
+      "score": 310,
       "picks": {
         "2027": {
           "regular": [
@@ -4312,7 +4312,7 @@
           ]
         }
       },
-      "go_pts": 42
+      "go_pts": 44
     },
     {
       "name": "COLORADO",
@@ -4395,9 +4395,9 @@
           "name": "Pavel Zacha",
           "team": "BOS",
           "pos": "C",
-          "g": 5,
-          "a": 10,
-          "pts": 15
+          "g": 6,
+          "a": 11,
+          "pts": 17
         },
         {
           "id": 8480014,
@@ -4432,8 +4432,8 @@
           "team": "MTL",
           "pos": "D",
           "g": 3,
-          "a": 16,
-          "pts": 19
+          "a": 19,
+          "pts": 22
         },
         {
           "id": 8478038,
@@ -4487,9 +4487,9 @@
           "name": "Mackenzie Blackwood",
           "team": "COL",
           "pos": "G",
-          "pj": 16,
+          "pj": 17,
           "w": 11,
-          "l": 3,
+          "l": 4,
           "otl": 1,
           "a": 0,
           "g": 0,
@@ -4560,7 +4560,7 @@
           "name": "Kirby Dach",
           "team": "MTL",
           "pos": "C",
-          "gp": 19,
+          "gp": 20,
           "g": 2,
           "a": 5,
           "pts": 7
@@ -4610,10 +4610,10 @@
           "name": "Barrett Hayton",
           "team": "UTA",
           "pos": "C",
-          "gp": 22,
+          "gp": 23,
           "g": 4,
-          "a": 8,
-          "pts": 12
+          "a": 9,
+          "pts": 13
         },
         {
           "id": null,
@@ -4754,8 +4754,8 @@
           "so": 0
         }
       ],
-      "sk_pts": 270,
-      "score": 311,
+      "sk_pts": 275,
+      "score": 316,
       "picks": {
         "2027": {
           "regular": [
@@ -4992,9 +4992,9 @@
           "name": "JJ Peterka",
           "team": "BOS",
           "pos": "R",
-          "g": 5,
+          "g": 6,
           "a": 9,
-          "pts": 14
+          "pts": 15
         },
         {
           "id": 8482740,
@@ -5011,8 +5011,8 @@
           "team": "NJD",
           "pos": "C",
           "g": 9,
-          "a": 5,
-          "pts": 14
+          "a": 6,
+          "pts": 15
         },
         {
           "id": 8475314,
@@ -5083,8 +5083,8 @@
           "team": "UTA",
           "pos": "D",
           "g": 2,
-          "a": 3,
-          "pts": 5
+          "a": 4,
+          "pts": 6
         },
         {
           "id": 8477504,
@@ -5367,8 +5367,8 @@
           "so": 0
         }
       ],
-      "sk_pts": 251,
-      "score": 288,
+      "sk_pts": 254,
+      "score": 291,
       "picks": {
         "2027": {
           "regular": [
@@ -5763,7 +5763,7 @@
           "name": "Brent Burns",
           "team": "COL",
           "pos": "D",
-          "gp": 21,
+          "gp": 22,
           "g": 0,
           "a": 6,
           "pts": 6
@@ -5798,7 +5798,7 @@
           "name": "Zachary Bolduc",
           "team": "MTL",
           "pos": "R",
-          "gp": 21,
+          "gp": 22,
           "g": 6,
           "a": 3,
           "pts": 9
@@ -5848,10 +5848,10 @@
           "name": "Luke Evangelista",
           "team": "NJD",
           "pos": "R",
-          "gp": 18,
-          "g": 4,
+          "gp": 19,
+          "g": 5,
           "a": 7,
-          "pts": 11
+          "pts": 12
         },
         {
           "id": 8484166,
