@@ -1,0 +1,199 @@
+{
+  "date": "2026-11-18",
+  "games": [
+    {
+      "id": 2026020344,
+      "match": "Bruins 4-1-",
+      "away": "Bruins",
+      "home": "Red Wings",
+      "score": "4-1"
+    },
+    {
+      "id": 2026020345,
+      "match": "Canadiens 3-2-",
+      "away": "Canadiens",
+      "home": "Devils",
+      "score": "3-2"
+    },
+    {
+      "id": 2026020346,
+      "match": "Avalanche 1-4-",
+      "away": "Avalanche",
+      "home": "Mammoth",
+      "score": "1-4"
+    }
+  ],
+  "rule": "1 pt par point de patineur; 2 pts par victoire de gardien (DP = 0 pt, règle démo).",
+  "poolers": [
+    {
+      "name": "TORONTO",
+      "pts": 6,
+      "details": [
+        {
+          "player": "Morgan Geekie",
+          "team": "BOS",
+          "pts": 2,
+          "g": 0,
+          "a": 2
+        },
+        {
+          "player": "Vincent Trocheck",
+          "team": "UTA",
+          "pts": 2,
+          "g": 1,
+          "a": 1
+        },
+        {
+          "player": "Jeremy Swayman",
+          "team": "BOS",
+          "pts": 2,
+          "g": 0,
+          "a": 0
+        }
+      ]
+    },
+    {
+      "name": "COLORADO",
+      "pts": 5,
+      "details": [
+        {
+          "player": "Pavel Zacha",
+          "team": "BOS",
+          "pts": 2,
+          "g": 1,
+          "a": 1
+        },
+        {
+          "player": "Lane Hutson",
+          "team": "MTL",
+          "pts": 3,
+          "g": 0,
+          "a": 3
+        }
+      ]
+    },
+    {
+      "name": "MINNESOTA",
+      "pts": 3,
+      "details": [
+        {
+          "player": "JJ Peterka",
+          "team": "BOS",
+          "pts": 1,
+          "g": 1,
+          "a": 0
+        },
+        {
+          "player": "Nico Hischier",
+          "team": "NJD",
+          "pts": 1,
+          "g": 0,
+          "a": 1
+        },
+        {
+          "player": "MacKenzie Weegar",
+          "team": "UTA",
+          "pts": 1,
+          "g": 0,
+          "a": 1
+        }
+      ]
+    },
+    {
+      "name": "MONTREAL",
+      "pts": 3,
+      "details": [
+        {
+          "player": "David Pastrnak",
+          "team": "BOS",
+          "pts": 2,
+          "g": 1,
+          "a": 1
+        },
+        {
+          "player": "Jesper Bratt",
+          "team": "NJD",
+          "pts": 1,
+          "g": 0,
+          "a": 1
+        }
+      ]
+    },
+    {
+      "name": "OTTAWA",
+      "pts": 3,
+      "details": [
+        {
+          "player": "Lucas Raymond",
+          "team": "DET",
+          "pts": 1,
+          "g": 1,
+          "a": 0
+        },
+        {
+          "player": "Timo Meier",
+          "team": "NJD",
+          "pts": 2,
+          "g": 1,
+          "a": 1
+        }
+      ]
+    },
+    {
+      "name": "UTAH",
+      "pts": 2,
+      "details": [
+        {
+          "player": "Logan Cooley",
+          "team": "UTA",
+          "pts": 1,
+          "g": 0,
+          "a": 1
+        },
+        {
+          "player": "Juraj Slafkovský",
+          "team": "MTL",
+          "pts": 1,
+          "g": 0,
+          "a": 1
+        }
+      ]
+    },
+    {
+      "name": "FLORIDE",
+      "pts": 1,
+      "details": [
+        {
+          "player": "Clayton Keller",
+          "team": "UTA",
+          "pts": 1,
+          "g": 0,
+          "a": 1
+        }
+      ]
+    },
+    {
+      "name": "VEGAS",
+      "pts": 1,
+      "details": [
+        {
+          "player": "Nick Suzuki",
+          "team": "MTL",
+          "pts": 1,
+          "g": 1,
+          "a": 0
+        }
+      ]
+    },
+    {
+      "name": "CAROLINE",
+      "pts": 0,
+      "details": []
+    },
+    {
+      "name": "DALLAS",
+      "pts": 0,
+      "details": []
+    }
+  ]
+}
