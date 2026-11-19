@@ -211,14 +211,14 @@
           "pts": 2
         },
         {
-          "id": null,
+          "id": 8482122,
           "name": "Brock Faber",
           "team": "MIN",
           "pos": "D",
-          "gp": null,
-          "g": null,
-          "a": null,
-          "pts": null
+          "gp": 2,
+          "g": 1,
+          "a": 1,
+          "pts": 2
         },
         {
           "id": 8476434,
