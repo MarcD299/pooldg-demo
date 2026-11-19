@@ -52,6 +52,7 @@
   .name-link{color:var(--bright);cursor:pointer;text-decoration:underline}
   .badge-c{display:inline-block;background:var(--red);color:#fff;border-radius:999px;padding:1px 7px;font-size:12px;font-weight:bold;margin-left:6px}
   .badge-e{display:inline-block;background:var(--bright);color:#fff;border-radius:999px;padding:1px 7px;font-size:12px;font-weight:bold;margin-left:6px}
+  .trade-badge{display:inline-block;background:var(--red);color:#fff;border-radius:999px;padding:1px 7px;font-size:12px;font-weight:bold;margin-left:6px}
 </style>
 </head>
 <body>
@@ -71,7 +72,7 @@
   <button data-tab="loterie">Loterie</button>
   <button data-tab="pooler">Pooler</button>
   <button data-tab="pointage">Pointage du jour</button>
-  <button data-tab="transactions">Transactions</button>
+  <button data-tab="transactions">Transactions <span id="trade-badge" class="trade-badge" style="display:none"></span></button>
 </nav>
 <main>
   <section id="tab-accueil" class="card">
@@ -748,6 +749,7 @@
     LEAGUE.poolers = st.league.poolers;
     LEAGUE.proposals = st.league.proposals;
     LEAGUE.executed = st.league.executed || [];
+    updateTradeBadge();
     LEAGUE.poolers.forEach(recomputeScores);
     renderAll();
   }
@@ -1804,7 +1806,16 @@
       '<li data-reg><b>' + journalDate(tr.date) + ' — ' + tr.from + ' → ' + tr.to + '</b> : (' + tr.fromOffer.map(v => proposalLabel(v, tr.from)).join(', ') + ') contre (' + tr.toOffer.map(v => proposalLabel(v, tr.to)).join(', ') + ').</li>'
     ).join('') + kept;
   }
+  function updateTradeBadge() {
+    const badge = document.getElementById('trade-badge');
+    if (!badge) return;
+    const list = (LEAGUE && LEAGUE.proposals) || [];
+    const mine = (SB_MODE && MY_TEAM) ? list.filter(pr => pr.to === MY_TEAM) : list;
+    badge.textContent = mine.length;
+    badge.style.display = mine.length === 0 ? 'none' : 'inline-block';
+  }
   function renderProposals() {
+    updateTradeBadge();
     renderJournal();
     const box = document.getElementById('trade-proposals');
     if (!box) return;
