@@ -1,7 +1,7 @@
 {
-  "collected": "2026-11-21",
+  "collected": "2026-11-22",
   "source": "Daily Faceoff",
-  "source_detail": "Collecte quotidienne goalies-lineups, 2026-11-20 05:26 HE, groupe injured_reserve (27 equipes couvertes) + 19 entrees du 2026-11-20 pour les equipes non couvertes (CAR, COL, DAL, NYR, TBL)",
+  "source_detail": "Collecte quotidienne goalies-lineups, 2026-11-21 05:26 HE, groupe injured_reserve (30 equipes couvertes) + 6 entrees du 2026-11-21 pour les equipes non couvertes (CAR, COL)",
   "players": [
     {
       "name": "Ryan Poehling",
@@ -40,12 +40,6 @@
       "details": "Helenius (upper-body) has been placed on IR."
     },
     {
-      "name": "Mattias Samuelsson",
-      "team": "BUF",
-      "status": "dtd",
-      "details": "Samuelsson (maintenance) missed practice on Wednesday."
-    },
-    {
       "name": "Kevin Bahl",
       "team": "CGY",
       "status": "ir",
@@ -82,6 +76,36 @@
       "details": "Monahan (upper-body) will not travel on Columbus' upcoming road trip."
     },
     {
+      "name": "Matt Duchene",
+      "team": "DAL",
+      "status": "ir",
+      "details": "Duchene underwent successful surgery to repair a core injury and is expected to miss the next 3 months."
+    },
+    {
+      "name": "Oskar Back",
+      "team": "DAL",
+      "status": "ir",
+      "details": "Back (broken finger) is skating but doubtful to return vs. Vegas on Thursday."
+    },
+    {
+      "name": "Kyle Capobianco",
+      "team": "DAL",
+      "status": "ir",
+      "details": "The Stars have placed Kyle Capobianco (leg) on LTIR."
+    },
+    {
+      "name": "Lian Bichsel",
+      "team": "DAL",
+      "status": "ir",
+      "details": "The Stars have placed Lian Bichsel (lower-body) on IR."
+    },
+    {
+      "name": "Tyler Myers",
+      "team": "DAL",
+      "status": "dtd",
+      "details": "Myers (upper-body) is doubtful to return vs. Vegas on Thursday."
+    },
+    {
       "name": "Dylan Larkin",
       "team": "DET",
       "status": "out",
@@ -92,12 +116,6 @@
       "team": "DET",
       "status": "out",
       "details": "The Red Wings activated Edvinsson (lower-body) off injured reserve on Thursday."
-    },
-    {
-      "name": "Albert Johansson",
-      "team": "DET",
-      "status": "ir",
-      "details": "Johansson (undisclosed) is hopeful to return on Saturday vs. the Islanders."
     },
     {
       "name": "William Wallinder",
@@ -170,12 +188,6 @@
       "team": "MIN",
       "status": "ir",
       "details": "Maatta (upper-body) has been placed on IR and is expected to miss a week."
-    },
-    {
-      "name": "Filip Gustavsson",
-      "team": "MIN",
-      "status": "ir",
-      "details": "Gustavsson (hip) has been assigned to Iowa (AHL) for a conditioning assignment."
     },
     {
       "name": "Yakov Trenin",
@@ -256,6 +268,48 @@
       "details": "Stanley (lower-body) is considered day-to-day."
     },
     {
+      "name": "Igor Shesterkin",
+      "team": "NYR",
+      "status": "ir",
+      "details": "Shesterkin (lower-body) has been placed on Season Ending Injury Reserve."
+    },
+    {
+      "name": "Joe Veleno",
+      "team": "NYR",
+      "status": "ir",
+      "details": "Veleno (lower-body) will be placed on LTIR and is expected to miss 3-to-3.5 months."
+    },
+    {
+      "name": "Adam Sykora",
+      "team": "NYR",
+      "status": "ir",
+      "details": "Sykora (lower body) will miss 4-5 months."
+    },
+    {
+      "name": "Sean Durzi",
+      "team": "NYR",
+      "status": "ir",
+      "details": "Durzi (undisclosed) participated in a regular jersey for Monday's morning skate."
+    },
+    {
+      "name": "Alberts Smits",
+      "team": "NYR",
+      "status": "ir",
+      "details": "Smits is week-to-week with an upper-body injury."
+    },
+    {
+      "name": "Pavel Dorofeyev",
+      "team": "NYR",
+      "status": "dtd",
+      "details": "Dorofeyev (undisclosed) skated on Thursday but is still day-to-day."
+    },
+    {
+      "name": "Oliver Bjorkstrand",
+      "team": "NYR",
+      "status": "dtd",
+      "details": "Bjorkstrand missed practice on Friday and is out with an upper-body injury."
+    },
+    {
       "name": "William Eklund",
       "team": "OTT",
       "status": "ir",
@@ -301,13 +355,25 @@
       "name": "Bryan Rust",
       "team": "PIT",
       "status": "ir",
-      "details": "Rust (lower-body) is out and will be evaluated in six weeks."
+      "details": "Rust (lower-body) returned to practice in a non-contact jersey on Friday."
     },
     {
       "name": "Elmer Soderblom",
       "team": "PIT",
       "status": "ir",
       "details": "Soderblom (upper-body) is now considered week-to-week."
+    },
+    {
+      "name": "Nicholas Robertson",
+      "team": "PIT",
+      "status": "ir",
+      "details": "Robertson (lower-body) has been placed on IR and will be re-evaluated in two weeks."
+    },
+    {
+      "name": "Evgeni Malkin",
+      "team": "PIT",
+      "status": "dtd",
+      "details": "Malkin (upper-body) is considered day-to-day and will not travel with the team this weekend."
     },
     {
       "name": "Igor Chernyshov",
@@ -356,6 +422,30 @@
       "team": "STL",
       "status": "dtd",
       "details": "Johnston (personal) is out vs. Anaheim on Tuesday."
+    },
+    {
+      "name": "Connor McMichael",
+      "team": "STL",
+      "status": "dtd",
+      "details": "McMichael (undisclosed) is out vs. New Jersey on Saturday and considered day-to-day."
+    },
+    {
+      "name": "Conor Geekie",
+      "team": "TBL",
+      "status": "ir",
+      "details": "Geekie (undisclosed) has been placed on IR."
+    },
+    {
+      "name": "Brandon Hagel",
+      "team": "TBL",
+      "status": "ir",
+      "details": "Hagel (lower-body) has been placed on IR retroactive to November 15th."
+    },
+    {
+      "name": "Zemgus Girgensons",
+      "team": "TBL",
+      "status": "dtd",
+      "details": "Girgensons is day-to-day with an upper-body injury."
     },
     {
       "name": "Elvis Merzlikins",
@@ -415,7 +505,7 @@
       "name": "Dylan Guenther",
       "team": "UTA",
       "status": "ir",
-      "details": "Guenther (upper-body) practiced in a non-contact jersey on Tuesday."
+      "details": "Guenther (upper-body) returned to practice in a full-contact jersey on Friday."
     },
     {
       "name": "Nick Schmaltz",
@@ -451,7 +541,13 @@
       "name": "Vincent Desharnais",
       "team": "WSH",
       "status": "ir",
-      "details": "Desharnais underwent a successful appendectomy surgery and is expected to miss the next 4-6 weeks."
+      "details": "Desharnais (appendectomy surgery) returned to practice in a full contact jersey on Friday."
+    },
+    {
+      "name": "Cole Hutson",
+      "team": "WSH",
+      "status": "dtd",
+      "details": "Hutson (maintenance) missed practice on Friday."
     },
     {
       "name": "Nick Bjugstad",
@@ -506,84 +602,6 @@
       "team": "COL",
       "status": "dtd",
       "details": "Brindley (upper body) left Wednesday’s game vs. Utah and will not return."
-    },
-    {
-      "name": "Matt Duchene",
-      "team": "DAL",
-      "status": "ir",
-      "details": "Duchene underwent successful surgery to repair a core injury and is expected to miss the next 3 months."
-    },
-    {
-      "name": "Oskar Back",
-      "team": "DAL",
-      "status": "ir",
-      "details": "Back (broken finger) is skating but doubtful to return vs. Vegas on Thursday."
-    },
-    {
-      "name": "Kyle Capobianco",
-      "team": "DAL",
-      "status": "ir",
-      "details": "The Stars have placed Kyle Capobianco (leg) on LTIR."
-    },
-    {
-      "name": "Lian Bichsel",
-      "team": "DAL",
-      "status": "ir",
-      "details": "The Stars have placed Lian Bichsel (lower-body) on IR."
-    },
-    {
-      "name": "Tyler Myers",
-      "team": "DAL",
-      "status": "dtd",
-      "details": "Myers (upper-body) is doubtful to return vs. Vegas on Thursday."
-    },
-    {
-      "name": "Conor Geekie",
-      "team": "TBL",
-      "status": "ir",
-      "details": "Geekie (undisclosed) has been placed on IR."
-    },
-    {
-      "name": "Brandon Hagel",
-      "team": "TBL",
-      "status": "dtd",
-      "details": "Hagel is considered day-to-day with a lower-body injury."
-    },
-    {
-      "name": "Zemgus Girgensons",
-      "team": "TBL",
-      "status": "dtd",
-      "details": "Girgensons is day-to-day with an upper-body injury."
-    },
-    {
-      "name": "Igor Shesterkin",
-      "team": "NYR",
-      "status": "ir",
-      "details": "Shesterkin (lower-body) has been placed on Season Ending Injury Reserve."
-    },
-    {
-      "name": "Joe Veleno",
-      "team": "NYR",
-      "status": "ir",
-      "details": "Veleno (lower-body) will be placed on LTIR and is expected to miss 3-to-3.5 months."
-    },
-    {
-      "name": "Adam Sykora",
-      "team": "NYR",
-      "status": "ir",
-      "details": "Sykora (lower body) will miss 4-5 months."
-    },
-    {
-      "name": "Sean Durzi",
-      "team": "NYR",
-      "status": "ir",
-      "details": "Durzi (undisclosed) skated in a non-contact jersey at Monday's practice."
-    },
-    {
-      "name": "Alberts Smits",
-      "team": "NYR",
-      "status": "ir",
-      "details": "Smits is week-to-week with an upper-body injury."
     },
     {
       "name": "Jordan Staal",
