@@ -1,0 +1,319 @@
+{
+  "date": "2026-11-23",
+  "games": [
+    {
+      "id": 2026020378,
+      "match": "Blue Jackets 2-3-",
+      "away": "Blue Jackets",
+      "home": "Devils",
+      "score": "2-3"
+    },
+    {
+      "id": 2026020379,
+      "match": "Kings 2-1-",
+      "away": "Kings",
+      "home": "Canadiens",
+      "score": "2-1"
+    },
+    {
+      "id": 2026020380,
+      "match": "Flames 1-2-",
+      "away": "Flames",
+      "home": "Senators",
+      "score": "1-2"
+    },
+    {
+      "id": 2026020381,
+      "match": "Maple Leafs 4-2-",
+      "away": "Maple Leafs",
+      "home": "Islanders",
+      "score": "4-2"
+    },
+    {
+      "id": 2026020382,
+      "match": "Mammoth 2-4-",
+      "away": "Mammoth",
+      "home": "Jets",
+      "score": "2-4"
+    },
+    {
+      "id": 2026020383,
+      "match": "Ducks 2-3-",
+      "away": "Ducks",
+      "home": "Kraken",
+      "score": "2-3"
+    },
+    {
+      "id": 2026020384,
+      "match": "Wild 5-2-",
+      "away": "Wild",
+      "home": "Sharks",
+      "score": "5-2"
+    }
+  ],
+  "rule": "1 pt par point de patineur; 2 pts par victoire de gardien (DP = 0 pt, règle démo).",
+  "poolers": [
+    {
+      "name": "CAROLINE",
+      "pts": 8,
+      "details": [
+        {
+          "player": "Kirill Kaprizov",
+          "team": "MIN",
+          "pts": 4,
+          "g": 1,
+          "a": 3
+        },
+        {
+          "player": "Kyle Connor",
+          "team": "WPG",
+          "pts": 2,
+          "g": 0,
+          "a": 2
+        },
+        {
+          "player": "Jack Hughes",
+          "team": "NJD",
+          "pts": 1,
+          "g": 0,
+          "a": 1
+        },
+        {
+          "player": "Artemi Panarin",
+          "team": "LAK",
+          "pts": 1,
+          "g": 0,
+          "a": 1
+        }
+      ]
+    },
+    {
+      "name": "MINNESOTA",
+      "pts": 8,
+      "details": [
+        {
+          "player": "Matt Boldy",
+          "team": "MIN",
+          "pts": 3,
+          "g": 0,
+          "a": 3
+        },
+        {
+          "player": "Joel Eriksson Ek",
+          "team": "MIN",
+          "pts": 3,
+          "g": 2,
+          "a": 1
+        },
+        {
+          "player": "Zach Werenski",
+          "team": "CBJ",
+          "pts": 1,
+          "g": 0,
+          "a": 1
+        },
+        {
+          "player": "Josh Morrissey",
+          "team": "WPG",
+          "pts": 1,
+          "g": 0,
+          "a": 1
+        }
+      ]
+    },
+    {
+      "name": "COLORADO",
+      "pts": 6,
+      "details": [
+        {
+          "player": "Charlie Coyle",
+          "team": "CBJ",
+          "pts": 1,
+          "g": 1,
+          "a": 0
+        },
+        {
+          "player": "Gabriel Vilardi",
+          "team": "WPG",
+          "pts": 3,
+          "g": 3,
+          "a": 0
+        },
+        {
+          "player": "Darren Raddysh",
+          "team": "TOR",
+          "pts": 2,
+          "g": 0,
+          "a": 2
+        }
+      ]
+    },
+    {
+      "name": "OTTAWA",
+      "pts": 6,
+      "details": [
+        {
+          "player": "Auston Matthews",
+          "team": "TOR",
+          "pts": 1,
+          "g": 0,
+          "a": 1
+        },
+        {
+          "player": "Mark Scheifele",
+          "team": "WPG",
+          "pts": 1,
+          "g": 0,
+          "a": 1
+        },
+        {
+          "player": "Cutter Gauthier",
+          "team": "ANA",
+          "pts": 1,
+          "g": 1,
+          "a": 0
+        },
+        {
+          "player": "Timo Meier",
+          "team": "NJD",
+          "pts": 1,
+          "g": 1,
+          "a": 0
+        },
+        {
+          "player": "Darcy Kuemper",
+          "team": "LAK",
+          "pts": 2,
+          "g": 0,
+          "a": 0
+        }
+      ]
+    },
+    {
+      "name": "MONTREAL",
+      "pts": 4,
+      "details": [
+        {
+          "player": "Macklin Celebrini",
+          "team": "SJS",
+          "pts": 2,
+          "g": 0,
+          "a": 2
+        },
+        {
+          "player": "Dylan Larkin",
+          "team": "MTL",
+          "pts": 1,
+          "g": 0,
+          "a": 1
+        },
+        {
+          "player": "Mackie Samoskevich",
+          "team": "SEA",
+          "pts": 1,
+          "g": 0,
+          "a": 1
+        }
+      ]
+    },
+    {
+      "name": "TORONTO",
+      "pts": 4,
+      "details": [
+        {
+          "player": "Vincent Trocheck",
+          "team": "UTA",
+          "pts": 1,
+          "g": 0,
+          "a": 1
+        },
+        {
+          "player": "Jackson LaCombe",
+          "team": "ANA",
+          "pts": 1,
+          "g": 0,
+          "a": 1
+        },
+        {
+          "player": "Linus Ullmark",
+          "team": "OTT",
+          "pts": 2,
+          "g": 0,
+          "a": 0
+        }
+      ]
+    },
+    {
+      "name": "UTAH",
+      "pts": 4,
+      "details": [
+        {
+          "player": "Logan Cooley",
+          "team": "UTA",
+          "pts": 1,
+          "g": 0,
+          "a": 1
+        },
+        {
+          "player": "Bobby McMann",
+          "team": "SEA",
+          "pts": 1,
+          "g": 0,
+          "a": 1
+        },
+        {
+          "player": "Stuart Skinner",
+          "team": "WPG",
+          "pts": 2,
+          "g": 0,
+          "a": 0
+        }
+      ]
+    },
+    {
+      "name": "VEGAS",
+      "pts": 3,
+      "details": [
+        {
+          "player": "Mason Marchment",
+          "team": "SJS",
+          "pts": 1,
+          "g": 0,
+          "a": 1
+        },
+        {
+          "player": "Brandon Montour",
+          "team": "SEA",
+          "pts": 1,
+          "g": 0,
+          "a": 1
+        },
+        {
+          "player": "Vince Dunn",
+          "team": "SEA",
+          "pts": 1,
+          "g": 1,
+          "a": 0
+        }
+      ]
+    },
+    {
+      "name": "DALLAS",
+      "pts": 1,
+      "details": [
+        {
+          "player": "Dougie Hamilton",
+          "team": "NJD",
+          "pts": 1,
+          "g": 0,
+          "a": 1
+        }
+      ]
+    },
+    {
+      "name": "FLORIDE",
+      "pts": 0,
+      "details": []
+    }
+  ]
+}
