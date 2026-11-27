@@ -1,6 +1,6 @@
 {
   "season": "20262027",
-  "date": "2026-11-26",
+  "date": "2026-11-27",
   "skaters": [
     {
       "playerId": 8473986,
@@ -5709,7 +5709,7 @@
       "shootingPctg": 0.186047,
       "avgTimeOnIcePerGame": 991.125,
       "avgShiftsPerGame": 20.75,
-      "faceoffWinPctg": 0.563218,
+      "faceoffWinPctg": 0.559387,
       "teamAbbrev": "DAL"
     },
     {
@@ -11031,7 +11031,7 @@
       "shootingPctg": 0.115385,
       "avgTimeOnIcePerGame": 1018.5833,
       "avgShiftsPerGame": 21.4583,
-      "faceoffWinPctg": 0.504348,
+      "faceoffWinPctg": 0.507246,
       "teamAbbrev": "NSH"
     },
     {
@@ -18909,8 +18909,8 @@
       "shorthandedGoals": 0,
       "gameWinningGoals": 2,
       "overtimeGoals": 0,
-      "shots": 37,
-      "shootingPctg": 0.351351,
+      "shots": 38,
+      "shootingPctg": 0.342105,
       "avgTimeOnIcePerGame": 1138.5652,
       "avgShiftsPerGame": 22.3913,
       "faceoffWinPctg": 0.493671,
@@ -22528,9 +22528,9 @@
       "losses": 3,
       "overtimeLosses": 4,
       "goalsAgainstAverage": 2.075152,
-      "savePercentage": 0.919732,
-      "shotsAgainst": 598,
-      "saves": 550,
+      "savePercentage": 0.919866,
+      "shotsAgainst": 599,
+      "saves": 551,
       "goalsAgainst": 48,
       "shutouts": 0,
       "goals": 0,
