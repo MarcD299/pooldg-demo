@@ -1,7 +1,7 @@
 {
-  "collected": "2026-11-27",
+  "collected": "2026-11-28",
   "source": "Daily Faceoff",
-  "source_detail": "Collecte quotidienne goalies-lineups, 2026-11-26 05:26 HE, groupe injured_reserve (30 equipes couvertes) + 5 entrees du 2026-11-26 pour les equipes non couvertes (CAR, MTL)",
+  "source_detail": "Collecte quotidienne goalies-lineups, 2026-11-27 05:26 HE, groupe injured_reserve (32 equipes couvertes) + 0 entrees du 2026-11-27 pour les equipes non couvertes ()",
   "players": [
     {
       "name": "Ryan Poehling",
@@ -14,12 +14,6 @@
       "team": "ANA",
       "status": "ir",
       "details": "Greer has been placed on IR with an upper-body injury."
-    },
-    {
-      "name": "Beckett Sennecke",
-      "team": "ANA",
-      "status": "ir",
-      "details": "Sennecke (upper-body) is considered day-to-day."
     },
     {
       "name": "Leo Carlsson",
@@ -52,12 +46,6 @@
       "details": "Helenius (upper-body) returned to practice in a non-contact jersey on Tuesday."
     },
     {
-      "name": "Mattias Samuelsson",
-      "team": "BUF",
-      "status": "dtd",
-      "details": "Samuelsson (maintenance) is expected to play vs. New York on Wednesday."
-    },
-    {
       "name": "Kevin Bahl",
       "team": "CGY",
       "status": "ir",
@@ -80,6 +68,18 @@
       "team": "CGY",
       "status": "dtd",
       "details": "Frost (undisclosed) skated on Wednesday but will remain out vs. Pittsburgh."
+    },
+    {
+      "name": "Nikolaj Ehlers",
+      "team": "CAR",
+      "status": "out",
+      "details": "Ehlers (lower-body) will remain out on Wednesday vs. Tampa Bay."
+    },
+    {
+      "name": "K'Andre Miller",
+      "team": "CAR",
+      "status": "dtd",
+      "details": "Miller (illness) is out vs. Tampa Bay on Wednesday."
     },
     {
       "name": "Bowen Byram",
@@ -139,7 +139,7 @@
       "name": "Mathieu Olivier",
       "team": "CBJ",
       "status": "dtd",
-      "details": "Olivier (upper-body) has been placed on IR."
+      "details": "Olivier is considered week-to-week with an upper-body injury."
     },
     {
       "name": "Matt Duchene",
@@ -164,12 +164,6 @@
       "team": "DAL",
       "status": "ir",
       "details": "The Stars have placed Lian Bichsel (lower-body) on IR."
-    },
-    {
-      "name": "Tyler Myers",
-      "team": "DAL",
-      "status": "dtd",
-      "details": "Myers (upper-body) will return vs. Nashville on Wednesday."
     },
     {
       "name": "Simon Edvinsson",
@@ -241,7 +235,31 @@
       "name": "Quinn Hughes",
       "team": "MIN",
       "status": "ir",
-      "details": "Hughes (upper-body) has been placed on IR."
+      "details": "Hughes (upper-body) is doubtful to return vs. Colorado on Friday."
+    },
+    {
+      "name": "Ivan Demidov",
+      "team": "MTL",
+      "status": "ir",
+      "details": "Demidov (lower-body) has a chance to join the team on their upcoming road trip."
+    },
+    {
+      "name": "Josh Anderson",
+      "team": "MTL",
+      "status": "ir",
+      "details": "Anderson (lower-body) will be out for approximately 3-4 weeks."
+    },
+    {
+      "name": "Chris Kreider",
+      "team": "MTL",
+      "status": "ir",
+      "details": "Kreider (lower-body) will miss 6-to-8 weeks."
+    },
+    {
+      "name": "Mike Matheson",
+      "team": "MTL",
+      "status": "out",
+      "details": "Matheson (lower-body) is expected to be out for 2-3 weeks."
     },
     {
       "name": "William Trudeau",
@@ -320,6 +338,12 @@
       "team": "NYR",
       "status": "out",
       "details": "Bjorkstrand (upper-body) will miss 2-to-3 months."
+    },
+    {
+      "name": "Gabriel Perreault",
+      "team": "NYR",
+      "status": "out",
+      "details": "Perreault (lower-body) is expected to be out for the next 4-6 weeks."
     },
     {
       "name": "William Eklund",
@@ -596,36 +620,6 @@
       "team": "WPG",
       "status": "ir",
       "details": "DeMelo (lower-body) is expected to be out for 4-6 weeks."
-    },
-    {
-      "name": "Nikolaj Ehlers",
-      "team": "CAR",
-      "status": "out",
-      "details": "Ehlers suffered a lower-body injury on Saturday and will not play on Sunday."
-    },
-    {
-      "name": "Ivan Demidov",
-      "team": "MTL",
-      "status": "ir",
-      "details": "Demidov (fractured ankle) is still considered week-to-week."
-    },
-    {
-      "name": "Josh Anderson",
-      "team": "MTL",
-      "status": "ir",
-      "details": "Anderson (lower-body) will be out for approximately 3-4 weeks."
-    },
-    {
-      "name": "Chris Kreider",
-      "team": "MTL",
-      "status": "ir",
-      "details": "Kreider (lower-body) will miss 6-to-8 weeks."
-    },
-    {
-      "name": "Mike Matheson",
-      "team": "MTL",
-      "status": "out",
-      "details": "Matheson (lower-body) is expected to be out for 2-3 weeks."
     }
   ]
 }
